@@ -1,0 +1,62 @@
+<section class="beneficios-section">
+  <h2>¿Por qué elegir a Quilla Electric?</h2>
+  <div class="grid-beneficios">
+    
+    <div class="item-beneficio">
+      <span class="icono">⚡</span>
+      <h3>Atención Rápida</h3>
+      <p>En Cerro Colorado y todo Arequipa. Llegamos antes de que se descongele tu refri.</p>
+    </div>
+
+    <div class="item-beneficio">
+      <span class="icono">📜</span>
+      <h3>Certificados INDECI</h3>
+      <p>Firmados por ingenieros colegiados. Garantizamos que pasas la inspección.</p>
+    </div>
+
+    <div class="item-beneficio">
+      <span class="icono">💳</span>
+      <h3>Pago Fácil</h3>
+      <p>Aceptamos efectivo, Yape, Plin y transferencias. Emitimos Factura o Boleta.</p>
+    </div>
+
+    <div class="item-beneficio">
+      <span class="icono">🛡️</span>
+      <h3>Garantía Real</h3>
+      <p>No desaparecemos. Si algo falla, volvemos y lo arreglamos sin costo.</p>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .beneficios-section {
+    padding: 4rem 0;
+    text-align: center;
+    background-color: white;
+  }
+  h2 { font-size: 2rem; margin-bottom: 2rem; color: #0f172a; }
+  
+  .grid-beneficios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+  }
+
+  .item-beneficio {
+    padding: 20px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    transition: transform 0.3s;
+  }
+  
+  .item-beneficio:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    border-color: #fbbf24;
+  }
+
+  .icono { font-size: 3rem; display: block; margin-bottom: 10px; }
+  h3 { color: #0f172a; margin-bottom: 10px; }
+  p { color: #64748b; line-height: 1.5; }
+</style>

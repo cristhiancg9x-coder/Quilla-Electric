@@ -1,6 +1,7 @@
 ---
 // src/layouts/MainLayout.astro
 import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
 
 // Recibimos título y descripción. Si no nos dan descripción, usamos una por defecto.
 const { 
@@ -36,8 +37,7 @@ const {
       <slot /> </main>
 
     <footer>
-      <p>&copy; {new Date().getFullYear()} Quilla Electric - Soluciones Seguras.</p>
-      <p style="font-size: 0.8rem; margin-top: 5px;">Atención en todo Arequipa y Lima</p>
+      <Footer />
     </footer>
   </body>
 </html>
@@ -60,12 +60,5 @@ const {
     max-width: 900px;
     margin: 0 auto;
     box-sizing: border-box;
-  }
-  footer {
-    text-align: center;
-    padding: 2rem;
-    background: #0f172a;
-    color: white;
-    margin-top: auto;
-  }
+    }
 </style>
