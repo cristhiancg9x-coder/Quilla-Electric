@@ -1,0 +1,149 @@
+---
+// src/pages/contacto.astro
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout 
+  titulo="Contacto" 
+  descripcion="Contacta con Quilla Electric para emergencias o cotizaciones de pozos a tierra en Arequipa."
+>
+
+  <h1>📞 Contáctanos</h1>
+  <p class="intro">Estamos listos para atender tu emergencia eléctrica o proyecto.</p>
+
+  <div class="contenedor-contacto">
+    
+    <div class="info-box">
+      <h2>Información Directa</h2>
+      <p><strong>📍 Ubicación:</strong> Cerro Colorado, Arequipa</p>
+      <p><strong>📧 Correo:</strong> contacto@quillaelectric.site</p>
+      <p><strong>⏰ Horario:</strong> Lunes a Sábado, 8am - 6pm</p>
+      
+      <div class="nota-urgente">
+        <p>⚠️ ¿Emergencia? Llámanos directamente.</p>
+      </div>
+    </div>
+
+    <form class="formulario" id="form-whatsapp">
+      <h2>Cotiza por WhatsApp</h2>
+      <p style="font-size: 0.9rem; color: #666; margin-bottom: 1rem;">
+        Llena tus datos y te responderemos al instante.
+      </p>
+
+      <label>
+        Nombre:
+        <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required />
+      </label>
+      
+      <label>
+        Servicio de interés:
+        <select id="servicio" name="servicio">
+          <option value="Mantenimiento Pozo a Tierra">Mantenimiento Pozo a Tierra</option>
+          <option value="Instalación Domiciliaria">Instalación Domiciliaria</option>
+          <option value="Emergencia Eléctrica">Emergencia Eléctrica</option>
+          <option value="Otro">Otro</option>
+        </select>
+      </label>
+
+      <label>
+        Mensaje o Consulta:
+        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Hola, necesito cotizar..." required></textarea>
+      </label>
+      
+      <button type="submit">
+        📲 Enviar a WhatsApp
+      </button>
+    </form>
+
+  </div>
+
+</MainLayout>
+
+<script>
+  // 1. Buscamos el formulario
+  const form = document.getElementById('form-whatsapp');
+
+  // 2. Escuchamos cuando alguien le da click a "Enviar"
+  form.addEventListener('submit', (e) => {
+    e.preventDefault(); // Evita que la página se recargue
+
+    // 3. Capturamos los datos que escribió el cliente
+    const nombre = document.getElementById('nombre').value;
+    const servicio = document.getElementById('servicio').value;
+    const mensaje = document.getElementById('mensaje').value;
+
+    // 4. TU NÚMERO DE TELÉFONO (PON EL TUYO AQUÍ)
+    const telefonoQuilla = "51951413458"; 
+
+    // 5. Creamos el texto del mensaje
+    // \n significa "salto de línea"
+    const textoFinal = `Hola Quilla Electric, soy *${nombre}*.\nEstoy interesado en: *${servicio}*.\n\nMensaje: ${mensaje}`;
+
+    // 6. Convertimos el texto a formato URL (cambia espacios por %20, etc)
+    const textoCodificado = encodeURIComponent(textoFinal);
+
+    // 7. Abrimos WhatsApp
+    window.open(`https://wa.me/${telefonoQuilla}?text=${textoCodificado}`, '_blank');
+  });
+</script>
+
+<style>
+  /* Estilos (Igual que antes, con mejoras visuales) */
+  .intro { font-size: 1.2rem; margin-bottom: 2rem; }
+  
+  .contenedor-contacto {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  @media (min-width: 768px) {
+    .contenedor-contacto { grid-template-columns: 1fr 1fr; }
+  }
+
+  .info-box, .formulario {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+  }
+
+  .nota-urgente {
+    background-color: #fef2f2;
+    color: #b91c1c;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  label { display: block; margin-bottom: 15px; font-weight: 500; color: #334155; }
+  
+  input, textarea, select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-family: inherit;
+    box-sizing: border-box;
+  }
+
+  button {
+    background-color: #25D366; /* Verde WhatsApp */
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    width: 100%;
+    transition: background 0.3s;
+    margin-top: 10px;
+  }
+  
+  button:hover { background-color: #128c7e; }
+</style>

@@ -1,0 +1,53 @@
+---
+// src/pages/servicios.astro
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout titulo="Nuestros Servicios">
+
+  <h1>Nuestros Servicios Profesionales</h1>
+  <p>Atendemos emergencias las 24 horas en Arequipa.</p>
+
+  <div class="grid-servicios">
+    
+    <div class="tarjeta">
+      <h3>🔌 Instalaciones Residenciales</h3>
+      <p>Cableado completo, tableros y luminarias para tu hogar.</p>
+    </div>
+
+    <div class="tarjeta">
+      <h3>🌍 Pozos a Tierra</h3>
+      <p>Mantenimiento, instalación y certificación INDECI.</p>
+    </div>
+
+    <div class="tarjeta">
+      <h3>🏭 Electricidad Industrial</h3>
+      <p>Motores, tableros de fuerza y automatización.</p>
+    </div>
+
+  </div>
+
+</MainLayout>
+
+<style>
+  /* CSS Específico para esta página */
+  .grid-servicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 2rem;
+  }
+  
+  .tarjeta {
+    border: 1px solid #ddd;
+    padding: 1.5rem;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  }
+
+  h3 {
+    color: #0f172a;
+    margin-top: 0;
+  }
+</style>

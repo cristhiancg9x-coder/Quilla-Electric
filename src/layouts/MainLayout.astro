@@ -1,0 +1,71 @@
+---
+// src/layouts/MainLayout.astro
+import Navbar from '../components/Navbar.astro';
+
+// Recibimos título y descripción. Si no nos dan descripción, usamos una por defecto.
+const { 
+  titulo, 
+  descripcion = "Servicios eléctricos profesionales en Arequipa y Lima. Pozos a tierra y cableado." 
+} = Astro.props;
+---
+
+<html lang="es-PE">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>{titulo} | Quilla Electric</title>
+    <meta name="description" content={descripcion} />
+    
+    <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={Astro.url} /> <meta name="robots" content="index, follow" />
+    <meta name="author" content="Quilla Electric" />
+
+    <meta property="og:title" content={titulo} />
+    <meta property="og:description" content={descripcion} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  
+  <body>
+    <Navbar />
+
+    <main>
+      <slot /> </main>
+
+    <footer>
+      <p>&copy; {new Date().getFullYear()} Quilla Electric - Soluciones Seguras.</p>
+      <p style="font-size: 0.8rem; margin-top: 5px;">Atención en todo Arequipa y Lima</p>
+    </footer>
+  </body>
+</html>
+
+<style>
+  /* Estilos Globales */
+  body {
+    font-family: system-ui, sans-serif;
+    margin: 0;
+    background-color: #f8fafc;
+    color: #1e293b;
+    display: flex;       /* Truco para que el footer siempre baje */
+    flex-direction: column;
+    min-height: 100vh;   /* Ocupa al menos el 100% de la altura de la pantalla */
+  }
+  main {
+    flex: 1;            /* Empuja el footer hacia abajo si hay poco contenido */
+    padding: 2rem;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  footer {
+    text-align: center;
+    padding: 2rem;
+    background: #0f172a;
+    color: white;
+    margin-top: auto;
+  }
+</style>

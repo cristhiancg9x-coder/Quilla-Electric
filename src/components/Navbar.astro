@@ -1,0 +1,45 @@
+<nav class="barra-electrica">
+  <div class="logo">⚡ Quilla Electric</div>
+  <ul class="menu-links">
+    <li><a href="/">Inicio</a></li>
+    <li><a href="/servicios">Servicios</a></li>
+    <li><a href="/contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<style>
+  /* ESTILOS: Solo afectan a esta barra, no rompen lo demás */
+  .barra-electrica {
+    background-color: #0f172a; /* Azul oscuro industrial */
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between; /* Separa logo y menú a los extremos */
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+
+  .logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #fbbf24; /* Amarillo electricidad */
+  }
+
+  .menu-links {
+    display: flex;
+    list-style: none;
+    gap: 20px; /* Espacio entre enlaces */
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .menu-links a:hover {
+    color: #fbbf24; /* Cambia a amarillo al pasar el mouse */
+  }
+</style>
