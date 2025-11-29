@@ -1,28 +1,35 @@
 ---
 // src/pages/blog/[...slug].astro
-import { getCollection } from 'astro:content';
+// 1. IMPORTANTE: Agregamos 'render' a la importación
+import { getCollection, render } from 'astro:content';
 import MainLayout from '../../layouts/MainLayout.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
   return posts.map((post) => ({
-    params: { slug: post.slug },
+    params: { slug: post.id },
     props: post,
   }));
 }
 
 const post = Astro.props;
-const { Content } = await post.render();
+
+// 2. CAMBIO CLAVE: Usamos la función render(post) en vez de post.render()
+const { Content } = await render(post);
 
 // --- PREPARACIÓN DE DATOS PARA SEO ---
-
-// 1. Imagen para Open Graph (Si el post no tiene imagen, usamos una por defecto)
-// Nota: Asumimos que guardaste una imagen generica en public/img/blog-default.jpg
 const imagenOG = post.data.image?.src || '/img/blog-default.jpg';
 const urlCompleta = new URL(Astro.url.pathname, Astro.site);
 
-// 2. SCHEMA MARKUP (JSON-LD)
-// Esto construye la "ficha técnica" para Google
+// FECHAS SEGURAS (Para evitar el error de toISOString)
+const fechaPublicacion = post.data.pubDate 
+  ? new Date(post.data.pubDate).toISOString().split('T')[0] 
+  : new Date().toISOString().split('T')[0];
+
+const fechaLegible = post.data.pubDate 
+  ? new Date(post.data.pubDate).toLocaleDateString('es-PE') 
+  : 'Reciente';
+
 const schemaArticle = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
@@ -32,7 +39,7 @@ const schemaArticle = {
   },
   "headline": post.data.title,
   "description": post.data.description,
-  "image": imagenOG,  
+  "image": imagenOG,
   "author": {
     "@type": "Person",
     "name": post.data.author || "Quilla Electric"
@@ -42,11 +49,11 @@ const schemaArticle = {
     "name": "Quilla Electric",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://quillaelectric.site/favicon.png" // Asegúrate de que esta ruta exista
+      "url": "https://quillaelectric.site/favicon.png"
     }
   },
-  "datePublished": post.data.pubDate.toISOString().split('T')[0], // Formato YYYY-MM-DD
-  "dateModified": post.data.pubDate.toISOString().split('T')[0]
+  "datePublished": fechaPublicacion,
+  "dateModified": fechaPublicacion
 };
 ---
 
@@ -61,7 +68,7 @@ const schemaArticle = {
   <article class="articulo-completo">
     <header class="encabezado-articulo">
         <p class="meta">
-            📅 {post.data.pubDate.toLocaleDateString('es-PE')} | ✍️ {post.data.author}
+            📅 {fechaLegible} | ✍️ {post.data.author}
         </p>
         
         <h1>{post.data.title}</h1>
@@ -84,7 +91,7 @@ const schemaArticle = {
 </MainLayout>
 
 <style>
-  /* (Tus estilos se mantienen igual que antes) */
+  /* (Tus estilos se mantienen igual) */
   .articulo-completo { max-width: 720px; margin: 0 auto; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
   .meta { color: #64748b; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
   h1 { font-size: 2.5rem; color: #0f172a; margin-top: 10px; line-height: 1.2; }
@@ -104,4 +111,4 @@ const schemaArticle = {
 
   .cta-box { margin-top: 3rem; background: #f0f9ff; padding: 2rem; border-radius: 10px; text-align: center; border: 1px solid #bae6fd; }
   .btn-whatsapp { display: inline-block; background: #0f172a; color: white; padding: 12px 25px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 10px; }
-</style> 
+</style>

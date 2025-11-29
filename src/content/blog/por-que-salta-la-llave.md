@@ -1,16 +1,17 @@
 ---
 title: "¿Por qué salta la llave térmica a cada rato?"
 description: "Descubre las 3 razones principales por las que se va la luz en tu casa y cómo solucionarlo antes de que sea peligroso."
-pubDate: 2025-11-28
-author: "Técnico Quilla"
+pubDate: 2024-11-28
+author: "Técnico Juan Quilla"
 tags: ["Seguridad", "Tableros", "Consejos"]
+image: ../../assets/tablero-industrial.jpeg
 ---
 
 ¿Te ha pasado que enciendes la ducha eléctrica y *¡PUM!* se va la luz? Es algo muy común en Arequipa, pero no deberías ignorarlo.
 
 Cuando la llave térmica (o "termomagnética") salta, **te está salvando la vida**. Significa que detectó un problema peligroso y cortó la corriente para evitar que los cables se quemen.
 
-![Llave térmica saltando en tablero eléctrico antiguo](/img/proyectos/tablero-industrial.jpeg)
+![Llave térmica saltando en tablero eléctrico antiguo](../../assets/tablero-industrial.jpeg)
 
 ## Las 3 causas principales
 

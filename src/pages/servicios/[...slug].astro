@@ -1,0 +1,74 @@
+---
+// src/pages/servicios/[...slug].astro
+import { getCollection, render } from 'astro:content'; // <--- Importamos render
+import MainLayout from '../../layouts/MainLayout.astro';
+import { Image } from 'astro:assets';
+
+// 1. Generamos rutas para todos los servicios
+export async function getStaticPaths() {
+  const servicios = await getCollection('servicios');
+  return servicios.map((servicio) => ({
+    params: { slug: servicio.id }, // <--- Usamos .id (Astro v5)
+    props: servicio,
+  }));
+}
+
+const servicio = Astro.props;
+// 2. Usamos la nueva forma de renderizar
+const { Content } = await render(servicio);
+---
+
+<MainLayout titulo={servicio.data.title} descripcion={servicio.data.description}>
+  
+  <article class="detalle-servicio">
+    
+    <header>
+        <h1>{servicio.data.title}</h1>
+        <p class="resumen">{servicio.data.description}</p>
+    </header>
+
+    {servicio.data.image && (
+        <div class="imagen-principal">
+            <Image src={servicio.data.image} alt={servicio.data.title} width={800} class="foto-redondeada" />
+        </div>
+    )}
+
+    <div class="cuerpo-texto">
+        <Content />
+    </div>
+
+    <div class="cta-box">
+        <h3>¿Necesitas este servicio?</h3>
+        <p>Cotiza sin compromiso. Respuesta inmediata.</p>
+        
+        <a 
+          href={`https://wa.me/51999999999?text=Hola Quilla Electric, me interesa cotizar el servicio de: ${servicio.data.title}`} 
+          class="btn-whatsapp" 
+          target="_blank"
+        >
+            📲 Cotizar por WhatsApp
+        </a>
+    </div>
+
+  </article>
+
+</MainLayout>
+
+<style>
+  .detalle-servicio { max-width: 800px; margin: 0 auto; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+  
+  h1 { color: #0f172a; font-size: 2.2rem; margin-bottom: 10px; line-height: 1.2; }
+  .resumen { font-size: 1.2rem; color: #64748b; margin-bottom: 2rem; border-left: 4px solid #fbbf24; padding-left: 15px; }
+  
+  .imagen-principal { margin-bottom: 2rem; }
+  .foto-redondeada { border-radius: 12px; width: 100%; height: auto; object-fit: cover; }
+
+  .cuerpo-texto { font-size: 1.1rem; line-height: 1.7; color: #334155; }
+  .cuerpo-texto :global(h2) { color: #0f172a; margin-top: 2rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px; }
+  .cuerpo-texto :global(ul) { margin-bottom: 2rem; background: #f8fafc; padding: 20px 40px; border-radius: 8px; }
+  .cuerpo-texto :global(strong) { color: #0f172a; }
+
+  .cta-box { margin-top: 3rem; background: #0f172a; color: white; padding: 2rem; border-radius: 12px; text-align: center; }
+  .btn-whatsapp { display: inline-block; background: #25D366; color: white; padding: 15px 30px; text-decoration: none; border-radius: 50px; font-weight: bold; margin-top: 15px; font-size: 1.1rem; transition: transform 0.2s; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); }
+  .btn-whatsapp:hover { transform: scale(1.05); }
+</style>
