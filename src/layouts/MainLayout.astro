@@ -1,33 +1,38 @@
 ---
 // src/layouts/MainLayout.astro
+import { Analytics } from '@vercel/analytics/react';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 
-// Recibimos título y descripción. Si no nos dan descripción, usamos una por defecto.
+// 1. Recibimos las variables (Props)
 const { 
   titulo, 
-  descripcion = "Servicios eléctricos profesionales en Arequipa y Lima. Pozos a tierra y cableado." 
+  descripcion = "Servicios eléctricos profesionales en Arequipa. Pozos a tierra y cableado.",
+  imagen = "/img/social-default.jpeg" // Imagen por defecto si la página no tiene una específica
 } = Astro.props;
+
+// 2. Truco SEO: Convertir la imagen a URL absoluta (Ej: https://quillaelectric.site/img/foto.jpg)
+// Si no hacemos esto, WhatsApp a veces no muestra la foto.
+const siteURL = Astro.site ? Astro.site.href : Astro.url.origin;
+const imagenAbsoluta = new URL(imagen, siteURL).href;
 ---
 
 <html lang="es-PE">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
     
     <title>{titulo} | Quilla Electric</title>
     <meta name="description" content={descripcion} />
+    <link rel="canonical" href={Astro.url} />
     
-    <meta name="generator" content={Astro.generator} />
-    <link rel="canonical" href={Astro.url} /> <meta name="robots" content="index, follow" />
-    <meta name="author" content="Quilla Electric" />
-
     <meta property="og:title" content={titulo} />
     <meta property="og:description" content={descripcion} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
-    
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:image" content={imagenAbsoluta} /> <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
   
   <body>
@@ -36,29 +41,27 @@ const {
     <main>
       <slot /> </main>
 
-    <footer>
-      <Footer />
-    </footer>
+    <Footer />
+    <Analytics client:web-analytics />
   </body>
 </html>
 
 <style>
-  /* Estilos Globales */
+  /* ESTILOS GLOBALES */
   body {
-    font-family: system-ui, sans-serif;
+    font-family: system-ui, -apple-system, sans-serif;
     margin: 0;
     background-color: #f8fafc;
     color: #1e293b;
-    display: flex;       /* Truco para que el footer siempre baje */
+    display: flex;
     flex-direction: column;
-    min-height: 100vh;   /* Ocupa al menos el 100% de la altura de la pantalla */
+    min-height: 100vh;
   }
   main {
-    flex: 1;            /* Empuja el footer hacia abajo si hay poco contenido */
-    padding: 2rem;
+    flex: 1;
     width: 100%;
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
     box-sizing: border-box;
-    }
+  }
 </style>

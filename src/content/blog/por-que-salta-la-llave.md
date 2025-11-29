@@ -10,6 +10,8 @@ tags: ["Seguridad", "Tableros", "Consejos"]
 
 Cuando la llave térmica (o "termomagnética") salta, **te está salvando la vida**. Significa que detectó un problema peligroso y cortó la corriente para evitar que los cables se quemen.
 
+![Llave térmica saltando en tablero eléctrico antiguo](/img/proyectos/tablero-industrial.jpeg)
+
 ## Las 3 causas principales
 
 ### 1. Sobrecarga de circuitos

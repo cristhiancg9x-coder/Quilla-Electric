@@ -3,7 +3,6 @@
 import { getCollection } from 'astro:content';
 import MainLayout from '../../layouts/MainLayout.astro';
 
-// 1. Generamos las rutas para cada artículo que exista
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
   return posts.map((post) => ({
@@ -12,19 +11,61 @@ export async function getStaticPaths() {
   }));
 }
 
-// 2. Recibimos el artículo actual
 const post = Astro.props;
 const { Content } = await post.render();
+
+// --- PREPARACIÓN DE DATOS PARA SEO ---
+
+// 1. Imagen para Open Graph (Si el post no tiene imagen, usamos una por defecto)
+// Nota: Asumimos que guardaste una imagen generica en public/img/blog-default.jpg
+const imagenOG = post.data.image?.src || '/img/blog-default.jpg';
+const urlCompleta = new URL(Astro.url.pathname, Astro.site);
+
+// 2. SCHEMA MARKUP (JSON-LD)
+// Esto construye la "ficha técnica" para Google
+const schemaArticle = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": urlCompleta
+  },
+  "headline": post.data.title,
+  "description": post.data.description,
+  "image": imagenOG,  
+  "author": {
+    "@type": "Person",
+    "name": post.data.author || "Quilla Electric"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Quilla Electric",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://quillaelectric.site/favicon.png" // Asegúrate de que esta ruta exista
+    }
+  },
+  "datePublished": post.data.pubDate.toISOString().split('T')[0], // Formato YYYY-MM-DD
+  "dateModified": post.data.pubDate.toISOString().split('T')[0]
+};
 ---
 
-<MainLayout titulo={post.data.title} descripcion={post.data.description}>
+<MainLayout 
+  titulo={post.data.title} 
+  descripcion={post.data.description}
+  imagen={imagenOG} 
+>
   
+  <script type="application/ld+json" set:html={JSON.stringify(schemaArticle)} />
+
   <article class="articulo-completo">
     <header class="encabezado-articulo">
         <p class="meta">
             📅 {post.data.pubDate.toLocaleDateString('es-PE')} | ✍️ {post.data.author}
         </p>
+        
         <h1>{post.data.title}</h1>
+        
         <hr class="separador-amarillo"/>
     </header>
 
@@ -33,9 +74,9 @@ const { Content } = await post.render();
     </div>
 
     <div class="cta-box">
-        <h3>¿Tienes este problema en casa?</h3>
-        <p>No arriesgues tu seguridad intentando arreglarlo tú mismo.</p>
-        <a href="/contacto" class="btn-whatsapp">Solicitar visita técnica</a>
+        <h3>¿Necesitas ayuda con esto?</h3>
+        <p>Evita riesgos eléctricos en tu hogar.</p>
+        <a href="/contacto" class="btn-whatsapp">Consultar al Técnico</a>
     </div>
 
   </article>
@@ -43,25 +84,24 @@ const { Content } = await post.render();
 </MainLayout>
 
 <style>
+  /* (Tus estilos se mantienen igual que antes) */
   .articulo-completo { max-width: 720px; margin: 0 auto; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-  
   .meta { color: #64748b; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
   h1 { font-size: 2.5rem; color: #0f172a; margin-top: 10px; line-height: 1.2; }
   .separador-amarillo { border: 0; height: 4px; background: #fbbf24; width: 60px; margin: 20px 0; }
-
-  /* Estilos para el texto del artículo (Markdown) */
   .contenido-texto { font-size: 1.1rem; line-height: 1.8; color: #334155; }
-  .contenido-texto h2 { color: #0f172a; margin-top: 2rem; }
-  .contenido-texto ul { margin-bottom: 2rem; }
-  .contenido-texto strong { color: #0f172a; }
+  
+  /* Estilos para que las imágenes dentro del post se vean bien */
+  .contenido-texto :global(img) {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 20px 0;
+  }
+  
+  .contenido-texto :global(h2) { color: #0f172a; margin-top: 2.5rem; font-size: 1.8rem; }
+  .contenido-texto :global(h3) { color: #334155; margin-top: 1.5rem; font-size: 1.4rem; }
 
-  .cta-box {
-    margin-top: 3rem; background: #f0f9ff; padding: 2rem;
-    border-radius: 10px; text-align: center; border: 1px solid #bae6fd;
-  }
-  .btn-whatsapp {
-    display: inline-block; background: #0f172a; color: white;
-    padding: 12px 25px; text-decoration: none; border-radius: 6px;
-    font-weight: bold; margin-top: 10px;
-  }
-</style>
+  .cta-box { margin-top: 3rem; background: #f0f9ff; padding: 2rem; border-radius: 10px; text-align: center; border: 1px solid #bae6fd; }
+  .btn-whatsapp { display: inline-block; background: #0f172a; color: white; padding: 12px 25px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 10px; }
+</style> 
