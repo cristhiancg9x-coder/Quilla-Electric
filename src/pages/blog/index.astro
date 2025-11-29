@@ -1,0 +1,73 @@
+---
+// src/pages/blog/index.astro
+import MainLayout from '../../layouts/MainLayout.astro';
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+
+// 1. Pedimos todos los artículos de la colección 'blog'
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<MainLayout titulo="Blog de Electricidad" descripcion="Consejos y noticias sobre seguridad eléctrica en Perú.">
+  
+  <section class="blog-header">
+    <h1>📰 Blog Eléctrico</h1>
+    <p>Aprende a cuidar tu instalación y ahorrar energía.</p>
+  </section>
+
+  <div class="grid-posts">
+    {posts.map((post) => (
+      <article class="card-post">
+        <a href={`/blog/${post.slug}`} class="link-post">
+            <div class="contenido">
+                <h3>{post.data.title}</h3>
+                <p class="fecha">{post.data.pubDate.toLocaleDateString('es-PE', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                <p class="descripcion">{post.data.description}</p>
+                <span class="leer-mas">Leer artículo →</span>
+            </div>
+        </a>
+      </article>
+    ))}
+  </div>
+
+</MainLayout>
+
+<style>
+  .blog-header { text-align: center; margin-bottom: 3rem; }
+  h1 { color: #0f172a; font-size: 2.5rem; }
+
+  .grid-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+
+  .card-post {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .card-post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border-color: #fbbf24;
+  }
+
+  .link-post { text-decoration: none; color: inherit; display: block; height: 100%; }
+  
+  .contenido { padding: 1.5rem; }
+  
+  h3 { margin: 0 0 10px 0; color: #0f172a; font-size: 1.4rem; }
+  .fecha { font-size: 0.85rem; color: #94a3b8; margin-bottom: 1rem; }
+  .descripcion { color: #475569; line-height: 1.6; margin-bottom: 1.5rem; }
+  
+  .leer-mas { 
+    color: #fbbf24; font-weight: bold; font-size: 0.9rem; 
+    text-transform: uppercase; letter-spacing: 0.5px;
+  }
+</style>

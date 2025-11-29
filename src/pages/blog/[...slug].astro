@@ -1,0 +1,67 @@
+---
+// src/pages/blog/[...slug].astro
+import { getCollection } from 'astro:content';
+import MainLayout from '../../layouts/MainLayout.astro';
+
+// 1. Generamos las rutas para cada artículo que exista
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+
+// 2. Recibimos el artículo actual
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<MainLayout titulo={post.data.title} descripcion={post.data.description}>
+  
+  <article class="articulo-completo">
+    <header class="encabezado-articulo">
+        <p class="meta">
+            📅 {post.data.pubDate.toLocaleDateString('es-PE')} | ✍️ {post.data.author}
+        </p>
+        <h1>{post.data.title}</h1>
+        <hr class="separador-amarillo"/>
+    </header>
+
+    <div class="contenido-texto">
+        <Content />
+    </div>
+
+    <div class="cta-box">
+        <h3>¿Tienes este problema en casa?</h3>
+        <p>No arriesgues tu seguridad intentando arreglarlo tú mismo.</p>
+        <a href="/contacto" class="btn-whatsapp">Solicitar visita técnica</a>
+    </div>
+
+  </article>
+
+</MainLayout>
+
+<style>
+  .articulo-completo { max-width: 720px; margin: 0 auto; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+  
+  .meta { color: #64748b; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+  h1 { font-size: 2.5rem; color: #0f172a; margin-top: 10px; line-height: 1.2; }
+  .separador-amarillo { border: 0; height: 4px; background: #fbbf24; width: 60px; margin: 20px 0; }
+
+  /* Estilos para el texto del artículo (Markdown) */
+  .contenido-texto { font-size: 1.1rem; line-height: 1.8; color: #334155; }
+  .contenido-texto h2 { color: #0f172a; margin-top: 2rem; }
+  .contenido-texto ul { margin-bottom: 2rem; }
+  .contenido-texto strong { color: #0f172a; }
+
+  .cta-box {
+    margin-top: 3rem; background: #f0f9ff; padding: 2rem;
+    border-radius: 10px; text-align: center; border: 1px solid #bae6fd;
+  }
+  .btn-whatsapp {
+    display: inline-block; background: #0f172a; color: white;
+    padding: 12px 25px; text-decoration: none; border-radius: 6px;
+    font-weight: bold; margin-top: 10px;
+  }
+</style>

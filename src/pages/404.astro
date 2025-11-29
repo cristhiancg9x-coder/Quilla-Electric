@@ -1,0 +1,59 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout titulo="Página no encontrada">
+  <div class="error-container">
+    <span class="icono-error">🔌</span>
+    <h1>¡Ups! Hubo un corte de luz</h1>
+    <p>La página que buscas no existe o se ha movido.</p>
+    
+    <a href="/" class="btn-volver">
+      Volver al Inicio (Reconectar)
+    </a>
+  </div>
+</MainLayout>
+
+<style>
+  .error-container {
+    text-align: center;
+    padding: 4rem 1rem;
+  }
+  .icono-error {
+    font-size: 5rem;
+    display: block;
+    margin-bottom: 1rem;
+    animation: parpadeo 2s infinite; /* Efecto de luz parpadeando */
+  }
+  h1 {
+    font-size: 2.5rem;
+    color: #0f172a;
+    margin-bottom: 1rem;
+  }
+  p {
+    color: #64748b;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+  }
+  .btn-volver {
+    background-color: #fbbf24;
+    color: #0f172a;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: transform 0.2s;
+  }
+  .btn-volver:hover {
+    transform: scale(1.05);
+    background-color: #f59e0b;
+  }
+
+  /* Animación de parpadeo como foco malogrado */
+  @keyframes parpadeo {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+  }
+</style>
