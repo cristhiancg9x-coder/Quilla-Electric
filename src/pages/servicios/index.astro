@@ -1,53 +1,80 @@
 ---
-// src/pages/servicios.astro
+// src/pages/servicios/index.astro
 import MainLayout from '../../layouts/MainLayout.astro';
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+
+// 1. ESTA LÍNEA ES LA CLAVE: Pide los servicios a la carpeta content/servicios
+const servicios = await getCollection('servicios');
 ---
 
-<MainLayout titulo="Nuestros Servicios">
+<MainLayout titulo="Nuestros Servicios" descripcion="Lista de servicios eléctricos profesionales en Arequipa.">
 
-  <h1>Nuestros Servicios Profesionales</h1>
-  <p>Atendemos emergencias las 24 horas en Arequipa.</p>
+  <div class="header-servicios">
+    <h1>Soluciones Eléctricas Profesionales</h1>
+    <p>Atendemos emergencias y proyectos en todo Cerro Colorado y Arequipa.</p>
+  </div>
 
   <div class="grid-servicios">
     
-    <div class="tarjeta">
-      <h3>🔌 Instalaciones Residenciales</h3>
-      <p>Cableado completo, tableros y luminarias para tu hogar.</p>
-    </div>
+    {servicios.length === 0 && <p style="text-align: center">No hay servicios cargados aún.</p>}
 
-    <div class="tarjeta">
-      <h3>🌍 Pozos a Tierra</h3>
-      <p>Mantenimiento, instalación y certificación INDECI.</p>
-    </div>
+    {servicios.map((servicio) => (
+      <article class="tarjeta-servicio">
+        
+        {servicio.data.image && (
+          <div class="img-container">
+             <Image src={servicio.data.image} alt={servicio.data.title} width={400} />
+          </div>
+        )}
 
-    <div class="tarjeta">
-      <h3>🏭 Electricidad Industrial</h3>
-      <p>Motores, tableros de fuerza y automatización.</p>
-    </div>
+        <div class="contenido">
+            <h3>{servicio.data.title}</h3>
+            <p>{servicio.data.description}</p>
+            
+            {servicio.data.price && <p class="precio">💰 {servicio.data.price}</p>}
+            
+            <a href={`/servicios/${servicio.id}`} class="btn-ver">Ver Detalles →</a>
+        </div>
+      </article>
+    ))}
 
   </div>
 
 </MainLayout>
 
 <style>
-  /* CSS Específico para esta página */
+  /* ESTILOS (Copia esto también para que se vea bien) */
+  .header-servicios { text-align: center; margin-bottom: 3rem; }
+  h1 { color: #0f172a; font-size: 2.5rem; }
+
   .grid-servicios {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    margin-top: 2rem;
-  }
-  
-  .tarjeta {
-    border: 1px solid #ddd;
-    padding: 1.5rem;
-    border-radius: 8px;
-    background: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
   }
 
-  h3 {
-    color: #0f172a;
-    margin-top: 0;
+  .tarjeta-servicio {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+    transition: transform 0.2s;
   }
+  .tarjeta-servicio:hover { transform: translateY(-5px); border-color: #fbbf24; }
+
+  .img-container { height: 200px; overflow: hidden; }
+  .img-container img { width: 100%; height: 100%; object-fit: cover; }
+
+  .contenido { padding: 1.5rem; }
+  h3 { margin-top: 0; color: #0f172a; font-size: 1.3rem; }
+  .precio { font-weight: bold; color: #16a34a; font-size: 1rem; margin-top: 10px;}
+  
+  .btn-ver {
+    display: inline-block; margin-top: 15px; text-decoration: none;
+    background-color: #0f172a; color: white; padding: 10px 20px;
+    border-radius: 6px; font-size: 0.9rem; font-weight: bold;
+  }
+  .btn-ver:hover { background-color: #334155; }
 </style>
