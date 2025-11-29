@@ -1,6 +1,5 @@
 ---
 // src/layouts/MainLayout.astro
-import { Analytics } from '@vercel/analytics/react';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 
@@ -43,7 +42,6 @@ const imagenAbsoluta = new URL(imagen, siteURL).href;
       <slot /> </main>
 
     <Footer />
-    <Analytics client:web-analytics />
   </body>
 </html>
 
