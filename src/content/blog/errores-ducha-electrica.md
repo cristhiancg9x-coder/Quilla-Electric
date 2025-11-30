@@ -1,7 +1,7 @@
 ---
 title: "Ducha Eléctrica: 3 Errores comunes que pueden incendiar tu baño"
 description: "¿Sientes olor a quemado cuando te bañas? Instalar mal una Rapiducha o Lorenzetti es la causa #1 de cortocircuitos en Arequipa. Evítalo así."
-pubDate: 2024-11-30
+pubDate: 2025-11-30
 author: "Técnico Juan Quilla"
 tags: ["Duchas", "Peligro", "Instalaciones"]
 image: ../../assets/errores-ducha-electrica.png

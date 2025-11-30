@@ -1,7 +1,7 @@
 ---
 title: "Llave Térmica vs Diferencial: ¿Cuál protege tu vida? Guía Completa"
 description: "No arriesgues a tu familia. Aprende la diferencia exacta entre llave termomagnética e interruptor diferencial, por qué saltan y qué dice la norma eléctrica en Perú."
-pubDate: 2024-11-29
+pubDate: 2025-11-29
 author: "Técnico Juan Quilla"
 tags: ["Seguridad Eléctrica", "Tableros", "Normativa Perú"]
 image: ../../assets/diferencial-vs-termica.jpg

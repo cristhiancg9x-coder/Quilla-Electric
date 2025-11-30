@@ -1,7 +1,7 @@
 ---
 title: "Pozo a Tierra y Certificado INDECI: Evita la clausura de tu negocio"
 description: "¿La Municipalidad te pide el Protocolo de Pruebas? Te explico qué es el pozo a tierra, por qué es obligatorio y cómo pasar la inspección de Defensa Civil sin problemas."
-pubDate: 2024-11-30
+pubDate: 2025-11-30
 author: "Técnico Juan Quilla"
 tags: ["Negocios", "Normativa", "Pozo a Tierra"]
 image: ../../assets/mantenimiento-pozo.jpeg
