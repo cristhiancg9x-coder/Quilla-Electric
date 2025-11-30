@@ -1,0 +1,104 @@
+---
+// src/pages/electricista-en/[lugar].astro
+import MainLayout from '../../layouts/MainLayout.astro';
+import { zonas } from '../../data/zonas'; // Importamos la lista
+
+// 1. Generar las rutas automáticas
+export function getStaticPaths() {
+  return zonas.map((zona) => ({
+    params: { lugar: zona.slug },
+    props: { zona },
+  }));
+}
+
+// 2. Recibir los datos de la zona actual
+const { zona } = Astro.props;
+---
+
+<MainLayout 
+  titulo={`${zona.titulo} | Emergencias 24h`} 
+  descripcion={`¿Buscas ${zona.titulo}? ${zona.desc} Técnico Juan Quilla a tu servicio.`}
+>
+
+  <section class="zona-hero">
+    <h1>⚡ {zona.titulo}</h1>
+    <p class="bajada">{zona.desc}</p>
+    
+    <div class="caja-urgencia">
+      <p>🚨 <strong>¿Estás en {zona.nombre} y se fue la luz?</strong></p>
+      <p>Estamos cerca de tu zona. Atendemos emergencias las 24 horas.</p>
+      
+      <a 
+        href={`https://wa.me/51999999999?text=Hola,%20necesito%20un%20electricista%20en%20${zona.nombre}`} 
+        class="btn-whatsapp"
+        target="_blank"
+      >
+        Pedir Técnico en {zona.nombre}
+      </a>
+    </div>
+  </section>
+
+  <section class="contenido-zona">
+    <h2>Servicios disponibles en {zona.nombre}</h2>
+    <ul>
+      <li>✅ Reparación de Cortocircuitos y Apagones.</li>
+      <li>✅ Instalación de Duchas Eléctricas (Rapiduchas).</li>
+      <li>✅ Mantenimiento de Pozo a Tierra (Certificado).</li>
+      <li>✅ Cableado de casas y departamentos.</li>
+    </ul>
+
+    <h3>¿Por qué elegirnos en {zona.nombre}?</h3>
+    <p>
+      Conocemos los problemas eléctricos típicos de <strong>{zona.nombre}</strong>. 
+      No cobramos viáticos excesivos porque estamos en la zona. 
+      Garantía y puntualidad.
+    </p>
+  </section>
+
+</MainLayout>
+
+<style>
+  .zona-hero {
+    background-color: #0f172a;
+    color: white;
+    padding: 3rem 1rem;
+    text-align: center;
+    border-radius: 0 0 20px 20px;
+  }
+  h1 { font-size: 2.5rem; margin-bottom: 10px; color: #fbbf24; }
+  .bajada { font-size: 1.2rem; color: #cbd5e1; max-width: 600px; margin: 0 auto 2rem auto; }
+
+  .caja-urgencia {
+    background: white;
+    color: #0f172a;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 500px;
+    margin: 0 auto;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  }
+
+  .btn-whatsapp {
+    display: inline-block;
+    background-color: #25D366;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 50px;
+    margin-top: 15px;
+    font-size: 1.1rem;
+    transition: transform 0.2s;
+  }
+  .btn-whatsapp:hover { transform: scale(1.05); }
+
+  .contenido-zona {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+  }
+  h2 { color: #0f172a; border-bottom: 2px solid #fbbf24; display: inline-block; padding-bottom: 5px; }
+  ul { margin-top: 1rem; list-style: none; padding: 0; }
+  ul li { margin-bottom: 10px; font-size: 1.1rem; }
+  h3 { margin-top: 2rem; color: #0f172a; }
+</style>
