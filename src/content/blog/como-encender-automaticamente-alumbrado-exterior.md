@@ -4,14 +4,14 @@ description: "Llega a tu casa en Arequipa y encuentra todo iluminado. Descubre c
 pubDate: 2025-12-05
 author: "Técnico CCG"
 tags: ["Domótica", "Seguridad", "Sensores", "Arequipa", "Iluminación Exterior"]
-#image: ../../assets/iluminacion-automatica-exterior.jpg
+#image: https://placehold.co/600x400?text=FOTO+PENDIENTE&old=iluminacion-automatica-exterior.jpg
 ---
 
 ¿Te ha pasado que sales temprano de tu casa en **Paucarpata** o **Sachaca** y te olvidas de apagar la luz del patio, dejándola prendida todo el día? O al revés, ¿llegas de noche y tu entrada es una "boca de lobo" perfecta para los delincuentes?
 
 Automatizar el alumbrado exterior no es cosa del futuro ni requiere una fortuna. Como técnico, instalo estas soluciones todas las semanas para mejorar la seguridad y ahorrar en el recibo de **SEAL**. Aquí te explico las 4 formas más efectivas de hacerlo.
 
-![Foco exterior encendiéndose automáticamente al atardecer mediante fotocélula](../../assets/iluminacion-automatica-exterior.jpg)
+![Foco exterior encendiéndose automáticamente al atardecer mediante fotocélula](https://placehold.co/600x400?text=FOTO+PENDIENTE&old=iluminacion-automatica-exterior.jpg)
 
 ## 1. La Fotocélula (El famoso "Ojo Mágico")
 

@@ -4,7 +4,7 @@ description: "¿Estás cableando tu casa con el cable blanco plano? Cuidado. Te 
 pubDate: 2025-11-29
 author: "Técnico CCG"
 tags: ["Seguridad", "Materiales", "Normativa"]
-#image: ../../assets/peligro-cable-mellizo.png
+#image: https://placehold.co/600x400?text=FOTO+PENDIENTE&old=peligro-cable-mellizo.png
 ---
 
 Es típico en las ferreterías de barrio: *"Deme 10 metros de cable para una extensión"* y te dan el clásico **cable blanco plano (mellizo)**.
@@ -36,7 +36,7 @@ El Código Nacional de Electricidad exige usar cables **Libres de Halógenos (LS
 | **En caso de incendio** | Emite humo negro tóxico | Emite poco humo y no es tóxico |
 | **Uso permitido** | Solo extensiones visibles | Dentro de paredes y tubos |
 
-![Comparación de cables eléctricos](../../assets/peligro-cable-mellizo.png)
+![Comparación de cables eléctricos](https://placehold.co/600x400?text=FOTO+PENDIENTE&old=peligro-cable-mellizo.png)
 
 ## El mito del "Calibre"
 No basta con que el cable sea grueso.

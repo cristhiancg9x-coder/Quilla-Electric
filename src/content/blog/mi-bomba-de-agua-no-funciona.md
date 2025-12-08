@@ -4,14 +4,14 @@ description: "Si tu tanque elevado está vacío y la bomba solo zumba, no entres
 pubDate: 2025-12-05
 author: "Técnico CCG"
 tags: ["Bombas de Agua", "Gasfitería", "Electricidad", "Arequipa", "Tanque Elevado"]
-#image: ../../assets/bomba-agua-reparacion.jpg
+#image: https://placehold.co/600x400?text=FOTO+PENDIENTE&old=bomba-agua-reparacion.jpg
 ---
 
 Despertar en **Cerro Colorado** o **Sachaca**, abrir el caño y que no salga ni una gota es la pesadilla de cualquier arequipeño. Si subes al techo y ves que tu tanque elevado está seco, el problema está abajo: en tu bomba de agua.
 
 Antes de que llames a un camión cisterna, déjame explicarte las fallas más comunes que encuentro en las visitas técnicas y cómo saber si es un problema eléctrico o de gasfitería.
 
-![Técnico revisando una bomba de agua periférica con problemas de encendido](../../assets/bomba-agua-reparacion.jpg)
+![Técnico revisando una bomba de agua periférica con problemas de encendido](https://placehold.co/600x400?text=FOTO+PENDIENTE&old=bomba-agua-reparacion.jpg)
 
 ## 1. Falta de "Cebado" (Aire en la tubería)
 

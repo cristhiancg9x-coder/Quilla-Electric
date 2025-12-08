@@ -4,7 +4,7 @@ description: "¿Tu palanca de luz se baja sola? No la fuerces. Descubre si es un
 pubDate: 2025-11-28
 author: "Técnico CCG"
 tags: ["Emergencias", "Fallas Eléctricas", "Solución de Problemas"]
-#image: ../../assets/tablero-industrial.jpeg
+#image: https://placehold.co/600x400?text=FOTO+PENDIENTE&old=tablero-industrial.jpeg
 ---
 
 Es la escena clásica en Arequipa: entras a bañarte, enciendes la **ducha eléctrica** y, a los pocos minutos... *¡Click!* Todo se queda oscuro.
@@ -13,7 +13,7 @@ Vas al tablero, subes la palanca, y al rato vuelve a saltar. **¡Cuidado!** Much
 
 Cuando la **llave termomagnética** salta, te está gritando que algo anda mal. Aquí te explico las 3 causas exactas y cómo diferenciarlas.
 
-![Tablero eléctrico con llaves térmicas](../../assets/tablero-industrial.jpeg)
+![Tablero eléctrico con llaves térmicas](https://placehold.co/600x400?text=FOTO+PENDIENTE&old=tablero-industrial.jpeg)
 
 ## 1. Sobrecarga (El problema de "calentamiento")
 Esta es la causa #1 en los hogares. Ocurre cuando le pides a tus cables más energía de la que pueden soportar.

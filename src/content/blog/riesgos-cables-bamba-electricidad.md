@@ -4,14 +4,14 @@ description: "¿Lo barato sale caro? Usar cables piratas puede incendiar tu hoga
 pubDate: 2025-12-05
 author: "Técnico CCG"
 tags: ["Seguridad", "Materiales Eléctricos", "Arequipa", "Prevención de Incendios", "Indeco"]
-#image: ../../assets/cables-bamba-vs-original.jpg
+#image: https://placehold.co/600x400?text=FOTO+PENDIENTE&old=cables-bamba-vs-original.jpg
 ---
 
 Vas a la ferretería del barrio o a las galerías del Avelino buscando ahorrar unos soles en la remodelación de tu casa. El vendedor te ofrece un rollo de cable que "es igualito al de marca, pero a mitad de precio". ¡Cuidado! Estás a punto de comprar una bomba de tiempo.
 
 En mis inspecciones por **Miraflores** y **Paucarpata**, he encontrado instalaciones completas hechas con **"cables bamba"** (adulterados). Aunque por fuera parecen normales, por dentro son una trampa mortal para tu familia y tu bolsillo. Aquí te explico por qué nunca debes usarlos.
 
-![Comparación de cable eléctrico original vs cable bamba con menos cobre](../../assets/cables-bamba-vs-original.jpg)
+![Comparación de cable eléctrico original vs cable bamba con menos cobre](https://placehold.co/600x400?text=FOTO+PENDIENTE&old=cables-bamba-vs-original.jpg)
 
 ## 1. Menos Cobre del que pagaste (Estafa)
 

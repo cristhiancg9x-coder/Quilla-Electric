@@ -4,14 +4,14 @@ description: "¿Olor a plástico quemado? Descubre por qué tus enchufes se derr
 pubDate: 2025-12-05
 author: "Técnico CCG"
 tags: ["Seguridad Eléctrica", "Reparaciones", "Arequipa", "Mantenimiento", "Tomacorrientes"]
-#image: ../../assets/tomacorriente-quemado-peligroso.jpg
+#image: https://placehold.co/600x400?text=FOTO+PENDIENTE&old=tomacorriente-quemado-peligroso.jpg
 ---
 
 ¿Alguna vez has sentido un olor a pescado o plástico quemado cerca de un enchufe? O peor aún, ¿has visto manchas negras alrededor de la placa del tomacorriente? No es algo normal y, definitivamente, **es una señal de alarma**.
 
 En mi experiencia recorriendo hogares desde **Cerro Colorado** hasta **Cayma**, he visto cómo un pequeño descuido en un tomacorriente puede terminar en un cortocircuito grave. Aquí te explico exactamente por qué sucede esto y cómo proteger a tu familia.
 
-![Técnico inspeccionando un tomacorriente quemado y derretido por sobrecarga](../../assets/tomacorriente-quemado-peligroso.jpg)
+![Técnico inspeccionando un tomacorriente quemado y derretido por sobrecarga](https://placehold.co/600x400?text=FOTO+PENDIENTE&old=tomacorriente-quemado-peligroso.jpg)
 
 ## 1. El enemigo número uno: La Sobrecarga
 

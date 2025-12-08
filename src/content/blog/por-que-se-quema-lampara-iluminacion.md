@@ -4,14 +4,14 @@ description: "¿Cambias bombillas cada mes? No es mala suerte. Descubre por qué
 pubDate: 2025-12-05
 author: "Técnico CCG"
 tags: ["Iluminación LED", "Arequipa", "Ahorro de Energía", "Instalaciones Eléctricas"]
-#image: ../../assets/foco-quemado-solucion.jpg
+#image: https://placehold.co/600x400?text=FOTO+PENDIENTE&old=foco-quemado-solucion.jpg
 ---
 
 Es la tercera vez en el mes que vas a la ferretería a comprar un foco nuevo para la misma lámpara del pasillo. ¿Te suena familiar? Muchos clientes en **Yanahuara** y **Paucarpata** me llaman pensando que los focos salen "fallados", pero en el 90% de los casos, **el problema está en tu instalación eléctrica, no en el foco.**
 
 Si tu lámpara de techo o tus dicroicos LED duran menos de lo que promete la caja, aquí te explico las causas reales y cómo detener este gasto hormiga.
 
-![Foco LED quemado con base oscurecida por falso contacto](../../assets/foco-quemado-solucion.jpg)
+![Foco LED quemado con base oscurecida por falso contacto](https://placehold.co/600x400?text=FOTO+PENDIENTE&old=foco-quemado-solucion.jpg)
 
 ## 1. El Portalámparas (Socket) está defectuoso
 

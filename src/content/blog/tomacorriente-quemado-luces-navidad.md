@@ -4,14 +4,14 @@ description: "La Navidad no debe ser un riesgo. Descubre por qué conectar mucha
 pubDate: 2025-12-05
 author: "Técnico CCG"
 tags: ["Navidad Segura", "Prevención de Incendios", "Arequipa", "Sobrecarga"]
-#image: ../../assets/tomacorriente-quemado-navidad.jpg
+#image: https://placehold.co/600x400?text=FOTO+PENDIENTE&old=tomacorriente-quemado-navidad.jpg
 ---
 
 Llega diciembre y en **Arequipa** nos encanta iluminar la casa. Desde los nacimientos gigantes en **Paucarpata** hasta las fachadas en **Yanahuara**, todos queremos que nuestro hogar brille.
 
 Pero hay un problema recurrente que atiendo cada año en estas fechas: **tomacorrientes derretidos, chispazos y olor a plástico quemado**. Muchos piensan que es "mala suerte", pero en realidad es física pura. Si enchufas tus luces navideñas y sientes calor en la pared, detente inmediatamente y lee esto.
 
-![Tomacorriente con marcas de quemaduras por sobrecarga de luces navideñas](../../assets/tomacorriente-quemado-navidad.jpg)
+![Tomacorriente con marcas de quemaduras por sobrecarga de luces navideñas](https://placehold.co/600x400?text=FOTO+PENDIENTE&old=tomacorriente-quemado-navidad.jpg)
 
 ## 1. El Error del "Trencito" (Daisy Chaining)
 

@@ -4,14 +4,14 @@ description: "¿Arranque Directo o Estrella-Triángulo? Evita que salten las lla
 pubDate: 2025-12-05
 author: "Técnico CCG"
 tags: ["Motores Trifásicos", "Automatización", "Parque Industrial", "Tableros Eléctricos"]
-#image: ../../assets/arranque-motor-trifasico.jpg
+#image: https://placehold.co/600x400?text=FOTO+PENDIENTE&old=arranque-motor-trifasico.jpg
 ---
 
 Si tienes un taller en el **Parque Industrial de Río Seco** o una pequeña fábrica en la **Variante de Uchumayo**, sabes que conectar un motor trifásico no es tan simple como enchufar una licuadora.
 
 Hacerlo mal puede significar desde quemar el bobinado del motor en segundos hasta dejar sin luz a toda la cuadra por el pico de corriente. Como especialista en automatización, hoy te explico los métodos estándar para arrancar estas bestias de trabajo según el **Código Nacional de Electricidad**.
 
-![Tablero de control industrial con contactores y relés para arranque de motor](../../assets/arranque-motor-trifasico.jpg)
+![Tablero de control industrial con contactores y relés para arranque de motor](https://placehold.co/600x400?text=FOTO+PENDIENTE&old=arranque-motor-trifasico.jpg)
 
 ## 1. Lo Primero: Revisa la Placa del Motor
 

@@ -4,14 +4,14 @@ description: "Si tu consumo aumentó de la nada, podrías tener una fuga invisib
 pubDate: 2025-11-30
 author: "Técnico CCG"
 tags: ["Ahorro de Energía", "Fugas", "Seal/Enel"]
-#image: ../../assets/recibo-luz-alto.png
+#image: https://placehold.co/600x400?text=FOTO+PENDIENTE&old=recibo-luz-alto.png
 ---
 
 ¿Este mes tu recibo de **SEAL** o **Enel** llegó por las nubes y no sabes por qué? Es la queja #1 que atiendo en Arequipa.
 
 Muchos clientes piensan que "el medidor está mal" o que la empresa de luz les roba. Pero en el 90% de los casos, el enemigo está dentro de casa. Se llama **Fuga de Corriente a Tierra**.
 
-![Medidor de luz girando rápido](../../assets/recibo-luz-alto.png)
+![Medidor de luz girando rápido](https://placehold.co/600x400?text=FOTO+PENDIENTE&old=recibo-luz-alto.png)
 
 ## ¿Qué es una "Fuga de Luz"?
 Imagina una tubería de agua con un agujero pequeño. El agua se escapa las 24 horas, aunque tengas los caños cerrados. En electricidad pasa lo mismo: un cable pelado toca la pared o un fierro, y la energía se escapa a tierra. **Tu medidor cuenta esa energía perdida y tú la pagas.**

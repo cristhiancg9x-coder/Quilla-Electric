@@ -4,7 +4,7 @@ description: "¿Sientes olor a quemado cuando te bañas? Instalar mal una Rapidu
 pubDate: 2025-11-30
 author: "Técnico CCG"
 tags: ["Duchas", "Peligro", "Instalaciones"]
-#image: ../../assets/errores-ducha-electrica.png
+#image: https://placehold.co/600x400?text=FOTO+PENDIENTE&old=errores-ducha-electrica.png
 ---
 
 En Arequipa, una ducha caliente no es un lujo, es una necesidad. Vas a la ferretería, compras tu ducha **Lorenzetti** o **Rapiducha**, llamas al "maestro" del barrio y listo.
@@ -13,7 +13,7 @@ Pero a la semana siguiente: **olor a plástico quemado**, la llave salta a mitad
 
 Instalar una ducha eléctrica parece fácil, pero es uno de los aparatos que **más energía consume** en toda la casa (más que 50 focos juntos). Aquí te cuento los 3 errores mortales que veo a diario.
 
-![Cables de ducha eléctrica derretidos por mala instalación](../../assets/errores-ducha-electrica.png)
+![Cables de ducha eléctrica derretidos por mala instalación](https://placehold.co/600x400?text=FOTO+PENDIENTE&old=errores-ducha-electrica.png)
 
 ## Error 1: Usar los cables que ya estaban ahí
 El error clásico: conectar la ducha a los cables de la luz del techo (iluminación).
