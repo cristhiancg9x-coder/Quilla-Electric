@@ -2,9 +2,9 @@
 title: "¿Tu Taller es una Cueva? La Iluminación Industrial que Aumenta la Productividad"
 description: "Una mala luz causa accidentes y errores de producción. Descubre qué luminarias LED High Bay y reflectores usar según la Norma EM.010 en Arequipa."
 pubDate: 2025-12-05
-author: "Técnico Juan Quilla"
+author: "Técnico CCG"
 tags: ["Iluminación Industrial", "Norma EM.010", "Arequipa", "Eficiencia Energética", "Seguridad"]
-image: ../../assets/iluminacion-industrial-led.jpg
+#image: ../../assets/iluminacion-industrial-led.jpg
 ---
 
 Si tienes una planta en el **Parque Industrial de Río Seco** o un taller de metalmecánica en la **Variante**, sabes que la luz es dinero. Un operario que no ve bien, trabaja más lento, comete errores de medida y, lo más grave, puede sufrir un accidente laboral.

@@ -2,9 +2,9 @@
 title: "¿Te quedaste sin agua? 5 Razones por las que tu Bomba no Funciona"
 description: "Si tu tanque elevado está vacío y la bomba solo zumba, no entres en pánico. Guía rápida para solucionar fallas en bombas de agua en Arequipa."
 pubDate: 2025-12-05
-author: "Técnico Juan Quilla"
+author: "Técnico CCG"
 tags: ["Bombas de Agua", "Gasfitería", "Electricidad", "Arequipa", "Tanque Elevado"]
-image: ../../assets/bomba-agua-reparacion.jpg
+#image: ../../assets/bomba-agua-reparacion.jpg
 ---
 
 Despertar en **Cerro Colorado** o **Sachaca**, abrir el caño y que no salga ni una gota es la pesadilla de cualquier arequipeño. Si subes al techo y ves que tu tanque elevado está seco, el problema está abajo: en tu bomba de agua.

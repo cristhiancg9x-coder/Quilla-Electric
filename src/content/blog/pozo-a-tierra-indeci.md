@@ -2,9 +2,9 @@
 title: "Pozo a Tierra y Certificado INDECI: Evita la clausura de tu negocio"
 description: "¿La Municipalidad te pide el Protocolo de Pruebas? Te explico qué es el pozo a tierra, por qué es obligatorio y cómo pasar la inspección de Defensa Civil sin problemas."
 pubDate: 2025-11-30
-author: "Técnico Juan Quilla"
+author: "Técnico CCG"
 tags: ["Negocios", "Normativa", "Pozo a Tierra"]
-image: ../../assets/mantenimiento-pozo.jpeg
+#image: ../../assets/mantenimiento-pozo.jpeg
 ---
 
 Si tienes una tienda, taller u oficina en Arequipa, seguro ya recibiste la visita de la Municipalidad o **Defensa Civil (INDECI)**. Lo primero que piden es: *"Señor, muéstreme su Certificado de Operatividad del Pozo a Tierra vigentes"*.

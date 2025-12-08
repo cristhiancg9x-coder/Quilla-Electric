@@ -2,9 +2,9 @@
 title: "¡Peligro! 5 Riesgos Mortales de Usar 'Cables Bamba' en tu Casa"
 description: "¿Lo barato sale caro? Usar cables piratas puede incendiar tu hogar y duplicar tu recibo de luz. Aprende a identificarlos y evitar estafas en Arequipa."
 pubDate: 2025-12-05
-author: "Técnico Juan Quilla"
+author: "Técnico CCG"
 tags: ["Seguridad", "Materiales Eléctricos", "Arequipa", "Prevención de Incendios", "Indeco"]
-image: ../../assets/cables-bamba-vs-original.jpg
+#image: ../../assets/cables-bamba-vs-original.jpg
 ---
 
 Vas a la ferretería del barrio o a las galerías del Avelino buscando ahorrar unos soles en la remodelación de tu casa. El vendedor te ofrece un rollo de cable que "es igualito al de marca, pero a mitad de precio". ¡Cuidado! Estás a punto de comprar una bomba de tiempo.

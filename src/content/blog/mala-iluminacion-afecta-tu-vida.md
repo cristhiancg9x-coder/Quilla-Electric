@@ -2,9 +2,9 @@
 title: "¿Dolor de Cabeza y Cansancio? Tu Mala Iluminación es la Culpable"
 description: "No es estrés, es tu foco. Descubre cómo una iluminación deficiente daña tu vista y estado de ánimo, y cómo corregirlo según la Norma EM.010."
 pubDate: 2025-12-05
-author: "Técnico Juan Quilla"
+author: "Técnico CCG"
 tags: ["Salud Visual", "Iluminación LED", "Arequipa", "Bienestar", "Normativa"]
-image: ../../assets/mala-iluminacion-salud.jpg
+#image: ../../assets/mala-iluminacion-salud.jpg
 ---
 
 Llegas a tu casa en **Cayma** después de un largo día de trabajo, te sientas a leer o a revisar las tareas de tus hijos y, a los 20 minutos, sientes pesadez en los ojos y un leve dolor de cabeza. ¿Te suena familiar?

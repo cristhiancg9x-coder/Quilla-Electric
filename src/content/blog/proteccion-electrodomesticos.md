@@ -2,9 +2,9 @@
 title: "¿Se quemó tu Refri? Cómo proteger tus equipos de las subidas de luz"
 description: "Los cortes repentinos y las subidas de tensión pueden destruir tus electrodomésticos en un segundo. Descubre la diferencia entre estabilizador y protector de tablero."
 pubDate: 2025-11-29
-author: "Técnico Juan Quilla"
+author: "Técnico CCG"
 tags: ["Ahorro", "Protección", "Electrodomésticos"]
-image: ../../assets/protector-voltaje.png
+#image: ../../assets/protector-voltaje.png
 ---
 
 Arequipa tiene una red eléctrica que a veces es inestable. Un día hay un corte de luz en el barrio, y cuando la energía regresa... **vuelve con fuerza (pico de tensión)**.

@@ -2,9 +2,9 @@
 title: "¿Tus focos se queman rápido? 5 Razones Ocultas y Cómo Solucionarlo"
 description: "¿Cambias bombillas cada mes? No es mala suerte. Descubre por qué tus lámparas explotan o parpadean y cómo arreglarlo antes de dañar tu vista."
 pubDate: 2025-12-05
-author: "Técnico Juan Quilla"
+author: "Técnico CCG"
 tags: ["Iluminación LED", "Arequipa", "Ahorro de Energía", "Instalaciones Eléctricas"]
-image: ../../assets/foco-quemado-solucion.jpg
+#image: ../../assets/foco-quemado-solucion.jpg
 ---
 
 Es la tercera vez en el mes que vas a la ferretería a comprar un foco nuevo para la misma lámpara del pasillo. ¿Te suena familiar? Muchos clientes en **Yanahuara** y **Paucarpata** me llaman pensando que los focos salen "fallados", pero en el 90% de los casos, **el problema está en tu instalación eléctrica, no en el foco.**

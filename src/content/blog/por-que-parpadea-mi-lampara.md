@@ -2,9 +2,9 @@
 title: "¿Tu luz parpadea? 5 Causas que Dañan tu Vista (y cómo arreglarlo)"
 description: "El parpadeo de luces en Arequipa no es normal. Descubre si es culpa de SEAL, un cable flojo o tu interruptor con luz piloto. Soluciones rápidas aquí."
 pubDate: 2025-12-05
-author: "Técnico Juan Quilla"
+author: "Técnico CCG"
 tags: ["Iluminación LED", "Arequipa", "Fallas Eléctricas", "Mantenimiento"]
-image: ../../assets/luz-parpadeante-arequipa.jpg
+#image: ../../assets/luz-parpadeante-arequipa.jpg
 ---
 
 ¿Te sientes en una película de terror porque la luz de tu sala no deja de titilar? Ese efecto estroboscópico no solo es molesto, sino que **daña tu vista y puede provocar dolores de cabeza**.

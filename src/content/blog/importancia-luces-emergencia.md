@@ -2,9 +2,9 @@
 title: "Luces de Emergencia: ¿Adorno o Salvavidas? La Verdad que INDECI Exige"
 description: "¿Crees que solo sirven para pasar la inspección? Descubre por qué una luz de emergencia bien ubicada puede salvarte la vida en el próximo sismo en Arequipa."
 pubDate: 2025-12-05
-author: "Técnico Juan Quilla"
+author: "Técnico CCG"
 tags: ["INDECI", "Seguridad", "Arequipa", "Prevención", "Sismos"]
-image: ../../assets/luces-emergencia-importancia.jpg
+#image: ../../assets/luces-emergencia-importancia.jpg
 ---
 
 Vivimos en **Arequipa**, una ciudad hermosa pero con dos realidades inevitables: los temblores constantes y los cortes de luz imprevistos por lluvias o mantenimiento de **SEAL**.

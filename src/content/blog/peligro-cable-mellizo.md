@@ -2,9 +2,9 @@
 title: "Peligro: Por qué NO debes usar Cable Mellizo (Lo barato sale caro)"
 description: "¿Estás cableando tu casa con el cable blanco plano? Cuidado. Te explico por qué está prohibido por la norma peruana y el riesgo de incendio."
 pubDate: 2025-11-29
-author: "Técnico Juan Quilla"
+author: "Técnico CCG"
 tags: ["Seguridad", "Materiales", "Normativa"]
-image: ../../assets/peligro-cable-mellizo.png
+#image: ../../assets/peligro-cable-mellizo.png
 ---
 
 Es típico en las ferreterías de barrio: *"Deme 10 metros de cable para una extensión"* y te dan el clásico **cable blanco plano (mellizo)**.

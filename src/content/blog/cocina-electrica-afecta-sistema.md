@@ -2,9 +2,9 @@
 title: "¿Tu Cocina Eléctrica hace parpadear las luces? Peligros y Soluciones"
 description: "Instalar una cocina de inducción no es solo enchufar. Descubre por qué baja la tensión en tu casa y qué cables necesitas para evitar incendios en Arequipa."
 pubDate: 2025-12-05
-author: "Técnico Juan Quilla"
+author: "Técnico CCG"
 tags: ["Cocina de Inducción", "Instalación Eléctrica", "Arequipa", "Sobrecarga", "CNE"]
-image: ../../assets/cocina-electrica-instalacion.jpg
+#image: ../../assets/cocina-electrica-instalacion.jpg
 ---
 
 Te acabas de mudar a un departamento en **Cayma** o remodelaste tu cocina en **Paucarpata** y decidiste comprar una moderna cocina de inducción o vitrocerámica. Se ve hermosa, limpia fácil y cocina rápido.

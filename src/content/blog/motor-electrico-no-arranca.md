@@ -2,9 +2,9 @@
 title: "¡Mi Motor No Arranca! 5 Fallas Comunes y Cómo Revivirlo (Guía Arequipa)"
 description: "¿Tu bomba de agua o motor hace un zumbido pero no gira? Antes de rebobinar, revisa estas 5 causas frecuentes de fallo en Arequipa."
 pubDate: 2025-12-05
-author: "Técnico Juan Quilla"
+author: "Técnico CCG"
 tags: ["Motores Eléctricos", "Industria", "Mantenimiento", "Arequipa", "Bombas de Agua"]
-image: ../../assets/reparacion-motor-electrico.jpg
+#image: ../../assets/reparacion-motor-electrico.jpg
 ---
 
 Es el dolor de cabeza de todo taller en el **Parque Industrial de Río Seco** o de cualquier familia en **Cerro Colorado** que depende de una bomba de agua: aprietas el botón de encendido y... nada. O peor aún, solo escuchas un zumbido grave ("hmmm") y el eje no se mueve.

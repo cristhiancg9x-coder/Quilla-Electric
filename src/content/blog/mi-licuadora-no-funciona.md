@@ -2,9 +2,9 @@
 title: "¿Tu licuadora murió? 5 Fallas Comunes y Cómo Arreglarlas (Guía Arequipa)"
 description: "Si tu Oster no prende o huele a quemado justo cuando hacías la llajua, lee esto. Soluciones prácticas para recuperar tu licuadora antes de comprar otra."
 pubDate: 2025-12-05
-author: "Técnico Juan Quilla"
+author: "Técnico CCG"
 tags: ["Electrodomésticos", "Reparación", "Arequipa", "Ahorro"]
-image: ../../assets/reparacion-licuadora-arequipa.jpg
+#image: ../../assets/reparacion-licuadora-arequipa.jpg
 ---
 
 Es domingo, estás en tu cocina en **Yanahuara** preparando el aderezo o una buena ocopa, metes todo a la licuadora, giras la perilla y... silencio total. O peor, el motor suena pero las cuchillas no giran.

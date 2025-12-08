@@ -2,9 +2,9 @@
 title: "¿Hueles a Plástico Quemado? Por qué tus Luces de Navidad Derriten el Enchufe"
 description: "La Navidad no debe ser un riesgo. Descubre por qué conectar muchas luces quema tus tomacorrientes y cómo decorar tu casa en Arequipa sin provocar incendios."
 pubDate: 2025-12-05
-author: "Técnico Juan Quilla"
+author: "Técnico CCG"
 tags: ["Navidad Segura", "Prevención de Incendios", "Arequipa", "Sobrecarga"]
-image: ../../assets/tomacorriente-quemado-navidad.jpg
+#image: ../../assets/tomacorriente-quemado-navidad.jpg
 ---
 
 Llega diciembre y en **Arequipa** nos encanta iluminar la casa. Desde los nacimientos gigantes en **Paucarpata** hasta las fachadas en **Yanahuara**, todos queremos que nuestro hogar brille.

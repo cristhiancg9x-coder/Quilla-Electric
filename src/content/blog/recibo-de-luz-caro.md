@@ -2,9 +2,9 @@
 title: "¿Tu recibo de luz vino muy caro? 5 Causas de Fuga Eléctrica"
 description: "Si tu consumo aumentó de la nada, podrías tener una fuga invisible. Aprende a leer tu medidor y detecta si estás perdiendo dinero por las paredes."
 pubDate: 2025-11-30
-author: "Técnico Juan Quilla"
+author: "Técnico CCG"
 tags: ["Ahorro de Energía", "Fugas", "Seal/Enel"]
-image: ../../assets/recibo-luz-alto.png
+#image: ../../assets/recibo-luz-alto.png
 ---
 
 ¿Este mes tu recibo de **SEAL** o **Enel** llegó por las nubes y no sabes por qué? Es la queja #1 que atiendo en Arequipa.

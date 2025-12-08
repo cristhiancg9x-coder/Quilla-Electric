@@ -2,9 +2,9 @@
 title: "Los 4 Guardianes Eléctricos: Dispositivos que Protegen tu Casa de Desastres"
 description: "¿Solo tienes una llave general? Estás en riesgo. Conoce el Diferencial, el DPS y la Puesta a Tierra, los dispositivos obligatorios en Arequipa para evitar electrocuciones."
 pubDate: 2025-12-05
-author: "Técnico Juan Quilla"
+author: "Técnico CCG"
 tags: ["Seguridad Eléctrica", "Tablero Eléctrico", "Arequipa", "Diferencial", "Pozo a Tierra"]
-image: ../../assets/proteccion-electrica-tablero.jpg
+#image: ../../assets/proteccion-electrica-tablero.jpg
 ---
 
 Cuando hablo de "seguridad en casa" con mis vecinos de **Cayma** o **José Luis Bustamante y Rivero**, la mayoría piensa en chapas, alarmas o cámaras. Pero se olvidan del peligro más silencioso y letal: **la electricidad**.

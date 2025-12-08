@@ -2,9 +2,9 @@
 title: "¿Tu Casa está Segura? 5 Razones Urgentes para Instalar Cámaras Hoy"
 description: "No esperes a un robo para actuar. Descubre cómo las cámaras de seguridad protegen tu hogar en Arequipa y te dan control total desde tu celular."
 pubDate: 2025-12-05
-author: "Técnico Juan Quilla"
+author: "Técnico CCG"
 tags: ["CCTV", "Seguridad Ciudadana", "Arequipa", "Hikvision", "Dahua"]
-image: ../../assets/camara-seguridad-arequipa.jpg
+#image: ../../assets/camara-seguridad-arequipa.jpg
 ---
 
 La inseguridad en Arequipa ha cambiado. Ya no basta con tener una chapa fuerte o un perro en la azotea. Diariamente, vecinos de **Yanahuara**, **Paucarpata** y el **Cercado** me consultan preocupados tras escuchar noticias de robos en su zona.

@@ -2,9 +2,9 @@
 title: "¿Realmente ahorras dinero con Paneles Solares? La Verdad en Arequipa"
 description: "¿Te conviene instalar paneles o es pura moda? Analizamos costos, retorno de inversión y cuánto puedes bajar tu recibo de SEAL aprovechando el sol arequipeño."
 pubDate: 2025-12-05
-author: "Técnico Juan Quilla"
+author: "Técnico CCG"
 tags: ["Energía Solar", "Arequipa", "Ahorro", "SEAL", "Renovables"]
-image: ../../assets/paneles-solares-arequipa.jpg
+#image: ../../assets/paneles-solares-arequipa.jpg
 ---
 
 Vives en **Arequipa**, la ciudad con una de las radiaciones solares más altas del mundo. Miras el sol quemante de mediodía en **Cerro Colorado** o **La Joya** y luego miras tu recibo de luz de **SEAL** que sube cada mes. Es inevitable preguntarse: *"¿Y si pongo paneles solares?"*.

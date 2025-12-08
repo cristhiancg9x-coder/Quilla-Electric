@@ -2,9 +2,9 @@
 title: "¡Se fue la luz! 3 Razones por las que salta la Llave Térmica"
 description: "¿Tu palanca de luz se baja sola? No la fuerces. Descubre si es una sobrecarga por la ducha, un cortocircuito peligroso o una llave malograda."
 pubDate: 2025-11-28
-author: "Técnico Juan Quilla"
+author: "Técnico CCG"
 tags: ["Emergencias", "Fallas Eléctricas", "Solución de Problemas"]
-image: ../../assets/tablero-industrial.jpeg
+#image: ../../assets/tablero-industrial.jpeg
 ---
 
 Es la escena clásica en Arequipa: entras a bañarte, enciendes la **ducha eléctrica** y, a los pocos minutos... *¡Click!* Todo se queda oscuro.

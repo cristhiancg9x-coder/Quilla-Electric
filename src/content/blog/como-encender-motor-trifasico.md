@@ -2,9 +2,9 @@
 title: "Cómo Arrancar un Motor Trifásico: 3 Métodos Seguros y Eficientes"
 description: "¿Arranque Directo o Estrella-Triángulo? Evita que salten las llaves de tu taller en Arequipa y aprende a encender motores industriales sin dañarlos."
 pubDate: 2025-12-05
-author: "Técnico Juan Quilla"
+author: "Técnico CCG"
 tags: ["Motores Trifásicos", "Automatización", "Parque Industrial", "Tableros Eléctricos"]
-image: ../../assets/arranque-motor-trifasico.jpg
+#image: ../../assets/arranque-motor-trifasico.jpg
 ---
 
 Si tienes un taller en el **Parque Industrial de Río Seco** o una pequeña fábrica en la **Variante de Uchumayo**, sabes que conectar un motor trifásico no es tan simple como enchufar una licuadora.

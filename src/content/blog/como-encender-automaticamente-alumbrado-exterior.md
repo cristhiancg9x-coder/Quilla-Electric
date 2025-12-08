@@ -2,9 +2,9 @@
 title: "¿Cansado de encender la luz a mano? 4 Formas de Automatizar tu Fachada"
 description: "Llega a tu casa en Arequipa y encuentra todo iluminado. Descubre cómo instalar fotocélulas, sensores y temporizadores para mayor seguridad y confort."
 pubDate: 2025-12-05
-author: "Técnico Juan Quilla"
+author: "Técnico CCG"
 tags: ["Domótica", "Seguridad", "Sensores", "Arequipa", "Iluminación Exterior"]
-image: ../../assets/iluminacion-automatica-exterior.jpg
+#image: ../../assets/iluminacion-automatica-exterior.jpg
 ---
 
 ¿Te ha pasado que sales temprano de tu casa en **Paucarpata** o **Sachaca** y te olvidas de apagar la luz del patio, dejándola prendida todo el día? O al revés, ¿llegas de noche y tu entrada es una "boca de lobo" perfecta para los delincuentes?

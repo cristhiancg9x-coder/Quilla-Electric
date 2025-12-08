@@ -2,9 +2,9 @@
 title: "¿Luces y Enchufes Juntos? Por qué es un Error Peligroso (y cómo evitarlo)"
 description: "Si salta la llave y te quedas a oscuras, tienes un problema. Descubre por qué el Código Eléctrico exige separar tus circuitos para proteger tu casa en Arequipa."
 pubDate: 2025-12-05
-author: "Técnico Juan Quilla"
+author: "Técnico CCG"
 tags: ["Tablero Eléctrico", "Seguridad", "Normativa CNE", "Arequipa", "Remodelación"]
-image: ../../assets/tablero-electrico-ordenado.jpg
+#image: ../../assets/tablero-electrico-ordenado.jpg
 ---
 
 Imagina esta escena: Estás en tu cocina en **Mariano Melgar** o **Miraflores** por la noche, enchufas la licuadora y... ¡PUM! Hubo un corto. Pero el problema no es solo que la licuadora dejó de funcionar, sino que **toda la casa se quedó en completa oscuridad**.

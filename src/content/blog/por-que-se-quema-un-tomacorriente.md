@@ -2,9 +2,9 @@
 title: "¿Por qué se quema un tomacorriente? 5 Razones Peligrosas y Soluciones"
 description: "¿Olor a plástico quemado? Descubre por qué tus enchufes se derriten o echan chispas y cómo evitar incendios eléctricos en tu hogar en Arequipa."
 pubDate: 2025-12-05
-author: "Técnico Juan Quilla"
+author: "Técnico CCG"
 tags: ["Seguridad Eléctrica", "Reparaciones", "Arequipa", "Mantenimiento", "Tomacorrientes"]
-image: ../../assets/tomacorriente-quemado-peligroso.jpg
+#image: ../../assets/tomacorriente-quemado-peligroso.jpg
 ---
 
 ¿Alguna vez has sentido un olor a pescado o plástico quemado cerca de un enchufe? O peor aún, ¿has visto manchas negras alrededor de la placa del tomacorriente? No es algo normal y, definitivamente, **es una señal de alarma**.
