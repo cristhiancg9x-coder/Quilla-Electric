@@ -4,7 +4,7 @@ description: "No es estrés, es tu foco. Descubre cómo una iluminación deficie
 pubDate: 2025-12-05
 author: "Técnico CCG"
 tags: ["Salud Visual", "Iluminación LED", "Arequipa", "Bienestar", "Normativa"]
-#image: https://placehold.co/600x400?text=FOTO+PENDIENTE&old=mala-iluminacion-salud.jpg
+image: "../../assets/mala-iluminacion-afecta-tu-vida.png"
 ---
 
 Llegas a tu casa en **Cayma** después de un largo día de trabajo, te sientas a leer o a revisar las tareas de tus hijos y, a los 20 minutos, sientes pesadez en los ojos y un leve dolor de cabeza. ¿Te suena familiar?
@@ -13,7 +13,7 @@ La mayoría de mis clientes en Arequipa piensan que la iluminación es solo para
 
 Aquí te explico por qué ese foco barato que compraste en la ferretería te está costando más caro de lo que crees.
 
-![Persona frotándose los ojos por fatiga visual debido a mala iluminación en oficina](https://placehold.co/600x400?text=FOTO+PENDIENTE&old=mala-iluminacion-salud.jpg)
+![Persona frotándose los ojos por fatiga visual debido a mala iluminación en oficina](../../assets/mala-iluminacion-afecta-tu-vida.png)
 
 ## 1. Fatiga Visual y Migrañas (El parpadeo invisible)
 

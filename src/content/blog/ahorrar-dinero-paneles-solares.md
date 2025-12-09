@@ -4,14 +4,14 @@ description: "¿Te conviene instalar paneles o es pura moda? Analizamos costos, 
 pubDate: 2025-12-05
 author: "Técnico CCG"
 tags: ["Energía Solar", "Arequipa", "Ahorro", "SEAL", "Renovables"]
-#image: https://placehold.co/600x400?text=FOTO+PENDIENTE&old=paneles-solares-arequipa.jpg
+image: "../../assets/ahorrar-dinero-paneles-solares.png"
 ---
 
 Vives en **Arequipa**, la ciudad con una de las radiaciones solares más altas del mundo. Miras el sol quemante de mediodía en **Cerro Colorado** o **La Joya** y luego miras tu recibo de luz de **SEAL** que sube cada mes. Es inevitable preguntarse: *"¿Y si pongo paneles solares?"*.
 
 La respuesta corta es: **SÍ, puedes ahorrar mucho dinero**, pero no es mágico. Depende de *cómo* y *para qué* los instales. Como técnico, he visto clientes felices que pagan casi cero y otros que gastaron una fortuna en baterías innecesarias. Aquí te explico las cuentas claras.
 
-![Instalación de paneles solares fotovoltaicos en un techo residencial con sol radiante](https://placehold.co/600x400?text=FOTO+PENDIENTE&old=paneles-solares-arequipa.jpg)
+![Instalación de paneles solares fotovoltaicos en un techo residencial con sol radiante](../../assets/ahorrar-dinero-paneles-solares.png)
 
 ## 1. La Ventaja Arequipeña (Radiación)
 

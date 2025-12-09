@@ -4,7 +4,7 @@ description: "No esperes a un robo para actuar. Descubre cómo las cámaras de s
 pubDate: 2025-12-05
 author: "Técnico CCG"
 tags: ["CCTV", "Seguridad Ciudadana", "Arequipa", "Hikvision", "Dahua"]
-#image: https://placehold.co/600x400?text=FOTO+PENDIENTE&old=camara-seguridad-arequipa.jpg
+image: "../../assets/importancia-camaras-seguridad.png"
 ---
 
 La inseguridad en Arequipa ha cambiado. Ya no basta con tener una chapa fuerte o un perro en la azotea. Diariamente, vecinos de **Yanahuara**, **Paucarpata** y el **Cercado** me consultan preocupados tras escuchar noticias de robos en su zona.
@@ -13,7 +13,7 @@ La pregunta que siempre les hago es: *"Si algo pasa hoy en tu puerta, ¿tienes c
 
 Instalar un sistema de videovigilancia (CCTV) ha dejado de ser un lujo de empresas para convertirse en una necesidad básica del hogar. Aquí te explico por qué es la mejor inversión para tu tranquilidad.
 
-![Técnico instalando cámara de seguridad tipo bala en exteriores](https://placehold.co/600x400?text=FOTO+PENDIENTE&old=camara-seguridad-arequipa.jpg)
+![Técnico instalando cámara de seguridad tipo bala en exteriores](../../assets/importancia-camaras-seguridad.png)
 
 ## 1. El Efecto Disuasivo (El ladrón lo piensa dos veces)
 

@@ -4,14 +4,14 @@ description: "Una mala luz causa accidentes y errores de producción. Descubre q
 pubDate: 2025-12-05
 author: "Técnico CCG"
 tags: ["Iluminación Industrial", "Norma EM.010", "Arequipa", "Eficiencia Energética", "Seguridad"]
-#image: https://placehold.co/600x400?text=FOTO+PENDIENTE&old=iluminacion-industrial-led.jpg
+image: "../../assets/mejor-iluminacion-espacios-industriales.png"
 ---
 
 Si tienes una planta en el **Parque Industrial de Río Seco** o un taller de metalmecánica en la **Variante**, sabes que la luz es dinero. Un operario que no ve bien, trabaja más lento, comete errores de medida y, lo más grave, puede sufrir un accidente laboral.
 
 Muchos empresarios en Arequipa siguen usando campanas antiguas de sodio o halogenuro metálico que consumen muchísimo y dan una luz naranja que cansa la vista. Hoy te explico qué iluminación es la correcta según el **Reglamento Nacional de Edificaciones (Norma EM.010)**.
 
-![Interior de nave industrial iluminada con campanas LED High Bay de luz blanca](https://placehold.co/600x400?text=FOTO+PENDIENTE&old=iluminacion-industrial-led.jpg)
+![Interior de nave industrial iluminada con campanas LED High Bay de luz blanca](../../assets/mejor-iluminacion-espacios-industriales.png)
 
 ## 1. Tecnología LED: Adiós al Halogenuro
 

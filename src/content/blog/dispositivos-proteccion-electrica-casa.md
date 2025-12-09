@@ -4,14 +4,14 @@ description: "¿Solo tienes una llave general? Estás en riesgo. Conoce el Difer
 pubDate: 2025-12-05
 author: "Técnico CCG"
 tags: ["Seguridad Eléctrica", "Tablero Eléctrico", "Arequipa", "Diferencial", "Pozo a Tierra"]
-#image: https://placehold.co/600x400?text=FOTO+PENDIENTE&old=proteccion-electrica-tablero.jpg
+image: "../../assets/dispositivos-proteccion-electrica-casa.png"
 ---
 
 Cuando hablo de "seguridad en casa" con mis vecinos de **Cayma** o **José Luis Bustamante y Rivero**, la mayoría piensa en chapas, alarmas o cámaras. Pero se olvidan del peligro más silencioso y letal: **la electricidad**.
 
 Un sistema eléctrico seguro no es solo "que prenda el foco". Es tener un equipo de defensa listo para actuar en milisegundos si algo falla. Según el **Código Nacional de Electricidad**, tu tablero debe tener mucho más que las antiguas "palancas". Aquí te presento los dispositivos que realmente protegen tu vida y tu inversión.
 
-![Tablero eléctrico residencial moderno con interruptores termomagnéticos y diferenciales instalados](https://placehold.co/600x400?text=FOTO+PENDIENTE&old=proteccion-electrica-tablero.jpg)
+![Tablero eléctrico residencial moderno con interruptores termomagnéticos y diferenciales instalados](../../assets/dispositivos-proteccion-electrica-casa.png)
 
 ## 1. El Interruptor Termomagnético (La "Llave")
 

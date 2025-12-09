@@ -4,14 +4,14 @@ description: "No arriesgues a tu familia. Aprende la diferencia exacta entre lla
 pubDate: 2025-11-29
 author: "Técnico CCG"
 tags: ["Seguridad Eléctrica", "Tableros", "Normativa Perú"]
-#image: https://placehold.co/600x400?text=FOTO+PENDIENTE&old=diferencial-vs-termica.jpg
+image: "../../assets/diferencia-termica-diferencial.png"
 ---
 
 Es la pregunta más común que recibo en mis visitas técnicas en **Arequipa**: *"Juan, ¿por qué tengo tantas palancas en el tablero y para qué sirven?"*.
 
 Muchos hogares antiguos en Perú solo tienen una "llave de cuchilla" o una térmica simple. **Esto es un error mortal.** Para tener una instalación eléctrica segura y cumplir con el **Código Nacional de Electricidad**, necesitas entender la diferencia entre los dos guardianes de tu hogar: la **Llave Termomagnética** y el **Interruptor Diferencial**.
 
-![Diferencia visual entre llave térmica y diferencial](https://placehold.co/600x400?text=FOTO+PENDIENTE&old=diferencial-vs-termica.jpg)
+![Diferencia visual entre llave térmica y diferencial](../../assets/diferencia-termica-diferencial.png)
 
 ## 1. La Llave Termomagnética (El Guardián de los Cables)
 

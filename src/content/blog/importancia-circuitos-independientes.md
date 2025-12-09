@@ -4,7 +4,7 @@ description: "Si salta la llave y te quedas a oscuras, tienes un problema. Descu
 pubDate: 2025-12-05
 author: "Técnico CCG"
 tags: ["Tablero Eléctrico", "Seguridad", "Normativa CNE", "Arequipa", "Remodelación"]
-#image: https://placehold.co/600x400?text=FOTO+PENDIENTE&old=tablero-electrico-ordenado.jpg
+image: "../../assets/importancia-circuitos-independientes.png"
 ---
 
 Imagina esta escena: Estás en tu cocina en **Mariano Melgar** o **Miraflores** por la noche, enchufas la licuadora y... ¡PUM! Hubo un corto. Pero el problema no es solo que la licuadora dejó de funcionar, sino que **toda la casa se quedó en completa oscuridad**.
@@ -13,7 +13,7 @@ Si esto te ha pasado, es porque tu instalación eléctrica tiene las luces y los
 
 Aquí te explico por qué, como técnico electricista, insisto tanto en la **independización de circuitos**.
 
-![Tablero eléctrico residencial moderno con circuitos de alumbrado y tomacorrientes separados](https://placehold.co/600x400?text=FOTO+PENDIENTE&old=tablero-electrico-ordenado.jpg)
+![Tablero eléctrico residencial moderno con circuitos de alumbrado y tomacorrientes separados](../../assets/importancia-circuitos-independientes.png)
 
 ## 1. Seguridad ante todo: No te quedes a oscuras
 

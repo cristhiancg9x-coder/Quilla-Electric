@@ -4,16 +4,15 @@ description: "¿Crees que solo sirven para pasar la inspección? Descubre por qu
 pubDate: 2025-12-05
 author: "Técnico CCG"
 tags: ["INDECI", "Seguridad", "Arequipa", "Prevención", "Sismos"]
-#image: https://placehold.co/600x400?text=FOTO+PENDIENTE&old=luces-emergencia-importancia.jpg
+image: "../../assets/importancia-luces-emergencia.png"
 ---
-
 Vivimos en **Arequipa**, una ciudad hermosa pero con dos realidades inevitables: los temblores constantes y los cortes de luz imprevistos por lluvias o mantenimiento de **SEAL**.
 
 Cuando ocurre un apagón repentino en la noche, esos primeros 10 segundos son críticos. El pánico, los tropezones y la desorientación pueden causar accidentes graves. Aquí es donde la **Luz de Emergencia** deja de ser un requisito burocrático para convertirse en tu mejor aliado.
 
 Como técnico electricista, veo muchas casas y negocios en **Hunter** o **Miraflores** que tienen las luces desenchufadas o quemadas. Hoy te explico por qué esto es un error grave.
 
-![Luz de emergencia de doble foco iluminando un pasillo oscuro durante un apagón](https://placehold.co/600x400?text=FOTO+PENDIENTE&old=luces-emergencia-importancia.jpg)
+![Luz de emergencia de doble foco iluminando un pasillo oscuro durante un apagón](../../assets/importancia-luces-emergencia.png)
 
 ## 1. Evacuación Segura en Sismos
 

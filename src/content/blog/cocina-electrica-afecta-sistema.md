@@ -4,7 +4,7 @@ description: "Instalar una cocina de inducción no es solo enchufar. Descubre po
 pubDate: 2025-12-05
 author: "Técnico CCG"
 tags: ["Cocina de Inducción", "Instalación Eléctrica", "Arequipa", "Sobrecarga", "CNE"]
-#image: https://placehold.co/600x400?text=FOTO+PENDIENTE&old=cocina-electrica-instalacion.jpg
+image: "../../assets/cocina-electrica-afecta-sistema.png"
 ---
 
 Te acabas de mudar a un departamento en **Cayma** o remodelaste tu cocina en **Paucarpata** y decidiste comprar una moderna cocina de inducción o vitrocerámica. Se ve hermosa, limpia fácil y cocina rápido.
@@ -13,7 +13,7 @@ Pero, la primera vez que prendes tres hornillas al mismo tiempo, notas algo raro
 
 ¿La cocina está malograda? No. El problema es que tu sistema eléctrico no estaba preparado para "la bestia" que acabas de conectar. Aquí te explico cómo afecta este electrodoméstico a tu red y cómo solucionarlo.
 
-![Instalación de cocina de inducción con cableado independiente y protección térmica](https://placehold.co/600x400?text=FOTO+PENDIENTE&old=cocina-electrica-instalacion.jpg)
+![Instalación de cocina de inducción con cableado independiente y protección térmica](../../assets/cocina-electrica-afecta-sistema.png)
 
 ## 1. El Consumo "Monstruoso" de Energía
 

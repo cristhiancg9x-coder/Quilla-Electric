@@ -4,14 +4,14 @@ description: "El parpadeo de luces en Arequipa no es normal. Descubre si es culp
 pubDate: 2025-12-05
 author: "Técnico CCG"
 tags: ["Iluminación LED", "Arequipa", "Fallas Eléctricas", "Mantenimiento"]
-#image: https://placehold.co/600x400?text=FOTO+PENDIENTE&old=luz-parpadeante-arequipa.jpg
+image: "../../assets/por-que-parpadea-mi-lampara.png"
 ---
 
 ¿Te sientes en una película de terror porque la luz de tu sala no deja de titilar? Ese efecto estroboscópico no solo es molesto, sino que **daña tu vista y puede provocar dolores de cabeza**.
 
 Muchos vecinos en **Cayma** y **José Luis Bustamante y Rivero** me preguntan si es culpa de la empresa eléctrica o de sus focos. La respuesta corta es: depende. Aquí te detallo las razones técnicas por las que tus lámparas parpadean y cómo lo solucionamos en **QuillaElectric**.
 
-![Lámpara LED parpadeando por problemas de tensión o interruptor piloto](https://placehold.co/600x400?text=FOTO+PENDIENTE&old=luz-parpadeante-arequipa.jpg)
+![Lámpara LED parpadeando por problemas de tensión o interruptor piloto](../../assets/por-que-parpadea-mi-lampara.png)
 
 ## 1. El Interruptor con "Luz Piloto" (El culpable silencioso)
 

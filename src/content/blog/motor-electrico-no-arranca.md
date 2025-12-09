@@ -4,14 +4,14 @@ description: "¿Tu bomba de agua o motor hace un zumbido pero no gira? Antes de 
 pubDate: 2025-12-05
 author: "Técnico CCG"
 tags: ["Motores Eléctricos", "Industria", "Mantenimiento", "Arequipa", "Bombas de Agua"]
-#image: https://placehold.co/600x400?text=FOTO+PENDIENTE&old=reparacion-motor-electrico.jpg
+image: "../../assets/motor-electrico-no-arranca.png"
 ---
 
 Es el dolor de cabeza de todo taller en el **Parque Industrial de Río Seco** o de cualquier familia en **Cerro Colorado** que depende de una bomba de agua: aprietas el botón de encendido y... nada. O peor aún, solo escuchas un zumbido grave ("hmmm") y el eje no se mueve.
 
 Como técnico, he visto motores descartados como "quemados" que en realidad tenían soluciones simples. Antes de que entres en pánico, vamos a diagnosticar por qué tu motor eléctrico se ha declarado en huelga.
 
-![Técnico realizando pruebas de continuidad en un motor eléctrico trifásico](https://placehold.co/600x400?text=FOTO+PENDIENTE&old=reparacion-motor-electrico.jpg)
+![Técnico realizando pruebas de continuidad en un motor eléctrico trifásico](../../assets/motor-electrico-no-arranca.png)
 
 ## 1. El Condensador de Arranque (El culpable #1 en Monofásicos)
 

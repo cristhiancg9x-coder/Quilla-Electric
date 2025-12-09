@@ -4,7 +4,7 @@ description: "Los cortes repentinos y las subidas de tensión pueden destruir tu
 pubDate: 2025-11-29
 author: "Técnico CCG"
 tags: ["Ahorro", "Protección", "Electrodomésticos"]
-#image: https://placehold.co/600x400?text=FOTO+PENDIENTE&old=protector-voltaje.png
+image: "../../assets/proteccion-electrodomesticos.png"
 ---
 
 Arequipa tiene una red eléctrica que a veces es inestable. Un día hay un corte de luz en el barrio, y cuando la energía regresa... **vuelve con fuerza (pico de tensión)**.
@@ -14,7 +14,7 @@ Ese "golpe" de energía dura menos de un segundo, pero es suficiente para quemar
 ## ¿El Estabilizador es suficiente?
 Mucha gente compra esos estabilizadores de plástico baratos para la computadora. Sirven para pequeñas variaciones, pero **no aguantan un golpe fuerte** de tensión. Además, no puedes ponerle uno a cada aparato de la casa (sería carísimo y feo).
 
-![Protector de voltaje en tablero eléctrico](https://placehold.co/600x400?text=FOTO+PENDIENTE&old=protector-voltaje.png)
+![Protector de voltaje en tablero eléctrico](../../assets/proteccion-electrodomesticos.png)
 
 ## La Solución Profesional: Protector de Sobretensión en Tablero
 En lugar de proteger aparato por aparato, ¿por qué no proteger **toda la casa desde la entrada**?

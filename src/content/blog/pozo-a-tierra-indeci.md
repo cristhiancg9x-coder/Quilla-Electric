@@ -4,7 +4,7 @@ description: "¿La Municipalidad te pide el Protocolo de Pruebas? Te explico qu�
 pubDate: 2025-11-30
 author: "Técnico CCG"
 tags: ["Negocios", "Normativa", "Pozo a Tierra"]
-#image: https://placehold.co/600x400?text=FOTO+PENDIENTE&old=mantenimiento-pozo.jpeg
+image: "../../assets/pozo-a-tierra-indeci.png"
 ---
 
 Si tienes una tienda, taller u oficina en Arequipa, seguro ya recibiste la visita de la Municipalidad o **Defensa Civil (INDECI)**. Lo primero que piden es: *"Señor, muéstreme su Certificado de Operatividad del Pozo a Tierra vigentes"*.
@@ -13,7 +13,7 @@ Si no lo tienes, o si venció hace más de un año, **te arriesgas a una multa o
 
 Pero más allá del papel, ¿sabes por qué es tan importante?
 
-![Mantenimiento de pozo a tierra con teluómetro](https://placehold.co/600x400?text=FOTO+PENDIENTE&old=mantenimiento-pozo.jpeg)
+![Mantenimiento de pozo a tierra con teluómetro](../../assets/pozo-a-tierra-indeci.png)
 
 ## ¿Qué es exactamente el Pozo a Tierra?
 Imagina que hay una falla eléctrica en una congeladora de tu tienda. La corriente "se escapa" a la carcasa de metal. Si un cliente la toca, recibe una descarga.

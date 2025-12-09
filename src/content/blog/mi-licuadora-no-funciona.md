@@ -4,14 +4,14 @@ description: "Si tu Oster no prende o huele a quemado justo cuando hacías la ll
 pubDate: 2025-12-05
 author: "Técnico CCG"
 tags: ["Electrodomésticos", "Reparación", "Arequipa", "Ahorro"]
-#image: https://placehold.co/600x400?text=FOTO+PENDIENTE&old=reparacion-licuadora-arequipa.jpg
+image: "../../assets/mi-licuadora-no-funciona.png"
 ---
 
 Es domingo, estás en tu cocina en **Yanahuara** preparando el aderezo o una buena ocopa, metes todo a la licuadora, giras la perilla y... silencio total. O peor, el motor suena pero las cuchillas no giran.
 
 La licuadora (especialmente la clásica **Oster**) es un electrodoméstico de batalla en Perú. Antes de que corras a comprar una nueva al mall, revisa estos puntos. El 80% de las veces, la reparación cuesta una fracción del precio de una nueva.
 
-![Técnico reparando el acople de una licuadora clásica con herramientas](https://placehold.co/600x400?text=FOTO+PENDIENTE&old=reparacion-licuadora-arequipa.jpg)
+![Técnico reparando el acople de una licuadora clásica con herramientas](../../assets/mi-licuadora-no-funciona.png)
 
 ## 1. El Cable está roto (Falso contacto)
 
