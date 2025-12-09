@@ -43,4 +43,24 @@
   .menu-links a:hover {
     color: #fbbf24; /* Cambia a amarillo al pasar el mouse */
   }
+  /* --- CÓDIGO NUEVO PARA MÓVILES --- */
+  @media (max-width: 768px) {
+    .barra-electrica {
+      flex-direction: column; /* Pone el logo arriba y menú abajo */
+      gap: 15px; /* Espacio entre logo y menú */
+      padding: 15px;
+    }
+
+    .menu-links {
+      width: 100%;
+      justify-content: center; /* Centra los enlaces */
+      flex-wrap: wrap; /* Si no caben, bajan a la siguiente línea */
+      gap: 15px; /* Espacio entre palabras */
+      font-size: 0.9rem; /* Letra un pelín más chica para que entre */
+    }
+    
+    .menu-links li {
+      margin: 0; /* Quitamos márgenes viejos si los hubiera */
+    }
+  }
 </style>
