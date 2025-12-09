@@ -2,6 +2,7 @@
 title: "Detección de Fugas de Corriente"
 description: "¿Tu recibo de luz llega muy caro? Podrías tener una fuga invisible que te está costando dinero."
 price: "S/ 100 (Diagnóstico)"
+image: ../../assets/servicios-deteccion-fuga-corriente.png
 ---
 
 ## ¿Pagas demasiado por la luz?

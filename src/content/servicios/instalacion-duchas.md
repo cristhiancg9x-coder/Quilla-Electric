@@ -2,6 +2,7 @@
 title: "Instalación de Duchas Eléctricas"
 description: "Disfruta de agua caliente segura. Instalamos Rapiduchas, Lorenzetti y Termas con cableado independiente para evitar que salte la llave."
 price: "Desde S/ 80"
+image: ../../assets/servicios-ducha-electrica.png
 ---
 
 ## ¿Te bañas con miedo a que salte la luz?
