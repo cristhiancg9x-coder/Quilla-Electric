@@ -34,6 +34,37 @@ const imagenAbsoluta = new URL(imagen, siteURL).href;
     <meta property="og:image" content={imagenAbsoluta} /> <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="google-site-verification" content="v9b95geQ84lPrqkhNMwzQhD3hu9WmAT8F2M60z5rbGA" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Electrician",
+        "name": "Quilla Electric",
+        "image": "https://quillaelectric.site/logo.png",
+        "@id": "https://quillaelectric.site",
+        "url": "https://quillaelectric.site",
+        "telephone": "+51951413458",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Cerro Colorado",
+          "addressLocality": "Arequipa",
+          "addressRegion": "Arequipa",
+          "postalCode": "04014",
+          "addressCountry": "PE"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -16.3766,
+          "longitude": -71.5602
+        },
+        "areaServed": [
+          "Cerro Colorado",
+          "Cayma",
+          "Yanahuara",
+          "Arequipa"
+        ],
+        "priceRange": "$$"
+      }
+    </script>    
   </head>
   
   <body>
