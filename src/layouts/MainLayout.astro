@@ -24,6 +24,18 @@ const imagenAbsoluta = new URL(imagen, siteURL).href;
     <meta name="generator" content={Astro.generator} />
     
     <title>{titulo} | Quilla Electric</title>
+     <!-- Google tag (gtag.js) -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-JNC3CZ4STT"></script>
+        <script is:inline>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){
+            // @ts-ignore
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+
+          gtag('config', 'G-JNC3CZ4STT');
+        </script>
     <meta name="description" content={descripcion} />
     <link rel="canonical" href={Astro.url} />
     
