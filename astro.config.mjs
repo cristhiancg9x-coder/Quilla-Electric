@@ -11,6 +11,7 @@ export default defineConfig({
 
   // Modo servidor para que funcione el cotizador dinámico
   output: 'server',
+  adapter: vercel(),
 
   integrations: [
     sitemap(), 
