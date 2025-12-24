@@ -20,6 +20,7 @@ export default defineConfig({
 
   // Configuración del adaptador
   adapter: vercel({
-    webAnalytics: { enabled: true } // Opcional: ayuda a Vercel a detectar mejor la app
+    webAnalytics: { enabled: true },
+    imageService: true, // Opcional: ayuda a Vercel a detectar mejor la app
   })
 });
