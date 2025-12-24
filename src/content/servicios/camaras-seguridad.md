@@ -1,25 +1,46 @@
 ---
-title: "Instalación de Cámaras de Seguridad (CCTV)"
-description: "Protege lo que más importa. Vigila tu casa o negocio desde tu celular las 24 horas. Instalación de cámaras HD, visión nocturna y DVR."
-price: "Cotizar Kit"
+title: "Instalación de Cámaras de Seguridad Inteligentes"
+description: "Sistemas de Videovigilancia en Arequipa. Cámaras Solares 4G, WiFi y CCTV Profesional. Cotiza tu instalación en segundos con nuestra IA."
+price: "Desde S/ 250"
 image: ../../assets/camaras-seguridad.png
+widget: "cctv-wizard"
 ---
 
-## ¿Te preocupa dejar tu casa sola?
-La inseguridad en Arequipa ha aumentado, pero la tecnología es tu mejor aliada. Ya no necesitas estar presente para cuidar tu patrimonio. Con un sistema de videovigilancia moderno, tienes ojos en tu hogar las 24 horas.
+## 👁️ Vigilancia Total: Tu casa en tu bolsillo
+La seguridad en **Arequipa** ha cambiado, y tu sistema de protección también debe hacerlo. En **Quilla Electric** no solo instalamos cámaras; implementamos **ecosistemas de seguridad inteligente** que te avisan *antes* de que ocurra un incidente.
 
-### Control Total desde tu Celular
-Nosotros configuramos el sistema para que puedas **ver las cámaras en vivo desde tu Smartphone** (Android o iPhone) estés donde estés.
+Olvídate de los sistemas viejos con imágenes borrosas. Trabajamos con tecnología **Full HD y 2K** con Inteligencia Artificial para detección de humanos y vehículos.
 
-### ¿Qué incluye nuestra instalación profesional?
-No solo "colgamos" la cámara. Realizamos una instalación técnica y estética:
+### 🚀 ¿Por qué elegir nuestras soluciones?
 
-1.  **Cámaras Full HD (1080p):** Imagen nítida para reconocer rostros y placas.
-2.  **Visión Nocturna:** Infrarrojos potentes para ver en total oscuridad.
-3.  **Grabación Continua (DVR):** Disco duro para revisar lo que pasó hace días o semanas.
-4.  **Protección IP66:** Cámaras resistentes a la lluvia intensa de Arequipa y al polvo.
-5.  **Cableado Estético:** Usamos canaletas o tubería conduit para que no se vean cables colgando.
+No vendemos "cajas", vendemos tranquilidad instalada:
 
-**Marcas líderes:** Trabajamos con **Hikvision** y **Dahua** (garantía y repuestos asegurados).
+* 📱 **Control desde el Celular:** App intuitiva (Android/iOS) para ver en vivo, escuchar y hablar a través de la cámara.
+* 🔋 **Soluciones Solares 4G:** ¿Tienes un terreno, chacra o almacén sin luz ni internet? Tenemos cámaras 100% autónomas con panel solar y chip.
+* 📡 **Tecnología Híbrida:** Instalamos desde cámaras **WiFi estéticas** para departamentos (sin cables visibles) hasta sistemas **CCTV (NVR)** robustos para empresas.
+* 🌙 **Visión Nocturna a Color:** Tecnología *ColorVu* y *DarkFighter* para ver a colores incluso de noche.
 
-[**👉 ¡Quiero cotizar un Kit de Cámaras!**](/contacto)
+---
+
+### 🛠️ Nuestros Estándares de Instalación
+
+Nos diferenciamos por el acabado estético y la durabilidad:
+
+1.  **Cero Cables Colgando:** Usamos **canaletas adhesivas** o **tubería PVC/Conduit** para un acabado industrial y elegante.
+2.  **Configuración de Alertas:** Calibramos la cámara para que te envíe una notificación a WhatsApp/App solo cuando detecte movimiento real.
+3.  **Almacenamiento Flexible:** Tú eliges: Chips MicroSD independientes o Grabador Central (NVR) con Discos Duros de 1TB/2TB.
+
+> **Marcas Partner:** Garantizamos tu inversión trabajando con líderes mundiales como **Ezviz, Hikvision y Dahua**.
+
+---
+
+### 👇 ¡Cotiza tu Proyecto Ahora Mismo! 👇
+
+**¿Cansado de esperar días por una cotización?**
+Hemos creado una herramienta exclusiva para ti. Usa nuestro **Cotizador Inteligente** aquí abajo.
+
+1.  Elige el tipo de lugar (Casa o Alquiler).
+2.  Selecciona las cámaras y el almacenamiento.
+3.  **¡Obtén un precio estimado y descarga tu PDF al instante!**
+
+*Interactúa con la herramienta a continuación:*

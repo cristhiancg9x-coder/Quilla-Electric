@@ -25,6 +25,7 @@ const servicios = defineCollection({
     description: z.string(),
     price: z.string().optional(),
     image: image().optional(),
+    widget: z.string().optional(),
   }),
 });
 

@@ -1,0 +1,21 @@
+---
+import '../styles/global.css';
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="dark">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>{title} | Quilla Admin</title>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+	</head>
+	<body class="bg-slate-950 text-white font-['Inter'] overflow-hidden">
+        
+        <main class="h-screen w-full">
+            <slot />
+        </main>
+
+	</body>
+</html>
