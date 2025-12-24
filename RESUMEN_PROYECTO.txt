@@ -1,0 +1,258 @@
+--- ESTRUCTURA DE DIRECTORIOS ---
+./
+    .env
+    .gitignore
+    astro.config.mjs
+    map_project.py
+    package.json
+    pnpm-lock.yaml
+    README.md
+    RESUMEN_PROYECTO.txt
+    tailwind.config.mjs
+    tsconfig.json
+    .vscode/
+        extensions.json
+        launch.json
+    public/
+        favicon.svg
+        logo.png
+        robots.txt
+        img/
+            social-default.jpeg
+    src/
+        content.config.mjs
+        assets/
+            ahorrar-dinero-paneles-solares.png
+            cableado-casa.jpeg
+            camaras-seguridad.png
+            cocina-electrica-afecta-sistema.png
+            como-encender-automaticamente-alumbrado-exterior.png
+            como-encender-motor-trifasico.png
+            diferencia-termica-diferencial.png
+            diferencial-vs-termica.jpg
+            dispositivos-proteccion-electrica-casa.png
+            errores-ducha-electrica.png
+            iluminacion-interiores.jpeg
+            iluminacion-led.jpeg
+            importancia-camaras-seguridad.png
+            importancia-circuitos-independientes.png
+            importancia-luces-emergencia.png
+            instalacion-tomacorrientes.png
+            luces-emergencia.png
+            mala-iluminacion-afecta-tu-vida.png
+            mantenimiento-pozo.jpeg
+            mantenimiento-pozo.png
+            mejor-iluminacion-espacios-industriales.png
+            mi-bomba-de-agua-no-funciona.png
+            mi-licuadora-no-funciona.png
+            motor-electrico-no-arranca.png
+            peligro-cable-mellizo.png
+            por-que-parpadea-mi-lampara.png
+            por-que-salta-la-llave.png
+            por-que-se-quema-lampara-iluminacion.png
+            por-que-se-quema-un-tomacorriente.png
+            pozo-a-tierra-indeci.png
+            pozo-tierra.jpeg
+            proteccion-electrodomesticos.png
+            protector-voltaje.png
+            recibo-de-luz-caro (2).png
+            recibo-de-luz-caro.png
+            recibo-luz-alto.png
+            riesgos-cables-bamba-electricidad.png
+            servicios-deteccion-fuga-corriente.png
+            servicios-ducha-electrica.png
+            tablero-industrial.jpeg
+            tomacorriente-quemado-luces-navidad.png
+            camaras/
+                bobina-cat6.png
+                cb2-bat.png
+                eb3-bat.png
+                eb8-4g.png
+                h1c-mini.png
+                h3-3k.png
+                h3c-color.png
+                h7c-dual.png
+                h80f-triple.png
+                h8c-ptz.png
+                h9c-dual.png
+                imou-bullet3.png
+                imou-cruiser-dual.png
+                imou-ranger-dual.png
+                litebeam.png
+                microsd.png
+                nvr-wifi.png
+                tapo-c210.png
+                tapo-c500.png
+        components/
+            Beneficios.astro
+            CctvWizard.jsx
+            Footer.astro
+            Galeria.astro
+            Navbar.astro
+            Preguntas.astro
+            ServiceGuard.jsx
+            VirtualAssistant.jsx
+            WhatsappButton.astro
+            admin/
+                AdminDashboard.jsx
+                AdminGuard.jsx
+                ConfigManager.jsx
+                LeadsManager.jsx
+                LogoutButton.jsx
+                ProductManager.jsx
+                ProductUploader.jsx
+                SaaSManager.jsx
+            auth/
+                LoginButton.jsx
+        content/
+            blog/
+                ahorrar-dinero-paneles-solares.md
+                cocina-electrica-afecta-sistema.md
+                como-encender-automaticamente-alumbrado-exterior.md
+                como-encender-motor-trifasico.md
+                diferencia-termica-diferencial.md
+                dispositivos-proteccion-electrica-casa.md
+                errores-ducha-electrica.md
+                importancia-camaras-seguridad.md
+                importancia-circuitos-independientes.md
+                importancia-luces-emergencia.md
+                mala-iluminacion-afecta-tu-vida.md
+                mejor-iluminacion-espacios-industriales.md
+                mi-bomba-de-agua-no-funciona.md
+                mi-licuadora-no-funciona.md
+                motor-electrico-no-arranca.md
+                peligro-cable-mellizo.md
+                por-que-parpadea-mi-lampara.md
+                por-que-salta-la-llave.md
+                por-que-se-quema-lampara-iluminacion.md
+                por-que-se-quema-un-tomacorriente.md
+                pozo-a-tierra-indeci.md
+                proteccion-electrodomesticos.md
+                recibo-de-luz-caro.md
+                riesgos-cables-bamba-electricidad.md
+                tomacorriente-quemado-luces-navidad.md
+            servicios/
+                cableado.md
+                camaras-seguridad.md
+                fugas-corriente.md
+                instalacion-duchas.md
+                instalacion-iluminacion.md
+                instalacion-tomacorrientes.md
+                luces-emergencia.md
+                pozo-a-tierra.md
+        data/
+            cctv-products.json
+            zonas.js
+        firebase/
+            config.js
+        layouts/
+            AdminLayout.astro
+            MainLayout.astro
+        pages/
+            404.astro
+            contacto.astro
+            cotizador.astro
+            index.astro
+            login.astro
+            rss.xml.js
+            test.astro
+            admin/
+                index.astro
+            blog/
+                index.astro
+                [...slug].astro
+            electricista-en/
+                [lugar].astro
+            servicios/
+                index.astro
+                [...slug].astro
+        store/
+            authStore.js
+        styles/
+            global.css
+
+
+--- CONTENIDO DE ARCHIVOS CLAVE ---
+
+=== astro.config.mjs ===
+// astro.config.mjs
+import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
+import react from '@astrojs/react';
+import tailwind from '@astrojs/tailwind';
+import vercel from '@astrojs/vercel'; // <--- ESTA ES LA IMPORTACIÓN CORRECTA (Solo una vez)
+
+export default defineConfig({
+  // Tu dominio real
+  site: 'https://quillaelectric.site',
+
+  // Modo servidor para que funcione el cotizador dinámico
+  output: 'server',
+  adapter: vercel(),
+
+  integrations: [
+    sitemap(), 
+    react(), 
+    tailwind() 
+  ],
+
+  // Configuración del adaptador
+  adapter: vercel({
+    webAnalytics: { enabled: true },
+    imageService: true, // Opcional: ayuda a Vercel a detectar mejor la app
+  })
+});
+=== package.json ===
+{
+  "name": "quilla-astro",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/react": "^4.4.2",
+    "@astrojs/rss": "^4.0.14",
+    "@astrojs/sitemap": "^3.6.0",
+    "@astrojs/vercel": "^9.0.2",
+    "@nanostores/react": "^1.0.0",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "astro": "^5.16.2",
+    "firebase": "^12.7.0",
+    "jspdf": "^3.0.4",
+    "jspdf-autotable": "^5.0.2",
+    "lucide-react": "^0.562.0",
+    "nanostores": "^1.1.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "sharp": "^0.34.5"
+  },
+  "devDependencies": {
+    "@astrojs/tailwind": "^6.0.2",
+    "tailwindcss": "^3.4.19"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
+
+=== tsconfig.json ===
+{
+  "extends": "astro/tsconfigs/strict",
+  "include": [
+    ".astro/types.d.ts",
+    "**/*"
+  ],
+  "exclude": [
+    "dist"
+  ],
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
+  }
+}
+=== vercel.json (NO ENCONTRADO) ===
