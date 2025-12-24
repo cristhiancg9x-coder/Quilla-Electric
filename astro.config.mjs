@@ -1,25 +1,25 @@
 // astro.config.mjs
 import { defineConfig } from 'astro/config';
-import vercel from '@astrojs/vercel/serverless';
 import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
-import tailwind from '@astrojs/tailwind'; // <--- 1. Usamos la integración oficial
-
-import vercel from '@astrojs/vercel';
+import tailwind from '@astrojs/tailwind';
+import vercel from '@astrojs/vercel'; // <--- ESTA ES LA IMPORTACIÓN CORRECTA (Solo una vez)
 
 export default defineConfig({
-  // Tienes que poner tu dominio EXACTO (con https)
+  // Tu dominio real
   site: 'https://quillaelectric.site',
 
+  // Modo servidor para que funcione el cotizador dinámico
   output: 'server',
 
-  // 2. Agregamos tailwind() aquí dentro
-  // 3. Borramos la sección de vite que tenías antes
   integrations: [
     sitemap(), 
     react(), 
     tailwind() 
   ],
 
-  adapter: vercel()
+  // Configuración del adaptador
+  adapter: vercel({
+    webAnalytics: { enabled: true } // Opcional: ayuda a Vercel a detectar mejor la app
+  })
 });
