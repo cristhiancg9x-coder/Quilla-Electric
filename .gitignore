@@ -25,3 +25,68 @@ pnpm-debug.log*
 
 .env
 .vercel
+
+
+# Build Artifacts (Lo que se genera automáticamente)
+dist/
+.vercel/
+.astro/
+
+# Dependencias
+node_modules/
+.pnpm-store/
+
+# Logs
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Variables de entorno (¡MUY IMPORTANTE!)
+.env
+.env.*
+!.env.example
+
+# Archivos de sistema operativo (Basura)
+.DS_Store
+Thumbs.db
+
+# Configuración de editor
+.vscode/
+.idea/
+
+# Archivos temporales de pruebas
+coverage/
+
+# --- DEPENDENCIAS ---
+node_modules/
+.pnpm-store/
+
+# --- PRODUCCIÓN & BUILD ---
+dist/
+.vercel/
+.astro/
+
+# --- VARIABLES DE ENTORNO (¡SEGURIDAD!) ---
+.env
+.env.*
+!.env.example
+!.env.preview
+
+# --- LOGS Y ERRORES ---
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# --- SISTEMA OPERATIVO ---
+.DS_Store
+Thumbs.db
+
+# --- CONFIGURACIÓN IDE ---
+.vscode/
+.idea/
+
+# --- ARCHIVOS TEMPORALES (SCRIPTS NUESTROS) ---
+*.py
+AUDITORIA_PROYECTO.txt
+RESUMEN_PROYECTO.txt
+DIAGNOSTICO_ESTILOS.txt
