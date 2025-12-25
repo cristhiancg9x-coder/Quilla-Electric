@@ -1,6 +1,6 @@
 ---
 title: "Instalación de Cámaras de Seguridad Inteligentes"
-description: "Sistemas de Videovigilancia en Arequipa. Cámaras Solares 4G, WiFi y CCTV Profesional. Cotiza tu instalación en segundos con nuestra IA."
+description: "Sistemas de Videovigilancia en Arequipa. Cámaras Solares 4G, WiFi y CCTV Profesional. Cotiza tu instalación en segundos."
 price: "Desde S/ 250"
 image: ../../assets/camaras-seguridad.png
 widget: "cctv-wizard"
