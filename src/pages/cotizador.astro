@@ -1,47 +1,68 @@
 ---
 // src/pages/cotizador.astro
 
-// 1. IMPORTANTE: Desactivamos el prerenderizado para que funcione dinámico en el servidor (Vercel)
+// 1. MODO SERVIDOR: Obligatorio para leer precios frescos de Firebase en cada visita
 export const prerender = false;
 
 import MainLayout from '@/layouts/MainLayout.astro';
 import CctvWizard from '@/modules/calculator/components/CctvWizard.jsx';
 
-// 2. Importamos la base de datos cruda
+// Importamos la base de datos de productos (JSON local para velocidad)
 import productsData from '@/modules/calculator/data/cctv-products.json';
 
-// 3. Importamos la herramienta de optimización de Astro
+// Importamos herramientas de Astro
 import { getImage } from "astro:assets";
 
-// 4. Cargamos TODAS las imágenes de la carpeta assets (Mapeo automático)
+// 👇👇👇 NUEVO: Importamos Firebase para leer la CONFIGURACIÓN GLOBAL 👇👇👇
+import { db } from '@/lib/firebase/config';
+import { doc, getDoc } from 'firebase/firestore';
+
+// ---------------------------------------------------------
+// 1. RECUPERAR PRECIOS GLOBALES (Mano de Obra, Cable, etc.)
+// ---------------------------------------------------------
+let globalConfig = {
+  manoObra: 120,          // Valor por defecto por seguridad
+  precioMetroCable: 2.5,  // Valor por defecto
+  mensajeWhatsapp: "Hola, quiero cotizar este sistema:"
+};
+
+try {
+  // Buscamos en la colección 'configuracion', el documento 'global'
+  // (Asegúrate que en tu Panel Admin estés guardando en esta ruta exacta)
+  const configRef = doc(db, "configuracion", "global");
+  const configSnap = await getDoc(configRef);
+
+  if (configSnap.exists()) {
+    const data = configSnap.data();
+    // Actualizamos solo si hay datos, si no, mantenemos los defaults
+    globalConfig = { ...globalConfig, ...data };
+    console.log("✅ Configuración cargada desde Firebase:", globalConfig);
+  } else {
+    console.warn("⚠️ No se encontró configuración global en Firebase, usando defaults.");
+  }
+} catch (error) {
+  console.error("❌ Error leyendo configuración:", error);
+}
+
+// ---------------------------------------------------------
+// 2. PROCESAMIENTO DE IMÁGENES (Optimización)
+// ---------------------------------------------------------
 const imageFiles = import.meta.glob('/src/assets/camaras/*.{jpeg,jpg,png,tiff,webp,gif,svg}');
 
-// 5. PROCESO DE AUTOMATIZACIÓN (Esto ocurre en milisegundos al construir)
 const optimizedProducts = await Promise.all(
   productsData.map(async (product) => {
-    // Construimos la ruta donde debería estar la imagen
     const imagePath = `/src/assets/camaras/${product.image}`;
-    
-    // Verificamos si la imagen existe en la carpeta
     if (!imageFiles[imagePath]) {
-      console.error(`⚠️ Alerta: No encontré la imagen ${product.image} en src/assets/camaras`);
-      return product; // Si no existe, devolvemos el producto sin cambios
+      return product;
     }
-
-    // Si existe, la procesamos
     const imageModule = await imageFiles[imagePath]() as any;
     const optimizedImage = await getImage({
       src: imageModule.default,
-      format: 'webp', // ¡Conversión automática!
-      width: 600,     // Redimensionado automático
-      quality: 80     // Compresión inteligente
+      format: 'webp',
+      width: 600,
+      quality: 80
     });
-
-    // Devolvemos el producto con la NUEVA ruta optimizada
-    return {
-      ...product,
-      image: optimizedImage.src 
-    };
+    return { ...product, image: optimizedImage.src };
   })
 );
 ---
@@ -51,7 +72,6 @@ const optimizedProducts = await Promise.all(
   <section class="min-h-screen bg-slate-950 flex flex-col items-center justify-start pt-24 pb-12 px-4 md:pt-32">
     
     <div class="text-center mb-8 md:mb-10 max-w-2xl mx-auto animate-fade-in-down">
-      
       <span class="inline-block py-1 px-3 rounded-full bg-blue-900/30 border border-blue-500/30 text-blue-400 text-xs font-bold tracking-wider mb-4 uppercase">
         Configurador Online
       </span>
@@ -61,7 +81,7 @@ const optimizedProducts = await Promise.all(
       </h1>
       
       <p class="text-slate-400 text-sm md:text-lg max-w-lg mx-auto">
-        Responde 3 preguntas y obtén un presupuesto detallado con instalación incluida.
+        Precios actualizados en tiempo real. Responde 3 preguntas y obtén tu presupuesto.
       </p>
     </div>
 
@@ -69,7 +89,7 @@ const optimizedProducts = await Promise.all(
       <CctvWizard 
         client:load 
         products={optimizedProducts} 
-        config={{}} 
+        config={globalConfig} 
       />
     </div>
 
@@ -78,19 +98,11 @@ const optimizedProducts = await Promise.all(
 </MainLayout>
 
 <style>
-  /* Animación suave de entrada para el título */
   .animate-fade-in-down {
     animation: fadeInDown 0.8s ease-out forwards;
   }
-
   @keyframes fadeInDown {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 </style>

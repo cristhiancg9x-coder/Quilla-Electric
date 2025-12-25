@@ -2,28 +2,29 @@ import React, { useState } from 'react';
 import { 
   Zap, Wifi, HardDrive, Ruler, ArrowRight, ArrowLeft, 
   CheckCircle, Download, User, ShieldCheck, Plus, Minus, 
-  RotateCcw, Server, MemoryStick, Save, XCircle, Layout, Box
+  RotateCcw, Server, MemoryStick, Save, XCircle, Layout, Box,
+  Clock, Award, Lock
 } from 'lucide-react';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
-import { db } from '@lib/firebase/config'; // <--- IMPORTANTE: Para guardar en Firebase
+import { db } from '@lib/firebase/config'; 
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore'; 
 
 export default function CctvWizard({ products, config }) {
   const catalog = products || []; 
   
-  // PRECIOS BASE (Desde Firebase o defaults)
+  // PRECIOS BASE
   const PRECIO_MANO_OBRA = config?.manoObra ? Number(config.manoObra) : 120;
-  const PRECIO_CABLE_BASE = config?.precioMetroCable ? Number(config.precioMetroCable) : 2.5; // Precio base (Grapas)
+  const PRECIO_CABLE_BASE = config?.precioMetroCable ? Number(config.precioMetroCable) : 2.5; 
   const MENSAJE_WHATSAPP = config?.mensajeWhatsapp || "Hola Quilla, coticé este proyecto:";
 
-  // PRECIOS FIJOS ESTIMADOS 
   const PRECIO_MICROSD = 45; 
   const PRECIO_DISCO_1TB = 220;
   const PRECIO_DISCO_2TB = 350;
   const PRECIO_NVR_BASE = 280; 
 
-  const [step, setStep] = useState(1);
+  // 1. CAMBIO: Iniciamos en el Paso 0 (Bienvenida)
+  const [step, setStep] = useState(0);
   
   const initialConfig = {
     placeType: '',          
@@ -32,16 +33,16 @@ export default function CctvWizard({ products, config }) {
     daysRecording: 15,     
     avgDistance: 20,       
     isHighHeight: false,
-    storageType: 'nvr', // 'nvr', 'sd', 'none'
-    installFinish: 'standard' // 'standard' (Grapas), 'canaleta', 'tube' <--- NUEVO ESTADO
+    storageType: 'nvr', 
+    installFinish: 'standard' 
   };
 
   const [wizardConfig, setWizardConfig] = useState(initialConfig);
   const [cart, setCart] = useState([]); 
   const [clientData, setClientData] = useState({ name: '', phone: '' });
-  const [isSaving, setIsSaving] = useState(false); // <--- Estado de carga al guardar
+  const [isSaving, setIsSaving] = useState(false); 
 
-  // 1. FILTRADO
+  // --- LÓGICA DE FILTRADO Y CÁLCULOS (INTACTA) ---
   const getCameras = () => {
     return catalog.filter(p => {
       if (['storage', 'cable', 'kit_por_camara', 'accessory', 'ups', 'rack', 'monitor', 'storage_card', 'storage_disk', 'nvr'].includes(p.category)) return false;
@@ -52,7 +53,6 @@ export default function CctvWizard({ products, config }) {
     });
   };
 
-  // 2. CONTROL DE CARRITO
   const getQty = (id) => cart.filter(item => item.id === id).length;
   const addOne = (product) => setCart([...cart, product]);
   const removeOne = (product) => {
@@ -65,24 +65,24 @@ export default function CctvWizard({ products, config }) {
   };
 
   const resetCotizador = () => {
-    setStep(1);
+    setStep(0); // Volvemos a la bienvenida
     setCart([]);
     setWizardConfig(initialConfig);
     setClientData({ name: '', phone: '' });
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // 3. LÓGICA DE CÁLCULO MEJORADA (Con Acabados)
+// 3. LÓGICA DE CÁLCULO MEJORADA (Lógica Híbrida Solar vs Estándar)
   const calculateQuote = () => {
     let materialCost = 0;
     let serviceCost = 0;
     const numCameras = cart.length;
     let itemsList = []; 
 
-    // A. Cámaras
+    // A. CÁLCULO DE EQUIPOS (Cámaras)
     cart.forEach(item => { materialCost += item.price; });
     
-    // Agrupamos para listado
+    // Agrupamos para listado visual en el PDF/Resumen
     const groupedCameras = {};
     cart.forEach(item => {
         if (!groupedCameras[item.name]) groupedCameras[item.name] = { ...item, qty: 0 };
@@ -92,61 +92,104 @@ export default function CctvWizard({ products, config }) {
         itemsList.push({ name: cam.name, qty: cam.qty, unitPrice: cam.price, total: cam.price * cam.qty, type: 'Equipo' });
     });
 
-    // B. Almacenamiento & Infraestructura
+    // --- SEPARACIÓN DE TIPOS DE CÁMARAS ---
+    // Identificamos cuáles son solares y cuáles estándar para cobrar diferente
+    const solarCameras = cart.filter(c => c.category === 'solar_4g');
+    const standardCameras = cart.filter(c => c.category !== 'solar_4g');
+    
+    const qtySolar = solarCameras.length;
+    const qtyStandard = standardCameras.length;
+
+    // B. ALMACENAMIENTO & INFRAESTRUCTURA (Solo para cámaras estándar)
+    // Las solares suelen llevar SD, las estándar pueden ir a NVR o SD
+    
     if (numCameras > 0) {
+        // LÓGICA 1: Tarjetas SD (Aplica a todas si el usuario eligió SD)
         if (wizardConfig.storageType === 'sd') {
             const costSD = (PRECIO_MICROSD * numCameras);
             materialCost += costSD;
             itemsList.push({ name: `Memoria MicroSD Cls10 (${numCameras} unid.)`, qty: numCameras, unitPrice: PRECIO_MICROSD, total: costSD, type: 'Almacenamiento' });
         
+        // LÓGICA 2: NVR (Solo aplica a cámaras estándar)
         } else if (wizardConfig.storageType === 'nvr') {
-            // NVR Base
-            materialCost += PRECIO_NVR_BASE;
-            itemsList.push({ name: 'Grabador NVR (Central)', qty: 1, unitPrice: PRECIO_NVR_BASE, total: PRECIO_NVR_BASE, type: 'Equipo' });
-
-            // Disco Duro
-            const hddPrice = wizardConfig.daysRecording > 15 ? PRECIO_DISCO_2TB : PRECIO_DISCO_1TB;
-            const hddName = wizardConfig.daysRecording > 15 ? 'Disco Duro 2TB (Vigilancia)' : 'Disco Duro 1TB (Vigilancia)';
-            materialCost += hddPrice;
-            itemsList.push({ name: hddName, qty: 1, unitPrice: hddPrice, total: hddPrice, type: 'Almacenamiento' });
-
-            // --- LÓGICA DE ACABADOS (NUEVO) ---
-            let precioMetroFinal = PRECIO_CABLE_BASE;
-            let finishName = "Estándar (Grapas)";
             
-            if (wizardConfig.installFinish === 'canaleta') {
-                precioMetroFinal += 5; // Plus por material canaleta
-                finishName = "Canaleta Adhesiva";
-            } else if (wizardConfig.installFinish === 'tube') {
-                precioMetroFinal += 12; // Plus por tubería PVC
-                finishName = "Tubería PVC/Conduit";
+            // Si hay cámaras estándar, cobramos NVR y Disco
+            if (qtyStandard > 0) {
+                materialCost += PRECIO_NVR_BASE;
+                itemsList.push({ name: 'Grabador NVR (Central)', qty: 1, unitPrice: PRECIO_NVR_BASE, total: PRECIO_NVR_BASE, type: 'Equipo' });
+
+                const hddPrice = wizardConfig.daysRecording > 15 ? PRECIO_DISCO_2TB : PRECIO_DISCO_1TB;
+                const hddName = wizardConfig.daysRecording > 15 ? 'Disco Duro 2TB (Vigilancia)' : 'Disco Duro 1TB (Vigilancia)';
+                materialCost += hddPrice;
+                itemsList.push({ name: hddName, qty: 1, unitPrice: hddPrice, total: hddPrice, type: 'Almacenamiento' });
+
+                // --- ACABADOS (Solo calculamos metros para las estándar) ---
+                let precioMetroFinal = PRECIO_CABLE_BASE;
+                let finishName = "Estándar (Grapas)";
+                
+                if (wizardConfig.installFinish === 'canaleta') {
+                    precioMetroFinal += 5; 
+                    finishName = "Canaleta Adhesiva";
+                } else if (wizardConfig.installFinish === 'tube') {
+                    precioMetroFinal += 12; 
+                    finishName = "Tubería PVC";
+                }
+
+                // IMPORTANTE: Solo calculamos metros para las cámaras que usan cable (Standard)
+                const totalMetros = wizardConfig.avgDistance * qtyStandard; 
+                const costCable = totalMetros * precioMetroFinal;
+                materialCost += costCable;
+                itemsList.push({ name: `Cableado + ${finishName} (${totalMetros}m para ${qtyStandard} cams)`, qty: totalMetros, unitPrice: precioMetroFinal, total: costCable, type: 'Infraestructura' });
+                
+                const kitPrice = 35; 
+                materialCost += (kitPrice * qtyStandard);
+                itemsList.push({ name: 'Kit Materiales de Instalación', qty: qtyStandard, unitPrice: kitPrice, total: kitPrice * qtyStandard, type: 'Insumos' });
             }
 
-            const totalMetros = wizardConfig.avgDistance * numCameras;
-            const costCable = totalMetros * precioMetroFinal;
-            materialCost += costCable;
-            itemsList.push({ name: `Cableado + ${finishName} (${totalMetros}m)`, qty: totalMetros, unitPrice: precioMetroFinal, total: costCable, type: 'Infraestructura' });
-            
-            // Materiales Menores
-            const kitPrice = 35; 
-            materialCost += (kitPrice * numCameras);
-            itemsList.push({ name: 'Kit Materiales de Instalación', qty: numCameras, unitPrice: kitPrice, total: kitPrice * numCameras, type: 'Insumos' });
+            // Si hay cámaras solares mezcladas, esas llevan SD aunque el sistema sea NVR (generalmente)
+            if (qtySolar > 0) {
+                 const costSDSolar = (PRECIO_MICROSD * qtySolar);
+                 materialCost += costSDSolar;
+                 itemsList.push({ name: `MicroSD para Solar (${qtySolar} unid.)`, qty: qtySolar, unitPrice: PRECIO_MICROSD, total: costSDSolar, type: 'Almacenamiento' });
+            }
         }
     }
 
-    // C. Mano de Obra
-    let laborPerCamera = PRECIO_MANO_OBRA; 
-    if (wizardConfig.isHighHeight) laborPerCamera += 50; 
-    if (!wizardConfig.hasPower) laborPerCamera += 40; 
+    // C. MANO DE OBRA (Cálculo Inteligente por Tipo)
     
-    // Plus mano de obra por dificultad de entubado
-    if (wizardConfig.installFinish === 'tube' && wizardConfig.storageType === 'nvr') laborPerCamera += 30;
+    // 1. Costo para Cámaras Estándar
+    if (qtyStandard > 0) {
+        let laborStandard = PRECIO_MANO_OBRA;
+        if (wizardConfig.isHighHeight) laborStandard += 50; 
+        
+        // Aquí SI cobramos el extra si no hay luz
+        if (!wizardConfig.hasPower) laborStandard += 40; 
+        
+        if (wizardConfig.installFinish === 'tube' && wizardConfig.storageType === 'nvr') laborStandard += 30;
 
-    serviceCost += (laborPerCamera * numCameras);
-    itemsList.push({ name: 'Servicio de Instalación y Configuración', qty: numCameras, unitPrice: laborPerCamera, total: serviceCost, type: 'Servicio' });
+        const totalLaborStandard = laborStandard * qtyStandard;
+        serviceCost += totalLaborStandard;
+        itemsList.push({ name: `Instalación Cámaras Cableadas (${qtyStandard})`, qty: qtyStandard, unitPrice: laborStandard, total: totalLaborStandard, type: 'Servicio' });
+    }
 
-    // Configuración Central
-    if (numCameras > 0 && wizardConfig.storageType === 'nvr') {
+    // 2. Costo para Cámaras Solares (Lógica Nueva)
+    if (qtySolar > 0) {
+        let laborSolar = PRECIO_MANO_OBRA;
+        
+        // A las solares NO les cobramos "Falta de punto eléctrico"
+        // Pero SI les cobramos altura si aplica
+        if (wizardConfig.isHighHeight) laborSolar += 50;
+        
+        // Podríamos cobrar un extra pequeño por el montaje del panel si quisieras
+        // laborSolar += 20; // Opcional: Montaje de panel
+
+        const totalLaborSolar = laborSolar * qtySolar;
+        serviceCost += totalLaborSolar;
+        itemsList.push({ name: `Instalación Cámaras Solares (${qtySolar})`, qty: qtySolar, unitPrice: laborSolar, total: totalLaborSolar, type: 'Servicio' });
+    }
+
+    // Configuración Central (Solo si hay NVR)
+    if (qtyStandard > 0 && wizardConfig.storageType === 'nvr') {
         serviceCost += 150; 
         itemsList.push({ name: 'Configuración de Rack/NVR Central', qty: 1, unitPrice: 150, total: 150, type: 'Servicio' });
     }
@@ -156,10 +199,8 @@ export default function CctvWizard({ products, config }) {
 
   const quote = calculateQuote();
 
-  // --- CRM: GUARDAR EN FIREBASE ---
   const handleFinalize = async () => {
     if (!clientData.name || !clientData.phone) return alert("Por favor completa tus datos.");
-    
     setIsSaving(true);
     try {
         await addDoc(collection(db, "prospectos"), {
@@ -189,7 +230,6 @@ export default function CctvWizard({ products, config }) {
     return `https://wa.me/+51951413458?text=${encodeURIComponent(text)}`;
   };
 
-  // 4. PDF PROFESIONAL
   const generatePDF = () => {
     const doc = new jsPDF();
     doc.setFillColor(15, 23, 42); 
@@ -230,25 +270,78 @@ export default function CctvWizard({ products, config }) {
   return (
     <div className="max-w-5xl mx-auto bg-slate-950 text-white rounded-2xl shadow-2xl border border-slate-800 font-sans min-h-[600px] flex flex-col">
       
-      {/* HEADER */}
+      {/* HEADER DINÁMICO */}
       <div className="flex justify-between items-center p-6 border-b border-slate-800 bg-slate-900/50 rounded-t-2xl">
         <h2 className="text-xl md:text-2xl font-bold text-white flex items-center gap-2">
           <ShieldCheck className="text-blue-500"/> Cotizador <span className="text-blue-500">PRO</span>
         </h2>
         <div className="flex items-center gap-2">
-            {step > 1 && (
+            {step > 0 && (
                 <button onClick={() => setStep(step - 1)} className="text-slate-400 hover:text-white flex items-center gap-1 text-sm font-bold px-3 py-1 rounded hover:bg-slate-800 transition-colors">
                     <ArrowLeft size={16} /> Atrás
                 </button>
             )}
-            <div className="text-xs font-mono bg-blue-900/30 px-3 py-1 rounded text-blue-300 border border-blue-500/30">
-            PASO {step}/4
-            </div>
+            {/* Solo mostramos el paso si ya empezamos */}
+            {step > 0 && (
+                <div className="text-xs font-mono bg-blue-900/30 px-3 py-1 rounded text-blue-300 border border-blue-500/30">
+                PASO {step}/4
+                </div>
+            )}
         </div>
       </div>
 
       <div className="p-6 md:p-8 flex-1">
         
+        {/* ============================================== */}
+        {/* PASO 0: BIENVENIDA (ONBOARDING STARTUP STYLE)  */}
+        {/* ============================================== */}
+        {step === 0 && (
+            <div className="flex flex-col items-center justify-center h-full py-8 text-center animate-fadeIn">
+                
+                <div className="relative mb-8 group">
+                    <div className="absolute inset-0 bg-blue-500 blur-3xl opacity-20 rounded-full group-hover:opacity-30 transition-opacity duration-500"></div>
+                    <div className="relative bg-gradient-to-br from-slate-900 to-slate-800 p-6 rounded-3xl border border-slate-700 shadow-2xl">
+                        <ShieldCheck size={64} className="text-blue-500 drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]" />
+                    </div>
+                </div>
+
+                <h1 className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400">
+                    Hola, vamos a blindar tu seguridad
+                </h1>
+                
+                <p className="text-slate-400 text-lg max-w-xl mb-10 leading-relaxed">
+                    Olvídate de las cotizaciones complicadas. Responde 3 preguntas simples y diseñaremos el sistema de cámaras perfecto para ti.
+                </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 w-full max-w-3xl">
+                    <div className="bg-slate-900/50 p-4 rounded-xl border border-slate-800 flex flex-col items-center gap-2 hover:border-blue-500/30 transition-colors">
+                        <Clock className="text-blue-400" size={24} />
+                        <h4 className="font-bold text-white">Rápido</h4>
+                        <p className="text-xs text-slate-500">Menos de 1 minuto</p>
+                    </div>
+                    <div className="bg-slate-900/50 p-4 rounded-xl border border-slate-800 flex flex-col items-center gap-2 hover:border-purple-500/30 transition-colors">
+                        <Award className="text-purple-400" size={24} />
+                        <h4 className="font-bold text-white">Preciso</h4>
+                        <p className="text-xs text-slate-500">Precios reales</p>
+                    </div>
+                    <div className="bg-slate-900/50 p-4 rounded-xl border border-slate-800 flex flex-col items-center gap-2 hover:border-green-500/30 transition-colors">
+                        <Lock className="text-green-400" size={24} />
+                        <h4 className="font-bold text-white">Seguro</h4>
+                        <p className="text-xs text-slate-500">Tus datos protegidos</p>
+                    </div>
+                </div>
+
+                <button 
+                    onClick={() => setStep(1)}
+                    className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 font-bold text-white transition-all duration-200 bg-blue-600 rounded-full hover:bg-blue-500 hover:shadow-[0_0_30px_rgba(37,99,235,0.4)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 focus:ring-offset-slate-900"
+                >
+                    <span className="text-lg">Comenzar Ahora</span>
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </button>
+
+            </div>
+        )}
+
         {/* PASO 1: DIAGNÓSTICO */}
         {step === 1 && (
             <div className="space-y-6 animate-fadeIn">
