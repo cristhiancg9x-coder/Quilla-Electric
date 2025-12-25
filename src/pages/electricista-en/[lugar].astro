@@ -1,8 +1,8 @@
 ---
 // src/pages/electricista-en/[lugar].astro
-import MainLayout from '../../layouts/MainLayout.astro';
-import { zonas } from '../../data/zonas'; // Importamos la lista
-
+import MainLayout from '@/layouts/MainLayout.astro';
+import { zonas } from '@/modules/calculator/data/zonas';
+export const prerender = true;
 // 1. Generar las rutas automáticas
 export function getStaticPaths() {
   return zonas.map((zona) => ({
@@ -29,7 +29,7 @@ const { zona } = Astro.props;
       <p>Estamos cerca de tu zona. Atendemos emergencias las 24 horas.</p>
       
       <a 
-        href={`https://wa.me/51999999999?text=Hola,%20necesito%20un%20electricista%20en%20${zona.nombre}`} 
+        href={`https://wa.me/51951413458?text=Hola,%20necesito%20un%20electricista%20en%20${zona.nombre}`} 
         class="btn-whatsapp"
         target="_blank"
       >

@@ -1,0 +1,311 @@
+--- ESTRUCTURA DE CARPETAS ACTUAL ---
+./
+    astro.config.mjs
+    package.json
+    tailwind.config.mjs
+    tsconfig.tson
+    .vscode/
+        extensions.json
+        launch.json
+    public/
+        img/
+    src/
+        content.config.mjs
+        assets/
+            camaras/
+        components/
+            Beneficios.astro
+            Preguntas.astro
+            common/
+                Footer.astro
+                Navbar.astro
+                VirtualAssistant.jsx
+                WhatsappButton.astro
+            ui/
+        content/
+            blog/
+            servicios/
+        layouts/
+            AdminLayout.astro
+            MainLayout.astro
+        lib/
+            firebase/
+                config.ts
+        modules/
+            admin/
+                components/
+                    AdminDashboard.jsx
+                    AdminGuard.jsx
+                    ConfigManager.jsx
+                    LeadsManager.jsx
+                    LogoutButton.jsx
+                    ProductManager.jsx
+                    ProductUploader.jsx
+                    SaaSManager.jsx
+            auth/
+                components/
+                    LoginButton.jsx
+                store/
+                    authStore.js
+            blog/
+                components/
+                    Galeria.astro
+            calculator/
+                components/
+                    CctvWizard.jsx
+                    ServiceGuard.jsx
+                data/
+                    cctv-products.json
+                    zonas.js
+        pages/
+            404.astro
+            contacto.astro
+            cotizador.astro
+            index.astro
+            login.astro
+            rss.xml.js
+            test.astro
+            admin/
+                index.astro
+            api/
+                status.js
+            blog/
+                index.astro
+                [...slug].astro
+            electricista-en/
+                [lugar].astro
+            servicios/
+                index.astro
+                [...slug].astro
+        styles/
+            global.css
+
+
+--- ARCHIVOS DE CONFIGURACIÓN (EL PROBLEMA) ---
+
+=== CONTENIDO DE: tailwind.config.mjs ===
+/** @type {import('tailwindcss').Config} */
+export default {
+	content: [
+        './src/pages/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
+        './src/components/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
+        './src/modules/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}', // 👈 ¡ESTA ES LA CLAVE!
+    ],
+	theme: {
+		extend: {},
+	},
+	plugins: [],
+}
+=== tailwind.config.ts (NO EXISTE - ESTO PUEDE SER EL ERROR) ===
+
+=== CONTENIDO DE: astro.config.mjs ===
+// astro.config.mjs
+import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
+import react from '@astrojs/react';
+import tailwind from '@astrojs/tailwind';
+import vercel from '@astrojs/vercel';
+
+export default defineConfig({
+  site: 'https://quillaelectric.site',
+  output: 'server', // SSR activado para tu cotizador y admin
+
+  // UNA SOLA definición del adaptador con todas las opciones
+  adapter: vercel({
+    webAnalytics: { enabled: true },
+    imageService: true, // Utiliza el servicio de optimización de imágenes de Vercel
+    isr: {
+      // Incremental Static Regeneration (Opcional: cachea páginas estáticas para velocidad)
+      expiration: 60 * 60 * 24, // 24 horas
+    }
+  }),
+
+  integrations: [
+    sitemap(),
+    react(),
+    tailwind({
+      // Asegura que tailwind procese estilos anidados si los usas
+      applyBaseStyles: false, 
+    })
+  ],
+
+  vite: {
+    build: {
+      // Ayuda a evitar conflictos con chunks muy grandes
+      chunkSizeWarningLimit: 1000,
+    }
+  }
+});
+=== CONTENIDO DE: src/pages/cotizador.astro ===
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import CctvWizard from '@/modules/calculator/components/CctvWizard.jsx';
+
+// 1. Importamos la base de datos cruda
+import productsData from '@modules/calculator/data/cctv-products.json';
+
+// 2. Importamos la herramienta de optimización de Astro
+import { getImage } from "astro:assets";
+
+// 3. Cargamos TODAS las imágenes de la carpeta assets (Mapeo automático)
+const imageFiles = import.meta.glob('/src/assets/camaras/*.{jpeg,jpg,png,tiff,webp,gif,svg}');
+
+// 4. PROCESO DE AUTOMATIZACIÓN (Esto ocurre en milisegundos al construir)
+const optimizedProducts = await Promise.all(
+  productsData.map(async (product) => {
+    // Construimos la ruta donde debería estar la imagen
+    const imagePath = `/src/assets/camaras/${product.image}`;
+    
+    // Verificamos si la imagen existe en la carpeta
+    if (!imageFiles[imagePath]) {
+      console.error(`⚠️ Alerta: No encontré la imagen ${product.image} en src/assets/camaras`);
+      return product; // Si no existe, devolvemos el producto sin cambios (evita errores)
+    }
+
+    // Si existe, la procesamos
+    const imageModule = await imageFiles[imagePath]() as any;
+    const optimizedImage = await getImage({
+      src: imageModule.default,
+      format: 'webp', // ¡Conversión automática!
+      width: 600,     // Redimensionado automático
+      quality: 80     // Compresión inteligente
+    });
+
+    // Devolvemos el producto con la NUEVA ruta optimizada
+    return {
+      ...product,
+      image: optimizedImage.src 
+    };
+  })
+);
+---
+
+<MainLayout title="Configurador CCTV | Quilla Electric" description="Diseña tu propio sistema de seguridad en 3 pasos.">
+  
+  <section class="py-20 px-4 bg-slate-950 min-h-screen">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">
+        Diseña tu Sistema de Seguridad
+      </h1>
+      <p class="text-slate-300 max-w-2xl mx-auto text-lg">
+        Responde unas preguntas simples y nuestro algoritmo te recomendará las mejores cámaras para tu espacio.
+      </p>
+    </div>
+
+    <CctvWizard client:load products={optimizedProducts} config={{}}/>
+
+  </section>
+
+</MainLayout>
+=== CONTENIDO DE: src/layouts/MainLayout.astro ===
+---
+// src/layouts/MainLayout.astro
+import Navbar from '@components/common/Navbar.astro';
+import Footer from '@components/common/Footer.astro';
+import WhatsappButton from '@/components/common/WhatsappButton.astro';
+
+// 1. Recibimos las variables (Props)
+const { 
+  titulo, 
+  descripcion = "Servicios eléctricos profesionales en Arequipa. Pozos a tierra y cableado.",
+  imagen = "/img/social-default.jpeg" // Imagen por defecto si la página no tiene una específica
+} = Astro.props;
+
+// 2. Truco SEO: Convertir la imagen a URL absoluta (Ej: https://quillaelectric.site/img/foto.jpg)
+// Si no hacemos esto, WhatsApp a veces no muestra la foto.
+const siteURL = Astro.site ? Astro.site.href : Astro.url.origin;
+const imagenAbsoluta = new URL(imagen, siteURL).href;
+---
+
+<html lang="es-PE">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <title>{titulo} | Quilla Electric</title>
+     <!-- Google tag (gtag.js) -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-JNC3CZ4STT"></script>
+        <script is:inline>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){
+            // @ts-ignore
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+
+          gtag('config', 'G-JNC3CZ4STT');
+        </script>
+    <meta name="description" content={descripcion} />
+    <link rel="canonical" href={Astro.url} />
+    
+    <meta property="og:title" content={titulo} />
+    <meta property="og:description" content={descripcion} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:image" content={imagenAbsoluta} /> <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="google-site-verification" content="v9b95geQ84lPrqkhNMwzQhD3hu9WmAT8F2M60z5rbGA" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Electrician",
+        "name": "Quilla Electric",
+        "image": "https://quillaelectric.site/logo.png",
+        "@id": "https://quillaelectric.site",
+        "url": "https://quillaelectric.site",
+        "telephone": "+51951413458",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Cerro Colorado",
+          "addressLocality": "Arequipa",
+          "addressRegion": "Arequipa",
+          "postalCode": "04014",
+          "addressCountry": "PE"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -16.3766,
+          "longitude": -71.5602
+        },
+        "areaServed": [
+          "Cerro Colorado",
+          "Cayma",
+          "Yanahuara",
+          "Arequipa"
+        ],
+        "priceRange": "$$"
+      }
+    </script>    
+  </head>
+  
+  <body>
+    <Navbar />
+
+    <main>
+      <slot /> </main>
+
+    <Footer />
+    <WhatsappButton />
+  </body>
+</html>
+
+<style>
+  /* ESTILOS GLOBALES */
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    margin: 0;
+    background-color: #f8fafc;
+    color: #1e293b;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  main {
+    flex: 1;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+</style>

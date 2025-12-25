@@ -1,8 +1,9 @@
 ---
 // src/pages/blog/[...slug].astro
 // 1. IMPORTANTE: Agregamos 'render' a la importación
+export const prerender = true;
 import { getCollection, render } from 'astro:content';
-import MainLayout from '../../layouts/MainLayout.astro';
+import MainLayout from '@/layouts/MainLayout.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');

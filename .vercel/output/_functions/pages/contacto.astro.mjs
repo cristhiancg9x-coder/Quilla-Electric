@@ -1,6 +1,5 @@
-/* empty css                                 */
-import { c as createComponent, r as renderComponent, g as renderScript, a as renderTemplate, m as maybeRenderHead } from '../chunks/astro/server_rXIhwjdR.mjs';
-import { $ as $$MainLayout } from '../chunks/MainLayout_CFd2u93S.mjs';
+import { c as createComponent, r as renderComponent, g as renderScript, a as renderTemplate, m as maybeRenderHead } from '../chunks/astro/server_DjG7uRHx.mjs';
+import { $ as $$MainLayout } from '../chunks/MainLayout_CB30UFig.mjs';
 /* empty css                                    */
 export { renderers } from '../renderers.mjs';
 

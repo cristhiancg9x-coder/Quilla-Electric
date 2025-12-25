@@ -1,9 +1,8 @@
-/* empty css                                 */
-import { b as createAstro, c as createComponent, r as renderComponent, a as renderTemplate, m as maybeRenderHead } from '../chunks/astro/server_rXIhwjdR.mjs';
-import { $ as $$MainLayout } from '../chunks/MainLayout_CFd2u93S.mjs';
-import { C as CctvWizard } from '../chunks/CctvWizard_DOACfizk.mjs';
+import { b as createAstro, c as createComponent, r as renderComponent, a as renderTemplate, m as maybeRenderHead } from '../chunks/astro/server_DjG7uRHx.mjs';
+import { $ as $$MainLayout } from '../chunks/MainLayout_CB30UFig.mjs';
+import { C as CctvWizard } from '../chunks/CctvWizard_rDhhDZmd.mjs';
 import { p as productsData } from '../chunks/cctv-products_cBGzD3Uk.mjs';
-import { a as getImage } from '../chunks/_astro_assets_0eZexlWb.mjs';
+import { a as getImage } from '../chunks/_astro_assets_D63QpVk_.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Astro = createAstro("https://quillaelectric.site");
@@ -38,7 +37,7 @@ const $$Cotizador = createComponent(async ($$result, $$props, $$slots) => {
 Diseña tu Sistema de Seguridad
 </h1> <p class="text-slate-300 max-w-2xl mx-auto text-lg">
 Responde unas preguntas simples y nuestro algoritmo te recomendará las mejores cámaras para tu espacio.
-</p> </div> ${renderComponent($$result2, "CctvWizard", CctvWizard, { "client:load": true, "products": optimizedProducts, "config": {}, "client:component-hydration": "load", "client:component-path": "C:/PROYECTOS/quilla-astro/src/components/CctvWizard.jsx", "client:component-export": "default" })} </section> ` })}`;
+</p> </div> ${renderComponent($$result2, "CctvWizard", CctvWizard, { "client:load": true, "products": optimizedProducts, "config": {}, "client:component-hydration": "load", "client:component-path": "@/modules/calculator/components/CctvWizard.jsx", "client:component-export": "default" })} </section> ` })}`;
 }, "C:/PROYECTOS/quilla-astro/src/pages/cotizador.astro", void 0);
 
 const $$file = "C:/PROYECTOS/quilla-astro/src/pages/cotizador.astro";

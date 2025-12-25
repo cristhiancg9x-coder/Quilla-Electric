@@ -1,13 +1,12 @@
-/* empty css                                 */
-import { b as createAstro, c as createComponent, d as renderHead, e as renderSlot, a as renderTemplate, r as renderComponent } from '../chunks/astro/server_rXIhwjdR.mjs';
+import { b as createAstro, c as createComponent, d as renderHead, e as renderSlot, a as renderTemplate, r as renderComponent } from '../chunks/astro/server_DjG7uRHx.mjs';
 /* empty css                                 */
 import { jsxs, jsx, Fragment } from 'react/jsx-runtime';
 import React, { useState, useEffect } from 'react';
 import { DollarSign, TrendingUp, Users, Activity, Zap, Unlock, Lock, Package, Plus, Save, X, Edit2, Trash2, Database, UploadCloud, Check, AlertTriangle, Settings, Wrench, MessageCircle, User, Clock, CheckCircle, Phone, Eye, LogOut, LayoutDashboard, Menu, Search, Bell } from 'lucide-react';
-import { d as db } from '../chunks/config_Bdc6_zUD.mjs';
+import { d as db } from '../chunks/config_BZ9jvQ5Q.mjs';
 import { onSnapshot, collection, doc, updateDoc, setDoc, deleteDoc, writeBatch, query, orderBy, limit } from 'firebase/firestore';
 import { p as productsData } from '../chunks/cctv-products_cBGzD3Uk.mjs';
-import { l as logout } from '../chunks/authStore_D_eS57vo.mjs';
+import { l as logout } from '../chunks/authStore_Doj8OU2W.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Astro = createAstro("https://quillaelectric.site");
@@ -729,7 +728,7 @@ function AdminDashboard() {
 
 const prerender = false;
 const $$Index = createComponent(($$result, $$props, $$slots) => {
-  return renderTemplate`${renderComponent($$result, "AdminLayout", $$AdminLayout, { "title": "Panel Maestro" }, { "default": ($$result2) => renderTemplate` ${renderComponent($$result2, "AdminGuard", null, { "client:only": "react", "client:component-hydration": "only", "client:component-path": "C:/PROYECTOS/quilla-astro/src/components/admin/AdminGuard.jsx", "client:component-export": "default" }, { "default": ($$result3) => renderTemplate` ${renderComponent($$result3, "AdminDashboard", AdminDashboard, { "client:load": true, "client:component-hydration": "load", "client:component-path": "C:/PROYECTOS/quilla-astro/src/components/admin/AdminDashboard.jsx", "client:component-export": "default" })} ` })} ` })}`;
+  return renderTemplate`${renderComponent($$result, "AdminLayout", $$AdminLayout, { "title": "Panel Maestro" }, { "default": ($$result2) => renderTemplate` ${renderComponent($$result2, "AdminGuard", null, { "client:only": "react", "client:component-hydration": "only", "client:component-path": "@modules/admin/components/AdminGuard.jsx", "client:component-export": "default" }, { "default": ($$result3) => renderTemplate` ${renderComponent($$result3, "AdminDashboard", AdminDashboard, { "client:load": true, "client:component-hydration": "load", "client:component-path": "@modules/admin/components/AdminDashboard.jsx", "client:component-export": "default" })} ` })} ` })}`;
 }, "C:/PROYECTOS/quilla-astro/src/pages/admin/index.astro", void 0);
 
 const $$file = "C:/PROYECTOS/quilla-astro/src/pages/admin/index.astro";

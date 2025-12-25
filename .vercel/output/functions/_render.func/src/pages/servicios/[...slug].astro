@@ -3,16 +3,16 @@
 export const prerender = false; // <--- MODO SERVIDOR (OBLIGATORIO PARA FIREBASE)
 
 import { getCollection, render } from 'astro:content'; 
-import MainLayout from '../../layouts/MainLayout.astro';
+import MainLayout from '@/layouts/MainLayout.astro';
 import { Image } from 'astro:assets';
 import { getImage } from "astro:assets";
 
 // COMPONENTES DE REACT
-import CctvWizard from '../../components/CctvWizard.jsx';
-import ServiceGuard from '../../components/ServiceGuard.jsx';
+import CctvWizard from '@/modules/calculator/components/CctvWizard.jsx';
+import ServiceGuard from '@/modules/calculator/components/ServiceGuard.jsx';
 
 // LIBRERÍAS DE FIREBASE
-import { db } from '../../firebase/config';
+import { db } from '@/lib/firebase/config';
 import { collection, getDocs, doc, getDoc } from 'firebase/firestore'; // <--- Agregamos doc y getDoc
 
 // ==================================================================

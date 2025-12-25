@@ -1,9 +1,8 @@
-/* empty css                                 */
-import { c as createComponent, d as renderHead, r as renderComponent, a as renderTemplate } from '../chunks/astro/server_rXIhwjdR.mjs';
+import { c as createComponent, d as renderHead, r as renderComponent, a as renderTemplate } from '../chunks/astro/server_DjG7uRHx.mjs';
 /* empty css                                 */
 import { jsxs, jsx } from 'react/jsx-runtime';
 import 'react';
-import { a as loginWithGoogle } from '../chunks/authStore_D_eS57vo.mjs';
+import { a as loginWithGoogle } from '../chunks/authStore_Doj8OU2W.mjs';
 export { renderers } from '../renderers.mjs';
 
 function LoginButton() {
@@ -26,7 +25,7 @@ function LoginButton() {
 }
 
 const $$Login = createComponent(($$result, $$props, $$slots) => {
-  return renderTemplate`<html lang="es" class="dark"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><title>Acceso Quilla SaaS</title>${renderHead()}</head> <body class="bg-slate-950 flex items-center justify-center h-screen font-sans"> <div class="relative group w-full max-w-md p-1"> <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-green-500 rounded-2xl blur opacity-75 animate-tilt"></div> <div class="relative bg-slate-900 border border-slate-800 p-8 rounded-xl shadow-2xl text-center"> <h1 class="text-3xl font-bold text-white mb-2">Bienvenido</h1> <p class="text-slate-400 mb-8">Ingresa para acceder a las herramientas de ingeniería.</p> ${renderComponent($$result, "LoginButton", LoginButton, { "client:load": true, "client:component-hydration": "load", "client:component-path": "C:/PROYECTOS/quilla-astro/src/components/auth/LoginButton.jsx", "client:component-export": "default" })} <p class="text-xs text-slate-600 mt-6">
+  return renderTemplate`<html lang="es" class="dark"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><title>Acceso Quilla SaaS</title>${renderHead()}</head> <body class="bg-slate-950 flex items-center justify-center h-screen font-sans"> <div class="relative group w-full max-w-md p-1"> <div class="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-green-500 rounded-2xl blur opacity-75 animate-tilt"></div> <div class="relative bg-slate-900 border border-slate-800 p-8 rounded-xl shadow-2xl text-center"> <h1 class="text-3xl font-bold text-white mb-2">Bienvenido</h1> <p class="text-slate-400 mb-8">Ingresa para acceder a las herramientas de ingeniería.</p> ${renderComponent($$result, "LoginButton", LoginButton, { "client:load": true, "client:component-hydration": "load", "client:component-path": "@/modules/auth/components/LoginButton.jsx", "client:component-export": "default" })} <p class="text-xs text-slate-600 mt-6">
 Al continuar, aceptas los términos de servicio de Quilla Electric SaaS.
 </p> </div> </div> </body></html>`;
 }, "C:/PROYECTOS/quilla-astro/src/pages/login.astro", void 0);
