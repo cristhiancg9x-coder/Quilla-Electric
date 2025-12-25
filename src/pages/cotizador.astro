@@ -1,17 +1,22 @@
 ---
+// src/pages/cotizador.astro
+
+// 1. IMPORTANTE: Desactivamos el prerenderizado para que funcione dinámico en el servidor (Vercel)
+export const prerender = false;
+
 import MainLayout from '@/layouts/MainLayout.astro';
 import CctvWizard from '@/modules/calculator/components/CctvWizard.jsx';
 
-// 1. Importamos la base de datos cruda
-import productsData from '@modules/calculator/data/cctv-products.json';
+// 2. Importamos la base de datos cruda
+import productsData from '@/modules/calculator/data/cctv-products.json';
 
-// 2. Importamos la herramienta de optimización de Astro
+// 3. Importamos la herramienta de optimización de Astro
 import { getImage } from "astro:assets";
 
-// 3. Cargamos TODAS las imágenes de la carpeta assets (Mapeo automático)
+// 4. Cargamos TODAS las imágenes de la carpeta assets (Mapeo automático)
 const imageFiles = import.meta.glob('/src/assets/camaras/*.{jpeg,jpg,png,tiff,webp,gif,svg}');
 
-// 4. PROCESO DE AUTOMATIZACIÓN (Esto ocurre en milisegundos al construir)
+// 5. PROCESO DE AUTOMATIZACIÓN (Esto ocurre en milisegundos al construir)
 const optimizedProducts = await Promise.all(
   productsData.map(async (product) => {
     // Construimos la ruta donde debería estar la imagen
@@ -20,7 +25,7 @@ const optimizedProducts = await Promise.all(
     // Verificamos si la imagen existe en la carpeta
     if (!imageFiles[imagePath]) {
       console.error(`⚠️ Alerta: No encontré la imagen ${product.image} en src/assets/camaras`);
-      return product; // Si no existe, devolvemos el producto sin cambios (evita errores)
+      return product; // Si no existe, devolvemos el producto sin cambios
     }
 
     // Si existe, la procesamos
@@ -43,18 +48,49 @@ const optimizedProducts = await Promise.all(
 
 <MainLayout title="Configurador CCTV | Quilla Electric" description="Diseña tu propio sistema de seguridad en 3 pasos.">
   
-  <section class="py-20 px-4 bg-slate-950 min-h-screen">
-    <div class="text-center mb-12">
-      <h1 class="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">
-        Diseña tu Sistema de Seguridad
+  <section class="min-h-screen bg-slate-950 flex flex-col items-center justify-start pt-24 pb-12 px-4 md:pt-32">
+    
+    <div class="text-center mb-8 md:mb-10 max-w-2xl mx-auto animate-fade-in-down">
+      
+      <span class="inline-block py-1 px-3 rounded-full bg-blue-900/30 border border-blue-500/30 text-blue-400 text-xs font-bold tracking-wider mb-4 uppercase">
+        Configurador Online
+      </span>
+
+      <h1 class="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500 mb-4 leading-tight">
+        Diseña tu Sistema
       </h1>
-      <p class="text-slate-300 max-w-2xl mx-auto text-lg">
-        Responde unas preguntas simples y nuestro algoritmo te recomendará las mejores cámaras para tu espacio.
+      
+      <p class="text-slate-400 text-sm md:text-lg max-w-lg mx-auto">
+        Responde 3 preguntas y obtén un presupuesto detallado con instalación incluida.
       </p>
     </div>
 
-    <CctvWizard client:load products={optimizedProducts} config={{}}/>
+    <div class="w-full max-w-5xl">
+      <CctvWizard 
+        client:load 
+        products={optimizedProducts} 
+        config={{}} 
+      />
+    </div>
 
   </section>
 
 </MainLayout>
+
+<style>
+  /* Animación suave de entrada para el título */
+  .animate-fade-in-down {
+    animation: fadeInDown 0.8s ease-out forwards;
+  }
+
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
