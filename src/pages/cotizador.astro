@@ -1,61 +1,78 @@
 ---
 // src/pages/cotizador.astro
 
-// 1. MODO SERVIDOR: Obligatorio para leer precios frescos de Firebase en cada visita
+// 1. MODO SERVIDOR: Obligatorio para leer precios frescos de Firebase
 export const prerender = false;
 
 import MainLayout from '@/layouts/MainLayout.astro';
 import CctvWizard from '@/modules/calculator/components/CctvWizard.jsx';
 
-// Importamos la base de datos de productos (JSON local para velocidad)
-import productsData from '@/modules/calculator/data/cctv-products.json';
-
-// Importamos herramientas de Astro
+// Importamos herramientas de Astro y Firebase
 import { getImage } from "astro:assets";
-
-// 👇👇👇 NUEVO: Importamos Firebase para leer la CONFIGURACIÓN GLOBAL 👇👇👇
 import { db } from '@/lib/firebase/config';
-import { doc, getDoc } from 'firebase/firestore';
+import { collection, getDocs, doc, getDoc } from 'firebase/firestore';
 
 // ---------------------------------------------------------
-// 1. RECUPERAR PRECIOS GLOBALES (Mano de Obra, Cable, etc.)
+// 1. RECUPERAR PRODUCTOS (Cámaras, NVRs - Venta)
+// ---------------------------------------------------------
+let cloudProducts = [];
+try {
+  const querySnapshot = await getDocs(collection(db, "productos"));
+  cloudProducts = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+} catch (error) {
+  console.error("❌ Error leyendo productos:", error);
+}
+
+// ---------------------------------------------------------
+// 2. RECUPERAR INSUMOS (Tubos, Cables - Materiales) 🔥 NUEVO
+// ---------------------------------------------------------
+let cloudSupplies = [];
+try {
+  const suppliesSnap = await getDocs(collection(db, "insumos"));
+  cloudSupplies = suppliesSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+} catch (error) {
+  console.error("❌ Error leyendo insumos:", error);
+}
+
+// ---------------------------------------------------------
+// 3. RECUPERAR PRECIOS GLOBALES (Configuración)
 // ---------------------------------------------------------
 let globalConfig = {
-  manoObra: 120,          // Valor por defecto por seguridad
-  precioMetroCable: 2.5,  // Valor por defecto
+  manoObra: 120,          
+  precioMetroCable: 2.5,  
   mensajeWhatsapp: "Hola, quiero cotizar este sistema:"
 };
 
 try {
-  // Buscamos en la colección 'configuracion', el documento 'global'
-  // (Asegúrate que en tu Panel Admin estés guardando en esta ruta exacta)
   const configRef = doc(db, "configuracion", "global");
   const configSnap = await getDoc(configRef);
 
   if (configSnap.exists()) {
-    const data = configSnap.data();
-    // Actualizamos solo si hay datos, si no, mantenemos los defaults
-    globalConfig = { ...globalConfig, ...data };
-    console.log("✅ Configuración cargada desde Firebase:", globalConfig);
-  } else {
-    console.warn("⚠️ No se encontró configuración global en Firebase, usando defaults.");
+    globalConfig = { ...globalConfig, ...configSnap.data() };
   }
 } catch (error) {
   console.error("❌ Error leyendo configuración:", error);
 }
 
 // ---------------------------------------------------------
-// 2. PROCESAMIENTO DE IMÁGENES (Optimización)
+// 4. PROCESAMIENTO DE IMÁGENES (Optimización)
 // ---------------------------------------------------------
 const imageFiles = import.meta.glob('/src/assets/camaras/*.{jpeg,jpg,png,tiff,webp,gif,svg}');
 
 const optimizedProducts = await Promise.all(
-  productsData.map(async (product) => {
+  cloudProducts.map(async (product) => {
+    // Si es URL externa (ej. Firebase Storage), la dejamos pasar
+    if (product.image && product.image.startsWith('http')) {
+        return product;
+    }
+
+    // Si es local, la optimizamos
     const imagePath = `/src/assets/camaras/${product.image}`;
     if (!imageFiles[imagePath]) {
       return product;
     }
-    const imageModule = await imageFiles[imagePath]() as any;
+    
+    const imageModule = await imageFiles[imagePath]();
     const optimizedImage = await getImage({
       src: imageModule.default,
       format: 'webp',
@@ -89,6 +106,7 @@ const optimizedProducts = await Promise.all(
       <CctvWizard 
         client:load 
         products={optimizedProducts} 
+        supplies={cloudSupplies} 
         config={globalConfig} 
       />
     </div>
