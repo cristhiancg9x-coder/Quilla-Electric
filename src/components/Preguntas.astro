@@ -1,11 +1,9 @@
 ---
 // src/components/Preguntas.astro
 
-// 1. DEFINIMOS LAS PREGUNTAS Y RESPUESTAS AQUÍ
-// Es más fácil de editar en el futuro.
 const preguntas = [
   {
-    pregunta: "¿Quanto cuesta el mantenimiento de un Pozo a Tierra?",
+    pregunta: "¿Cuánto cuesta el mantenimiento de un Pozo a Tierra?",
     respuesta: "El precio base incluye la limpieza, reactivación con gel y certificado. El costo exacto depende del estado actual del pozo. ¡Escríbenos para una visita técnica gratuita!"
   },
   {
@@ -22,7 +20,6 @@ const preguntas = [
   }
 ];
 
-// 2. GENERAMOS EL CÓDIGO INVISIBLE (JSON-LD) PARA GOOGLE
 const schemaFAQ = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -39,15 +36,22 @@ const schemaFAQ = {
 
 <script type="application/ld+json" set:html={JSON.stringify(schemaFAQ)} />
 
-<section class="faq-section">
-  <h2>Preguntas Frecuentes</h2>
+<section class="faq-section relative">
+  <div class="absolute top-1/2 left-0 -translate-y-1/2 w-[300px] h-[300px] bg-purple-600/10 blur-[80px] rounded-full -z-10 pointer-events-none"></div>
+
+  <h2 class="titulo-faq">Preguntas Frecuentes</h2>
   
   <div class="faq-container">
     
     {preguntas.map((item) => (
-      <details>
-        <summary>{item.pregunta}</summary>
-        <p>{item.respuesta}</p>
+      <details class="group">
+        <summary class="glass-panel">
+            <span>{item.pregunta}</span>
+            <span class="icon">+</span>
+        </summary>
+        <div class="respuesta-content">
+            <p>{item.respuesta}</p>
+        </div>
       </details>
     ))}
 
@@ -55,27 +59,47 @@ const schemaFAQ = {
 </section>
 
 <style>
-  .faq-section { margin-top: 4rem; margin-bottom: 4rem; padding: 0 1rem; }
-  h2 { text-align: center; margin-bottom: 2rem; color: #0f172a; font-size: 2rem; }
-
-  .faq-container { max-width: 800px; margin: 0 auto; }
-
-  details {
-    background: white;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    border: 1px solid #e2e8f0;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
+  .faq-section { margin-top: 6rem; margin-bottom: 6rem; padding: 0 1rem; position: relative; }
   
-  details:hover { border-color: #fbbf24; }
-  details[open] { background-color: #f8fafc; border-color: #fbbf24; }
+  .titulo-faq { 
+    text-align: center; 
+    margin-bottom: 3rem; 
+    color: #334155; /* Un tono oscuro para contrastar si el fondo es claro, o blanco si es oscuro */
+    /* Ajuste para fondo oscuro: */
+    color: rgba(255,255,255,0.1);
+    font-size: 3rem; 
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    /* Truco: Texto transparente con borde (Outline text) */
+    -webkit-text-stroke: 1px rgba(255,255,255,0.2);
+  }
+
+  /* Si prefieres el título sólido blanco brillante, usa este bloque en su lugar: */
+  .titulo-faq {
+      color: white;
+      -webkit-text-stroke: 0;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  }
+
+  .faq-container { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+
+  /* ESTILO CRISTAL (Glassmorphism) */
+  details {
+    overflow: hidden; /* Para la animación */
+  }
 
   summary {
-    font-weight: bold;
-    color: #0f172a;
+    background: rgba(255, 255, 255, 0.03); /* Casi transparente */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px 24px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    font-weight: 600;
+    color: white;
     list-style: none;
     display: flex;
     justify-content: space-between;
@@ -83,8 +107,42 @@ const schemaFAQ = {
     font-size: 1.1rem;
   }
   
-  summary::after { content: '+'; font-size: 1.5rem; color: #fbbf24; font-weight: bold; }
-  details[open] summary::after { content: '-'; }
+  /* Hover: Brillo dorado */
+  summary:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 215, 0, 0.5); /* Dorado sutil */
+  }
 
-  p { margin-top: 15px; color: #475569; line-height: 1.6; }
+  /* Estado Abierto */
+  details[open] summary {
+    background: linear-gradient(90deg, rgba(255, 215, 0, 0.1), transparent);
+    border-color: #ffd700;
+    color: #ffd700;
+  }
+
+  .icon { 
+    font-size: 1.5rem; 
+    color: #00f0ff; /* Cian */
+    transition: transform 0.3s; 
+  }
+  
+  details[open] .icon { 
+    transform: rotate(45deg); 
+    color: #ffd700; /* Cambia a dorado al abrir */
+  }
+
+  /* Respuesta */
+  .respuesta-content {
+    padding: 20px 24px;
+    color: #cbd5e1; /* Gris claro */
+    line-height: 1.7;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    margin-left: 12px; /* Indentación elegante */
+    animation: slideDown 0.3s ease-out;
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 </style>

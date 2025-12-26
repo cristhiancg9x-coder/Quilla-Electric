@@ -15,20 +15,20 @@ export async function getStaticPaths() {
 
 const post = Astro.props;
 
-// 2. CAMBIO CLAVE: Usamos la función render(post) en vez de post.render()
+// 2. CAMBIO CLAVE: Usamos la función render(post)
 const { Content } = await render(post);
 
 // --- PREPARACIÓN DE DATOS PARA SEO ---
 const imagenOG = post.data.image?.src || '/img/blog-default.jpg';
 const urlCompleta = new URL(Astro.url.pathname, Astro.site);
 
-// FECHAS SEGURAS (Para evitar el error de toISOString)
+// FECHAS SEGURAS
 const fechaPublicacion = post.data.pubDate 
   ? new Date(post.data.pubDate).toISOString().split('T')[0] 
   : new Date().toISOString().split('T')[0];
 
 const fechaLegible = post.data.pubDate 
-  ? new Date(post.data.pubDate).toLocaleDateString('es-PE') 
+  ? new Date(post.data.pubDate).toLocaleDateString('es-PE', { year: 'numeric', month: 'long', day: 'numeric' }) 
   : 'Reciente';
 
 const schemaArticle = {
@@ -66,25 +66,40 @@ const schemaArticle = {
   
   <script type="application/ld+json" set:html={JSON.stringify(schemaArticle)} />
 
-  <article class="articulo-completo">
-    <header class="encabezado-articulo">
-        <p class="meta">
-            📅 {fechaLegible} | ✍️ {post.data.author}
-        </p>
+  <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+      <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-900/10 blur-[120px] rounded-full"></div>
+      <div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-purple-900/10 blur-[120px] rounded-full"></div>
+  </div>
+
+  <article class="articulo-completo glass-panel">
+    
+    <header class="encabezado-articulo text-center mb-10">
+        <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-slate-800/50 border border-slate-700 text-slate-300 text-sm mb-6">
+            <span>📅 {fechaLegible}</span>
+            <span class="text-slate-600">|</span>
+            <span class="text-cyan-400">✍️ {post.data.author}</span>
+        </div>
         
-        <h1>{post.data.title}</h1>
+        <h1 class="text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
+            {post.data.title}
+        </h1>
         
-        <hr class="separador-amarillo"/>
+        <div class="separador-neon mx-auto"></div>
     </header>
 
-    <div class="contenido-texto">
+    <div class="contenido-texto prose prose-invert max-w-none">
         <Content />
     </div>
 
-    <div class="cta-box">
-        <h3>¿Necesitas ayuda con esto?</h3>
-        <p>Evita riesgos eléctricos en tu hogar.</p>
-        <a href="/contacto" class="btn-whatsapp">Consultar al Técnico</a>
+    <div class="cta-box group">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-yellow-500/10 rounded-full blur-2xl group-hover:bg-yellow-500/20 transition-all"></div>
+        
+        <h3 class="relative z-10 text-xl font-bold text-white mb-2">¿Necesitas un experto en Arequipa?</h3>
+        <p class="relative z-10 text-slate-300 mb-6">No arriesgues tu seguridad. Cotiza tu proyecto con nosotros hoy mismo.</p>
+        
+        <a href="/contacto" class="relative z-10 btn-neon">
+            👷 Consultar al Técnico
+        </a>
     </div>
 
   </article>
@@ -92,24 +107,119 @@ const schemaArticle = {
 </MainLayout>
 
 <style>
-  /* (Tus estilos se mantienen igual) */
-  .articulo-completo { max-width: 720px; margin: 0 auto; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-  .meta { color: #64748b; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
-  h1 { font-size: 2.5rem; color: #0f172a; margin-top: 10px; line-height: 1.2; }
-  .separador-amarillo { border: 0; height: 4px; background: #fbbf24; width: 60px; margin: 20px 0; }
-  .contenido-texto { font-size: 1.1rem; line-height: 1.8; color: #334155; }
+  /* CONFIGURACIÓN DEL PANEL DE VIDRIO */
+  .articulo-completo { 
+    max-width: 800px; 
+    margin: 4rem auto; 
+    
+    /* Glassmorphism Dark */
+    background: rgba(15, 23, 42, 0.6); 
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    padding: 3rem 2rem; 
+    border-radius: 24px; 
+    box-shadow: 0 0 40px rgba(0,0,0,0.5); 
+  }
+
+  /* DETALLES HEADER */
+  .separador-neon { 
+    height: 4px; 
+    background: linear-gradient(90deg, transparent, #00f0ff, transparent); 
+    width: 100px; 
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+  }
+
+  /* ESTILOS DEL CONTENIDO (Markdown Override) */
+  .contenido-texto { 
+    font-size: 1.15rem; 
+    line-height: 1.8; 
+    color: #cbd5e1; /* Slate 300 - Muy legible en oscuro */
+  }
   
-  /* Estilos para que las imágenes dentro del post se vean bien */
+  /* Selectores Globales para el contenido generado por Astro */
+  .contenido-texto :global(p) { margin-bottom: 1.5rem; }
+  
+  .contenido-texto :global(h2) { 
+    color: white; 
+    margin-top: 3rem; 
+    margin-bottom: 1.5rem; 
+    font-size: 1.8rem; 
+    font-weight: 800;
+    border-left: 4px solid #ffd700; /* Dorado */
+    padding-left: 1rem;
+  }
+  
+  .contenido-texto :global(h3) { 
+    color: #e2e8f0; 
+    margin-top: 2rem; 
+    margin-bottom: 1rem; 
+    font-size: 1.4rem; 
+    font-weight: 700;
+  }
+
+  .contenido-texto :global(strong) { color: #00f0ff; } /* Cian eléctrico para énfasis */
+  
+  .contenido-texto :global(a) { 
+    color: #ffd700; 
+    text-decoration: underline; 
+    text-underline-offset: 4px;
+    transition: color 0.2s;
+  }
+  .contenido-texto :global(a:hover) { color: white; }
+
+  .contenido-texto :global(ul) { 
+    background: rgba(255,255,255,0.03); 
+    padding: 2rem 3rem; 
+    border-radius: 12px; 
+    border: 1px solid rgba(255,255,255,0.05);
+    margin-bottom: 2rem;
+    list-style-type: disc;
+  }
+  
+  .contenido-texto :global(li) { margin-bottom: 0.5rem; padding-left: 0.5rem; }
+
+  /* IMÁGENES DENTRO DEL POST */
   .contenido-texto :global(img) {
     max-width: 100%;
     height: auto;
-    border-radius: 8px;
-    margin: 20px 0;
+    border-radius: 16px;
+    margin: 2.5rem 0;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+
+  /* CAJA DE CTA FINAL */
+  .cta-box { 
+    margin-top: 4rem; 
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); 
+    padding: 3rem; 
+    border-radius: 20px; 
+    text-align: center; 
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-neon { 
+    display: inline-block; 
+    background: linear-gradient(90deg, #0f172a, #1e293b); 
+    color: #00f0ff; 
+    padding: 12px 30px; 
+    text-decoration: none; 
+    border-radius: 50px; 
+    font-weight: 800; 
+    border: 1px solid #00f0ff;
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+    transition: all 0.3s ease;
   }
   
-  .contenido-texto :global(h2) { color: #0f172a; margin-top: 2.5rem; font-size: 1.8rem; }
-  .contenido-texto :global(h3) { color: #334155; margin-top: 1.5rem; font-size: 1.4rem; }
-
-  .cta-box { margin-top: 3rem; background: #f0f9ff; padding: 2rem; border-radius: 10px; text-align: center; border: 1px solid #bae6fd; }
-  .btn-whatsapp { display: inline-block; background: #0f172a; color: white; padding: 12px 25px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 10px; }
+  .btn-neon:hover { 
+    background: #00f0ff; 
+    color: #0f172a;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+    transform: scale(1.05);
+  }
 </style>

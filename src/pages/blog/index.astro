@@ -4,7 +4,6 @@ import MainLayout from '@/layouts/MainLayout.astro';
 import { getCollection } from 'astro:content';
 
 // 1. Pedimos los artículos y los ordenamos de forma SEGURA
-// Si un artículo no tiene fecha, asumimos que es fecha 0 (muy antigua) para que no rompa el código
 const posts = (await getCollection('blog')).sort((a, b) => {
   const fechaA = a.data.pubDate ? a.data.pubDate.valueOf() : 0;
   const fechaB = b.data.pubDate ? b.data.pubDate.valueOf() : 0;
@@ -14,68 +13,156 @@ const posts = (await getCollection('blog')).sort((a, b) => {
 
 <MainLayout titulo="Blog de Electricidad" descripcion="Consejos y noticias sobre seguridad eléctrica en Perú.">
   
-  <section class="blog-header">
-    <h1>📰 Blog Eléctrico</h1>
-    <p>Aprende a cuidar tu instalación y ahorrar energía.</p>
+  <section class="relative py-12 md:py-20 px-4">
+    
+    <div class="absolute top-0 right-1/2 translate-x-1/2 w-[600px] h-[400px] bg-purple-900/20 blur-[120px] rounded-full -z-10 pointer-events-none"></div>
+
+    <div class="blog-header text-center mb-16 animate-fade-in-down">
+      <span class="inline-block py-1 px-3 rounded-full bg-purple-500/10 border border-purple-400/20 text-purple-300 text-xs font-bold tracking-wider mb-4 uppercase">
+        Novedades & Consejos
+      </span>
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-4 text-white">
+        Blog <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">Eléctrico</span>
+      </h1>
+      <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+        Aprende a cuidar tu instalación, ahorrar energía y evitar multas de INDECI.
+      </p>
+    </div>
+
+    <div class="grid-posts">
+      {posts.map((post) => (
+        <article class="card-post group">
+          <a href={`/blog/${post.id}`} class="link-post">
+              <div class="contenido">
+                  <div class="header-card">
+                      <span class="fecha-badge">
+                        📅 {post.data.pubDate 
+                          ? post.data.pubDate.toLocaleDateString('es-PE', { year: 'numeric', month: 'short', day: 'numeric' }) 
+                          : 'Reciente'}
+                      </span>
+                  </div>
+
+                  <h3 class="group-hover:text-cyan-400 transition-colors">{post.data.title}</h3>
+                  
+                  <p class="descripcion">{post.data.description}</p>
+                  
+                  <div class="footer-card">
+                      <span class="leer-mas">
+                        Leer artículo 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="arrow-icon"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                      </span>
+                  </div>
+              </div>
+          </a>
+        </article>
+      ))}
+    </div>
+
   </section>
-
-  <div class="grid-posts">
-    {posts.map((post) => (
-      <article class="card-post">
-        <a href={`/blog/${post.id}`} class="link-post">
-            <div class="contenido">
-                <h3>{post.data.title}</h3>
-                
-                <p class="fecha">
-                  {post.data.pubDate 
-                    ? post.data.pubDate.toLocaleDateString('es-PE', { year: 'numeric', month: 'long', day: 'numeric' }) 
-                    : 'Reciente'}
-                </p>
-
-                <p class="descripcion">{post.data.description}</p>
-                <span class="leer-mas">Leer artículo →</span>
-            </div>
-        </a>
-      </article>
-    ))}
-  </div>
 
 </MainLayout>
 
 <style>
-  .blog-header { text-align: center; margin-bottom: 3rem; }
-  h1 { color: #0f172a; font-size: 2.5rem; }
+  /* ANIMACIÓN DE ENTRADA */
+  .animate-fade-in-down {
+    animation: fadeInDown 0.8s ease-out forwards;
+  }
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
   .grid-posts {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
+  /* --- TARJETA DE CRISTAL (GLASSMORPHISM) --- */
   .card-post {
-    background: white;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03); /* Fondo oscuro semitransparente */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
     overflow: hidden;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
   }
 
   .card-post:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    border-color: #fbbf24;
+    transform: translateY(-8px);
+    border-color: #00f0ff; /* Borde Cian Eléctrico */
+    box-shadow: 0 0 25px rgba(0, 240, 255, 0.15); /* Resplandor */
+    background: rgba(255, 255, 255, 0.05);
   }
 
-  .link-post { text-decoration: none; color: inherit; display: block; height: 100%; }
-  
-  .contenido { padding: 1.5rem; }
-  
-  h3 { margin: 0 0 10px 0; color: #0f172a; font-size: 1.4rem; }
-  .fecha { font-size: 0.85rem; color: #94a3b8; margin-bottom: 1rem; }
-  .descripcion { color: #475569; line-height: 1.6; margin-bottom: 1.5rem; }
-  
-  .leer-mas { 
-    color: #fbbf24; font-weight: bold; font-size: 0.9rem; 
-    text-transform: uppercase; letter-spacing: 0.5px;
+  .link-post { 
+    text-decoration: none; 
+    color: inherit; 
+    display: flex; 
+    flex-direction: column; 
+    height: 100%; 
   }
+  
+  .contenido { 
+    padding: 2rem; 
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .header-card { margin-bottom: 1rem; }
+
+  .fecha-badge {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px 10px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  h3 { 
+    margin: 0 0 1rem 0; 
+    color: white; 
+    font-size: 1.5rem; 
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .descripcion { 
+    color: #cbd5e1; /* Gris claro (Slate 300) */
+    line-height: 1.6; 
+    margin-bottom: 2rem; 
+    font-size: 0.95rem;
+    flex-grow: 1; /* Empuja el footer hacia abajo */
+  }
+  
+  .footer-card {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  /* ENLACE "LEER MÁS" ESTILO NEÓN */
+  .leer-mas { 
+    color: #00f0ff; /* Cian */
+    font-weight: 700; 
+    font-size: 0.9rem; 
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+  }
+
+  .arrow-icon { transition: transform 0.3s; }
+
+  .card-post:hover .arrow-icon { transform: translateX(5px); }
+  .card-post:hover .leer-mas { text-shadow: 0 0 8px rgba(0, 240, 255, 0.6); }
+
 </style>

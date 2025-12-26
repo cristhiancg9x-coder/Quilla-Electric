@@ -1,5 +1,13 @@
 <nav class="barra-electrica">
-  <div class="logo">⚡ Quilla Electric</div>
+  <a href="/" class="logo-container group">
+    <img src="/logo.png" alt="Quilla Electric" class="logo-img" />
+    
+    <span class="brand-text">
+      <span class="text-white">Quilla</span>
+      <span class="text-electric">Electric</span>
+    </span>
+  </a>
+
   <ul class="menu-links">
     <li><a href="/">Inicio</a></li>
     <li><a href="/servicios">Servicios</a></li>
@@ -9,58 +17,134 @@
 </nav>
 
 <style>
-  /* ESTILOS: Solo afectan a esta barra, no rompen lo demás */
+  /* --- VARIABLES LOCALES (Por si acaso) --- */
+  :root {
+    --nav-bg: rgba(5, 11, 20, 0.75); /* Fondo oscuro semitransparente */
+    --neon-cyan: #00f0ff;            /* Tu nuevo color eléctrico */
+  }
+
+  /* BARRA PRINCIPAL ESTILO "CRISTAL" */
   .barra-electrica {
-    background-color: #0f172a; /* Azul oscuro industrial */
-    color: white;
-    padding: 1rem 2rem;
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(12px);         /* Efecto borroso detrás */
+    -webkit-backdrop-filter: blur(12px); /* Soporte para iPhone */
+    border-bottom: 1px solid rgba(0, 240, 255, 0.1); /* Línea sutil abajo */
+    
+    /* Para que se quede pegada arriba al bajar */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    
     display: flex;
-    justify-content: space-between; /* Separa logo y menú a los extremos */
+    justify-content: space-between;
     align-items: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 0.8rem 2rem; /* Un poco más compacto y elegante */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Sombra profunda */
+    transition: all 0.3s ease;
   }
 
-  .logo {
-    font-weight: bold;
-    font-size: 1.5rem;
-    color: #fbbf24; /* Amarillo electricidad */
+  /* LOGO Y TEXTO */
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Pequeño zoom al pasar el mouse sobre el logo */
+  .logo-container:hover {
+    transform: scale(1.02);
   }
 
+  .logo-img {
+    height: 45px; /* Tamaño ideal para navbar */
+    width: auto;
+    /* EL TOQUE MÁGICO: Resplandor cian alrededor del logo */
+    filter: drop-shadow(0 0 5px rgba(0, 240, 255, 0.5));
+  }
+
+  .brand-text {
+    font-size: 1.4rem;
+    font-weight: 800; /* Letra muy gruesa */
+    letter-spacing: -0.5px; /* Letras un poco más juntas (moderno) */
+    display: flex;
+    gap: 4px;
+  }
+
+  .text-white { color: #fff; }
+  .text-electric { 
+    color: var(--neon-cyan); 
+    /* Brillo de neón en el texto */
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+  }
+
+  /* ENLACES DEL MENÚ */
   .menu-links {
     display: flex;
     list-style: none;
-    gap: 20px; /* Espacio entre enlaces */
+    gap: 32px;
     margin: 0;
     padding: 0;
   }
 
   .menu-links a {
-    color: white;
+    color: #cbd5e1; /* Blanco grisáceo (más elegante que blanco puro) */
     text-decoration: none;
     font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    position: relative;
+    letter-spacing: 0.5px;
   }
 
+  /* Hover: Se enciende como luz */
   .menu-links a:hover {
-    color: #fbbf24; /* Cambia a amarillo al pasar el mouse */
+    color: var(--neon-cyan);
+    text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
   }
-  /* --- CÓDIGO NUEVO PARA MÓVILES --- */
+
+  /* Línea láser debajo al hacer hover */
+  .menu-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--neon-cyan);
+    transition: width 0.3s ease;
+    box-shadow: 0 0 5px var(--neon-cyan);
+  }
+
+  .menu-links a:hover::after {
+    width: 100%;
+  }
+
+  /* --- VERSIÓN MÓVIL OPTIMIZADA --- */
   @media (max-width: 768px) {
     .barra-electrica {
-      flex-direction: column; /* Pone el logo arriba y menú abajo */
-      gap: 15px; /* Espacio entre logo y menú */
-      padding: 15px;
+      flex-direction: column;
+      padding: 1rem;
+      gap: 1rem;
+      background-color: rgba(5, 11, 20, 0.95); /* Más oscuro en móvil para leer mejor */
+    }
+
+    .brand-text {
+      font-size: 1.2rem;
     }
 
     .menu-links {
       width: 100%;
-      justify-content: center; /* Centra los enlaces */
-      flex-wrap: wrap; /* Si no caben, bajan a la siguiente línea */
-      gap: 15px; /* Espacio entre palabras */
-      font-size: 0.9rem; /* Letra un pelín más chica para que entre */
+      justify-content: center;
+      gap: 20px;
+      font-size: 0.9rem;
+      flex-wrap: wrap;
     }
     
-    .menu-links li {
-      margin: 0; /* Quitamos márgenes viejos si los hubiera */
+    /* Ajuste para que los dedos toquen bien los enlaces */
+    .menu-links a {
+        padding: 5px; 
     }
   }
 </style>

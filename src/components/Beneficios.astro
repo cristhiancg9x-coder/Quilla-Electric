@@ -1,27 +1,30 @@
-<section class="beneficios-section">
-  <h2>¿Por qué elegir a Quilla Electric?</h2>
+<section class="beneficios-section relative">
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-blue-900/20 blur-[120px] rounded-full -z-10 pointer-events-none"></div>
+
+  <h2 class="titulo-brillante">¿Por qué elegir a Quilla Electric?</h2>
+  
   <div class="grid-beneficios">
     
-    <div class="item-beneficio">
-      <span class="icono">⚡</span>
+    <div class="item-beneficio group">
+      <span class="icono group-hover:scale-110 transition-transform duration-300">⚡</span>
       <h3>Atención Rápida</h3>
       <p>En Cerro Colorado y todo Arequipa. Llegamos antes de que se descongele tu refri.</p>
     </div>
 
-    <div class="item-beneficio">
-      <span class="icono">📜</span>
+    <div class="item-beneficio group">
+      <span class="icono group-hover:scale-110 transition-transform duration-300">📜</span>
       <h3>Certificados INDECI</h3>
       <p>Firmados por ingenieros colegiados. Garantizamos que pasas la inspección.</p>
     </div>
 
-    <div class="item-beneficio">
-      <span class="icono">💳</span>
+    <div class="item-beneficio group">
+      <span class="icono group-hover:scale-110 transition-transform duration-300">💳</span>
       <h3>Pago Fácil</h3>
       <p>Aceptamos efectivo, Yape, Plin y transferencias. Emitimos Factura o Boleta.</p>
     </div>
 
-    <div class="item-beneficio">
-      <span class="icono">🛡️</span>
+    <div class="item-beneficio group">
+      <span class="icono group-hover:scale-110 transition-transform duration-300">🛡️</span>
       <h3>Garantía Real</h3>
       <p>No desaparecemos. Si algo falla, volvemos y lo arreglamos sin costo.</p>
     </div>
@@ -31,32 +34,80 @@
 
 <style>
   .beneficios-section {
-    padding: 4rem 0;
+    padding: 4rem 1rem;
     text-align: center;
-    background-color: white;
+    /* ❌ ELIMINADO: background-color: white; */
+    position: relative;
+    overflow: hidden; /* Para contener las luces de fondo */
   }
-  h2 { font-size: 2rem; margin-bottom: 2rem; color: #0f172a; }
+
+  /* Título Moderno */
+  .titulo-brillante {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    color: white;
+    font-weight: 800;
+    /* Sutil brillo azulado en el texto */
+    text-shadow: 0 0 20px rgba(0, 195, 255, 0.3);
+  }
   
   .grid-beneficios {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
+  /* --- TARJETAS DE CRISTAL (GLASSMORPHISM) --- */
   .item-beneficio {
-    padding: 20px;
-    border: 1px solid #e2e8f0;
-    border-radius: 10px;
-    transition: transform 0.3s;
+    /* Fondo semitransparente oscuro */
+    background: rgba(255, 255, 255, 0.03);
+    /* Desenfoque del fondo (Efecto Hielo) */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    /* Borde sutil */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px; /* Bordes más curvos */
+    padding: 2.5rem 1.5rem;
+    transition: all 0.4s ease;
+    
+    /* Sombra suave inicial */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   }
   
+  /* --- ESTADO HOVER (AL PASAR EL MOUSE) --- */
   .item-beneficio:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-    border-color: #fbbf24;
+    transform: translateY(-8px); /* Flota hacia arriba */
+    
+    /* Borde Cian Eléctrico */
+    border-color: #00f0ff; 
+    
+    /* Resplandor de Neón */
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.2), inset 0 0 20px rgba(0, 240, 255, 0.05);
+    
+    background: rgba(255, 255, 255, 0.07);
   }
 
-  .icono { font-size: 3rem; display: block; margin-bottom: 10px; }
-  h3 { color: #0f172a; margin-bottom: 10px; }
-  p { color: #64748b; line-height: 1.5; }
+  .icono { 
+    font-size: 3.5rem; 
+    display: block; 
+    margin-bottom: 1.5rem;
+    /* Sombra al emoji para que no se vea plano */
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.3));
+  }
+
+  h3 { 
+    color: white; 
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 10px; 
+  }
+
+  p { 
+    color: #94a3b8; /* Gris azulado (Slate 400) para leer bien sobre oscuro */
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
 </style>

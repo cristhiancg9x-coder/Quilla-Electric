@@ -3,40 +3,40 @@
 import Navbar from '@components/common/Navbar.astro';
 import Footer from '@components/common/Footer.astro';
 import WhatsappButton from '@/components/common/WhatsappButton.astro';
+// Aseguramos que carguen tus estilos nuevos
 import '@/styles/global.css';
 
 // 1. Recibimos las variables (Props)
 const { 
   titulo, 
   descripcion = "Servicios eléctricos profesionales en Arequipa. Pozos a tierra y cableado.",
-  imagen = "/img/social-default.jpeg" // Imagen por defecto si la página no tiene una específica
+  imagen = "/img/social-default.jpeg" 
 } = Astro.props;
 
-// 2. Truco SEO: Convertir la imagen a URL absoluta (Ej: https://quillaelectric.site/img/foto.jpg)
-// Si no hacemos esto, WhatsApp a veces no muestra la foto.
+// 2. Truco SEO: Convertir la imagen a URL absoluta
 const siteURL = Astro.site ? Astro.site.href : Astro.url.origin;
 const imagenAbsoluta = new URL(imagen, siteURL).href;
 ---
 
-<html lang="es-PE">
+<html lang="es-PE" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     
     <title>{titulo} | Quilla Electric</title>
-     <!-- Google tag (gtag.js) -->
+    
     <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-JNC3CZ4STT"></script>
-        <script is:inline>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){
-            // @ts-ignore
-            dataLayer.push(arguments);
-          }
-          gtag('js', new Date());
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){
+        // @ts-ignore
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-JNC3CZ4STT');
+    </script>
 
-          gtag('config', 'G-JNC3CZ4STT');
-        </script>
     <meta name="description" content={descripcion} />
     <link rel="canonical" href={Astro.url} />
     
@@ -44,9 +44,11 @@ const imagenAbsoluta = new URL(imagen, siteURL).href;
     <meta property="og:description" content={descripcion} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
-    <meta property="og:image" content={imagenAbsoluta} /> <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:image" content={imagenAbsoluta} /> 
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="google-site-verification" content="v9b95geQ84lPrqkhNMwzQhD3hu9WmAT8F2M60z5rbGA" />
+
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -80,11 +82,12 @@ const imagenAbsoluta = new URL(imagen, siteURL).href;
     </script>    
   </head>
   
-  <body>
+  <body class="antialiased min-h-screen flex flex-col transition-colors duration-300">
     <Navbar />
 
     <main>
-      <slot /> </main>
+      <slot /> 
+    </main>
 
     <Footer />
     <WhatsappButton />
@@ -96,17 +99,25 @@ const imagenAbsoluta = new URL(imagen, siteURL).href;
   body {
     font-family: system-ui, -apple-system, sans-serif;
     margin: 0;
-    background-color: #f8fafc;
-    color: #1e293b;
+    
+    /* 🔴 CAMBIO CLAVE: Usamos las variables del tema oscuro en lugar de colores fijos */
+    background-color: var(--color-bg-main, #050b14); 
+    color: var(--color-text-main, #ffffff);
+    
     display: flex;
     flex-direction: column;
     min-height: 100vh;
   }
+
   main {
     flex: 1;
     width: 100%;
-    max-width: 1000px;
+    /* Aumentamos el ancho para un look más moderno y empresarial */
+    max-width: 1200px; 
     margin: 0 auto;
     box-sizing: border-box;
+    /* Agregamos padding lateral para que no se pegue en celulares */
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 </style>

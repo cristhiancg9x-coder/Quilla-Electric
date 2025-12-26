@@ -1,30 +1,29 @@
 ---
-// 1. IMPORTAMOS EL COMPONENTE INTELIGENTE
+// src/modules/blog/components/Galeria.astro
 import { Image } from 'astro:assets';
 
-// 2. IMPORTAMOS LAS FOTOS (Astro necesita "conocerlas" antes)
-// Nota: Asegúrate de tener estas fotos en src/assets/ o dará error.
-// Si aún no tienes fotos, descarga unas de prueba y ponles estos nombres.
 import fotoTablero from '@assets/tablero-industrial.jpeg';
 import fotoPozo from '@assets/pozo-tierra.jpeg';
 import fotoLed from '@assets/iluminacion-led.jpeg';
 import fotoCasa from '@assets/cableado-casa.jpeg';
 ---
 
-<section class="galeria-section" id="proyectos">
+<section class="galeria-section relative" id="proyectos">
+  <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-600/10 blur-[100px] rounded-full -z-10 pointer-events-none"></div>
+
   <div class="contenido-ancho">
-    <h2>Nuestros Proyectos Recientes</h2>
-    <p class="subtitulo">Calidad y seguridad certificada.</p>
+    <h2 class="titulo-brillante">Nuestros Proyectos Recientes</h2>
+    <p class="subtitulo">Calidad y seguridad certificada con tecnología de vanguardia.</p>
 
     <div class="grid-galeria">
       
-      <div class="item-galeria">
+      <div class="item-galeria group">
         <Image 
           src={fotoTablero} 
           alt="Mantenimiento de tablero eléctrico industrial en Arequipa" 
           width={600} 
           quality="mid" 
-          class="img-optimizada"
+          class="img-optimizada group-hover:scale-110 transition-transform duration-700"
         />
         <div class="overlay">
           <h3>Tablero Industrial</h3>
@@ -32,13 +31,13 @@ import fotoCasa from '@assets/cableado-casa.jpeg';
         </div>
       </div>
 
-      <div class="item-galeria">
+      <div class="item-galeria group">
         <Image 
           src={fotoPozo} 
           alt="Instalación de Pozo a Tierra en Cayma" 
           width={600}
           quality="mid"
-          class="img-optimizada" 
+          class="img-optimizada group-hover:scale-110 transition-transform duration-700" 
         />
         <div class="overlay">
           <h3>Pozo a Tierra</h3>
@@ -46,13 +45,13 @@ import fotoCasa from '@assets/cableado-casa.jpeg';
         </div>
       </div>
 
-      <div class="item-galeria">
+      <div class="item-galeria group">
         <Image 
           src={fotoLed} 
           alt="Iluminación LED oficinas" 
           width={600} 
           quality="mid"
-          class="img-optimizada"
+          class="img-optimizada group-hover:scale-110 transition-transform duration-700"
         />
         <div class="overlay">
           <h3>Iluminación LED</h3>
@@ -60,13 +59,13 @@ import fotoCasa from '@assets/cableado-casa.jpeg';
         </div>
       </div>
 
-      <div class="item-galeria">
+      <div class="item-galeria group">
         <Image 
           src={fotoCasa} 
           alt="Cableado residencial seguro" 
           width={600}
           quality="mid"
-          class="img-optimizada" 
+          class="img-optimizada group-hover:scale-110 transition-transform duration-700" 
         />
         <div class="overlay">
           <h3>Residencial</h3>
@@ -79,44 +78,82 @@ import fotoCasa from '@assets/cableado-casa.jpeg';
 </section>
 
 <style>
-  /* ESTILOS (Casi iguales, solo ajustamos la clase de la imagen) */
-  .galeria-section { padding: 4rem 1rem; background-color: #f8fafc; }
+  /* FONDO OSCURO AUTOMÁTICO (Heredado del body) */
+  .galeria-section { 
+    padding: 6rem 1rem; 
+    /* Eliminamos background-color para que sea transparente */
+    position: relative;
+    overflow: hidden;
+  }
+  
   .contenido-ancho { max-width: 1200px; margin: 0 auto; text-align: center; }
-  h2 { font-size: 2rem; color: #0f172a; margin-bottom: 0.5rem; }
-  .subtitulo { margin-bottom: 3rem; color: #64748b; }
+
+  /* TÍTULO NEÓN */
+  .titulo-brillante {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    color: white;
+    text-shadow: 0 0 20px rgba(0, 195, 255, 0.4);
+  }
+
+  .subtitulo { 
+    margin-bottom: 4rem; 
+    color: #94a3b8; /* Slate-400 */
+    font-size: 1.1rem;
+  }
 
   .grid-galeria {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    gap: 30px;
   }
 
   .item-galeria {
     position: relative;
     overflow: hidden;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 20px; /* Bordes más redondeados */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     cursor: pointer;
-    aspect-ratio: 4/3; /* Mantiene todas las tarjetas del mismo tamaño */
+    aspect-ratio: 4/3;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil inicial */
+    transition: all 0.3s ease;
   }
 
-  /* Clases para la imagen de Astro */
+  /* EFECTO AL PASAR EL MOUSE: Borde Neón */
+  .item-galeria:hover {
+    border-color: #00f0ff;
+    box-shadow: 0 0 25px rgba(0, 240, 255, 0.3);
+    transform: translateY(-5px);
+  }
+
   .img-optimizada {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Recorta la foto para que llene el cuadro */
-    transition: transform 0.5s ease;
+    object-fit: cover;
   }
-
-  .item-galeria:hover .img-optimizada { transform: scale(1.1); }
 
   .overlay {
     position: absolute;
     bottom: 0; left: 0; width: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-    color: white; padding: 20px; text-align: left;
+    /* Gradiente más suave y oscuro */
+    background: linear-gradient(to top, #050b14, transparent);
+    padding: 24px; 
+    text-align: left;
     box-sizing: border-box;
   }
-  .overlay h3 { margin: 0; font-size: 1.2rem; color: #fbbf24; }
-  .overlay p { margin: 5px 0 0; font-size: 0.9rem; color: #e2e8f0; }
+  
+  .overlay h3 { 
+    margin: 0; 
+    font-size: 1.4rem; 
+    font-weight: 700;
+    color: white; 
+  }
+  
+  .overlay p { 
+    margin: 5px 0 0; 
+    font-size: 0.95rem; 
+    color: #00f0ff; /* Texto cian para destacar */
+    font-weight: 600;
+  }
 </style>
