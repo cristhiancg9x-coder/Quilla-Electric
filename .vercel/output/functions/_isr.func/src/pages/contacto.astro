@@ -1,0 +1,201 @@
+---
+// src/pages/contacto.astro
+import MainLayout from '@/layouts/MainLayout.astro';
+---
+
+<MainLayout 
+  titulo="Contacto" 
+  descripcion="Contacta con Quilla Electric para emergencias o cotizaciones de pozos a tierra en Arequipa."
+>
+
+  <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-900/20 blur-[120px] rounded-full -z-10 pointer-events-none"></div>
+  <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-green-900/10 blur-[120px] rounded-full -z-10 pointer-events-none"></div>
+
+  <section class="py-12 md:py-20 px-4 animate-fade-in-down">
+    <div class="text-center mb-12">
+      <span class="inline-block py-1 px-3 rounded-full bg-green-500/10 border border-green-400/20 text-green-300 text-xs font-bold tracking-wider mb-4 uppercase">
+        Soporte & Ventas
+      </span>
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-4 text-white">
+        Hablemos de tu <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">Proyecto</span>
+      </h1>
+      <p class="text-slate-300 text-lg max-w-xl mx-auto">
+        Estamos listos para atender tu emergencia eléctrica o diseñar tu solución.
+      </p>
+    </div>
+
+    <div class="contenedor-contacto max-w-4xl mx-auto">
+      
+      <div class="glass-panel info-box group">
+        <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+            <span class="text-blue-400">⚡</span> Información Directa
+        </h2>
+        
+        <div class="space-y-4 text-slate-300">
+            <p class="flex items-center gap-3">
+                <span class="p-2 bg-blue-500/10 rounded-lg text-xl">📍</span>
+                <span><strong>Ubicación:</strong> Cerro Colorado, Arequipa</span>
+            </p>
+            <p class="flex items-center gap-3">
+                <span class="p-2 bg-blue-500/10 rounded-lg text-xl">📧</span>
+                <span><strong>Correo:</strong> quillaelectriccyt@gmail.com</span>
+            </p>
+            <p class="flex items-center gap-3">
+                <span class="p-2 bg-blue-500/10 rounded-lg text-xl">⏰</span>
+                <span><strong>Horario:</strong> Lunes a Sábado, 8am - 6pm</span>
+            </p>
+        </div>
+        
+        <div class="nota-urgente mt-8 p-4 rounded-xl border border-red-500/30 bg-red-500/10 text-red-300 font-bold text-center group-hover:border-red-500/50 transition-all">
+          <p class="flex items-center justify-center gap-2 animate-pulse">
+            <span>⚠️</span> ¿Emergencia? Llámanos directamente.
+          </p>
+        </div>
+      </div>
+
+      <form class="glass-panel formulario group" id="form-whatsapp">
+        <h2 class="text-2xl font-bold text-white mb-2 flex items-center gap-2">
+            <span class="text-green-400">📲</span> Cotiza por WhatsApp
+        </h2>
+        <p class="text-slate-400 text-sm mb-6">
+          Llena tus datos y te responderemos al instante.
+        </p>
+
+        <div class="space-y-4">
+            <label class="block">
+              <span class="text-slate-300 font-medium">Nombre:</span>
+              <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required class="input-neon" />
+            </label>
+            
+            <label class="block">
+              <span class="text-slate-300 font-medium">Servicio de interés:</span>
+              <select id="servicio" name="servicio" class="input-neon">
+                <option value="Mantenimiento Pozo a Tierra">Mantenimiento Pozo a Tierra</option>
+                <option value="Instalación Domiciliaria">Instalación Domiciliaria</option>
+                <option value="Emergencia Eléctrica">Emergencia Eléctrica</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </label>
+
+            <label class="block">
+              <span class="text-slate-300 font-medium">Mensaje o Consulta:</span>
+              <textarea id="mensaje" name="mensaje" rows="4" placeholder="Hola, necesito cotizar..." required class="input-neon resize-none"></textarea>
+            </label>
+        </div>
+        
+        <button type="submit" class="btn-whatsapp-neon mt-6 w-full">
+          <span>Enviar a WhatsApp</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </form>
+
+    </div>
+  </section>
+
+</MainLayout>
+
+<script>
+  // (El script de TypeScript sigue igual, funciona perfecto)
+  const form = document.getElementById('form-whatsapp') as HTMLFormElement | null;
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const nombreInput = document.getElementById('nombre') as HTMLInputElement;
+      const servicioInput = document.getElementById('servicio') as HTMLSelectElement;
+      const mensajeInput = document.getElementById('mensaje') as HTMLTextAreaElement;
+
+      const nombre = nombreInput?.value || '';
+      const servicio = servicioInput?.value || '';
+      const mensaje = mensajeInput?.value || '';
+      const telefonoQuilla = "51951413458"; 
+
+      const textoFinal = `Hola Quilla Electric, soy *${nombre}*.\nEstoy interesado en: *${servicio}*.\n\nMensaje: ${mensaje}`;
+      const textoCodificado = encodeURIComponent(textoFinal);
+      window.open(`https://wa.me/${telefonoQuilla}?text=${textoCodificado}`, '_blank');
+    });
+  }
+</script>
+
+<style>
+  /* ANIMACIÓN DE ENTRADA */
+  .animate-fade-in-down {
+    animation: fadeInDown 0.8s ease-out forwards;
+  }
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* LAYOUT */
+  .contenedor-contacto {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  @media (min-width: 768px) {
+    .contenedor-contacto { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* PANELES DE CRISTAL */
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2.5rem;
+    transition: all 0.3s ease;
+  }
+  
+  /* Efecto Hover en los paneles */
+  .info-box:hover { border-color: #00f0ff; box-shadow: 0 0 20px rgba(0, 240, 255, 0.1); }
+  .formulario:hover { border-color: #25D366; box-shadow: 0 0 20px rgba(37, 211, 102, 0.1); }
+
+  /* INPUTS NEÓN */
+  .input-neon {
+    width: 100%;
+    padding: 12px 16px;
+    margin-top: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: white;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  
+  .input-neon:focus {
+    border-color: #25D366; /* Verde WhatsApp al enfocar */
+    box-shadow: 0 0 10px rgba(37, 211, 102, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+  }
+  
+  /* Asegura que el select tenga fondo oscuro en las opciones */
+  select.input-neon option {
+      background-color: #0f172a;
+      color: white;
+  }
+
+  /* BOTÓN WHATSAPP NEÓN */
+  .btn-whatsapp-neon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #25D366 0%, #128c7e 100%);
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 800;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 15px rgba(37, 211, 102, 0.3);
+  }
+  
+  .btn-whatsapp-neon:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 25px rgba(37, 211, 102, 0.5);
+  }
+</style>

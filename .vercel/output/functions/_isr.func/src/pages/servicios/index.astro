@@ -1,0 +1,207 @@
+---
+// src/pages/servicios/index.astro
+import MainLayout from '@/layouts/MainLayout.astro';
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+
+// 1. Pedimos los datos
+const servicios = await getCollection('servicios');
+---
+
+<MainLayout titulo="Nuestros Servicios" descripcion="Lista de servicios eléctricos profesionales en Arequipa.">
+
+  <section class="relative py-12 md:py-20 px-4">
+    
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[400px] bg-blue-900/20 blur-[100px] rounded-full -z-10 pointer-events-none"></div>
+
+    <div class="header-servicios text-center mb-16 animate-fade-in-down">
+      <span class="inline-block py-1 px-3 rounded-full bg-blue-500/10 border border-blue-400/20 text-blue-300 text-xs font-bold tracking-wider mb-4 uppercase">
+        Catálogo de Soluciones
+      </span>
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-4 text-white">
+        Soluciones Eléctricas <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Profesionales</span>
+      </h1>
+      <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+        Atendemos emergencias y proyectos en todo Cerro Colorado y Arequipa con tecnología de punta.
+      </p>
+    </div>
+
+    <div class="grid-servicios">
+      
+      {servicios.length === 0 && <p class="text-slate-500 text-center col-span-full">No hay servicios cargados aún.</p>}
+
+      {servicios.map((servicio) => (
+        <a href={`/servicios/${servicio.id}`} class="tarjeta-servicio group">
+          
+          {servicio.data.image && (
+            <div class="img-container">
+               <Image 
+                 src={servicio.data.image} 
+                 alt={servicio.data.title} 
+                 width={500} 
+                 class="img-zoom"
+               />
+               <div class="img-overlay"></div>
+            </div>
+          )}
+
+          <div class="contenido">
+             <h3 class="group-hover:text-cyan-400 transition-colors">{servicio.data.title}</h3>
+             <p class="descripcion">{servicio.data.description}</p>
+             
+             <div class="footer-card">
+                {servicio.data.price && (
+                    <span class="precio-badge">
+                        <span class="text-yellow-400">⚡</span> {servicio.data.price}
+                    </span>
+                )}
+                
+                <span class="btn-ver">
+                    Ver Detalles 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="arrow-icon"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </span>
+             </div>
+          </div>
+        </a>
+      ))}
+
+    </div>
+  </section>
+
+</MainLayout>
+
+<style>
+  /* ANIMACIONES BASE */
+  .animate-fade-in-down {
+    animation: fadeInDown 0.8s ease-out forwards;
+  }
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .grid-servicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* --- TARJETA DE CRISTAL (GLASSMORPHISM) --- */
+  .tarjeta-servicio {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.03); /* Fondo casi transparente */
+    backdrop-filter: blur(10px);          /* Efecto borroso detrás */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    height: 100%; /* Para que todas tengan la misma altura */
+  }
+  
+  /* Hover: Borde Cian y Levitación */
+  .tarjeta-servicio:hover { 
+      transform: translateY(-8px); 
+      border-color: #00f0ff; /* Cian Eléctrico */
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.15); /* Resplandor */
+      background: rgba(255, 255, 255, 0.05);
+  }
+
+  /* IMAGEN */
+  .img-container { 
+    height: 220px; 
+    overflow: hidden; 
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  /* La clase global img-zoom la definimos aquí para el componente Image */
+  .tarjeta-servicio .img-zoom { 
+      width: 100%; 
+      height: 100%; 
+      object-fit: cover; 
+      transition: transform 0.6s ease;
+  }
+  
+  .tarjeta-servicio:hover .img-zoom { 
+      transform: scale(1.1); 
+  }
+
+  .img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(5, 11, 20, 0.8), transparent);
+    opacity: 0.6;
+  }
+
+  /* CONTENIDO */
+  .contenido { 
+      padding: 1.5rem; 
+      display: flex; 
+      flex-direction: column;
+      flex-grow: 1; /* Empuja el footer hacia abajo */
+  }
+
+  h3 { 
+      margin: 0 0 0.8rem 0; 
+      color: white; 
+      font-size: 1.4rem; 
+      font-weight: 700;
+      line-height: 1.3;
+  }
+  
+  .descripcion { 
+      color: #94a3b8; /* Slate-400 */
+      font-size: 0.95rem; 
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+  }
+
+  /* FOOTER DE LA TARJETA (Precio y Botón) */
+  .footer-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto; /* Se pega al fondo */
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .precio-badge {
+      font-weight: 700; 
+      color: #e2e8f0; 
+      font-size: 0.9rem;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 4px 10px;
+      border-radius: 8px;
+  }
+  
+  /* BOTÓN "VER DETALLES" ESTILO NEÓN */
+  .btn-ver {
+      display: inline-flex; 
+      align-items: center;
+      gap: 6px;
+      color: #00f0ff; /* Texto Cian */
+      font-size: 0.9rem; 
+      font-weight: 700;
+      transition: all 0.2s;
+  }
+  
+  .arrow-icon {
+      transition: transform 0.2s;
+  }
+
+  /* Al pasar el mouse, la flecha se mueve */
+  .tarjeta-servicio:hover .arrow-icon { 
+      transform: translateX(4px); 
+  }
+  
+  .tarjeta-servicio:hover .btn-ver {
+      text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
+  }
+</style>

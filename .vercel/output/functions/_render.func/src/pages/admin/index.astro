@@ -1,0 +1,13 @@
+---
+import AdminLayout from '@/layouts/AdminLayout.astro';
+import AdminDashboard from '@modules/admin/components/AdminDashboard.jsx'; // El nuevo Dashboard potente
+import AdminGuard from '@modules/admin/components/AdminGuard.jsx';
+
+export const prerender = false;
+---
+
+<AdminLayout title="Panel Maestro">
+    <AdminGuard client:only="react">
+        <AdminDashboard client:load />
+    </AdminGuard>
+</AdminLayout>

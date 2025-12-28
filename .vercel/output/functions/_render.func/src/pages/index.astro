@@ -1,0 +1,105 @@
+---
+// src/pages/index.astro
+import MainLayout from '../layouts/MainLayout.astro';
+import Beneficios from '../components/Beneficios.astro';
+import Galeria from '@/modules/blog/components/Galeria.astro';
+import Preguntas from '../components/Preguntas.astro';
+---
+
+<MainLayout titulo="Inicio">
+    
+    <div class="hero-section relative overflow-hidden">
+        
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-blue-600/20 blur-[100px] rounded-full -z-10 pointer-events-none"></div>
+
+        <div class="container mx-auto px-4 py-16 md:py-24 text-center">
+            
+            <span class="inline-block py-1 px-3 rounded-full bg-blue-900/30 border border-blue-500/30 text-blue-400 text-xs font-bold tracking-wider mb-6 uppercase animate-fade-in">
+                ⚡ Expertos en Energía
+            </span>
+
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight animate-fade-in-up">
+                <span class="text-white">Soluciones Eléctricas</span>
+                <br class="hidden md:block" />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-200 drop-shadow-lg">
+                    en Arequipa
+                </span>
+            </h1>
+
+            <p class="subtitulo text-slate-300 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up delay-100">
+                Especialistas en Pozos a Tierra, Certificaciones INDECI y Emergencias 24/7.
+                <span class="block mt-2 text-slate-400">Protege tu negocio y familia hoy mismo con tecnología de vanguardia.</span>
+            </p>
+
+            <div class="botones flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up delay-200">
+                <a href="/contacto" class="btn-primary-neon">
+                    Solicitar Cotización
+                </a>
+                <a href="/servicios" class="btn-secondary-glass">
+                    Ver Servicios
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="h-px w-full bg-gradient-to-r from-transparent via-blue-500/50 to-transparent my-8"></div>
+
+    <Beneficios />
+    
+    <Galeria />
+    
+    <Preguntas />
+
+</MainLayout>
+
+<style>
+    /* ANIMACIONES */
+    .animate-fade-in-up {
+        animation: fadeInUp 0.8s ease-out forwards;
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+
+    @keyframes fadeInUp {
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* BOTONES PERSONALIZADOS */
+    .btn-primary-neon {
+        background: linear-gradient(135deg, #0066ff 0%, #00c3ff 100%);
+        color: white;
+        padding: 1rem 2.5rem;
+        border-radius: 50px;
+        font-weight: 700;
+        text-decoration: none;
+        box-shadow: 0 0 20px rgba(0, 195, 255, 0.4);
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-primary-neon:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 30px rgba(0, 195, 255, 0.6);
+    }
+
+    .btn-secondary-glass {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        color: white;
+        padding: 1rem 2.5rem;
+        border-radius: 50px;
+        font-weight: 700;
+        text-decoration: none;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+    }
+
+    .btn-secondary-glass:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: #ffd700;
+        color: #ffd700;
+    }
+</style>

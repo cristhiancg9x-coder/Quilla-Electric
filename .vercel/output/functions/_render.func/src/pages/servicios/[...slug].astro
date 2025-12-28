@@ -1,0 +1,285 @@
+---
+// src/pages/servicios/[...slug].astro
+export const prerender = false; // <--- MODO SERVIDOR (OBLIGATORIO PARA FIREBASE)
+
+import { getCollection, render } from 'astro:content'; 
+import MainLayout from '@/layouts/MainLayout.astro';
+import { Image } from 'astro:assets';
+import { getImage } from "astro:assets";
+
+// LIBRERÍAS DE FIREBASE
+import { db } from '@/lib/firebase/config';
+import { collection, getDocs, doc, getDoc } from 'firebase/firestore';
+
+// ==================================================================
+// 1. LÓGICA DE RECUPERACIÓN DE SERVICIO (ROUTING)
+// ==================================================================
+const { slug } = Astro.params;
+
+// Obtenemos todos los servicios y buscamos el que coincida con la URL
+const servicios = await getCollection('servicios');
+const servicio = servicios.find((s: any) => s.slug === slug || s.id === slug);
+
+// Si no existe el servicio, mandamos error 404
+if (!servicio) {
+  return Astro.redirect('/404');
+}
+
+const { Content } = await render(servicio);
+
+// ==================================================================
+// 2. RECUPERAR DATOS DE FIREBASE (BACKEND)
+// ==================================================================
+
+// A. TRAER PRODUCTOS (Cámaras) ☁️
+let cloudProducts: any[] = [];
+try {
+  const querySnapshot = await getDocs(collection(db, "productos"));
+  cloudProducts = querySnapshot.docs.map(doc => doc.data());
+} catch (e) {
+  console.error("Error conectando a productos:", e);
+}
+
+// B. TRAER CONFIGURACIÓN GLOBAL ⚙️
+let globalConfig = { 
+    manoObra: 80, 
+    precioMetroCable: 2.5, 
+    mensajeWhatsapp: "Hola, me interesa esta cotización:" 
+}; 
+
+try {
+  const configRef = doc(db, "configuracion", "global");
+  const configSnap = await getDoc(configRef);
+  
+  if (configSnap.exists()) {
+    globalConfig = configSnap.data() as any;
+  }
+} catch (e) {
+  console.error("Error cargando configuración:", e);
+}
+
+// ==================================================================
+// 3. OPTIMIZACIÓN HÍBRIDA DE IMÁGENES
+// ==================================================================
+const imageFiles = import.meta.glob('/src/assets/camaras/*.{jpeg,jpg,png,tiff,webp,gif,svg}');
+
+const optimizedProducts = await Promise.all(
+  cloudProducts.map(async (product) => {
+    const imagePath = `/src/assets/camaras/${product.image}`;
+    if (!imageFiles[imagePath]) {
+      return product; 
+    }
+    const imageModule = await imageFiles[imagePath]() as any;
+    const optimizedImage = await getImage({
+      src: imageModule.default,
+      format: 'webp',
+      width: 600,
+      quality: 80
+    });
+    return { ...product, image: optimizedImage.src };
+  })
+);
+---
+
+<MainLayout titulo={servicio.data.title} descripcion={servicio.data.description}>
+  
+  <div class="relative w-full overflow-hidden">
+      <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 blur-[120px] rounded-full -z-10 pointer-events-none"></div>
+      <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-600/10 blur-[120px] rounded-full -z-10 pointer-events-none"></div>
+
+      <article class="detalle-servicio glass-panel">
+        
+        <header>
+            <h1 class="text-3xl md:text-5xl font-extrabold mb-4 text-white">
+                {servicio.data.title}
+            </h1>
+            <p class="resumen">{servicio.data.description}</p>
+        </header>
+
+        {servicio.data.image && (
+            <div class="imagen-principal group">
+                <Image src={servicio.data.image} alt={servicio.data.title} width={800} class="foto-redondeada" />
+                <div class="absolute inset-0 rounded-2xl border border-white/10 group-hover:border-cyan-500/50 transition-colors pointer-events-none"></div>
+            </div>
+        )}
+
+        <div id="content-container" class="relative group mt-8">
+            
+            <div id="text-wrapper" class="prose prose-invert prose-lg max-w-none text-slate-300 mb-8 overflow-hidden max-h-[400px] md:max-h-none transition-all duration-500 ease-in-out">
+                <Content />
+            </div>
+
+            <div id="fade-overlay" class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#0f172a] to-transparent md:hidden pointer-events-none"></div>
+        </div>
+
+        <button id="toggle-btn" class="w-full md:hidden bg-slate-800/50 text-cyan-400 font-bold py-3 rounded-xl border border-cyan-500/30 mb-8 hover:bg-slate-800 transition-colors flex justify-center items-center gap-2 group backdrop-blur-sm">
+            <span>⬇ Leer descripción completa</span>
+        </button>
+
+        <script is:inline>
+            const btn = document.getElementById('toggle-btn');
+            const wrapper = document.getElementById('text-wrapper');
+            const overlay = document.getElementById('fade-overlay');
+            let isExpanded = false;
+
+            if(btn) {
+                btn.addEventListener('click', () => {
+                    isExpanded = !isExpanded;
+                    
+                    if (isExpanded) {
+                        wrapper.style.maxHeight = wrapper.scrollHeight + "px"; // Abrir
+                        overlay.style.opacity = "0"; // Quitar sombra
+                        btn.innerHTML = "⬆ Mostrar menos";
+                        // Clases activas modo dark
+                        btn.classList.add('bg-cyan-900/20', 'border-cyan-500');
+                    } else {
+                        wrapper.style.maxHeight = "400px"; // Cerrar
+                        overlay.style.opacity = "1"; // Poner sombra
+                        btn.innerHTML = "⬇ Leer descripción completa";
+                        btn.classList.remove('bg-cyan-900/20', 'border-cyan-500');
+                        wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            }
+        </script>
+
+        {servicio.data.widget === 'cctv-wizard' && (
+           <div class="cta-card-neon relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500 rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-blob"></div>
+                <div class="absolute bottom-0 left-0 w-64 h-64 bg-purple-500 rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+
+                <div class="relative z-10 text-center">
+                    <span class="bg-blue-500/20 text-blue-300 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block border border-blue-500/30">
+                        Herramienta Exclusiva
+                    </span>
+                    
+                    <h3 class="text-2xl md:text-3xl font-bold mb-3 text-white">¿Listo para diseñar tu sistema?</h3>
+                    <p class="text-slate-300 mb-8 max-w-lg mx-auto">
+                        Usa nuestro <strong>Asistente Inteligente</strong>. Responde 3 preguntas y obtén tu precio exacto al instante.
+                    </p>
+
+                    <a href="/cotizador" class="inline-flex items-center justify-center gap-2 bg-white text-slate-900 font-bold px-8 py-4 rounded-xl hover:scale-105 transition-transform shadow-[0_0_20px_rgba(255,255,255,0.3)] w-full md:w-auto">
+                        <span>🚀 Abrir Cotizador Inteligente</span>
+                    </a>
+                    
+                    <p class="mt-4 text-xs text-slate-500">Sin compromiso • Precios actualizados</p>
+                </div>
+            </div>
+        )}
+
+        <div class="contact-box-glass mt-12">
+            <h3 class="text-xl font-bold text-white mb-2">¿Prefieres asistencia personalizada?</h3>
+            <p class="text-slate-400 mb-6">Si tienes dudas sobre la cotización o el servicio, un técnico te atenderá.</p>
+            <a href={`https://wa.me/+51951413458?text=Consulta sobre ${servicio.data.title}`} class="btn-whatsapp-neon" target="_blank">
+                📲 Contactar por WhatsApp
+            </a>
+        </div>
+
+      </article>
+  </div>
+
+  <div class="fixed bottom-8 left-1/2 -translate-x-1/2 z-40 md:hidden w-max">
+    <a href="/cotizador" 
+       class="flex items-center gap-3 bg-slate-900 text-white px-6 py-3 rounded-full shadow-xl shadow-blue-900/40 border border-blue-500/30 backdrop-blur-md font-bold text-sm animate-pulse-slow">
+      <span class="bg-blue-600 p-1 rounded-full flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      </span>
+      <span>Cotizar Ahora</span>
+    </a>
+  </div>
+
+</MainLayout>
+
+<style>
+  /* CONFIGURACIÓN DEL PANEL DE VIDRIO OSCURO */
+  .glass-panel {
+    max-width: 900px; 
+    margin: 2rem auto; 
+    background: rgba(15, 23, 42, 0.6); /* Fondo semi-transparente oscuro */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    padding: 2rem; 
+    border-radius: 24px; 
+    box-shadow: 0 0 40px rgba(0,0,0,0.5); 
+  }
+  
+  /* TIPOGRAFÍA */
+  .resumen { 
+      font-size: 1.2rem; 
+      color: #94a3b8; /* Slate-400 */
+      margin-bottom: 2rem; 
+      border-left: 4px solid #ffd700; /* Dorado */
+      padding-left: 15px; 
+      line-height: 1.6;
+  }
+  
+  .imagen-principal { 
+      margin-bottom: 2rem; 
+      position: relative; 
+      border-radius: 16px; 
+      overflow: hidden; 
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+  .foto-redondeada { width: 100%; height: auto; object-fit: cover; }
+
+  /* ESTILOS MARKDOWN MANUALES (Para asegurar legibilidad perfecta) */
+  .detalle-servicio :global(h2) { color: white !important; margin-top: 2rem; font-weight: 700; font-size: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+  .detalle-servicio :global(h3) { color: #e2e8f0 !important; margin-top: 1.5rem; font-weight: 600; }
+  .detalle-servicio :global(strong) { color: #00f0ff !important; } /* Cian para énfasis */
+  .detalle-servicio :global(ul) { background: rgba(255,255,255,0.05); padding: 20px 40px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
+  .detalle-servicio :global(li) { color: #cbd5e1; margin-bottom: 0.5rem; }
+  .detalle-servicio :global(p) { color: #cbd5e1; }
+
+  /* TARJETA CTA ESPECIAL (Wizard) */
+  .cta-card-neon {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+  }
+
+  /* CONTACTO GLASS */
+  .contact-box-glass {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      border-radius: 16px;
+      text-align: center;
+  }
+
+  .btn-whatsapp-neon {
+      display: inline-block;
+      background: linear-gradient(90deg, #25D366 0%, #128c7e 100%);
+      color: white;
+      padding: 15px 30px;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: bold;
+      margin-top: 15px;
+      font-size: 1.1rem;
+      box-shadow: 0 0 15px rgba(37, 211, 102, 0.3);
+      transition: transform 0.2s;
+  }
+  .btn-whatsapp-neon:hover { transform: scale(1.05); box-shadow: 0 0 25px rgba(37, 211, 102, 0.5); }
+
+  /* ANIMACIONES */
+  @keyframes blob {
+    0% { transform: translate(0px, 0px) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+    100% { transform: translate(0px, 0px) scale(1); }
+  }
+  .animate-blob { animation: blob 7s infinite; }
+  .animation-delay-2000 { animation-delay: 2s; }
+  
+  @keyframes pulse-slow {
+    0%, 100% { transform: translate(-50%, 0) scale(1); }
+    50% { transform: translate(-50%, 0) scale(1.05); }
+  }
+  .animate-pulse-slow { animation: pulse-slow 3s infinite ease-in-out; }
+</style>

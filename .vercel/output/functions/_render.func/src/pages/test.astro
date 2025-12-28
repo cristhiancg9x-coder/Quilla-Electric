@@ -1,0 +1,12 @@
+---
+// src/pages/test.astro
+export const prerender = false; // Forzamos modo servidor
+const tiempo = new Date().toLocaleTimeString();
+---
+<html>
+<body>
+    <h1>✅ EL SERVIDOR FUNCIONA</h1>
+    <p>Si lees esto, Astro y Vercel están bien conectados.</p>
+    <p>Hora del servidor: {tiempo}</p>
+</body>
+</html>

@@ -1,0 +1,108 @@
+---
+// src/pages/cotizador.astro
+
+// 1. MODO SERVIDOR: Obligatorio para leer precios frescos de Firebase en cada visita
+export const prerender = false;
+
+import MainLayout from '@/layouts/MainLayout.astro';
+import CctvWizard from '@/modules/calculator/components/CctvWizard.jsx';
+
+// Importamos la base de datos de productos (JSON local para velocidad)
+import productsData from '@/modules/calculator/data/cctv-products.json';
+
+// Importamos herramientas de Astro
+import { getImage } from "astro:assets";
+
+// 👇👇👇 NUEVO: Importamos Firebase para leer la CONFIGURACIÓN GLOBAL 👇👇👇
+import { db } from '@/lib/firebase/config';
+import { doc, getDoc } from 'firebase/firestore';
+
+// ---------------------------------------------------------
+// 1. RECUPERAR PRECIOS GLOBALES (Mano de Obra, Cable, etc.)
+// ---------------------------------------------------------
+let globalConfig = {
+  manoObra: 120,          // Valor por defecto por seguridad
+  precioMetroCable: 2.5,  // Valor por defecto
+  mensajeWhatsapp: "Hola, quiero cotizar este sistema:"
+};
+
+try {
+  // Buscamos en la colección 'configuracion', el documento 'global'
+  // (Asegúrate que en tu Panel Admin estés guardando en esta ruta exacta)
+  const configRef = doc(db, "configuracion", "global");
+  const configSnap = await getDoc(configRef);
+
+  if (configSnap.exists()) {
+    const data = configSnap.data();
+    // Actualizamos solo si hay datos, si no, mantenemos los defaults
+    globalConfig = { ...globalConfig, ...data };
+    console.log("✅ Configuración cargada desde Firebase:", globalConfig);
+  } else {
+    console.warn("⚠️ No se encontró configuración global en Firebase, usando defaults.");
+  }
+} catch (error) {
+  console.error("❌ Error leyendo configuración:", error);
+}
+
+// ---------------------------------------------------------
+// 2. PROCESAMIENTO DE IMÁGENES (Optimización)
+// ---------------------------------------------------------
+const imageFiles = import.meta.glob('/src/assets/camaras/*.{jpeg,jpg,png,tiff,webp,gif,svg}');
+
+const optimizedProducts = await Promise.all(
+  productsData.map(async (product) => {
+    const imagePath = `/src/assets/camaras/${product.image}`;
+    if (!imageFiles[imagePath]) {
+      return product;
+    }
+    const imageModule = await imageFiles[imagePath]() as any;
+    const optimizedImage = await getImage({
+      src: imageModule.default,
+      format: 'webp',
+      width: 600,
+      quality: 80
+    });
+    return { ...product, image: optimizedImage.src };
+  })
+);
+---
+
+<MainLayout title="Configurador CCTV | Quilla Electric" description="Diseña tu propio sistema de seguridad en 3 pasos.">
+  
+  <section class="min-h-screen bg-slate-950 flex flex-col items-center justify-start pt-24 pb-12 px-4 md:pt-32">
+    
+    <div class="text-center mb-8 md:mb-10 max-w-2xl mx-auto animate-fade-in-down">
+      <span class="inline-block py-1 px-3 rounded-full bg-blue-900/30 border border-blue-500/30 text-blue-400 text-xs font-bold tracking-wider mb-4 uppercase">
+        Configurador Online
+      </span>
+
+      <h1 class="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500 mb-4 leading-tight">
+        Diseña tu Sistema
+      </h1>
+      
+      <p class="text-slate-400 text-sm md:text-lg max-w-lg mx-auto">
+        Precios actualizados en tiempo real. Responde 3 preguntas y obtén tu presupuesto.
+      </p>
+    </div>
+
+    <div class="w-full max-w-5xl">
+      <CctvWizard 
+        client:load 
+        products={optimizedProducts} 
+        config={globalConfig} 
+      />
+    </div>
+
+  </section>
+
+</MainLayout>
+
+<style>
+  .animate-fade-in-down {
+    animation: fadeInDown 0.8s ease-out forwards;
+  }
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>

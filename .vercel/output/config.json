@@ -1,0 +1,90 @@
+{
+	"version": 3,
+	"routes": [
+		{
+			"handle": "filesystem"
+		},
+		{
+			"src": "^/_astro/(.*)$",
+			"headers": {
+				"cache-control": "public, max-age=31536000, immutable"
+			},
+			"continue": true
+		},
+		{
+			"src": "^/_server-islands/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/_image/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/404/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^/admin/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^/api/status/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^/blog/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^/contacto/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^/cotizador/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^/login/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^/rss\\.xml/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^/servicios/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^/servicios(?:/(.*?))?/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^/test/?$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^/$",
+			"dest": "/_isr?x_astro_path=$0"
+		},
+		{
+			"src": "^/.*$",
+			"dest": "_render",
+			"status": 404
+		}
+	],
+	"images": {
+		"sizes": [
+			640,
+			750,
+			828,
+			1080,
+			1200,
+			1920,
+			2048,
+			3840
+		],
+		"domains": [],
+		"remotePatterns": []
+	}
+}
