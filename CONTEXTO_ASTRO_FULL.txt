@@ -1,0 +1,3307 @@
+CONTEXTO DEL PROYECTO: quilla-astro
+Generado por: analizar_astro.py
+Fecha: quilla-astro
+
+ESTADÍSTICAS:
+- Archivos leídos: 54
+- Caracteres aprox: 146473
+- Tokens estimados: ~36618 (Verifica el límite de tu IA)
+
+🌳 ESTRUCTURA DEL PROYECTO:
+📁 quilla-astro/
+│   .env
+│   astro.config.mjs
+│   package.json
+│   tsconfig.json
+│   📁 src/
+│   │   content.config.mjs
+│   │   📁 assets/
+│   │   │   ahorrar-dinero-paneles-solares.png
+│   │   │   cableado-casa.jpeg
+│   │   │   camaras-seguridad.png
+│   │   │   cocina-electrica-afecta-sistema.png
+│   │   │   como-encender-automaticamente-alumbrado-exterior.png
+│   │   │   como-encender-motor-trifasico.png
+│   │   │   diferencia-termica-diferencial.png
+│   │   │   diferencial-vs-termica.jpg
+│   │   │   dispositivos-proteccion-electrica-casa.png
+│   │   │   errores-ducha-electrica.png
+│   │   │   iluminacion-interiores.jpeg
+│   │   │   iluminacion-led.jpeg
+│   │   │   importancia-camaras-seguridad.png
+│   │   │   importancia-circuitos-independientes.png
+│   │   │   importancia-luces-emergencia.png
+│   │   │   instalacion-tomacorrientes.png
+│   │   │   luces-emergencia.png
+│   │   │   mala-iluminacion-afecta-tu-vida.png
+│   │   │   mantenimiento-pozo.jpeg
+│   │   │   mantenimiento-pozo.png
+│   │   │   mejor-iluminacion-espacios-industriales.png
+│   │   │   mi-bomba-de-agua-no-funciona.png
+│   │   │   mi-licuadora-no-funciona.png
+│   │   │   motor-electrico-no-arranca.png
+│   │   │   peligro-cable-mellizo.png
+│   │   │   por-que-parpadea-mi-lampara.png
+│   │   │   por-que-salta-la-llave.png
+│   │   │   por-que-se-quema-lampara-iluminacion.png
+│   │   │   por-que-se-quema-un-tomacorriente.png
+│   │   │   pozo-a-tierra-indeci.png
+│   │   │   pozo-tierra.jpeg
+│   │   │   proteccion-electrodomesticos.png
+│   │   │   protector-voltaje.png
+│   │   │   recibo-de-luz-caro (2).png
+│   │   │   recibo-de-luz-caro.png
+│   │   │   recibo-luz-alto.png
+│   │   │   riesgos-cables-bamba-electricidad.png
+│   │   │   servicios-deteccion-fuga-corriente.png
+│   │   │   servicios-ducha-electrica.png
+│   │   │   tablero-industrial.jpeg
+│   │   │   tomacorriente-quemado-luces-navidad.png
+│   │   📁 components/
+│   │   │   Beneficios.astro
+│   │   │   Footer.astro
+│   │   │   Galeria.astro
+│   │   │   Navbar.astro
+│   │   │   Preguntas.astro
+│   │   │   WhatsappButton.astro
+│   │   📁 content/
+│   │   │   📁 blog/
+│   │   │   │   ahorrar-dinero-paneles-solares.md
+│   │   │   │   cocina-electrica-afecta-sistema.md
+│   │   │   │   como-encender-automaticamente-alumbrado-exterior.md
+│   │   │   │   como-encender-motor-trifasico.md
+│   │   │   │   diferencia-termica-diferencial.md
+│   │   │   │   dispositivos-proteccion-electrica-casa.md
+│   │   │   │   errores-ducha-electrica.md
+│   │   │   │   importancia-camaras-seguridad.md
+│   │   │   │   importancia-circuitos-independientes.md
+│   │   │   │   importancia-luces-emergencia.md
+│   │   │   │   mala-iluminacion-afecta-tu-vida.md
+│   │   │   │   mejor-iluminacion-espacios-industriales.md
+│   │   │   │   mi-bomba-de-agua-no-funciona.md
+│   │   │   │   mi-licuadora-no-funciona.md
+│   │   │   │   motor-electrico-no-arranca.md
+│   │   │   │   peligro-cable-mellizo.md
+│   │   │   │   por-que-parpadea-mi-lampara.md
+│   │   │   │   por-que-salta-la-llave.md
+│   │   │   │   por-que-se-quema-lampara-iluminacion.md
+│   │   │   │   por-que-se-quema-un-tomacorriente.md
+│   │   │   │   pozo-a-tierra-indeci.md
+│   │   │   │   proteccion-electrodomesticos.md
+│   │   │   │   recibo-de-luz-caro.md
+│   │   │   │   riesgos-cables-bamba-electricidad.md
+│   │   │   │   tomacorriente-quemado-luces-navidad.md
+│   │   │   📁 servicios/
+│   │   │   │   cableado.md
+│   │   │   │   camaras-seguridad.md
+│   │   │   │   fugas-corriente.md
+│   │   │   │   instalacion-duchas.md
+│   │   │   │   instalacion-iluminacion.md
+│   │   │   │   instalacion-tomacorrientes.md
+│   │   │   │   luces-emergencia.md
+│   │   │   │   pozo-a-tierra.md
+│   │   📁 data/
+│   │   │   zonas.js
+│   │   📁 layouts/
+│   │   │   MainLayout.astro
+│   │   📁 pages/
+│   │   │   404.astro
+│   │   │   contacto.astro
+│   │   │   index.astro
+│   │   │   rss.xml.js
+│   │   │   📁 blog/
+│   │   │   │   index.astro
+│   │   │   │   [...slug].astro
+│   │   │   📁 electricista-en/
+│   │   │   │   [lugar].astro
+│   │   │   📁 servicios/
+│   │   │   │   index.astro
+│   │   │   │   [...slug].astro
+
+
+==================================================
+📦 CONTENIDO DEL CÓDIGO FUENTE
+==================================================
+
+
+--- 📄 INICIO: astro.config.mjs ---
+// astro.config.mjs
+import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap'; // <--- Asegúrate de que esto esté aquí
+
+export default defineConfig({
+  // Tienes que poner tu dominio EXACTO (con https)
+  site: 'https://quillaelectric.site', 
+  
+  // Aquí activamos el plugin del mapa
+  integrations: [sitemap()],
+});
+--- FIN: astro.config.mjs ---
+
+
+--- 📄 INICIO: package.json ---
+{
+  "name": "quilla-astro",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/rss": "^4.0.14",
+    "@astrojs/sitemap": "^3.6.0",
+    "astro": "^5.16.2",
+    "sharp": "^0.34.5"
+  }
+}
+
+--- FIN: package.json ---
+
+
+--- 📄 INICIO: tsconfig.json ---
+{
+  "extends": "astro/tsconfigs/strict",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"]
+}
+
+--- FIN: tsconfig.json ---
+
+
+--- 📄 INICIO: src/components/Beneficios.astro ---
+<section class="beneficios-section">
+  <h2>¿Por qué elegir a Quilla Electric?</h2>
+  <div class="grid-beneficios">
+    
+    <div class="item-beneficio">
+      <span class="icono">⚡</span>
+      <h3>Atención Rápida</h3>
+      <p>En Cerro Colorado y todo Arequipa. Llegamos antes de que se descongele tu refri.</p>
+    </div>
+
+    <div class="item-beneficio">
+      <span class="icono">📜</span>
+      <h3>Certificados INDECI</h3>
+      <p>Firmados por ingenieros colegiados. Garantizamos que pasas la inspección.</p>
+    </div>
+
+    <div class="item-beneficio">
+      <span class="icono">💳</span>
+      <h3>Pago Fácil</h3>
+      <p>Aceptamos efectivo, Yape, Plin y transferencias. Emitimos Factura o Boleta.</p>
+    </div>
+
+    <div class="item-beneficio">
+      <span class="icono">🛡️</span>
+      <h3>Garantía Real</h3>
+      <p>No desaparecemos. Si algo falla, volvemos y lo arreglamos sin costo.</p>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .beneficios-section {
+    padding: 4rem 0;
+    text-align: center;
+    background-color: white;
+  }
+  h2 { font-size: 2rem; margin-bottom: 2rem; color: #0f172a; }
+  
+  .grid-beneficios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+  }
+
+  .item-beneficio {
+    padding: 20px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    transition: transform 0.3s;
+  }
+  
+  .item-beneficio:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    border-color: #fbbf24;
+  }
+
+  .icono { font-size: 3rem; display: block; margin-bottom: 10px; }
+  h3 { color: #0f172a; margin-bottom: 10px; }
+  p { color: #64748b; line-height: 1.5; }
+</style>
+--- FIN: src/components/Beneficios.astro ---
+
+
+--- 📄 INICIO: src/components/Footer.astro ---
+<footer class="footer-electrico">
+  <div class="contenedor-footer">
+    
+    <div class="columna">
+      <h3>⚡ Quilla Electric</h3>
+      <p>Soluciones eléctricas seguras y certificadas para hogares y empresas en Arequipa.</p>
+      <p class="copyright">© {new Date().getFullYear()} Todos los derechos reservados.</p>
+    </div>
+
+    <div class="columna">
+      <h4>Navegación</h4>
+      <ul>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/servicios">Servicios</a></li>
+        <li><a href="/contacto">Contacto</a></li>
+        </ul>
+    </div>
+
+    <div class="columna">
+      <h4>Cobertura</h4>
+      <ul>
+        <li><a href="/electricista-en/cerro-colorado">Cerro Colorado</a></li>
+        <li><a href="/electricista-en/cayma">Cayma</a></li>
+        <li><a href="/electricista-en/yanahuara">Yanahuara</a></li>
+        <li><a href="/electricista-en/jlbyr">J.L.B. y Rivero</a></li>
+        <li><a href="/electricista-en/arequipa-cercado">Cercado</a></li>
+        <li><a href="/electricista-en/arequipa-cercado">Paucarpata</a></li>
+        <li><a href="/electricista-en/arequipa-cercado">Miraflores</a></li>
+      </ul>
+    </div>
+
+    <div class="columna">
+      <h4>Contacto</h4>
+      <p>📍 Cerro Colorado, Arequipa</p>
+      <p>📞 951413458</p>
+      <p>📧 <a href="mailto:quillaelectriccyt@gmail.com" style="color: inherit; text-decoration: none;">quillaelectriccyt@gmail.com</a></p>
+    </div>
+
+    <div class="columna">
+      <h4>Síguenos</h4>
+      <div class="redes">
+        
+        <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+        </a>
+
+        <a href="https://wa.me/51951413458" target="_blank" aria-label="WhatsApp">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<style>
+  .footer-electrico {
+    background-color: #0f172a; /* Azul oscuro */
+    color: #cbd5e1; /* Gris claro para texto */
+    padding: 3rem 1rem;
+    margin-top: auto; /* Empuja el footer al fondo */
+    border-top: 5px solid #fbbf24; /* Línea amarilla decorativa */
+  }
+
+  .contenedor-footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    /* Responsive: 1 columna en móvil, 4 en PC */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+  }
+
+  h3 { color: white; margin-bottom: 1rem; }
+  h4 { color: #fbbf24; margin-bottom: 1rem; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; }
+  
+  ul { list-style: none; padding: 0; }
+  ul li { margin-bottom: 8px; }
+  ul li a { color: #cbd5e1; text-decoration: none; transition: color 0.3s; }
+  ul li a:hover { color: #fbbf24; padding-left: 5px; }
+
+  .copyright { font-size: 0.8rem; opacity: 0.6; margin-top: 1rem; }
+
+  .redes { display: flex; gap: 15px; }
+  .redes a { color: white; transition: transform 0.3s, color 0.3s; }
+  .redes a:hover { color: #fbbf24; transform: translateY(-3px); }
+</style>
+--- FIN: src/components/Footer.astro ---
+
+
+--- 📄 INICIO: src/components/Galeria.astro ---
+---
+// 1. IMPORTAMOS EL COMPONENTE INTELIGENTE
+import { Image } from 'astro:assets';
+
+// 2. IMPORTAMOS LAS FOTOS (Astro necesita "conocerlas" antes)
+// Nota: Asegúrate de tener estas fotos en src/assets/ o dará error.
+// Si aún no tienes fotos, descarga unas de prueba y ponles estos nombres.
+import fotoTablero from '../assets/tablero-industrial.jpeg';
+import fotoPozo from '../assets/pozo-tierra.jpeg';
+import fotoLed from '../assets/iluminacion-led.jpeg';
+import fotoCasa from '../assets/cableado-casa.jpeg';
+---
+
+<section class="galeria-section" id="proyectos">
+  <div class="contenido-ancho">
+    <h2>Nuestros Proyectos Recientes</h2>
+    <p class="subtitulo">Calidad y seguridad certificada.</p>
+
+    <div class="grid-galeria">
+      
+      <div class="item-galeria">
+        <Image 
+          src={fotoTablero} 
+          alt="Mantenimiento de tablero eléctrico industrial en Arequipa" 
+          width={600} 
+          quality="mid" 
+          class="img-optimizada"
+        />
+        <div class="overlay">
+          <h3>Tablero Industrial</h3>
+          <p>Mantenimiento y peinado</p>
+        </div>
+      </div>
+
+      <div class="item-galeria">
+        <Image 
+          src={fotoPozo} 
+          alt="Instalación de Pozo a Tierra en Cayma" 
+          width={600}
+          quality="mid"
+          class="img-optimizada" 
+        />
+        <div class="overlay">
+          <h3>Pozo a Tierra</h3>
+          <p>Certificación INDECI</p>
+        </div>
+      </div>
+
+      <div class="item-galeria">
+        <Image 
+          src={fotoLed} 
+          alt="Iluminación LED oficinas" 
+          width={600} 
+          quality="mid"
+          class="img-optimizada"
+        />
+        <div class="overlay">
+          <h3>Iluminación LED</h3>
+          <p>Ahorro de energía</p>
+        </div>
+      </div>
+
+      <div class="item-galeria">
+        <Image 
+          src={fotoCasa} 
+          alt="Cableado residencial seguro" 
+          width={600}
+          quality="mid"
+          class="img-optimizada" 
+        />
+        <div class="overlay">
+          <h3>Residencial</h3>
+          <p>Cableado libre de halógenos</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ESTILOS (Casi iguales, solo ajustamos la clase de la imagen) */
+  .galeria-section { padding: 4rem 1rem; background-color: #f8fafc; }
+  .contenido-ancho { max-width: 1200px; margin: 0 auto; text-align: center; }
+  h2 { font-size: 2rem; color: #0f172a; margin-bottom: 0.5rem; }
+  .subtitulo { margin-bottom: 3rem; color: #64748b; }
+
+  .grid-galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .item-galeria {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
+    aspect-ratio: 4/3; /* Mantiene todas las tarjetas del mismo tamaño */
+  }
+
+  /* Clases para la imagen de Astro */
+  .img-optimizada {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recorta la foto para que llene el cuadro */
+    transition: transform 0.5s ease;
+  }
+
+  .item-galeria:hover .img-optimizada { transform: scale(1.1); }
+
+  .overlay {
+    position: absolute;
+    bottom: 0; left: 0; width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white; padding: 20px; text-align: left;
+    box-sizing: border-box;
+  }
+  .overlay h3 { margin: 0; font-size: 1.2rem; color: #fbbf24; }
+  .overlay p { margin: 5px 0 0; font-size: 0.9rem; color: #e2e8f0; }
+</style>
+--- FIN: src/components/Galeria.astro ---
+
+
+--- 📄 INICIO: src/components/Navbar.astro ---
+<nav class="barra-electrica">
+  <div class="logo">⚡ Quilla Electric</div>
+  <ul class="menu-links">
+    <li><a href="/">Inicio</a></li>
+    <li><a href="/servicios">Servicios</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<style>
+  /* ESTILOS: Solo afectan a esta barra, no rompen lo demás */
+  .barra-electrica {
+    background-color: #0f172a; /* Azul oscuro industrial */
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between; /* Separa logo y menú a los extremos */
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+
+  .logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #fbbf24; /* Amarillo electricidad */
+  }
+
+  .menu-links {
+    display: flex;
+    list-style: none;
+    gap: 20px; /* Espacio entre enlaces */
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .menu-links a:hover {
+    color: #fbbf24; /* Cambia a amarillo al pasar el mouse */
+  }
+  /* --- CÓDIGO NUEVO PARA MÓVILES --- */
+  @media (max-width: 768px) {
+    .barra-electrica {
+      flex-direction: column; /* Pone el logo arriba y menú abajo */
+      gap: 15px; /* Espacio entre logo y menú */
+      padding: 15px;
+    }
+
+    .menu-links {
+      width: 100%;
+      justify-content: center; /* Centra los enlaces */
+      flex-wrap: wrap; /* Si no caben, bajan a la siguiente línea */
+      gap: 15px; /* Espacio entre palabras */
+      font-size: 0.9rem; /* Letra un pelín más chica para que entre */
+    }
+    
+    .menu-links li {
+      margin: 0; /* Quitamos márgenes viejos si los hubiera */
+    }
+  }
+</style>
+--- FIN: src/components/Navbar.astro ---
+
+
+--- 📄 INICIO: src/components/Preguntas.astro ---
+---
+// src/components/Preguntas.astro
+
+// 1. DEFINIMOS LAS PREGUNTAS Y RESPUESTAS AQUÍ
+// Es más fácil de editar en el futuro.
+const preguntas = [
+  {
+    pregunta: "¿Quanto cuesta el mantenimiento de un Pozo a Tierra?",
+    respuesta: "El precio base incluye la limpieza, reactivación con gel y certificado. El costo exacto depende del estado actual del pozo. ¡Escríbenos para una visita técnica gratuita!"
+  },
+  {
+    pregunta: "¿Atienden emergencias los domingos?",
+    respuesta: "Sí, tenemos un equipo de guardia para emergencias eléctricas las 24 horas, incluyendo domingos y feriados en todo Arequipa."
+  },
+  {
+    pregunta: "¿Entregan certificado para Defensa Civil?",
+    respuesta: "Sí. Realizamos el protocolo de pruebas completo y entregamos el certificado de operatividad firmado por un Ingeniero Electricista colegiado y habilitado."
+  },
+  {
+    pregunta: "¿Mis cables están muy viejos, es peligroso?",
+    respuesta: "Si tus cables tienen más de 20 años o son tipo 'mellizo' (blancos planos), son un riesgo de incendio. Recomendamos una inspección para cambiarlos por cables libres de halógenos."
+  }
+];
+
+// 2. GENERAMOS EL CÓDIGO INVISIBLE (JSON-LD) PARA GOOGLE
+const schemaFAQ = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": preguntas.map(item => ({
+    "@type": "Question",
+    "name": item.pregunta,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.respuesta
+    }
+  }))
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schemaFAQ)} />
+
+<section class="faq-section">
+  <h2>Preguntas Frecuentes</h2>
+  
+  <div class="faq-container">
+    
+    {preguntas.map((item) => (
+      <details>
+        <summary>{item.pregunta}</summary>
+        <p>{item.respuesta}</p>
+      </details>
+    ))}
+
+  </div>
+</section>
+
+<style>
+  .faq-section { margin-top: 4rem; margin-bottom: 4rem; padding: 0 1rem; }
+  h2 { text-align: center; margin-bottom: 2rem; color: #0f172a; font-size: 2rem; }
+
+  .faq-container { max-width: 800px; margin: 0 auto; }
+
+  details {
+    background: white;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  details:hover { border-color: #fbbf24; }
+  details[open] { background-color: #f8fafc; border-color: #fbbf24; }
+
+  summary {
+    font-weight: bold;
+    color: #0f172a;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+  }
+  
+  summary::after { content: '+'; font-size: 1.5rem; color: #fbbf24; font-weight: bold; }
+  details[open] summary::after { content: '-'; }
+
+  p { margin-top: 15px; color: #475569; line-height: 1.6; }
+</style>
+--- FIN: src/components/Preguntas.astro ---
+
+
+--- 📄 INICIO: src/components/WhatsappButton.astro ---
+<a href="https://wa.me/51951413458?text=Hola%20Quilla%20Electric,%20necesito%20un%20técnico." class="float-wa" target="_blank" aria-label="Chat en WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="white">
+    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+  </svg>
+</a>
+
+<style>
+  .float-wa {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Siempre encima de todo */
+    transition: transform 0.3s;
+  }
+
+  .float-wa:hover {
+    transform: scale(1.1);
+    background-color: #1ebc57;
+  }
+</style>
+--- FIN: src/components/WhatsappButton.astro ---
+
+
+--- 📄 INICIO: src/content.config.mjs ---
+// src/content.config.mjs
+import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders'; // Importante para Astro v5
+
+// 1. Colección del BLOG
+const blog = defineCollection({
+  // En Astro v5 usamos el "loader" para buscar archivos
+  loader: glob({ pattern: "**/*.md", base: "./src/content/blog" }),
+  schema: ({ image }) => z.object({
+    title: z.string(),
+    description: z.string(),
+    // Fecha segura: si falla, usa la fecha actual
+    pubDate: z.coerce.date().optional(), 
+    image: image().optional(),
+    author: z.string().default('Quilla Electric'),
+    tags: z.array(z.string()).default(['Electricidad']),
+  }),
+});
+
+// 2. Colección de SERVICIOS
+const servicios = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/servicios" }),
+  schema: ({ image }) => z.object({
+    title: z.string(),
+    description: z.string(),
+    price: z.string().optional(),
+    image: image().optional(),
+  }),
+});
+
+// 3. Exportamos las colecciones
+export const collections = {
+  blog,
+  servicios,
+};
+--- FIN: src/content.config.mjs ---
+
+
+--- 📄 INICIO: src/content/blog/ahorrar-dinero-paneles-solares.md ---
+---
+title: "¿Realmente ahorras dinero con Paneles Solares? La Verdad en Arequipa"
+description: "¿Te conviene instalar paneles o es pura moda? Analizamos costos, retorno de inversión y cuánto puedes bajar tu recibo de SEAL aprovechando el sol arequipeño."
+pubDate: 2025-12-05
+author: "Técnico CCG"
+tags: ["Energía Solar", "Arequipa", "Ahorro", "SEAL", "Renovables"]
+image: "../../assets/ahorrar-dinero-paneles-solares.png"
+---
+
+Vives en **Arequipa**, la ciudad con una de las radiaciones solares más altas del mundo. Miras el sol quemante de mediodía en **Cerro Colorado** o **La Joya** y luego miras tu recibo de luz de **SEAL** que sube cada mes. Es inevitable preguntarse: *"¿Y si pongo paneles solares?"*.
+
+La respuesta corta es: **SÍ, puedes ahorrar mucho dinero**, pero no es mágico. Depende de *cómo* y *para qué* los instales. Como técnico, he visto clientes felices que pagan casi cero y otros que gastaron una fortuna en baterías innecesarias. Aquí te explico las cuentas claras.
+
+![Instalación de paneles solares fotovoltaicos en un techo residencial con sol radiante](../../assets/ahorrar-dinero-paneles-solares.png)
+
+## 1. La Ventaja Arequipeña (Radiación)
+
+En Europa instalan paneles con la mitad de sol que tenemos aquí y les resulta rentable. En Arequipa, un sistema solar produce energía casi todo el año (incluso en invierno).
+Esto significa que necesitas **menos paneles** para generar la misma cantidad de electricidad que en otras ciudades, lo que reduce el costo inicial de la inversión.
+
+## 2. El Secreto: Autoconsumo (Sin Baterías)
+
+Aquí es donde la mayoría se confunde.
+* **Sistema con Baterías (Off-Grid):** Es caro. Las baterías cuestan mucho y se desgastan. Solo lo recomiendo si vives en una chacra donde no llega el cable de SEAL.
+* **Sistema Conectado a Red (On-Grid):** Es el rey del ahorro. **No usa baterías**. Los paneles generan electricidad mientras hay sol (de 8am a 4pm) y tus electrodomésticos consumen *esa* energía gratis en lugar de comprarla a la red.
+    * *Ejemplo:* Si tienes una tienda con congeladoras, un taller que trabaja de día, o una oficina con computadoras, el ahorro es inmediato y brutal.
+
+## 3. ¿En cuánto tiempo recupero mi dinero?
+
+Una instalación solar bien dimensionada en Arequipa se paga sola en aproximadamente **3 a 5 años** (para tarifas comerciales) o 5 a 7 años (para residenciales).
+Teniendo en cuenta que los paneles tienen una vida útil de **25 años**, tendrás casi dos décadas de "energía gratis" después de recuperar la inversión.
+
+## 4. Normativa y Trámites
+
+En Perú, ya existe normativa para la **Generación Distribuida** (aunque falta reglamentación completa para vender excedentes a la red en todos los casos).
+[cite_start]Sin embargo, según las normas técnicas de instalaciones[cite: 133, 141], todo proyecto de energía renovable debe estar bien calculado en tu plano eléctrico. No puedes simplemente "colgar" cables. Se requiere un inversor certificado que se sincronice con la red para evitar accidentes y daños a tus equipos.
+
+## 5. Mantenimiento: El enemigo es el Polvo
+
+Nuestra ciudad es polvorienta y volcánica. Un panel sucio rinde un 30% menos.
+El único "gasto" extra que tendrás será subir al techo una vez al mes a limpiar los paneles con agua y un trapo suave. Si lo mantienes limpio, el silicio seguirá trabajando por ti.
+
+### ¿Cuándo NO te conviene?
+
+* Si tu consumo es muy bajo (ej. pagas 50 soles al mes), la inversión tardará mucho en recuperarse.
+* Si solo consumes energía de noche (llegas a casa solo a dormir) y no tienes baterías, los paneles no te servirán mucho a menos que cambies tus hábitos (ej. programar la lavadora a mediodía).
+
+**Conclusión:** Si tienes un negocio, taller o una casa grande con consumo diurno, la energía solar en Arequipa es la inversión más inteligente que puedes hacer hoy.
+
+[**👉 ¿Quieres dejar de pagar tanto luz? Cotiza tu sistema solar a medida aquí**](/contacto)
+--- FIN: src/content/blog/ahorrar-dinero-paneles-solares.md ---
+
+
+--- 📄 INICIO: src/content/blog/cocina-electrica-afecta-sistema.md ---
+---
+title: "¿Tu Cocina Eléctrica hace parpadear las luces? Peligros y Soluciones"
+description: "Instalar una cocina de inducción no es solo enchufar. Descubre por qué baja la tensión en tu casa y qué cables necesitas para evitar incendios en Arequipa."
+pubDate: 2025-12-05
+author: "Técnico CCG"
+tags: ["Cocina de Inducción", "Instalación Eléctrica", "Arequipa", "Sobrecarga", "CNE"]
+image: "../../assets/cocina-electrica-afecta-sistema.png"
+---
+
+Te acabas de mudar a un departamento en **Cayma** o remodelaste tu cocina en **Paucarpata** y decidiste comprar una moderna cocina de inducción o vitrocerámica. Se ve hermosa, limpia fácil y cocina rápido.
+
+Pero, la primera vez que prendes tres hornillas al mismo tiempo, notas algo raro: **la luz de la cocina baja de intensidad** o, peor aún, salta la llave general y te quedas a oscuras.
+
+¿La cocina está malograda? No. El problema es que tu sistema eléctrico no estaba preparado para "la bestia" que acabas de conectar. Aquí te explico cómo afecta este electrodoméstico a tu red y cómo solucionarlo.
+
+![Instalación de cocina de inducción con cableado independiente y protección térmica](../../assets/cocina-electrica-afecta-sistema.png)
+
+## 1. El Consumo "Monstruoso" de Energía
+
+Para que tengas una idea clara: Una cocina de inducción de 4 hornillas puede consumir entre **6,000 a 7,500 Watts** si prendes todo a la vez.
+* Una ducha eléctrica consume 4,500 Watts.
+* Una refrigeradora consume 300 Watts.
+
+Es decir, tu cocina consume más que tu ducha. Si la conectas al mismo enchufe donde conectabas la licuadora (que es un circuito de uso general), estás obligando a unos cables delgados a transportar una energía para la que no fueron diseñados.
+
+## 2. Caída de Tensión (Luces que parpadean)
+
+Cuando la cocina "jala" tanta corriente de golpe, se produce una caída de voltaje en toda la casa.
+En Arequipa, **SEAL** nos entrega 220V, pero si tus cables son muy delgados o muy antiguos, ese voltaje puede caer a 200V o menos al llegar a la cocina.
+* **El síntoma:** Las luces LED parpadean o bajan su brillo.
+* **El riesgo:** Esta inestabilidad puede quemar las tarjetas electrónicas de tu refrigeradora, televisor y de la propia cocina.
+
+## 3. Derretimiento de Tomacorrientes Estándar
+
+Este es el error más peligroso que veo. Muchos clientes le ponen un enchufe simple (de esos blancos de 2 soles) a la cocina.
+Las cocinas eléctricas **NO deben usar enchufes domésticos comunes** (tipo Schuko o planos simples). La corriente es tan alta que los contactos se calientan, derriten el plástico y provocan cortocircuitos.
+
+**La Norma:** Se deben usar conectores industriales o una conexión directa a una bornera (caja de paso) con conectores de baquelita.
+
+## 4. La Regla de Oro: Circuito Independiente (CNE)
+
+El **Código Nacional de Electricidad** es estricto: Las "Cargas Especiales" (Cocinas, Duchas, Termas) deben tener su propio camino desde el tablero general.
+
+Esto significa que debemos instalar:
+1.  **Tubería exclusiva** desde el tablero hasta la cocina.
+2.  **Cable grueso:** Mínimo **6 mm²** o **#10 AWG** (marca **Indeco** o **Centelsa**).
+3.  **Interruptor propio:** Una llave termomagnética de 32A o 40A solo para la cocina.
+
+Si "cuelgas" la cocina del circuito de tomacorrientes de la sala, quemarás los cables dentro de la pared, lo que obligará a picar todo el muro para reparar el daño.
+
+## 5. Cuidado con la Potencia Contratada
+
+Si vives en una casa antigua en el **Cercado** o **Miraflores**, revisa tu recibo de luz. Muchas casas tienen una potencia contratada de solo 3.0 kW.
+Si enciendes tu cocina nueva (que consume 6 kW), harás saltar el limitador de corriente o incluso el medidor de la calle. Es posible que necesites solicitar un aumento de carga a SEAL.
+
+### ¿Qué hacer si ya la compraste?
+
+No la uses con adaptadores ni extensiones.
+Si al cocinar hueles a pescado (olor a cable quemado) o las luces parpadean, **baja la llave inmediatamente**.
+
+Necesitas "independizar el circuito". Es un trabajo de un día que garantiza que tu inversión de miles de soles en la cocina no termine provocando un incendio.
+
+[**👉 ¿Instalaste cocina nueva? Cotiza el cableado reforzado y certificado aquí**](/contacto)
+--- FIN: src/content/blog/cocina-electrica-afecta-sistema.md ---
+
+
+--- 📄 INICIO: src/content/blog/como-encender-automaticamente-alumbrado-exterior.md ---
+---
+title: "¿Cansado de encender la luz a mano? 4 Formas de Automatizar tu Fachada"
+description: "Llega a tu casa en Arequipa y encuentra todo iluminado. Descubre cómo instalar fotocélulas, sensores y temporizadores para mayor seguridad y confort."
+pubDate: 2025-12-05
+author: "Técnico CCG"
+tags: ["Domótica", "Seguridad", "Sensores", "Arequipa", "Iluminación Exterior"]
+image: "../../assets/como-encender-automaticamente-alumbrado-exterior.png"
+---
+
+¿Te ha pasado que sales temprano de tu casa en **Paucarpata** o **Sachaca** y te olvidas de apagar la luz del patio, dejándola prendida todo el día? O al revés, ¿llegas de noche y tu entrada es una "boca de lobo" perfecta para los delincuentes?
+
+Automatizar el alumbrado exterior no es cosa del futuro ni requiere una fortuna. Como técnico, instalo estas soluciones todas las semanas para mejorar la seguridad y ahorrar en el recibo de **SEAL**. Aquí te explico las 4 formas más efectivas de hacerlo.
+
+![Foco exterior encendiéndose automáticamente al atardecer mediante fotocélula](../../assets/como-encender-automaticamente-alumbrado-exterior.png)
+
+## 1. La Fotocélula (El famoso "Ojo Mágico")
+
+Es la opción más clásica y económica para el alumbrado público y perimétrico.
+* **¿Cómo funciona?** Tiene un sensor que mide la luz ambiental. Cuando el sol se oculta (bajan los luxes), cierra el circuito y prende la luz. Cuando amanece, la apaga.
+* **Ideal para:** Luces de fachada, postes de jardín o pasadizos exteriores que deben estar prendidos **toda la noche**.
+* **Ojo al dato:** En Arequipa hay mucho polvo. Debes limpiar la "lente" de la fotocélula cada cierto tiempo, o pensará que es de noche y no apagará nunca. Marcas como **Opalux** o **Ticino** son muy resistentes.
+
+## 2. El Sensor de Movimiento (Seguridad Activa)
+
+Si quieres ahuyentar intrusos o simplemente necesitas luz solo cuando pasas, esta es tu opción.
+* **¿Cómo funciona?** Detecta el calor corporal (infrarrojo) o el movimiento físico. Se prende solo si alguien se acerca y se apaga a los minutos.
+* **Ahorro:** Es la opción que menos energía gasta.
+* **Instalación:** Se debe calibrar bien la "sensibilidad" para que no se prenda cada vez que pasa un gato o se mueve una planta por el viento characato.
+
+## 3. Interruptor Horario (Timer)
+
+Para los que quieren control total. Se instala en el tablero eléctrico (riel DIN).
+* **¿Cómo funciona?** Tú programas la hora exacta: "Quiero que las luces de navidad o del jardín se prendan a las 6:00 PM y se apaguen a las 11:00 PM".
+* **Ventaja:** No depende de si está nublado o no. Es exacto.
+* **Marcas:** Recomiendo los digitales de **Schneider** o **Legrand** por su durabilidad ante los cortes de luz (tienen batería de reserva).
+
+## 4. Interruptores Inteligentes (Smart Wi-Fi)
+
+La solución moderna para casas en **Cayma** o **Yanahuara**.
+* **¿Cómo funciona?** Cambias tu interruptor normal por uno Smart (o pones un foco inteligente). Lo conectas al Wi-Fi de tu casa y lo controlas desde tu celular o con voz ("Alexa, prende el patio").
+* **Beneficio:** Puedes prender las luces desde tu trabajo o viaje para simular que hay gente en casa (modo vacaciones).
+
+### Requisito Técnico: Protección IP (Intemperie)
+
+Arequipa tiene un sol radiante y lluvias fuertes en verano. Cualquier dispositivo que instales afuera debe cumplir con la norma de protección **IP (Ingress Protection)**.
+Según el **Código Nacional de Electricidad**, los equipos exteriores deben ser mínimo **IP54** o **IP65** (protegidos contra polvo y chorros de agua). Si instalas un sensor de interior afuera, se quemará con la primera lluvia de enero.
+
+Además, asegúrate de que el cableado exterior sea **vulcanizado** (doble recubrimiento) para evitar fugas de corriente a tierra cuando llueve.
+
+[**👉 ¡Automatiza tu hogar hoy! Cotiza la instalación de sensores y fotocélulas aquí**](/contacto)
+--- FIN: src/content/blog/como-encender-automaticamente-alumbrado-exterior.md ---
+
+
+--- 📄 INICIO: src/content/blog/como-encender-motor-trifasico.md ---
+---
+title: "Cómo Arrancar un Motor Trifásico: 3 Métodos Seguros y Eficientes"
+description: "¿Arranque Directo o Estrella-Triángulo? Evita que salten las llaves de tu taller en Arequipa y aprende a encender motores industriales sin dañarlos."
+pubDate: 2025-12-05
+author: "Técnico CCG"
+tags: ["Motores Trifásicos", "Automatización", "Parque Industrial", "Tableros Eléctricos"]
+image: "../../assets/como-encender-motor-trifasico.png"
+---
+
+Si tienes un taller en el **Parque Industrial de Río Seco** o una pequeña fábrica en la **Variante de Uchumayo**, sabes que conectar un motor trifásico no es tan simple como enchufar una licuadora.
+
+Hacerlo mal puede significar desde quemar el bobinado del motor en segundos hasta dejar sin luz a toda la cuadra por el pico de corriente. Como especialista en automatización, hoy te explico los métodos estándar para arrancar estas bestias de trabajo según el **Código Nacional de Electricidad**.
+
+![Tablero de control industrial con contactores y relés para arranque de motor](../../assets/como-encender-motor-trifasico.png)
+
+## 1. Lo Primero: Revisa la Placa del Motor
+
+Antes de pelar un solo cable, mira la placa metálica del motor. En Arequipa, la tensión industrial común es **380V**, pero algunos talleres antiguos o zonas específicas usan **220V trifásico**.
+
+* **Conexión Estrella (Y) o Triángulo (Δ):** Dependiendo del voltaje de tu red (SEAL) y lo que diga la placa, deberás configurar las chapas en la bornera. Si te equivocas aquí, el motor se quema.
+
+## 2. Arranque Directo en Línea (DOL)
+
+Es el método más barato y sencillo, pero **solo se recomienda para motores pequeños** (generalmente de menos de 5 HP o 7.5 HP).
+
+* **¿Cómo funciona?** El motor recibe el 100% del voltaje de golpe.
+* **Componentes necesarios:** Un disyuntor, un **Contactor** (recomiendo **Schneider** o **WEG**) y un Relé Térmico para protegerlo de sobrecargas.
+* **El Riesgo:** Al arrancar, el motor consume entre 5 a 7 veces su corriente nominal. Si el motor es grande, verás que las luces de tu taller se bajan (parpadean) violentamente.
+
+## 3. Arranque Estrella-Triángulo (El Clásico Industrial)
+
+Si tu motor es de **10 HP, 15 HP o más**, el arranque directo está prohibido porque el golpe de corriente es demasiado fuerte para la red. Aquí usamos la magia de la automatización.
+
+* **¿Cómo funciona?**
+    1.  El motor arranca conectado en **Estrella** (recibe menos voltaje, gira más suave y consume menos corriente).
+    2.  Un **Temporizador** espera unos segundos (cuando el motor ya tomó velocidad).
+    3.  El sistema cambia automáticamente a **Triángulo** para que el motor entregue toda su potencia.
+* **Componentes:** Necesitas 3 contactores, 1 temporizador y protección térmica. Es obligatorio para cumplir con las normas de calidad de energía.
+
+## 4. Arrancadores Suaves (Soft Starters) y Variadores
+
+Esta es la tecnología moderna que estamos instalando en las nuevas plantas de **Cerro Colorado**.
+
+En lugar de usar golpes mecánicos de contactores, un dispositivo electrónico regula el voltaje poco a poco.
+* **Ventajas:** El motor arranca suavemente, sin golpes mecánicos que dañen las fajas o engranajes, y sin picos de corriente que molesten a **SEAL**.
+* **Marcas:** Trabajamos con **Siemens**, **ABB** o **Danfoss**. Son más caros, pero alargan la vida de tu maquinaria 10 años más.
+
+### Tip de Experto: El Sentido de Giro
+
+A diferencia de los motores monofásicos, en un trifásico el sentido de giro depende de cómo conectas las fases (R, S, T).
+* Si el motor gira al revés (ej. una bomba que no sube agua), **baja la llave general e intercambia dos de los tres cables de fase entre sí**. Con eso invertirás el giro.
+
+### Seguridad y Normativa
+
+Nunca conectes un motor "pelado" con cuchillas antiguas. Según el reglamento de seguridad industrial, todo motor debe tener:
+1.  **Protección contra cortocircuitos** (Guardamotor).
+2.  **Protección contra sobrecarga** (Relé térmico).
+3.  **Puesta a Tierra** efectiva conectada a la carcasa.
+
+¿Necesitas armar un tablero para tu nueva compresora o bomba de agua y no quieres arriesgar tu inversión?
+
+[**👉 ¡Diseñamos y montamos tu tablero de arranque industrial! Cotiza aquí**](/contacto)
+--- FIN: src/content/blog/como-encender-motor-trifasico.md ---
+
+
+--- 📄 INICIO: src/content/blog/diferencia-termica-diferencial.md ---
+---
+title: "Llave Térmica vs Diferencial: ¿Cuál protege tu vida? Guía Completa"
+description: "No arriesgues a tu familia. Aprende la diferencia exacta entre llave termomagnética e interruptor diferencial, por qué saltan y qué dice la norma eléctrica en Perú."
+pubDate: 2025-11-29
+author: "Técnico CCG"
+tags: ["Seguridad Eléctrica", "Tableros", "Normativa Perú"]
+image: "../../assets/diferencia-termica-diferencial.png"
+---
+
+Es la pregunta más común que recibo en mis visitas técnicas en **Arequipa**: *"Juan, ¿por qué tengo tantas palancas en el tablero y para qué sirven?"*.
+
+Muchos hogares antiguos en Perú solo tienen una "llave de cuchilla" o una térmica simple. **Esto es un error mortal.** Para tener una instalación eléctrica segura y cumplir con el **Código Nacional de Electricidad**, necesitas entender la diferencia entre los dos guardianes de tu hogar: la **Llave Termomagnética** y el **Interruptor Diferencial**.
+
+![Diferencia visual entre llave térmica y diferencial](../../assets/diferencia-termica-diferencial.png)
+
+## 1. La Llave Termomagnética (El Guardián de los Cables)
+
+Conocida popularmente como "La Térmica" o "Flipón". Su misión principal es proteger la **instalación eléctrica** (tus cables y equipos), no a las personas.
+
+### ¿Cómo funciona?
+Es como un policía de tránsito. Si detecta que están pasando "demasiados autos" (corriente) por un cable delgado, corta el paso para evitar que la carretera (el cable) se queme.
+
+### ¿Por qué salta o se baja la palanca?
+Tiene dos enemigos principales:
+1.  **Sobrecarga:** Pasa cuando conectas la ducha eléctrica, el microondas y la plancha al mismo tiempo. El cable se calienta y la llave salta antes de que se derrita el aislante.
+2.  **Cortocircuito:** Es violento. Ocurre cuando la Fase y el Neutro se tocan directamente (por un cable pelado o un aparato malogrado).
+
+> **Ojo:** Si tocas un cable pelado y solo tienes llave térmica, **te vas a electrocutar** y la llave NO saltará hasta que sea demasiado tarde.
+
+---
+
+## 2. El Interruptor Diferencial (El Salvavidas)
+
+Este es el dispositivo más importante para la seguridad de tu familia. Es obligatorio en todos los tableros modernos.
+
+### ¿Cómo funciona?
+Es una balanza ultra sensible. Mide la corriente que entra y la que sale. Si nota que falta aunque sea un poquito de corriente (porque se está desviando a través de tu cuerpo hacia tierra), corta la luz en **milisegundos**.
+
+### ¿Por qué salta el Diferencial?
+1.  **Fuga de Corriente:** Un cable está tocando la carcasa de tu lavadora, refri o computadora.
+2.  **Descarga Humana:** Alguien metió el dedo al enchufe o tocó un cable pelado.
+3.  **Humedad:** Muy común en Arequipa en época de lluvias. Si entra agua a una caja de paso en el techo, el diferencial saltará.
+
+---
+
+## Tabla Comparativa: Térmica vs Diferencial
+
+| Característica | Llave Termomagnética 🌡️ | Interruptor Diferencial 🛡️ |
+| :--- | :--- | :--- |
+| **¿Qué protege?** | Protege los cables y equipos. | **Protege a las PERSONAS.** |
+| **¿Detecta fugas?** | NO. | SÍ (Fugas a tierra). |
+| **¿Evita incendios?** | SÍ (Por cable quemado). | NO directamente. |
+| **¿Cómo lo reconozco?** | Es simple, solo tiene la palanca. | Tiene un **botón "T" (Test)** pequeño. |
+| **Costo promedio** | Más económico (S/ 20 - S/ 60). | Más costoso (S/ 80 - S/ 150). |
+
+---
+
+## ¿Qué hago si "se baja" la palanca?
+
+Si se va la luz en tu casa, fíjate cuál de las dos saltó:
+
+* **Si saltó la Térmica:** Desenchufa los aparatos que consumen mucho (estufas, duchas) e intenta subirla. Si vuelve a saltar, tienes un cortocircuito franco.
+* **Si saltó el Diferencial:** ¡Cuidado! Hay una fuga. Puede ser un electrodoméstico fallando o humedad en las paredes. **No lo fuerces** o podrías recibir una descarga al intentar subirlo.
+
+## Recomendación del Experto
+
+Nunca puentees (elimines) una llave porque "salta mucho". Si salta, es porque te está avisando de un peligro.
+
+Si tu tablero no tiene **Interruptor Diferencial**, estás viviendo en riesgo. En **Quilla Electric** podemos actualizar tu tablero en un par de horas, instalando marcas certificadas como **Schneider, BTicino o Siemens**.
+
+[**👉 ¡Quiero actualizar mi tablero y proteger a mi familia!**](/contacto)
+--- FIN: src/content/blog/diferencia-termica-diferencial.md ---
+
+
+--- 📄 INICIO: src/content/blog/dispositivos-proteccion-electrica-casa.md ---
+---
+title: "Los 4 Guardianes Eléctricos: Dispositivos que Protegen tu Casa de Desastres"
+description: "¿Solo tienes una llave general? Estás en riesgo. Conoce el Diferencial, el DPS y la Puesta a Tierra, los dispositivos obligatorios en Arequipa para evitar electrocuciones."
+pubDate: 2025-12-05
+author: "Técnico CCG"
+tags: ["Seguridad Eléctrica", "Tablero Eléctrico", "Arequipa", "Diferencial", "Pozo a Tierra"]
+image: "../../assets/dispositivos-proteccion-electrica-casa.png"
+---
+
+Cuando hablo de "seguridad en casa" con mis vecinos de **Cayma** o **José Luis Bustamante y Rivero**, la mayoría piensa en chapas, alarmas o cámaras. Pero se olvidan del peligro más silencioso y letal: **la electricidad**.
+
+Un sistema eléctrico seguro no es solo "que prenda el foco". Es tener un equipo de defensa listo para actuar en milisegundos si algo falla. Según el **Código Nacional de Electricidad**, tu tablero debe tener mucho más que las antiguas "palancas". Aquí te presento los dispositivos que realmente protegen tu vida y tu inversión.
+
+![Tablero eléctrico residencial moderno con interruptores termomagnéticos y diferenciales instalados](../../assets/dispositivos-proteccion-electrica-casa.png)
+
+## 1. El Interruptor Termomagnético (La "Llave")
+
+Es el más conocido, pero a menudo el único que tienen las casas antiguas. Su función es proteger **los cables** de tu instalación, no a las personas.
+* **¿Qué hace?** Corta la luz automáticamente si hay una **sobrecarga** (muchos equipos conectados) o un **cortocircuito** (cables chocando).
+* **Importante:** Debe ser del calibre correcto. Si pones una llave de 60 Amperios para proteger cables delgados, los cables se quemarán antes de que la llave salte.
+* **Marcas recomendadas:** **Schneider** (Acti9), **Bticino** o **Legrand**.
+
+## 2. El Interruptor Diferencial (El "Salvavidas")
+
+Este es **OBLIGATORIO** para pasar cualquier inspección de **INDECI** y es el dispositivo más importante para la vida humana.
+* **¿Qué hace?** Detecta fugas de corriente. Si un niño mete un dedo al enchufe o si tocas una lavadora que "pasa corriente", el diferencial detecta que la electricidad se está yendo por tu cuerpo y corta la energía en **menos de 0.03 segundos**.
+* **¿Cómo reconocerlo?** Tiene un botón de "Test" (Prueba) que debes pulsar mensualmente. Si no tienes uno en tu tablero, estás jugando a la ruleta rusa.
+
+## 3. El Sistema de Puesta a Tierra (Pozo a Tierra)
+
+No es un dispositivo que veas en el tablero, pero es la base de todo. Es el cable (verde o amarillo) que conecta todos tus tomacorrientes a una varilla de cobre enterrada en el jardín o patio con tierra tratada (Thorgel/Bentonita).
+* **¿Qué hace?** Desvía las fugas de corriente hacia el suelo en lugar de que se queden en la carcasa de tu microondas o ducha eléctrica.
+* **Mantenimiento:** En Arequipa, por el clima seco, los pozos a tierra deben recibir mantenimiento y reactivación **una vez al año** para mantener su baja resistencia.
+
+## 4. El Supresor de Picos (DPS - Dispositivo de Protección contra Sobretensiones)
+
+Arequipa es una zona de sierra con actividad atmosférica y cortes imprevistos de **SEAL**.
+* **¿Qué hace?** Protege tus equipos electrónicos (Smart TV, computadoras, refrigeradoras inverter) contra "picos" de voltaje repentinos, como los causados por rayos lejanos o cuando regresa la luz con mucha fuerza tras un apagón.
+* **Ubicación:** Se instala en el tablero general y se sacrifica él mismo para salvar tus electrodomésticos caros.
+
+## 5. Estabilizador de Voltaje Centralizado (Opcional pero recomendado)
+
+Si vives en zonas donde la luz "baja y sube" constantemente (como ciertas partes de **Cerro Colorado** o zonas industriales), un estabilizador sólido en el tablero puede corregir el voltaje antes de que entre a tu casa, manteniendo siempre los 220V estables.
+
+### Resumen de Seguridad:
+
+Para que tu casa sea segura, tu tablero debe seguir esta jerarquía:
+1.  **Termomagnético General:** Protege la acometida.
+2.  **Diferenciales:** Protegen a las personas (mínimo 2 o 3 por casa).
+3.  **Termomagnéticos Derivados:** Protegen cada circuito (luces, tomas, cocina) por separado.
+
+Si tu tablero se ve viejo, con cables desordenados o usas llaves de cuchilla con plomo, **necesitas una actualización urgente**.
+
+[**👉 ¡No esperes un accidente! Revisamos y modernizamos tu sistema de protección eléctrica aquí**](/contacto)
+--- FIN: src/content/blog/dispositivos-proteccion-electrica-casa.md ---
+
+
+--- 📄 INICIO: src/content/blog/errores-ducha-electrica.md ---
+---
+title: "Ducha Eléctrica: 3 Errores comunes que pueden incendiar tu baño"
+description: "¿Sientes olor a quemado cuando te bañas? Instalar mal una Rapiducha o Lorenzetti es la causa #1 de cortocircuitos en Arequipa. Evítalo así."
+pubDate: 2025-11-30
+author: "Técnico CCG"
+tags: ["Duchas", "Peligro", "Instalaciones"]
+image: "../../assets/errores-ducha-electrica.png"
+---
+
+En Arequipa, una ducha caliente no es un lujo, es una necesidad. Vas a la ferretería, compras tu ducha **Lorenzetti** o **Rapiducha**, llamas al "maestro" del barrio y listo.
+
+Pero a la semana siguiente: **olor a plástico quemado**, la llave salta a mitad del baño o, peor aún, sientes "cosquilleos" al tocar la perilla.
+
+Instalar una ducha eléctrica parece fácil, pero es uno de los aparatos que **más energía consume** en toda la casa (más que 50 focos juntos). Aquí te cuento los 3 errores mortales que veo a diario.
+
+![Cables de ducha eléctrica derretidos por mala instalación](../../assets/errores-ducha-electrica.png)
+
+## Error 1: Usar los cables que ya estaban ahí
+El error clásico: conectar la ducha a los cables de la luz del techo (iluminación).
+* **El Problema:** Los cables de luz son delgados (calibre 14). La ducha necesita un cable grueso (calibre 10 o 12) para soportar la potencia.
+* **El Resultado:** El cable delgado se calienta como una resistencia, derrite el aislamiento y provoca un cortocircuito dentro del techo.
+
+## Error 2: El "Empalme" con Cinta Aislante
+Nunca, jamás, se debe usar cinta aislante simple dentro de la ducha.
+* **El Problema:** El vapor del agua despega la cinta. Los cables quedan expuestos y con el óxido hacen falso contacto.
+* **La Solución:** Se deben usar **conectores de porcelana** o **cintillos de seguridad**. O mejor aún, hacer un empalme profesional soldado y vulcanizado si es posible.
+
+## Error 3: No ponerle su propia Llave Térmica
+Muchos conectan la ducha directo a los enchufes de la casa.
+* **El Problema:** Cuando te bañas, le robas energía a toda la casa. Si alguien prende el microondas, ¡PUM! Se va la luz.
+* **La Solución:** La ducha debe tener su **propio circuito independiente** desde el tablero general, con su propia llave térmica de 25A o 30A.
+
+---
+
+## ¿Y la conexión a Tierra? (Cable Verde/Amarillo)
+Si tu ducha tiene un cablecito verde colgando y el instalador te dijo *"eso no sirve, córtalo"*, **te puso en peligro de muerte**.
+Ese cable debe ir conectado al sistema de puesta a tierra de la casa. Si hay una falla interna en la ducha, la corriente se irá por ese cable y no a través de tu cuerpo (agua).
+
+## Recomendación Profesional
+
+No juegues con agua y electricidad. Una ducha mal instalada es una bomba de tiempo.
+
+En **Quilla Electric** realizamos la instalación certificada:
+1.  Cableado independiente desde el tablero.
+2.  Llave térmica exclusiva.
+3.  Conectores adecuados (sin cinta).
+
+[**👉 ¡Quiero instalar mi ducha de forma segura!**](/contacto)
+--- FIN: src/content/blog/errores-ducha-electrica.md ---
+
+
+--- 📄 INICIO: src/content/blog/importancia-camaras-seguridad.md ---
+---
+title: "¿Tu Casa está Segura? 5 Razones Urgentes para Instalar Cámaras Hoy"
+description: "No esperes a un robo para actuar. Descubre cómo las cámaras de seguridad protegen tu hogar en Arequipa y te dan control total desde tu celular."
+pubDate: 2025-12-05
+author: "Técnico CCG"
+tags: ["CCTV", "Seguridad Ciudadana", "Arequipa", "Hikvision", "Dahua"]
+image: "../../assets/importancia-camaras-seguridad.png"
+---
+
+La inseguridad en Arequipa ha cambiado. Ya no basta con tener una chapa fuerte o un perro en la azotea. Diariamente, vecinos de **Yanahuara**, **Paucarpata** y el **Cercado** me consultan preocupados tras escuchar noticias de robos en su zona.
+
+La pregunta que siempre les hago es: *"Si algo pasa hoy en tu puerta, ¿tienes cómo saberlo o cómo probarlo?"*.
+
+Instalar un sistema de videovigilancia (CCTV) ha dejado de ser un lujo de empresas para convertirse en una necesidad básica del hogar. Aquí te explico por qué es la mejor inversión para tu tranquilidad.
+
+![Técnico instalando cámara de seguridad tipo bala en exteriores](../../assets/importancia-camaras-seguridad.png)
+
+## 1. El Efecto Disuasivo (El ladrón lo piensa dos veces)
+
+Esta es la razón principal. Los delincuentes buscan objetivos fáciles ("regalados").
+Si un ladrón ve una cámara **Hikvision** o **Dahua** bien instalada en la fachada, con sus luces infrarrojas encendidas, lo más probable es que pase de largo y busque otra casa menos protegida.
+* **El dato:** Una cámara visible reduce drásticamente el intento de intrusión. Es tu primera barrera de defensa.
+
+## 2. Monitoreo Remoto: Tus ojos cuando no estás
+
+¿Sales a trabajar al Parque Industrial o te vas de viaje a la playa el fin de semana?
+Con las tecnologías actuales, no necesitas estar sentado frente a un monitor. Configuramos tu sistema para que puedas ver **en vivo desde tu celular** (Android o iPhone) qué está pasando en tu casa, en tiempo real y desde cualquier lugar.
+* **Beneficio:** Recibes alertas de movimiento directamente a tu teléfono si alguien se acerca a tu puerta.
+
+## 3. Evidencia Legal ante la Policía
+
+Si lamentablemente ocurre un incidente (un robo, un vecino que raya tu auto, o vandalismo), las palabras se las lleva el viento.
+Las grabaciones en alta definición (Full HD o 4K) son pruebas irrefutables para presentar una denuncia en la comisaría.
+* **Tecnología ColorVu:** Hoy instalamos cámaras que ven **a color incluso de noche**, permitiendo identificar el color de ropa, el vehículo o rasgos faciales con precisión, algo que las cámaras antiguas en blanco y negro no lograban.
+
+## 4. Supervisión de Procesos y Familia
+
+Las cámaras no son solo para los ladrones.
+* **En el Hogar:** Muchos clientes en **Cayma** las usan para monitorear el cuidado de sus hijos pequeños, adultos mayores o para ver cómo tratan a sus mascotas cuando no están.
+* **En el Negocio:** Si tienes una tienda o taller, las cámaras te ayudan a controlar el flujo de caja, la atención al cliente y evitar el "robo hormiga" de inventario.
+
+## 5. Valorización de tu Propiedad
+
+Una casa con un sistema de seguridad integrado (cámaras, cerco eléctrico, alarma) tiene un valor mayor en el mercado inmobiliario. Demuestra que la infraestructura es moderna y que la seguridad ha sido una prioridad.
+
+### ¿Cámara IP o Analógica? ¿Qué marca elegir?
+
+En el mercado arequipeño abundan las opciones, pero como técnico recomiendo:
+* **Para el Hogar:** Cámaras **Ezviz** o **Imou** (Wi-Fi) si no quieres cablear mucho, o sistemas **Hikvision Turbo HD** para mayor robustez.
+* **Para Negocios:** Sistemas **Dahua** con tecnología IP para mayor nitidez y análisis inteligente (detección de rostros).
+
+No confíes tu seguridad a cámaras genéricas de mercadillo que dejan de funcionar al mes o que exponen tu privacidad en internet. Una buena instalación requiere cableado protegido (tubo conduit), baluns certificados y discos duros especiales para video (línea Púrpura).
+
+[**👉 ¡Vigila tu hogar desde tu celular! Cotiza tu sistema de cámaras aquí**](/contacto)
+--- FIN: src/content/blog/importancia-camaras-seguridad.md ---
+
+
+--- 📄 INICIO: src/content/blog/importancia-circuitos-independientes.md ---
+---
+title: "¿Luces y Enchufes Juntos? Por qué es un Error Peligroso (y cómo evitarlo)"
+description: "Si salta la llave y te quedas a oscuras, tienes un problema. Descubre por qué el Código Eléctrico exige separar tus circuitos para proteger tu casa en Arequipa."
+pubDate: 2025-12-05
+author: "Técnico CCG"
+tags: ["Tablero Eléctrico", "Seguridad", "Normativa CNE", "Arequipa", "Remodelación"]
+image: "../../assets/importancia-circuitos-independientes.png"
+---
+
+Imagina esta escena: Estás en tu cocina en **Mariano Melgar** o **Miraflores** por la noche, enchufas la licuadora y... ¡PUM! Hubo un corto. Pero el problema no es solo que la licuadora dejó de funcionar, sino que **toda la casa se quedó en completa oscuridad**.
+
+Si esto te ha pasado, es porque tu instalación eléctrica tiene las luces y los tomacorrientes "amarrados" a un solo interruptor. Esto no solo es incómodo, es **técnicamente incorrecto y peligroso** según las normas actuales.
+
+Aquí te explico por qué, como técnico electricista, insisto tanto en la **independización de circuitos**.
+
+![Tablero eléctrico residencial moderno con circuitos de alumbrado y tomacorrientes separados](../../assets/importancia-circuitos-independientes.png)
+
+## 1. Seguridad ante todo: No te quedes a oscuras
+
+La razón más práctica es la seguridad física.
+Los cortocircuitos suelen ocurrir en los tomacorrientes (donde conectamos planchas, estufas o herramientas).
+
+* **Instalación incorrecta (Juntos):** Si hay una falla en un enchufe, el interruptor corta TODO. Te quedas a ciegas, tropezando con cosas mientras intentas buscar la falla.
+* **Instalación correcta (Separados):** Si la plancha hace corto, salta solo la llave de "Tomacorrientes". **Las luces siguen encendidas**, permitiéndote ver, desenchufar el aparato dañado y revisar el tablero con calma.
+
+## 2. El Grosor del Cable (Calibre) es diferente
+
+Este es el punto técnico más crítico. El **Código Nacional de Electricidad (CNE)** del Perú especifica diferentes grosores de cable para diferentes usos:
+
+* **Iluminación:** Consume poca corriente. Se usa cable más delgado (generalmente 2.5 mm² o #14 AWG) y requiere una llave termomagnética de menor capacidad (ej. 10A o 16A).
+* **Tomacorrientes:** Soportan cargas pesadas. Se usa cable más grueso (mínimo 2.5 mm² a 4 mm² o #12 AWG) y requieren llaves de mayor capacidad (ej. 20A).
+
+**¿El peligro?** Si usas una sola llave de 20A o 32A para todo (común en casas antiguas), esa llave es "muy grande" para proteger los cables delgados de las luces. Si hay una sobrecarga en la luz, **el cable se quemará antes de que la llave salte**.
+
+## 3. Facilidad para detectar fallas
+
+Cuando voy a reparar una avería en **José Luis Bustamante y Rivero**, si la casa tiene los circuitos separados, tardo la mitad del tiempo en encontrar el problema.
+Si todo está mezclado, tengo que adivinar si el fallo vino de un foco en el baño o del refrigerador en la cocina, lo que implica abrir muchas cajas de paso y aumentar el costo de la mano de obra.
+
+## 4. Protección de tus equipos
+
+Al separar los circuitos, evitas que el "parpadeo" o la caída de tensión que produce tu ducha eléctrica o tu microondas afecte directamente a los focos LED o a la electrónica sensible de tus lámparas.
+
+### ¿Qué dice la norma en Arequipa?
+
+Para pasar una inspección de **INDECI** (Defensa Civil) o solicitar un nuevo medidor a **SEAL**, es **obligatorio** tener un tablero de distribución con:
+1.  Interruptor General.
+2.  Interruptor Diferencial (Salvavidas).
+3.  Interruptor para Alumbrado.
+4.  Interruptor para Tomacorrientes.
+5.  Interruptor para Cargas Especiales (Ducha, Terma, Cocina de Inducción).
+
+### Recomendación de Marcas
+
+Para tus llaves termomagnéticas, no te arriesgues con marcas desconocidas. En mis trabajos siempre instalo:
+* **Schneider Electric** (Línea Acti9 o Easy9).
+* **Bticino** (Línea Btdin).
+* **Legrand**.
+
+Si tu tablero se ve viejo, tiene "plomos" de palanca antigua o solo tiene una llave para toda la casa, es hora de modernizarse.
+
+[**👉 ¡Actualiza tu tablero y protege a tu familia! Cotiza la independización de circuitos aquí**](/contacto)
+
+--- FIN: src/content/blog/importancia-circuitos-independientes.md ---
+
+
+--- 📄 INICIO: src/content/blog/importancia-luces-emergencia.md ---
+---
+title: "Luces de Emergencia: ¿Adorno o Salvavidas? La Verdad que INDECI Exige"
+description: "¿Crees que solo sirven para pasar la inspección? Descubre por qué una luz de emergencia bien ubicada puede salvarte la vida en el próximo sismo en Arequipa."
+pubDate: 2025-12-05
+author: "Técnico CCG"
+tags: ["INDECI", "Seguridad", "Arequipa", "Prevención", "Sismos"]
+image: "../../assets/importancia-luces-emergencia.png"
+---
+Vivimos en **Arequipa**, una ciudad hermosa pero con dos realidades inevitables: los temblores constantes y los cortes de luz imprevistos por lluvias o mantenimiento de **SEAL**.
+
+Cuando ocurre un apagón repentino en la noche, esos primeros 10 segundos son críticos. El pánico, los tropezones y la desorientación pueden causar accidentes graves. Aquí es donde la **Luz de Emergencia** deja de ser un requisito burocrático para convertirse en tu mejor aliado.
+
+Como técnico electricista, veo muchas casas y negocios en **Hunter** o **Miraflores** que tienen las luces desenchufadas o quemadas. Hoy te explico por qué esto es un error grave.
+
+![Luz de emergencia de doble foco iluminando un pasillo oscuro durante un apagón](../../assets/importancia-luces-emergencia.png)
+
+## 1. Evacuación Segura en Sismos
+
+No es un secreto que el suelo arequipeño se mueve. Si un terremoto ocurre de noche y se va la luz (algo muy probable), salir de casa se vuelve una carrera de obstáculos.
+La luz de emergencia ilumina la **Ruta de Evacuación**. Te permite ver escaleras, desniveles y evitar pisar vidrios rotos.
+* **Normativa:** El **Reglamento Nacional de Edificaciones** exige que las vías de salida tengan una iluminación mínima de 1 lux para garantizar que puedas caminar rápido sin caerte.
+
+## 2. Control del Pánico (Psicología)
+
+La oscuridad total genera miedo instintivo, especialmente en niños y adultos mayores.
+Tener una luz blanca y potente (como las de tecnología LED de **Opalux** o **Segurimax**) que se enciende automáticamente, calma los nervios y permite tomar decisiones racionales en lugar de gritar o correr a ciegas.
+
+## 3. Es un Requisito Obligatorio de INDECI
+
+Si tienes una tienda, un restaurante o alquilas habitaciones, no es opcional.
+Para obtener tu **Certificado ITSE (Defensa Civil)**, los inspectores verificarán:
+* Que las luces funcionen (enciendan al desconectarlas).
+* Que tengan autonomía (duren al menos 60 a 90 minutos).
+* Que estén ubicadas en salidas, pasadizos y tableros eléctricos.
+
+## 4. Protección contra Robos
+
+Los dueños de lo ajeno aman la oscuridad. Un corte de luz puede ser aprovechado para ingresar a tu negocio o vivienda.
+Una luz de emergencia interior o exterior disuade a los intrusos, ya que la propiedad no queda en "tinieblas totales", permitiendo que tus cámaras de seguridad sigan captando imágenes algo visibles.
+
+## 5. El Error Común: "Instalar y Olvidar"
+
+Muchos clientes compran la luz, la enchufan y no la vuelven a mirar en 3 años.
+**Las baterías se mueren si no se usan.**
+* **Mi consejo técnico:** Cada mes, baja la palanca de tu tablero o desconecta la luz de emergencia por 15 minutos. Esto "ejercita" la batería interna. Si notas que la luz dura muy poco, es hora de cambiar la batería o el equipo completo.
+
+### ¿Dónde debes colocarlas?
+
+Según el **Código Nacional de Electricidad**, los puntos clave son:
+1.  Sobre el **Tablero Eléctrico General** (para poder ver y reponer las llaves).
+2.  En los descansos de las escaleras.
+3.  Sobre la puerta de salida a la calle.
+4.  En pasadizos largos (más de 5 metros).
+
+No esperes al próximo apagón para darte cuenta de que tu luz no funciona. La seguridad de tu familia vale mucho más que los 50 soles que cuesta un equipo nuevo.
+
+[**👉 ¿Necesitas instalar o certificar tus luces para INDECI? Escríbeme aquí**](/contacto)
+--- FIN: src/content/blog/importancia-luces-emergencia.md ---
+
+
+--- 📄 INICIO: src/content/blog/mala-iluminacion-afecta-tu-vida.md ---
+---
+title: "¿Dolor de Cabeza y Cansancio? Tu Mala Iluminación es la Culpable"
+description: "No es estrés, es tu foco. Descubre cómo una iluminación deficiente daña tu vista y estado de ánimo, y cómo corregirlo según la Norma EM.010."
+pubDate: 2025-12-05
+author: "Técnico CCG"
+tags: ["Salud Visual", "Iluminación LED", "Arequipa", "Bienestar", "Normativa"]
+image: "../../assets/mala-iluminacion-afecta-tu-vida.png"
+---
+
+Llegas a tu casa en **Cayma** después de un largo día de trabajo, te sientas a leer o a revisar las tareas de tus hijos y, a los 20 minutos, sientes pesadez en los ojos y un leve dolor de cabeza. ¿Te suena familiar?
+
+La mayoría de mis clientes en Arequipa piensan que la iluminación es solo para "ver y no tropezarse". Pero como especialista, te digo la verdad: **una mala iluminación es un enemigo silencioso que afecta tu salud, tu productividad y hasta tu humor.**
+
+Aquí te explico por qué ese foco barato que compraste en la ferretería te está costando más caro de lo que crees.
+
+![Persona frotándose los ojos por fatiga visual debido a mala iluminación en oficina](../../assets/mala-iluminacion-afecta-tu-vida.png)
+
+## 1. Fatiga Visual y Migrañas (El parpadeo invisible)
+
+El ojo humano es una máquina perfecta, pero se cansa. Si tienes focos antiguos o LEDs de mala calidad que parpadean imperceptiblemente (flicker), tu pupila está contrayéndose y dilatándose miles de veces por segundo para adaptarse.
+
+* **Consecuencia:** Ojos rojos, visión borrosa y migrañas constantes.
+* **Solución:** Instalar focos con tecnología *EyeComfort* o drivers de calidad como los de **Philips** u **Osram**, que garantizan una luz estable y continua.
+
+## 2. Baja Productividad y Sueño
+
+¿Sientes que tus hijos se duermen haciendo la tarea o que tú mismo "te apagas" en tu oficina en casa? El problema es la **Temperatura de Color**.
+
+Nuestro cerebro reacciona a la luz.
+* **Luz Cálida (Amarilla):** Le dice al cerebro que es hora de descansar. Si la usas para estudiar, te dará sueño.
+* **Luz Fría/Neutra (Blanca):** Activa la concentración.
+* **El Error:** Muchas casas en **Cerro Colorado** tienen luz amarilla tenue en la cocina o el estudio, lo que reduce el rendimiento y aumenta los errores.
+
+## 3. Accidentes Domésticos
+
+Según las estadísticas de **INDECI**, una gran parte de las caídas en el hogar ocurren por zonas mal iluminadas, especialmente en escaleras y pasadizos.
+El **Reglamento Nacional de Edificaciones (Norma EM.010)** exige niveles mínimos de iluminación (medidos en Luxes) para garantizar el tránsito seguro. Una bombilla de baja potencia en un pasillo largo es una trampa mortal para niños y adultos mayores.
+
+## 4. Depresión y Estado de Ánimo
+
+Arequipa tiene un clima hermoso, pero en invierno o en las tardes nubladas, la falta de luz interior adecuada puede generar sensación de tristeza o encierro.
+Una iluminación pobre, con sombras duras y rincones oscuros, hace que los espacios se sientan más pequeños y lúgubres. Un buen diseño de iluminación (Luminotecnia) puede hacer que tu sala de 20m² se sienta amplia y acogedora, mejorando tu bienestar emocional.
+
+## 5. Distorsión de la Realidad (Índice de Reproducción Cromática)
+
+¿Alguna vez te pusiste una camisa que creías azul marino y al salir al sol era negra? Eso es culpa de un bajo **CRI (Índice de Reproducción Cromática)**.
+Los focos económicos "lavan" los colores, haciéndolos ver grises y apagados. Esto no solo es estético; afecta, por ejemplo, al preparar alimentos (no ves si la carne o la fruta está en buen estado) o al maquillarse.
+
+### ¿Cómo saber si tu iluminación es mala?
+
+Haz esta prueba rápida hoy mismo en tu casa:
+1.  Enciende la cámara de tu celular y apunta al foco. ¿Ves rayas negras pasando por la pantalla? Eso es parpadeo (**Flicker**).
+2.  ¿Tienes que forzar la vista o usar la linterna del celular para leer una etiqueta en la cocina?
+3.  ¿Tus ambientes se ven "verdosos" o pálidos?
+
+Si respondiste sí, necesitas un cambio urgente. No se trata de poner focos más potentes, sino de poner la luz correcta.
+
+[**👉 ¡Cuida tus ojos y tu hogar! Solicita un estudio de iluminación profesional aquí**](/contacto)
+
+--- FIN: src/content/blog/mala-iluminacion-afecta-tu-vida.md ---
+
+
+--- 📄 INICIO: src/content/blog/mejor-iluminacion-espacios-industriales.md ---
+---
+title: "¿Tu Taller es una Cueva? La Iluminación Industrial que Aumenta la Productividad"
+description: "Una mala luz causa accidentes y errores de producción. Descubre qué luminarias LED High Bay y reflectores usar según la Norma EM.010 en Arequipa."
+pubDate: 2025-12-05
+author: "Técnico CCG"
+tags: ["Iluminación Industrial", "Norma EM.010", "Arequipa", "Eficiencia Energética", "Seguridad"]
+image: "../../assets/mejor-iluminacion-espacios-industriales.png"
+---
+
+Si tienes una planta en el **Parque Industrial de Río Seco** o un taller de metalmecánica en la **Variante**, sabes que la luz es dinero. Un operario que no ve bien, trabaja más lento, comete errores de medida y, lo más grave, puede sufrir un accidente laboral.
+
+Muchos empresarios en Arequipa siguen usando campanas antiguas de sodio o halogenuro metálico que consumen muchísimo y dan una luz naranja que cansa la vista. Hoy te explico qué iluminación es la correcta según el **Reglamento Nacional de Edificaciones (Norma EM.010)**.
+
+![Interior de nave industrial iluminada con campanas LED High Bay de luz blanca](../../assets/mejor-iluminacion-espacios-industriales.png)
+
+## 1. Tecnología LED: Adiós al Halogenuro
+
+Lo primero es la tecnología. Las antiguas lámparas de vapor de mercurio o sodio ya no son rentables.
+* **Eficiencia:** Una campana LED de **150W** ilumina igual o más que una antigua de 400W. Estamos hablando de un ahorro de más del 60% en tu recibo de **SEAL**.
+* **Encendido:** El LED prende al instante. No tienes que esperar 15 minutos a que la lámpara "caliente" si hubo un corte de luz.
+
+## 2. Niveles de Luz Exigidos (Luxes)
+
+No se trata de poner focos "al ojo". La **Norma Técnica EM.010** establece niveles mínimos de iluminancia (Lux) según la tarea visual. Si tienes una inspección de **SUNAFIL** o **INDECI**, te pedirán cumplir esto:
+
+* **Almacenes y depósitos:** Mínimo **200 Lux**. Suficiente para identificar bultos y transitar.
+* **Trabajos medios (Talleres generales):** Mínimo **300 Lux**. Para ensamble, soldadura o empaquetado.
+* **Trabajos de precisión (Tornos, fresadoras, control de calidad):** Mínimo **500 a 750 Lux**. Aquí el operario necesita ver detalles milimétricos.
+* **Áreas de pintura y acabado:** Mínimo **750 Lux** con un alto índice de reproducción de color para no fallar en el tono.
+
+## 3. Temperatura de Color: ¿Cálida o Fría?
+
+En la industria, olvídate de la luz amarilla (Cálida). Necesitas mantener al personal alerta y concentrado.
+* **Recomendación:** Usa luz **Blanca Fría (6500K)** o **Blanca Neutra (4000K)**. Esta temperatura de color simula la luz del día, reduce la melatonina (hormona del sueño) y mejora la agudeza visual.
+
+## 4. Protección IP: Polvo y Humedad
+
+Arequipa es una ciudad con mucho polvo, especialmente en zonas industriales. Si instalas una luminaria doméstica, el polvo entrará, oscurecerá el lente y quemará el LED.
+Busca luminarias con certificación:
+* **IP65 o IP66:** Totalmente herméticas al polvo y chorros de agua. Ideales si lavas tu planta con manguera o si hay mucha polución.
+* **IK08 o superior:** Resistencia a golpes (por si le cae una herramienta o un golpe de grúa).
+
+## 5. El Deslumbramiento (UGR)
+
+¿Has mirado una luz potente y te has quedado ciego unos segundos? Eso es deslumbramiento y causa fatiga.
+Las luminarias industriales modernas (High Bay) deben tener un diseño óptico que controle el **UGR (Índice de Deslumbramiento Unificado)**. Para trabajos industriales, se busca un UGR menor a 25. Evita los reflectores simples que "encandilan" a los operarios de grúas o montacargas.
+
+### Marcas que Recomiendo en Arequipa
+
+No arriesgues tu producción con luces genéricas. Busca marcas con garantía real y repuestos locales:
+* **Philips (Signify):** Línea CoreLine HighBay.
+* **Ledvance (Osram):** Excelentes campanas industriales.
+* **Opalux:** Buena relación calidad-precio para talleres medianos.
+
+Si tus trabajadores se quejan de dolor de cabeza o si tu recibo de luz es impagable, es hora de un estudio luminotécnico.
+
+[**👉 ¡Moderniza tu planta! Hacemos mediciones de luz y proyectos LED industriales aquí**](/contacto)
+--- FIN: src/content/blog/mejor-iluminacion-espacios-industriales.md ---
+
+
+--- 📄 INICIO: src/content/blog/mi-bomba-de-agua-no-funciona.md ---
+---
+title: "¿Te quedaste sin agua? 5 Razones por las que tu Bomba no Funciona"
+description: "Si tu tanque elevado está vacío y la bomba solo zumba, no entres en pánico. Guía rápida para solucionar fallas en bombas de agua en Arequipa."
+pubDate: 2025-12-05
+author: "Técnico CCG"
+tags: ["Bombas de Agua", "Gasfitería", "Electricidad", "Arequipa", "Tanque Elevado"]
+image: "../../assets/mi-bomba-de-agua-no-funciona.png"
+---
+
+Despertar en **Cerro Colorado** o **Sachaca**, abrir el caño y que no salga ni una gota es la pesadilla de cualquier arequipeño. Si subes al techo y ves que tu tanque elevado está seco, el problema está abajo: en tu bomba de agua.
+
+Antes de que llames a un camión cisterna, déjame explicarte las fallas más comunes que encuentro en las visitas técnicas y cómo saber si es un problema eléctrico o de gasfitería.
+
+![Técnico revisando una bomba de agua periférica con problemas de encendido](../../assets/mi-bomba-de-agua-no-funciona.png)
+
+## 1. Falta de "Cebado" (Aire en la tubería)
+
+Si escuchas que el motor gira y suena normal, pero **no sube agua**, es probable que la bomba haya "agarrado aire".
+Esto pasa mucho cuando hay cortes de agua de **SEDAPAR**. La tubería se vacía y se llena de aire.
+
+* **La solución:** Debes ubicar el tornillo de purga (usualmente de bronce) en la cabeza de la bomba, aflojarlo mientras la bomba está apagada, llenar con agua hasta que rebose y volver a cerrar. A esto le llamamos "cebar la bomba".
+
+## 2. El Condensador Explotó (Solo zumba)
+
+Si al encender la bomba escuchas un **"hmmmm"** grave y el motor no gira (y si lo tocas, calienta rápido), el culpable es el **condensador de arranque**.
+Es esa pieza cilíndrica blanca o negra dentro de la cajita encima del motor. En Arequipa, las bombas **Pedrollo** o **Pentax** son muy buenas, pero sus condensadores sufren por los picos de energía si no tienes estabilizador.
+
+## 3. El Radar o Electronivel está fallando
+
+Muchas veces la bomba está perfecta, pero el "cerebro" que le dice cuándo prenderse está muerto.
+El sistema automático usa dos boyas (flotadores): una en la cisterna (suelo) y otra en el tanque elevado (techo).
+
+* **Falla común:** Si el flotador de la cisterna se traba o sus cables (que suelen estar sumergidos) se sulfatan, el sistema piensa que no hay agua y corta la energía para proteger el motor.
+* **Recomendación:** Usar electroniveles de marca **Rotoplas** o **Ticino** y asegurar los empalmes con cinta vulcanizante **3M**.
+
+## 4. El Impulsor está trabado (Sarro)
+
+El agua de Arequipa es dura (tiene muchos minerales). Si dejaste la bomba apagada por mucho tiempo (por ejemplo, te fuiste de viaje), el sarro puede haber pegado el impulsor interno a la carcasa.
+* **Prueba rápida:** Con la bomba **desconectada de la electricidad**, intenta girar la hélice del ventilador trasero con un desarmador. Si está dura como una roca, necesita mantenimiento mecánico y limpieza.
+
+## 5. El Presostato (Para sistemas hidroneumáticos)
+
+Si tienes un sistema con tanque de presión (ese balón rojo o azul) para mejorar la fuerza del agua en tu ducha, el problema suele ser el **presostato**.
+Es la cajita gris con resortes que detecta la presión. Si se descalibra, la bomba puede **no prender nunca** o, peor aún, **quedarse prendida hasta quemarse**.
+
+### Advertencia de Seguridad (INDECI)
+
+Las bombas de agua combinan dos elementos peligrosos: **Electricidad y Agua**.
+Según el **Código Nacional de Electricidad**, toda bomba debe tener:
+1.  **Interruptor Termomagnético propio.**
+2.  **Conexión a Tierra** (cable verde/amarillo) conectada a la carcasa del motor.
+
+Nunca manipules una bomba con las manos mojadas o descalzo. Si hueles a quemado, baja la palanca inmediatamente.
+
+[**👉 ¿Tu bomba no arranca? Servicio de reparación e instalación de bombas aquí**](/contacto)
+--- FIN: src/content/blog/mi-bomba-de-agua-no-funciona.md ---
+
+
+--- 📄 INICIO: src/content/blog/mi-licuadora-no-funciona.md ---
+---
+title: "¿Tu licuadora murió? 5 Fallas Comunes y Cómo Arreglarlas (Guía Arequipa)"
+description: "Si tu Oster no prende o huele a quemado justo cuando hacías la llajua, lee esto. Soluciones prácticas para recuperar tu licuadora antes de comprar otra."
+pubDate: 2025-12-05
+author: "Técnico CCG"
+tags: ["Electrodomésticos", "Reparación", "Arequipa", "Ahorro"]
+image: "../../assets/mi-licuadora-no-funciona.png"
+---
+
+Es domingo, estás en tu cocina en **Yanahuara** preparando el aderezo o una buena ocopa, metes todo a la licuadora, giras la perilla y... silencio total. O peor, el motor suena pero las cuchillas no giran.
+
+La licuadora (especialmente la clásica **Oster**) es un electrodoméstico de batalla en Perú. Antes de que corras a comprar una nueva al mall, revisa estos puntos. El 80% de las veces, la reparación cuesta una fracción del precio de una nueva.
+
+![Técnico reparando el acople de una licuadora clásica con herramientas](../../assets/mi-licuadora-no-funciona.png)
+
+## 1. El Cable está roto (Falso contacto)
+
+Parece obvio, pero es lo más común. De tanto enrollar el cable alrededor de la base para guardarla, los hilos de cobre internos se rompen justo en la salida del motor o cerca del enchufe.
+
+* **Prueba:** Con la licuadora enchufada (y con cuidado), mueve el cable suavemente en diferentes puntos. Si el motor intenta arrancar, ahí está la falla.
+* **Solución:** Se debe cambiar todo el cable por uno vulcanizado nuevo (preferible marca **Indeco** calibre 16 o 18 AWG) y poner un enchufe **Leviton** o **Ticino** seguro. ¡Nada de pegar con cinta aislante y dejarlo así!
+
+## 2. Los Carbones (Escobillas) se gastaron
+
+Si tu licuadora ha perdido fuerza, huele un poco a "eléctrico" o ves chispas azules dentro de las ranuras de ventilación, tus carbones están pidiendo auxilio.
+Los carbones son pequeñas barras de grafito que transmiten la electricidad al rotor. Son consumibles y se gastan con el uso.
+
+* **Diagnóstico:** Si la licuadora no prende en absoluto, a veces es porque el carbón ya no toca el contacto.
+* **Reparación:** Es una reparación rápida y económica que hacemos en taller.
+
+## 3. El Acople o Cuadrante se "barrió"
+
+¿El motor suena fuerte (VRRRR) pero lo de adentro del vaso no se mueve?
+El problema es mecánico. El **acople** (esa pieza de caucho o metal cuadrada donde asienta el vaso) se ha desgastado o "rodado".
+
+Esto pasa mucho en Arequipa cuando licuamos cosas muy duras (hielo, charqui o rocoto entero) sin suficiente líquido.
+* **Solución:** Cambiar el acople y, de paso, revisar si el pin del vaso (la cuchilla) no está oxidado.
+
+## 4. El Tomacorriente de la pared
+
+A veces culpamos a la pobre licuadora y el problema es la pared. Los tomacorrientes de cocina sufren mucho por la grasa y el vapor.
+* **Prueba rápida:** Desenchufa la licuadora y conecta ahí mismo tu cargador de celular o un radio. Si tampoco funciona, el problema es tu instalación eléctrica, no el electrodoméstico.
+
+## 5. Se quemó el Fusible Térmico (Sobrecalentamiento)
+
+Las licuadoras modernas tienen un seguro de vida. Si la usaste por 10 minutos seguidos moliendo granos, el motor se calienta y un pequeño fusible interno se funde para evitar que la bobina se incendie.
+Si esto pasa, la licuadora parece muerta. No hace ruido, no huele, nada. Solo un técnico puede abrirla y reemplazar ese fusible térmico.
+
+### Recomendación de Seguridad (INDECI)
+
+Nunca uses la licuadora si ves el cable pelado o si sale humo. El líquido (jugo, agua) es conductor de electricidad. Si hay una fuga de corriente en la base y tocas el metal mojado, podrías sufrir una descarga eléctrica grave.
+
+Además, asegúrate de que tu cocina tenga **Interruptor Diferencial** en el tablero para protegerte de estos accidentes domésticos.
+
+[**👉 ¿Tu licuadora no tiene fuerza? Tráela o vamos a tu casa. Agenda reparación aquí**](/contacto)
+--- FIN: src/content/blog/mi-licuadora-no-funciona.md ---
+
+
+--- 📄 INICIO: src/content/blog/motor-electrico-no-arranca.md ---
+---
+title: "¡Mi Motor No Arranca! 5 Fallas Comunes y Cómo Revivirlo (Guía Arequipa)"
+description: "¿Tu bomba de agua o motor hace un zumbido pero no gira? Antes de rebobinar, revisa estas 5 causas frecuentes de fallo en Arequipa."
+pubDate: 2025-12-05
+author: "Técnico CCG"
+tags: ["Motores Eléctricos", "Industria", "Mantenimiento", "Arequipa", "Bombas de Agua"]
+image: "../../assets/motor-electrico-no-arranca.png"
+---
+
+Es el dolor de cabeza de todo taller en el **Parque Industrial de Río Seco** o de cualquier familia en **Cerro Colorado** que depende de una bomba de agua: aprietas el botón de encendido y... nada. O peor aún, solo escuchas un zumbido grave ("hmmm") y el eje no se mueve.
+
+Como técnico, he visto motores descartados como "quemados" que en realidad tenían soluciones simples. Antes de que entres en pánico, vamos a diagnosticar por qué tu motor eléctrico se ha declarado en huelga.
+
+![Técnico realizando pruebas de continuidad en un motor eléctrico trifásico](../../assets/motor-electrico-no-arranca.png)
+
+## 1. El Condensador de Arranque (El culpable #1 en Monofásicos)
+
+Si tienes una bomba de agua doméstica o una sierra de banco pequeña (monofásica) y el motor hace un sonido como si quisiera arrancar pero no tiene fuerza, **el condensador ha muerto**.
+
+Este componente es como la batería de arranque de un auto; le da el empujón inicial. En Arequipa, los condensadores baratos se secan o explotan debido a los picos de voltaje.
+* **La prueba:** Si giras el eje manualmente (¡con cuidado!) y el motor arranca, es 100% el condensador.
+* **Solución:** Reemplazarlo por uno de la misma capacidad (microfaradios - µF) y voltaje (preferible 400V para mayor duración).
+
+## 2. El Relé Térmico "Saltó" (Protección Activada)
+
+Los tableros industriales bien armados (con contactores **Schneider**, **Siemens** o **WEG**) tienen una protección llamada **Guardamotor** o Relé Térmico.
+
+Si el motor trabajó forzado, se trabó o hubo una subida de corriente, este dispositivo corta la energía para salvar el bobinado.
+* **¿Qué hacer?** Busca el botón de "Reset" en el relé térmico. Si vuelve a saltar inmediatamente, **NO lo fuerces**. Hay una falla mecánica o eléctrica grave que debemos revisar.
+
+## 3. Falta de una Fase (En Motores Trifásicos)
+
+Para los amigos industriales en la Variante de Uchumayo: si un motor trifásico recibe energía solo por dos cables (porque se quemó un fusible aéreo de **SEAL** o se soltó un cable en el tablero), el motor no arrancará y emitirá un zumbido fuerte.
+
+**¡Cuidado!** Si lo dejas conectado así por más de unos segundos, el bobinado se quemará irremediablemente ("se va a tierra"). El **Código Nacional de Electricidad** exige protección por falta de fase en tableros industriales.
+
+## 4. Problemas Mecánicos (Rodajes o Eje Trabado)
+
+A veces culpamos a la electricidad, pero el problema es pura mecánica. El polvo del sillar y la falta de grasa son enemigos mortales.
+* **Rodajes (Baleros):** Si los rodajes están oxidados o rotos, el rotor se clava.
+* **Carga bloqueada:** Si es una bomba de agua, puede haber una piedra en el impulsor.
+* **Prueba:** Con el motor **desconectado** (baja la llave termomagnética), intenta girar el eje con la mano o una llave. Debe girar suavemente. Si está duro, es trabajo de taller mecánico.
+
+## 5. Bobinado Quemado (Cortocircuito interno)
+
+La noticia que nadie quiere escuchar. Si al intentar arrancar sale humo, huele a barniz quemado o salta inmediatamente la llave general de la casa: el motor entró en corto.
+
+Esto sucede cuando el aislamiento del alambre de cobre (el barniz dieléctrico) se derrite por sobrecalentamiento excesivo o antigüedad. Aquí la única solución es el **rebobinado completo** con materiales de calidad (Clase H para alta temperatura).
+
+### Mantenimiento Preventivo: La clave de INDECI
+
+Recuerda que para las inspecciones de **INDECI**, tus motores deben tener:
+1.  Carcasa conectada a **Puesta a Tierra**.
+2.  Cables vulcanizados tipo **Indeco** en buen estado (sin empalmes expuestos).
+3.  Tapas de borneras aseguradas.
+
+Si tu motor no arranca, no lo golpees ni lo fuerces. Podrías convertir una reparación de 50 soles (un condensador) en una de 500 (un rebobinado).
+
+[**👉 ¿Tu motor se detuvo? Diagnóstico y reparación de motores a domicilio aquí**](/contacto)
+--- FIN: src/content/blog/motor-electrico-no-arranca.md ---
+
+
+--- 📄 INICIO: src/content/blog/peligro-cable-mellizo.md ---
+---
+title: "Peligro: Por qué NO debes usar Cable Mellizo (Lo barato sale caro)"
+description: "¿Estás cableando tu casa con el cable blanco plano? Cuidado. Te explico por qué está prohibido por la norma peruana y el riesgo de incendio."
+pubDate: 2025-11-29
+author: "Técnico CCG"
+tags: ["Seguridad", "Materiales", "Normativa"]
+image: "../../assets/peligro-cable-mellizo.png"
+---
+
+Es típico en las ferreterías de barrio: *"Deme 10 metros de cable para una extensión"* y te dan el clásico **cable blanco plano (mellizo)**.
+
+El problema empieza cuando la gente (o "maestritos" inexpertos) usan este cable para **toda la instalación eléctrica de la casa**, metiéndolo dentro de las paredes. Esto es una bomba de tiempo.
+
+## ¿Qué es el Cable Mellizo (GPT)?
+Es un cordón flexible diseñado para usos **temporales y visibles**. Sirve para la lámpara de mesa o la radio.
+**NO SIRVE** para instalaciones fijas dentro de tubos o paredes.
+
+### ¿Por qué está prohibido para instalaciones fijas?
+
+1.  **Doble capa vs Capa simple:** El mellizo tiene un aislamiento muy delgado. Se calienta rápido y se derrite fácil.
+2.  **No soporta humedad:** Dentro de los tubos de luz hay condensación. El mellizo se pudre rápido.
+3.  **Riesgo de Cortocircuito:** Al estar los dos cables pegados, si se calientan, se funden entre ellos y provocan chispazos (incendios).
+
+---
+
+## ¿Qué cable debo usar según la Norma Peruana?
+
+El Código Nacional de Electricidad exige usar cables **Libres de Halógenos (LSOH)** para lugares con afluencia de gente o viviendas modernas.
+
+### Tabla: Mellizo vs Libre de Halógenos
+
+| Característica | Cable Mellizo (Barato) ❌ | Cable Libre de Halógenos (Normado) ✅ |
+| :--- | :--- | :--- |
+| **Duración** | 2 a 5 años (se reseca) | Más de 20 años |
+| **Resistencia al calor** | Baja (se derrite fácil) | Alta (retardante de llama) |
+| **En caso de incendio** | Emite humo negro tóxico | Emite poco humo y no es tóxico |
+| **Uso permitido** | Solo extensiones visibles | Dentro de paredes y tubos |
+
+![Comparación de cables eléctricos](../../assets/peligro-cable-mellizo.png)
+
+## El mito del "Calibre"
+No basta con que el cable sea grueso.
+* Para iluminación: Mínimo calibre **14 AWG** (2.5mm²).
+* Para tomacorrientes: Mínimo calibre **12 AWG** (4mm²).
+* Para duchas/cocinas: Mínimo calibre **10 AWG** (6mm²).
+
+**Conclusión:**
+Ahorrar S/ 50 en rollos de cable hoy puede costarte tu casa mañana. En **Quilla Electric** solo trabajamos con cables certificados (Indeco, Centelsa) que garantizan tu seguridad por décadas.
+
+[**👉 ¡Quiero recablear mi casa con material seguro!**](/contacto)
+--- FIN: src/content/blog/peligro-cable-mellizo.md ---
+
+
+--- 📄 INICIO: src/content/blog/por-que-parpadea-mi-lampara.md ---
+---
+title: "¿Tu luz parpadea? 5 Causas que Dañan tu Vista (y cómo arreglarlo)"
+description: "El parpadeo de luces en Arequipa no es normal. Descubre si es culpa de SEAL, un cable flojo o tu interruptor con luz piloto. Soluciones rápidas aquí."
+pubDate: 2025-12-05
+author: "Técnico CCG"
+tags: ["Iluminación LED", "Arequipa", "Fallas Eléctricas", "Mantenimiento"]
+image: "../../assets/por-que-parpadea-mi-lampara.png"
+---
+
+¿Te sientes en una película de terror porque la luz de tu sala no deja de titilar? Ese efecto estroboscópico no solo es molesto, sino que **daña tu vista y puede provocar dolores de cabeza**.
+
+Muchos vecinos en **Cayma** y **José Luis Bustamante y Rivero** me preguntan si es culpa de la empresa eléctrica o de sus focos. La respuesta corta es: depende. Aquí te detallo las razones técnicas por las que tus lámparas parpadean y cómo lo solucionamos en **QuillaElectric**.
+
+![Lámpara LED parpadeando por problemas de tensión o interruptor piloto](../../assets/por-que-parpadea-mi-lampara.png)
+
+## 1. El Interruptor con "Luz Piloto" (El culpable silencioso)
+
+Esta es la causa más común cuando instalas focos LED modernos en casas con interruptores antiguos o de la línea clásica de **Bticino**.
+
+* **El problema:** Esos interruptores tienen una pequeña lucecita roja o verde para verlos en la oscuridad. Esa pequeña luz deja pasar una corriente mínima, insuficiente para encender un foco antiguo, pero suficiente para cargar los capacitores de un foco LED.
+* **El resultado:** El foco intenta encenderse, se descarga y se apaga. Esto crea un parpadeo constante, incluso cuando el interruptor está "apagado".
+* **La solución:** Se debe retirar la luz piloto del interruptor o instalar un **condensador/inhibidor de destellos** en la lámpara.
+
+## 2. Falsos Contactos en el Empalme
+
+El enemigo número uno de la seguridad eléctrica en Arequipa. Si el parpadeo es errático (a veces pasa, a veces no) y escuchas un ligero sonido de "fritura" (chisporroteo), ¡cuidado!
+
+Probablemente, los cables dentro de la caja de paso o en el socket están mal unidos. Si tu instalación usa cinta aislante barata que se ha secado por el clima seco de nuestra ciudad, los cables **Indeco** pueden haberse soltado. Esto requiere reparación inmediata para evitar incendios.
+
+## 3. Fluctuaciones de Tensión de la Red (SEAL)
+
+A veces el problema no está dentro de casa. Si vives cerca de zonas industriales en **Cerro Colorado** o tienes un vecino soldando, la red eléctrica puede sufrir bajadas de tensión.
+
+Los focos LED de buena calidad (como **Philips** u **Osram**) tienen reguladores internos, pero los genéricos no soportan estas caídas y parpadean.
+* **Dato técnico:** El **Código Nacional de Electricidad** permite cierto margen de variación, pero si es constante, podrías necesitar un estabilizador general.
+
+## 4. Dimmers Incompatibles
+
+¿Tienes un regulador de intensidad (dimmer) en la pared? Muchos hogares instalaron dimmers para focos incandescentes antiguos. Al cambiar a LED, empieza la fiesta de luces.
+La mayoría de los focos LED estándar **NO son dimmables**. Si intentas regularlos, parpadearán violentamente. Necesitas comprar focos LED específicos que digan "Dimmable" en la caja y un dimmer compatible con tecnología LED (como los de la línea **Schneider**).
+
+## 5. Foco al final de su vida útil
+
+A veces la solución es la más simple. La electrónica interna del foco (el driver) puede estar fallando por sobrecalentamiento. Si cambias el foco a otra lámpara y sigue parpadeando, tíralo en un punto de reciclaje de residuos electrónicos y compra uno nuevo.
+
+### ¿Es peligroso ignorar el parpadeo?
+
+Sí. Un parpadeo por falso contacto genera calor y puede derretir los cables. Además, la fatiga visual que genera afecta tu productividad y bienestar.
+
+Si ya cambiaste el foco y el problema persiste, el fallo está en el cableado.
+
+[**👉 ¡Acabamos con el parpadeo hoy mismo! Contáctame para una revisión técnica**](/contacto)
+--- FIN: src/content/blog/por-que-parpadea-mi-lampara.md ---
+
+
+--- 📄 INICIO: src/content/blog/por-que-salta-la-llave.md ---
+---
+title: "¡Se fue la luz! 3 Razones por las que salta la Llave Térmica"
+description: "¿Tu palanca de luz se baja sola? No la fuerces. Descubre si es una sobrecarga por la ducha, un cortocircuito peligroso o una llave malograda."
+pubDate: 2025-11-28
+author: "Técnico CCG"
+tags: ["Emergencias", "Fallas Eléctricas", "Solución de Problemas"]
+image: "../../assets/por-que-salta-la-llave.png"
+---
+
+Es la escena clásica en Arequipa: entras a bañarte, enciendes la **ducha eléctrica** y, a los pocos minutos... *¡Click!* Todo se queda oscuro.
+
+Vas al tablero, subes la palanca, y al rato vuelve a saltar. **¡Cuidado!** Muchos cometen el error de forzar la llave o ponerle cinta aislante para que no baje. Esto puede provocar un incendio real.
+
+Cuando la **llave termomagnética** salta, te está gritando que algo anda mal. Aquí te explico las 3 causas exactas y cómo diferenciarlas.
+
+![Tablero eléctrico con llaves térmicas](../../assets/por-que-salta-la-llave.png)
+
+## 1. Sobrecarga (El problema de "calentamiento")
+Esta es la causa #1 en los hogares. Ocurre cuando le pides a tus cables más energía de la que pueden soportar.
+
+* **El Síntoma:** La llave no salta al instante. Pasan unos 5, 10 o 15 minutos con los equipos prendidos y luego *pum*, se baja. Si tocas la llave, **está caliente**.
+* **El Culpable:** Seguramente tienes conectados equipos de alto consumo a la vez:
+    * Ducha eléctrica + Hervidor de agua.
+    * Microondas + Plancha.
+    * Estufas eléctricas en invierno.
+* **La Solución:** Necesitas balancear las cargas o **recablear tu casa** con cables más gruesos y llaves adecuadas.
+
+## 2. Cortocircuito (El problema "explosivo")
+Esto es mucho más peligroso. Ocurre cuando la fase y el neutro se chocan sin resistencia.
+
+* **El Síntoma:** La llave salta **inmediatamente** intentas subirla. A veces ves un chispazo, sale humo o huele a quemado en algún enchufe.
+* **El Culpable:** Un cable pelado dentro de la tubería, un enchufe derretido o un electrodoméstico en mal estado.
+* **La Solución:** **¡NO INTENTES SUBIR LA LLAVE!** Deja esa zona sin luz y llama a un técnico urgente para encontrar la falla.
+
+## 3. Llave Térmica Defectuosa o "Floja"
+A veces, la instalación está bien, pero el componente falló.
+
+* **El Síntoma:** La llave salta sin razón aparente, incluso cuando no hay casi nada conectado. A veces hace un ruido como de "fritura" (bzzzt).
+* **El Culpable:**
+    * La llave ya cumplió su vida útil (más de 15 años).
+    * Hay un **falso contacto** (cable flojo) en los bornes, lo que genera calor y hace que salte.
+* **La Solución:** Reemplazar la llave por una nueva de marca reconocida (Schneider, BTicino) y apretar bien los conectores con el torque correcto.
+
+---
+
+## Guía Rápida de Diagnóstico
+
+| Síntoma | Diagnóstico Probable | Nivel de Riesgo |
+| :--- | :--- | :--- |
+| Salta después de 10 min de uso | **Sobrecarga** 🌡️ | Medio (Cables sufren) |
+| Salta al instante (¡PUM!) | **Cortocircuito** 💥 | **Muy Alto (Incendio)** |
+| Salta a veces, sin carga | **Llave Vieja/Floja** 🏚️ | Medio |
+
+---
+
+## ¿Necesitas un electricista en Arequipa?
+
+Si tu llave salta seguido, tu instalación te está pidiendo auxilio. No esperes a que se quemen tus cables.
+
+En **Quilla Electric** revisamos tu consumo con pinza amperimétrica y detectamos si necesitas un aumento de potencia o solo un cambio de llave.
+
+[**👉 ¡Tengo una emergencia, envíen un técnico!**](/contacto)
+--- FIN: src/content/blog/por-que-salta-la-llave.md ---
+
+
+--- 📄 INICIO: src/content/blog/por-que-se-quema-lampara-iluminacion.md ---
+---
+title: "¿Tus focos se queman rápido? 5 Razones Ocultas y Cómo Solucionarlo"
+description: "¿Cambias bombillas cada mes? No es mala suerte. Descubre por qué tus lámparas explotan o parpadean y cómo arreglarlo antes de dañar tu vista."
+pubDate: 2025-12-05
+author: "Técnico CCG"
+tags: ["Iluminación LED", "Arequipa", "Ahorro de Energía", "Instalaciones Eléctricas"]
+image: "../../assets/por-que-se-quema-lampara-iluminacion.png"
+---
+
+Es la tercera vez en el mes que vas a la ferretería a comprar un foco nuevo para la misma lámpara del pasillo. ¿Te suena familiar? Muchos clientes en **Yanahuara** y **Paucarpata** me llaman pensando que los focos salen "fallados", pero en el 90% de los casos, **el problema está en tu instalación eléctrica, no en el foco.**
+
+Si tu lámpara de techo o tus dicroicos LED duran menos de lo que promete la caja, aquí te explico las causas reales y cómo detener este gasto hormiga.
+
+![Foco LED quemado con base oscurecida por falso contacto](../../assets/por-que-se-quema-lampara-iluminacion.png)
+
+## 1. El Portalámparas (Socket) está defectuoso
+
+Esta es la causa número uno en Arequipa. Con el tiempo y el calor, las láminas de contacto dentro del socket pierden elasticidad o se oxidan (especialmente en baños).
+
+* **El síntoma:** El foco parpadea a veces o se escucha un zumbido.
+* **El problema:** Se genera un **falso contacto** (arco eléctrico pequeño) que eleva la temperatura en la base del foco hasta quemar la electrónica interna del LED.
+* **Solución:** Reemplaza los sockets de plástico baratos por sockets de losa (cerámica) o de baquelita de marcas reconocidas como **Bticino** o **Leviton**.
+
+## 2. Fluctuaciones de Voltaje (Tensión inestable)
+
+Aunque **SEAL** nos entrega un voltaje nominal de 220V, en ciertas zonas alejadas o industriales de Arequipa, la tensión puede subir repentinamente (picos) o bajar demasiado.
+
+Los focos LED son muy sensibles. Si compras focos genéricos en el mercado, su "driver" (la fuente interna) no soportará estas variaciones y se quemará. Las marcas como **Philips** u **Osram** suelen tener mejor tolerancia a estos cambios, pero incluso ellas fallarán si la variación es extrema.
+
+## 3. Mala ventilación en la luminaria
+
+¿Has puesto un foco LED potente dentro de una lámpara de techo completamente cerrada (plafón)? **Grave error.**
+
+Los LED no emiten calor hacia afuera como los antiguos focos incandescentes, pero su base electrónica SÍ se calienta. Si ese calor no tiene por dónde salir, "cocina" los componentes internos y reduce su vida útil de 15,000 horas a solo unas semanas.
+* **Consejo:** Usa luminarias abiertas o compra focos diseñados específicamente para luminarias cerradas.
+
+## 4. Cables flojos en el Interruptor
+
+A veces el culpable no está en el techo, sino en la pared. Un cable mal ajustado en el interruptor provoca micro-cortes de energía miles de veces por segundo. Esto es mortal para la electrónica de los focos ahorradores y LED.
+
+## 5. El "Efecto Fantasma" (Retorno por Neutro)
+
+¿Te ha pasado que apagas la luz, pero el foco se queda **ligeramente encendido o parpadeando** tenue?
+
+Esto sucede a menudo en instalaciones antiguas del centro de la ciudad donde, por error, el interruptor corta el cable **Neutro** en lugar de la **Fase** (Línea viva). Según el **Código Nacional de Electricidad**, el interruptor siempre debe cortar la Fase. Si no se corrige, tu foco recibe energía residual las 24 horas y se quema prematuramente.
+
+### ¿Cuándo llamar a un experto?
+
+Si notas que los focos se queman en varias habitaciones al mismo tiempo o si ves que la luz sube y baja de intensidad cuando enciendes la ducha eléctrica o la lavadora, **tienes un problema serio de cableado o puesta a tierra**.
+
+No gastes más dinero en focos que se van a volver a quemar. Lo barato sale caro.
+
+[**👉 ¡Diagnóstico preciso! Revisamos tu iluminación y reparamos el fallo de raíz aquí**](/contacto)
+--- FIN: src/content/blog/por-que-se-quema-lampara-iluminacion.md ---
+
+
+--- 📄 INICIO: src/content/blog/por-que-se-quema-un-tomacorriente.md ---
+---
+title: "¿Por qué se quema un tomacorriente? 5 Razones Peligrosas y Soluciones"
+description: "¿Olor a plástico quemado? Descubre por qué tus enchufes se derriten o echan chispas y cómo evitar incendios eléctricos en tu hogar en Arequipa."
+pubDate: 2025-12-05
+author: "Técnico CCG"
+tags: ["Seguridad Eléctrica", "Reparaciones", "Arequipa", "Mantenimiento", "Tomacorrientes"]
+image: "../../assets/por-que-se-quema-un-tomacorriente.png"
+---
+
+¿Alguna vez has sentido un olor a pescado o plástico quemado cerca de un enchufe? O peor aún, ¿has visto manchas negras alrededor de la placa del tomacorriente? No es algo normal y, definitivamente, **es una señal de alarma**.
+
+En mi experiencia recorriendo hogares desde **Cerro Colorado** hasta **Cayma**, he visto cómo un pequeño descuido en un tomacorriente puede terminar en un cortocircuito grave. Aquí te explico exactamente por qué sucede esto y cómo proteger a tu familia.
+
+![Técnico inspeccionando un tomacorriente quemado y derretido por sobrecarga](../../assets/por-que-se-quema-un-tomacorriente.png)
+
+## 1. El enemigo número uno: La Sobrecarga
+
+Esta es la causa más común en Arequipa, especialmente en épocas de frío cuando conectamos calefactores. Un tomacorriente doméstico estándar suele soportar entre 10 a 16 Amperios.
+
+Si conectas una "zapatilla" o extensión y le enchufas al mismo tiempo un hervidor, una estufa y la plancha, estás obligando al sistema a pasar más corriente de la que puede soportar. Esto genera un calor excesivo que derrite el aislamiento y el plástico protector.
+
+## 2. Los famosos "Falsos Contactos"
+
+Un **falso contacto** ocurre cuando los cables dentro del tomacorriente no están bien ajustados.
+
+* **El problema:** Si el tornillo que sujeta el cable está flojo, la electricidad tiene que "saltar" para pasar (arco eléctrico), generando temperaturas altísimas.
+* **La causa:** A veces sucede por vibraciones, pero generalmente es por una mala instalación inicial hecha por personal no calificado.
+* **La solución:** Usar cables de calidad como **Indeco** o **Centelsa** y asegurar un apriete firme con las herramientas adecuadas.
+
+## 3. Materiales de mala calidad
+
+Lo barato sale caro, y en electricidad, sale peligroso. En el mercado existen muchas imitaciones de marcas reconocidas. Un tomacorriente genérico de 5 soles no tiene los mismos componentes internos de cobre y materiales ignífugos que uno de marca certificada.
+
+Como profesional, siempre recomiendo instalar marcas de garantía como **Bticino**, **Schneider** o **Legrand**. Estos dispositivos están diseñados para extinguir el fuego en caso de un chispazo interno, cumpliendo con las normas de seguridad.
+
+## 4. Cables inadecuados (Calibre incorrecto)
+
+El **Código Nacional de Electricidad (CNE) del Perú** establece normas claras sobre el grosor del cable. Para circuitos de tomacorrientes, se suele requerir un calibre mínimo de 2.5 mm² (o #14 AWG, aunque se recomienda #12 AWG para fuerza).
+
+Si tu casa tiene cables muy delgados (como los de telefonía o timbre) usados para enchufes, estos funcionarán como una resistencia de estufa: se calentarán hasta quemar el tomacorriente y, potencialmente, provocar un incendio.
+
+## 5. Antigüedad y deterioro
+
+En zonas tradicionales de **Arequipa** o el centro, encuentro instalaciones con más de 20 o 30 años. Los tomacorrientes tienen una vida útil. Con el tiempo, las láminas internas pierden su elasticidad y dejan de apretar bien las clavijas de los enchufes, lo que nos lleva nuevamente al problema del falso contacto y el calentamiento.
+
+### Recomendaciones de Seguridad (Normativa INDECI)
+
+Para pasar las inspecciones de **INDECI** y dormir tranquilo, asegúrate de:
+
+1.  **Tener Puesta a Tierra:** Es obligatorio según el CNE para desviar fugas de corriente.
+2.  **Usar Diferenciales:** Protegen la vida de las personas, no solo el cable.
+3.  **No usar adaptadores triples:** Son una fuente común de holguras y chispazos.
+
+Si notas que al enchufar tu ducha **Lorenzetti** o tu microondas el enchufe se calienta, ¡no esperes a que salga humo!
+
+[**👉 ¡Evita riesgos! Agenda una revisión técnica de tus tomacorrientes aquí**](/contacto)
+--- FIN: src/content/blog/por-que-se-quema-un-tomacorriente.md ---
+
+
+--- 📄 INICIO: src/content/blog/pozo-a-tierra-indeci.md ---
+---
+title: "Pozo a Tierra y Certificado INDECI: Evita la clausura de tu negocio"
+description: "¿La Municipalidad te pide el Protocolo de Pruebas? Te explico qué es el pozo a tierra, por qué es obligatorio y cómo pasar la inspección de Defensa Civil sin problemas."
+pubDate: 2025-11-30
+author: "Técnico CCG"
+tags: ["Negocios", "Normativa", "Pozo a Tierra"]
+image: "../../assets/pozo-a-tierra-indeci.png"
+---
+
+Si tienes una tienda, taller u oficina en Arequipa, seguro ya recibiste la visita de la Municipalidad o **Defensa Civil (INDECI)**. Lo primero que piden es: *"Señor, muéstreme su Certificado de Operatividad del Pozo a Tierra vigentes"*.
+
+Si no lo tienes, o si venció hace más de un año, **te arriesgas a una multa o clausura temporal**.
+
+Pero más allá del papel, ¿sabes por qué es tan importante?
+
+![Mantenimiento de pozo a tierra con teluómetro](../../assets/pozo-a-tierra-indeci.png)
+
+## ¿Qué es exactamente el Pozo a Tierra?
+Imagina que hay una falla eléctrica en una congeladora de tu tienda. La corriente "se escapa" a la carcasa de metal. Si un cliente la toca, recibe una descarga.
+
+El pozo a tierra es un **camino de seguridad**. Es una varilla de cobre enterrada con sales especiales que "atrae" esa electricidad peligrosa y la manda al subsuelo, salvando la vida del cliente.
+
+## Mantenimiento Preventivo: ¿Por qué hacerlo cada año?
+La tierra de Arequipa (especialmente en zonas como Cerro Colorado o Cono Norte) suele ser seca. Con el tiempo:
+1.  La tierra pierde humedad.
+2.  La resistencia (Ohmios) sube.
+3.  El pozo deja de funcionar.
+
+La norma exige que la resistencia sea **menor a 25 Ohmios**. Si tu pozo marca 40 o 50, tu certificado será rechazado.
+
+## ¿En qué consiste nuestro servicio de Reactivación?
+En **Quilla Electric** no solo "firmamos el papel". Hacemos el trabajo real:
+
+1.  **Limpieza:** Retiramos óxido y sulfatación de los conectores (AB).
+2.  **Tratamiento Químico:** Aplicamos dosis de **Thor Gel** o Cemento Conductivo para mejorar la conductividad del terreno.
+3.  **Medición Certificada:** Usamos Teluómetro calibrado para garantizar el valor correcto.
+4.  **Entrega de Dossier:** Te damos el Protocolo de Pruebas firmado por un **Ingeniero Electricista Colegiado**, listo para presentar a la Municipalidad.
+
+**No esperes a la inspección.** Un pozo al día es un negocio seguro.
+
+[**👉 ¡Cotizar Mantenimiento y Certificado Aquí!**](/contacto)
+--- FIN: src/content/blog/pozo-a-tierra-indeci.md ---
+
+
+--- 📄 INICIO: src/content/blog/proteccion-electrodomesticos.md ---
+---
+title: "¿Se quemó tu Refri? Cómo proteger tus equipos de las subidas de luz"
+description: "Los cortes repentinos y las subidas de tensión pueden destruir tus electrodomésticos en un segundo. Descubre la diferencia entre estabilizador y protector de tablero."
+pubDate: 2025-11-29
+author: "Técnico CCG"
+tags: ["Ahorro", "Protección", "Electrodomésticos"]
+image: "../../assets/proteccion-electrodomesticos.png"
+---
+
+Arequipa tiene una red eléctrica que a veces es inestable. Un día hay un corte de luz en el barrio, y cuando la energía regresa... **vuelve con fuerza (pico de tensión)**.
+
+Ese "golpe" de energía dura menos de un segundo, pero es suficiente para quemar la tarjeta electrónica de tu refrigeradora Smart, tu televisor LED o tu computadora.
+
+## ¿El Estabilizador es suficiente?
+Mucha gente compra esos estabilizadores de plástico baratos para la computadora. Sirven para pequeñas variaciones, pero **no aguantan un golpe fuerte** de tensión. Además, no puedes ponerle uno a cada aparato de la casa (sería carísimo y feo).
+
+![Protector de voltaje en tablero eléctrico](../../assets/proteccion-electrodomesticos.png)
+
+## La Solución Profesional: Protector de Sobretensión en Tablero
+En lugar de proteger aparato por aparato, ¿por qué no proteger **toda la casa desde la entrada**?
+
+Existe un dispositivo llamado **Protector de Sobretensiones Transitorias (DPS)** o Protector de Voltaje Riel DIN. Se instala en tu tablero eléctrico, al costado de tus llaves térmicas.
+
+### ¿Cómo funciona?
+1.  Vigila el voltaje que entra de la calle (220V).
+2.  Si detecta una subida peligrosa (ej: 250V o un rayo cercano), **se "comporta como un escudo"** y desvía ese exceso a tierra.
+3.  Si la luz se va y vuelve de golpe, algunos modelos esperan 3 minutos a que se estabilice antes de dejar pasar la corriente.
+
+## Inversión vs Gasto
+Una refrigeradora nueva cuesta S/ 2,000. Un televisor S/ 1,500.
+La instalación de un sistema de protección en tu tablero cuesta una fracción de eso y protege **todo a la vez** (incluso los focos LED que también se queman).
+
+**No esperes a perder tus equipos.** En **Quilla Electric** evaluamos tu tablero y te recomendamos la mejor protección según tu zona.
+
+[**👉 ¡Quiero proteger mis electrodomésticos!**](/contacto)
+--- FIN: src/content/blog/proteccion-electrodomesticos.md ---
+
+
+--- 📄 INICIO: src/content/blog/recibo-de-luz-caro.md ---
+---
+title: "¿Tu recibo de luz vino muy caro? 5 Causas de Fuga Eléctrica"
+description: "Si tu consumo aumentó de la nada, podrías tener una fuga invisible. Aprende a leer tu medidor y detecta si estás perdiendo dinero por las paredes."
+pubDate: 2025-11-30
+author: "Técnico CCG"
+tags: ["Ahorro de Energía", "Fugas", "Seal/Enel"]
+image: "../../assets/recibo-de-luz-caro.png"
+---
+
+¿Este mes tu recibo de **SEAL** o **Enel** llegó por las nubes y no sabes por qué? Es la queja #1 que atiendo en Arequipa.
+
+Muchos clientes piensan que "el medidor está mal" o que la empresa de luz les roba. Pero en el 90% de los casos, el enemigo está dentro de casa. Se llama **Fuga de Corriente a Tierra**.
+
+![Medidor de luz girando rápido](../../assets/recibo-de-luz-caro.png)
+
+## ¿Qué es una "Fuga de Luz"?
+Imagina una tubería de agua con un agujero pequeño. El agua se escapa las 24 horas, aunque tengas los caños cerrados. En electricidad pasa lo mismo: un cable pelado toca la pared o un fierro, y la energía se escapa a tierra. **Tu medidor cuenta esa energía perdida y tú la pagas.**
+
+## Las 5 Causas Principales de un Recibo Alto
+
+1.  **Cables Antiguos (Más de 20 años):** El aislamiento de tela o goma se reseca y agrieta, dejando escapar la corriente.
+2.  **Empalmes con Cinta Mala:** Si usaron cinta aislante barata en las uniones dentro de los tubos, con la humedad se despega y genera fugas.
+3.  **Electrodomésticos "Vampiro":**
+    * Una refrigeradora con el jebe de la puerta gastado (el motor nunca para).
+    * Una bomba de agua que se traba.
+    * Termas eléctricas con la resistencia sarrosa.
+4.  **Humedad en Paredes:** El agua es conductora. Si tienes una pared con salitre por donde pasan cables, es muy probable que haya fuga.
+5.  **Robo de Energía:** Tristemente común. A veces un cable "vecino" está conectado a tu línea.
+
+---
+
+## La Prueba Maestra: ¿Cómo saber si tengo fuga?
+
+Haz este diagnóstico rápido en casa antes de llamarnos:
+
+1.  **Desenchufa TODO:** Desconecta refrigeradora, TV, modem, microondas. Apaga todas las luces.
+2.  **Mira el Medidor:**
+    * Si es digital: ¿La luz roja sigue parpadeando?
+    * Si es de disco: ¿El disco sigue girando?
+3.  **El Veredicto:** Si con todo desconectado el medidor sigue avanzando, **TIENES UNA FUGA FIJA**.
+
+### ¿Qué hago ahora?
+No intentes adivinar. En **Quilla Electric** usamos instrumentos de precisión (**Pinza de Fugas y Megómetro**) para rastrear el punto exacto de la falla sin romper todas tus paredes.
+
+> **Dato:** Reparar una fuga se paga solo con lo que ahorras en el primer o segundo recibo de luz.
+
+[**👉 ¡Solicitar revisión de Fuga de Corriente!**](/contacto)
+--- FIN: src/content/blog/recibo-de-luz-caro.md ---
+
+
+--- 📄 INICIO: src/content/blog/riesgos-cables-bamba-electricidad.md ---
+---
+title: "¡Peligro! 5 Riesgos Mortales de Usar 'Cables Bamba' en tu Casa"
+description: "¿Lo barato sale caro? Usar cables piratas puede incendiar tu hogar y duplicar tu recibo de luz. Aprende a identificarlos y evitar estafas en Arequipa."
+pubDate: 2025-12-05
+author: "Técnico CCG"
+tags: ["Seguridad", "Materiales Eléctricos", "Arequipa", "Prevención de Incendios", "Indeco"]
+image: "../../assets/riesgos-cables-bamba-electricidad.png"
+---
+
+Vas a la ferretería del barrio o a las galerías del Avelino buscando ahorrar unos soles en la remodelación de tu casa. El vendedor te ofrece un rollo de cable que "es igualito al de marca, pero a mitad de precio". ¡Cuidado! Estás a punto de comprar una bomba de tiempo.
+
+En mis inspecciones por **Miraflores** y **Paucarpata**, he encontrado instalaciones completas hechas con **"cables bamba"** (adulterados). Aunque por fuera parecen normales, por dentro son una trampa mortal para tu familia y tu bolsillo. Aquí te explico por qué nunca debes usarlos.
+
+![Comparación de cable eléctrico original vs cable bamba con menos cobre](../../assets/riesgos-cables-bamba-electricidad.png)
+
+## 1. Menos Cobre del que pagaste (Estafa)
+
+El fraude más común es el calibre. Te venden un cable diciendo que es número 14 AWG (2.5 mm²), pero en realidad es mucho más delgado.
+* **La trampa:** Los fabricantes piratas ponen una capa de plástico (aislamiento) muy gruesa para que el cable se vea "gordito", pero el hilo de cobre conductor es finísimo.
+* **El riesgo:** Al tener menos cobre, el cable no soporta la corriente de tus electrodomésticos. Se comportará como una resistencia, calentándose excesivamente hasta derretirse.
+
+## 2. Aislamiento que Alimenta el Fuego
+
+Según el **Código Nacional de Electricidad (CNE)**, los cables modernos deben ser retardantes a la llama y, en muchos casos, libres de halógenos (LSOH) para no emitir humos tóxicos.
+Los cables bamba usan plástico reciclado de mala calidad.
+* **El peligro:** Ante un cortocircuito, en lugar de auto-extinguirse, este plástico **arde como gasolina**, propagando el incendio por toda la tubería de tu casa en segundos. Esto es motivo inmediato de desaprobación en una inspección de **INDECI**.
+
+## 3. Tu Recibo de Luz se Dispara
+
+¿Sabías que un mal cable te cobra factura cada mes?
+Debido a que tienen impurezas (usan chatarra de cobre reciclado en lugar de cobre electrolítico puro al 99.9%), los cables bamba oponen más resistencia al paso de la electricidad.
+* **Consecuencia:** Parte de la energía que pagas a **SEAL** no llega a tu foco o televisor; se pierde en el camino calentando las paredes. Estás pagando por calentar el concreto.
+
+## 4. Vida Útil Cortísima
+
+Un cable original de marcas certificadas como **Indeco**, **Centelsa** o **Phelps Dodge** está diseñado para durar más de 20 o 30 años.
+El cable pirata se oxida rápidamente. En menos de 2 años, verás que el cobre se vuelve negro o verde (sulfatado), provocando fallas de conexión, parpadeos y la necesidad de volver a cablear toda la casa.
+
+## 5. Daño a tus Equipos Electrónicos
+
+La inestabilidad en la conducción eléctrica genera caídas de tensión (voltaje). Si tu refrigeradora o Smart TV no recibe el voltaje correcto y constante porque el cable "se chupa" la energía, las tarjetas electrónicas sufren y se queman.
+
+### ¿Cómo reconocer un Cable Original?
+
+Antes de pagar, haz estas pruebas sencillas:
+1.  **El Peso:** Un rollo original de #14 pesa significativamente más que uno bamba (por la cantidad de cobre). Si lo sientes muy liviano, desconfía.
+2.  **El Color del Cobre:** Debe ser brillante y rosado. Si se ve opaco o muy oscuro, es cobre sucio reciclado.
+3.  **La Marca:** Los originales tienen la marca, el calibre y la normativa impresos en alto relieve o con tinta indeleble a lo largo de todo el cable. Los bamba suelen borrarse con el dedo o no dicen nada.
+4.  **El Precio:** Nadie regala cobre. Si cuesta 30% o 40% menos que en un distribuidor autorizado (como Sodimac o Promart), es falso.
+
+No pongas precio a la seguridad de tu familia. Lo que ahorras hoy en cable, lo puedes perder mañana en un incendio.
+
+[**👉 ¿Dudas de tu instalación? Realizamos pruebas de calidad y recableado seguro aquí**](/contacto)
+--- FIN: src/content/blog/riesgos-cables-bamba-electricidad.md ---
+
+
+--- 📄 INICIO: src/content/blog/tomacorriente-quemado-luces-navidad.md ---
+---
+title: "¿Hueles a Plástico Quemado? Por qué tus Luces de Navidad Derriten el Enchufe"
+description: "La Navidad no debe ser un riesgo. Descubre por qué conectar muchas luces quema tus tomacorrientes y cómo decorar tu casa en Arequipa sin provocar incendios."
+pubDate: 2025-12-05
+author: "Técnico CCG"
+tags: ["Navidad Segura", "Prevención de Incendios", "Arequipa", "Sobrecarga"]
+image: "../../assets/tomacorriente-quemado-luces-navidad.png"
+---
+
+Llega diciembre y en **Arequipa** nos encanta iluminar la casa. Desde los nacimientos gigantes en **Paucarpata** hasta las fachadas en **Yanahuara**, todos queremos que nuestro hogar brille.
+
+Pero hay un problema recurrente que atiendo cada año en estas fechas: **tomacorrientes derretidos, chispazos y olor a plástico quemado**. Muchos piensan que es "mala suerte", pero en realidad es física pura. Si enchufas tus luces navideñas y sientes calor en la pared, detente inmediatamente y lee esto.
+
+![Tomacorriente con marcas de quemaduras por sobrecarga de luces navideñas](../../assets/tomacorriente-quemado-luces-navidad.png)
+
+## 1. El Error del "Trencito" (Daisy Chaining)
+
+Es la causa número uno de incendios navideños. Conectas un juego de luces al enchufe, luego otro juego a la cola del primero, y así hasta juntar 5 o 6 cajas.
+
+* **El problema técnico:** Las clavijas y cables de las luces navideñas son muy delgados (calibre #20 o #22). No están diseñados para soportar la corriente de 5 juegos sumados.
+* **El resultado:** La corriente se acumula en el primer enchufe (el que va a la pared), generando un calor excesivo que derrite el plástico y puede prender fuego al árbol o las cortinas.
+
+## 2. El Peligro del "Cable Mellizo" Barato
+
+En los mercados de la ciudad (como el Avelino o San Camilo) venden extensiones blancas baratas con cable "mellizo" muy delgado.
+El **Código Nacional de Electricidad** prohíbe el uso de estas extensiones temporales para cargas permanentes. Ese cable no tiene el aislamiento adecuado y funciona como una resistencia de estufa: se calienta hasta quemar la alfombra o el tomacorriente.
+
+**Mi consejo:** Usa siempre extensiones vulcanizadas con cable grueso (mínimo #14 AWG) de marca **Indeco**.
+
+## 3. Falsos Contactos en Enchufes Viejos
+
+Las luces de Navidad suelen traer enchufes planos muy delgados y de mala calidad.
+Si tu tomacorriente de pared (marca **Ticino** o similar) ya tiene sus años, las láminas internas están flojas. Al conectar las luces, el enchufe "baila".
+Este juego crea pequeños arcos eléctricos (chispas invisibles) que elevan la temperatura a más de 200°C en minutos, carbonizando la placa.
+
+## 4. Luces Incandescentes vs. LED
+
+¿Sigues usando esas luces antiguas que se calientan al tacto? Esas son **incandescentes** y consumen mucha energía.
+* Si conectas 3 juegos de luces antiguas, consumes lo mismo que varios focos potentes.
+* Si usas **LED**, el consumo es mínimo y el riesgo de sobrecarga baja drásticamente.
+**Invierte en LED:** Ahorrarás en tu recibo de **SEAL** y protegerás tu instalación.
+
+## 5. Sobrecarga de Regletas (Suples Múltiples)
+
+El clásico adaptador triple de plástico naranja o blanco que compras por 2 soles es un peligro.
+Si conectas ahí el árbol, el nacimiento, el televisor y el equipo de sonido, estás pidiendo a gritos un cortocircuito. Esos adaptadores no tienen fusible de protección.
+
+### Recomendaciones de Seguridad (Campaña INDECI)
+
+Para pasar una Navidad tranquila y sin sustos:
+
+1.  **Revisa tus luces:** Si ves cables pelados o mordidos por mascotas, bótalo. No intentes parcharlo con cinta.
+2.  **Usa Supresores de Pico:** Compra regletas certificadas (marcas como **Opalux** o **Schneider**) que tengan un botón de "Reset". Si hay sobrecarga, se apagan solas en lugar de quemarse.
+3.  **Apaga todo al dormir:** Nunca dejes el árbol prendido toda la noche o cuando sales de casa.
+
+La seguridad de tu familia es el mejor regalo. Si tu tomacorriente ya tiene manchas negras o huele mal, **no lo uses**.
+
+[**👉 ¡Evita incendios esta Navidad! Revisamos y cambiamos tus tomacorrientes peligrosos aquí**](/contacto)
+--- FIN: src/content/blog/tomacorriente-quemado-luces-navidad.md ---
+
+
+--- 📄 INICIO: src/content/servicios/cableado.md ---
+---
+title: "Cableado Estructurado y Residencial"
+description: "Renovación de cables antiguos, ordenamiento de tableros y cableado de red para oficinas y hogares."
+price: "Cotizar"
+image: ../../assets/cableado-casa.jpeg
+---
+
+## ¿Tus cables son peligrosos?
+Si tu casa tiene más de 20 años y usa cables "mellizos" (blancos planos) o de tela, estás en alto riesgo de incendio.
+
+### Nuestro Servicio de Recableado
+Cambiamos toda tu instalación antigua por **cables libres de halógenos** (normativa actual), que no propagan el fuego y son más seguros.
+
+**Incluye:**
+1.  Retiro de cables viejos.
+2.  Limpieza de tuberías.
+3.  Pasado de cables nuevos (Indeco/Centelsa).
+4.  Peinado de tablero eléctrico.
+
+[**👉 ¡Solicitar Inspección Gratuita!**](/contacto)
+--- FIN: src/content/servicios/cableado.md ---
+
+
+--- 📄 INICIO: src/content/servicios/camaras-seguridad.md ---
+---
+title: "Instalación de Cámaras de Seguridad (CCTV)"
+description: "Protege lo que más importa. Vigila tu casa o negocio desde tu celular las 24 horas. Instalación de cámaras HD, visión nocturna y DVR."
+price: "Cotizar Kit"
+image: ../../assets/camaras-seguridad.png
+---
+
+## ¿Te preocupa dejar tu casa sola?
+La inseguridad en Arequipa ha aumentado, pero la tecnología es tu mejor aliada. Ya no necesitas estar presente para cuidar tu patrimonio. Con un sistema de videovigilancia moderno, tienes ojos en tu hogar las 24 horas.
+
+### Control Total desde tu Celular
+Nosotros configuramos el sistema para que puedas **ver las cámaras en vivo desde tu Smartphone** (Android o iPhone) estés donde estés.
+
+### ¿Qué incluye nuestra instalación profesional?
+No solo "colgamos" la cámara. Realizamos una instalación técnica y estética:
+
+1.  **Cámaras Full HD (1080p):** Imagen nítida para reconocer rostros y placas.
+2.  **Visión Nocturna:** Infrarrojos potentes para ver en total oscuridad.
+3.  **Grabación Continua (DVR):** Disco duro para revisar lo que pasó hace días o semanas.
+4.  **Protección IP66:** Cámaras resistentes a la lluvia intensa de Arequipa y al polvo.
+5.  **Cableado Estético:** Usamos canaletas o tubería conduit para que no se vean cables colgando.
+
+**Marcas líderes:** Trabajamos con **Hikvision** y **Dahua** (garantía y repuestos asegurados).
+
+[**👉 ¡Quiero cotizar un Kit de Cámaras!**](/contacto)
+--- FIN: src/content/servicios/camaras-seguridad.md ---
+
+
+--- 📄 INICIO: src/content/servicios/fugas-corriente.md ---
+---
+title: "Detección de Fugas de Corriente"
+description: "¿Tu recibo de luz llega muy caro? Podrías tener una fuga invisible que te está costando dinero."
+price: "S/ 100 (Diagnóstico)"
+image: ../../assets/servicios-deteccion-fuga-corriente.png
+---
+
+## ¿Pagas demasiado por la luz?
+A veces los cables antiguos pierden aislamiento y la electricidad se "escapa" a las paredes. Esto hace que tu medidor gire aunque tengas todo apagado.
+
+### ¿Cómo lo solucionamos?
+Usamos una **Pinza Amperimétrica de Fugas** y un **Megómetro** para encontrar el punto exacto del problema sin romper toda la casa.
+
+**Beneficios:**
+* Bajar tu recibo de luz.
+* Evitar que las paredes pasen corriente.
+* Prevenir incendios.
+
+[**👉 ¡Solicitar Revisión de Fugas!**](/contacto)
+--- FIN: src/content/servicios/fugas-corriente.md ---
+
+
+--- 📄 INICIO: src/content/servicios/instalacion-duchas.md ---
+---
+title: "Instalación de Duchas Eléctricas"
+description: "Disfruta de agua caliente segura. Instalamos Rapiduchas, Lorenzetti y Termas con cableado independiente para evitar que salte la llave."
+price: "Desde S/ 80"
+image: ../../assets/servicios-ducha-electrica.png
+---
+
+## ¿Te bañas con miedo a que salte la luz?
+Es común en Arequipa que, al prender la ducha, baje la intensidad de los focos o salte la llave general. Esto pasa porque la ducha consume mucha energía y necesita su propio circuito.
+
+### ¿Qué incluye nuestra instalación segura?
+Para que te bañes tranquilo, realizamos lo siguiente:
+
+1.  **Cableado Independiente:** Llevamos un cable calibre #12 o #10 directo desde el tablero hasta el baño (para no sobrecargar los enchufes de la casa).
+2.  **Llave Térmica Exclusiva:** Tu ducha tendrá su propia "palanca" de seguridad.
+3.  **Conexión a Tierra:** Vital para evitar que la llave de agua te "pase corriente" al tocarla.
+
+**Marcas con las que trabajamos:** Lorenzetti, Rotoplas, Sole, Terma.
+
+[**👉 ¡Agendar Instalación por WhatsApp!**](/contacto)
+--- FIN: src/content/servicios/instalacion-duchas.md ---
+
+
+--- 📄 INICIO: src/content/servicios/instalacion-iluminacion.md ---
+---
+title: "Instalación de Luminarias y Lámparas LED"
+description: "Dale vida a tus espacios. Instalación de dicroicos, lámparas colgantes, paneles LED y sensores de movimiento."
+price: "Desde S/ 30 x punto"
+image: ../../assets/iluminacion-interiores.jpeg
+---
+
+## Moderniza tu Hogar con Iluminación LED
+Una buena iluminación cambia por completo cómo se ve tu casa. Dejamos tus ambientes modernos, bien iluminados y ahorrando energía.
+
+### ¿Qué instalamos?
+* **Paneles LED:** Ideales para cocinas y oficinas (luz blanca y potente).
+* **Dicroicos y Spots:** Para salas, pasillos o resaltar decoración (luz cálida o neutra).
+* **Lámparas Colgantes:** Instalación segura en techos altos (spiders, arañas).
+* **Cintas LED:** Iluminación indirecta en muebles de cocina o techos drywall.
+* **Sensores de Movimiento:** Para que la luz de la cochera o pasillo se prenda sola.
+
+**Trabajo limpio:** Cuidamos tu techo y pintura. Usamos taladro con recolector de polvo.
+
+[**👉 ¡Quiero mejorar la iluminación de mi casa!**](/contacto)
+--- FIN: src/content/servicios/instalacion-iluminacion.md ---
+
+
+--- 📄 INICIO: src/content/servicios/instalacion-tomacorrientes.md ---
+---
+title: "Instalación y Cambio de Tomacorrientes"
+description: "¿Te faltan enchufes? Agregamos nuevos puntos de energía y cambiamos tomacorrientes antiguos, quemados o flojos."
+price: "Desde S/ 40"
+image: ../../assets/instalacion-tomacorrientes.png
+---
+
+## ¿Usas extensiones por toda la casa?
+Tener cables tirados por el suelo es peligroso y antiestético. Lo mejor es tener un enchufe justo donde lo necesitas (detrás de la TV, al lado de la cama, en el escritorio).
+
+### Servicios de Tomacorrientes:
+1.  **Nuevos Puntos:** Ranuramos la pared, entubamos y cableamos para crear un enchufe donde antes no había.
+2.  **Cambio de Placas:** Reemplazamos esos tomacorrientes viejos, amarillentos o que "hacen chispa" por placas modernas (Ticino, Schneider).
+3.  **Puesta a Tierra:** Instalamos tomacorrientes con línea a tierra (3 huecos) para proteger tu computadora y refrigeradora.
+4.  **Tomacorrientes Industriales:** Para talleres o máquinas de alto consumo.
+
+**Seguridad:** Verificamos que los cables soporten la carga para evitar sobrecalentamientos.
+
+[**👉 ¡Necesito más enchufes, cotizar aquí!**](/contacto)
+--- FIN: src/content/servicios/instalacion-tomacorrientes.md ---
+
+
+--- 📄 INICIO: src/content/servicios/luces-emergencia.md ---
+---
+title: "Luces de Emergencia y Detectores de Humo"
+description: "Requisito obligatorio para Licencia de Funcionamiento. Instalación y mantenimiento de sistemas de seguridad para locales comerciales."
+price: "Cotizar Pack"
+image: ../../assets/luces-emergencia.png
+---
+
+## Evita multas y clausuras
+Si tienes un local comercial, oficina o almacén, la normativa de **INDECI** exige que tengas un sistema de iluminación de emergencia operativo.
+
+### ¿Qué revisa la municipalidad?
+No basta con tener la luz colgada. Revisan:
+1.  **Autonomía:** Que la luz dure prendida al menos 60-90 minutos desconectada.
+2.  **Ubicación:** Que ilumine las rutas de evacuación.
+3.  **Señalización:** Que esté acompañada de los carteles de SALIDA.
+
+### Nuestro Servicio para Empresas
+* **Instalación de Equipos:** Luces LED de larga duración (Opalux, Phillips).
+* **Detectores de Humo:** Sensores fotoeléctricos centralizados o a batería.
+* **Certificado de Mantenimiento:** Emitimos constancia de operatividad para tu dossier de Defensa Civil.
+
+[**👉 ¡Necesito pasar la inspección INDECI!**](/contacto)
+--- FIN: src/content/servicios/luces-emergencia.md ---
+
+
+--- 📄 INICIO: src/content/servicios/pozo-a-tierra.md ---
+---
+title: "Mantenimiento y Protocolo de Pozo a Tierra"
+description: "Evita multas de INDECI. Servicio completo con gel, tratamiento químico y certificado firmado por Ingeniero."
+price: "Cotizar"
+image: ../../assets/pozo-tierra.jpeg
+---
+
+## ¿Por qué necesitas este servicio?
+El pozo a tierra es el salvavidas de tu negocio. Si la resistencia es alta, los equipos se queman y la municipalidad te multa.
+
+### ¿Qué incluye nuestro servicio?
+1.  **Limpieza:** Retiro de óxido en la varilla de cobre.
+2.  **Tratamiento:** Aplicación de Thor Gel o Cemento Conductivo.
+3.  **Medición:** Uso de Teluómetro calibrado.
+4.  **Certificación:** Entrega de Dossier de Calidad y Certificado de Operatividad.
+
+**Zonas de atención:** Cerro Colorado, Yanahuara, Cayma y todo Arequipa.
+
+[**👉 ¡Agendar Visita Técnica!**](/contacto)
+--- FIN: src/content/servicios/pozo-a-tierra.md ---
+
+
+--- 📄 INICIO: src/data/zonas.js ---
+// src/data/zonas.js
+export const zonas = [
+  {
+    slug: "cerro-colorado",
+    nombre: "Cerro Colorado",
+    titulo: "Electricista en Cerro Colorado",
+    desc: "Atención inmediata en Cono Norte, Ciudad Municipal y zonas residenciales. Llegamos en 30 minutos.",
+  },
+  {
+    slug: "cayma",
+    nombre: "Cayma",
+    titulo: "Electricista en Cayma",
+    desc: "Servicio exclusivo para residencias y negocios en Cayma. Expertos en acabados y seguridad.",
+  },
+  {
+    slug: "yanahuara",
+    nombre: "Yanahuara",
+    titulo: "Electricista en Yanahuara",
+    desc: "Mantenimiento eléctrico respetando la estética de tu hogar en la zona tradicional y moderna.",
+  },
+  {
+    slug: "arequipa-cercado",
+    nombre: "Cercado de Arequipa",
+    titulo: "Electricista en el Cercado",
+    desc: "Atención a oficinas y comercios del centro. Emitimos factura y certificado INDECI.",
+  },
+  {
+    slug: "jlbyr",
+    nombre: "José Luis Bustamante y Rivero",
+    titulo: "Electricista en J.L.B. y Rivero",
+    desc: "Servicio técnico garantizado cerca a la plataforma y zonas urbanas.",
+  },
+  {
+    slug: "sachaca",
+    nombre: "Sachaca",
+    titulo: "Electricista en Sachaca",
+    desc: "Instalaciones seguras para casas de campo y zonas residenciales.",
+  }
+];
+--- FIN: src/data/zonas.js ---
+
+
+--- 📄 INICIO: src/layouts/MainLayout.astro ---
+---
+// src/layouts/MainLayout.astro
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import WhatsappButton from '../components/WhatsappButton.astro';
+
+// 1. Recibimos las variables (Props)
+const { 
+  titulo, 
+  descripcion = "Servicios eléctricos profesionales en Arequipa. Pozos a tierra y cableado.",
+  imagen = "/img/social-default.jpeg" // Imagen por defecto si la página no tiene una específica
+} = Astro.props;
+
+// 2. Truco SEO: Convertir la imagen a URL absoluta (Ej: https://quillaelectric.site/img/foto.jpg)
+// Si no hacemos esto, WhatsApp a veces no muestra la foto.
+const siteURL = Astro.site ? Astro.site.href : Astro.url.origin;
+const imagenAbsoluta = new URL(imagen, siteURL).href;
+---
+
+<html lang="es-PE">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <title>{titulo} | Quilla Electric</title>
+     <!-- Google tag (gtag.js) -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-JNC3CZ4STT"></script>
+        <script is:inline>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){
+            // @ts-ignore
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+
+          gtag('config', 'G-JNC3CZ4STT');
+        </script>
+    <meta name="description" content={descripcion} />
+    <link rel="canonical" href={Astro.url} />
+    
+    <meta property="og:title" content={titulo} />
+    <meta property="og:description" content={descripcion} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:image" content={imagenAbsoluta} /> <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="google-site-verification" content="v9b95geQ84lPrqkhNMwzQhD3hu9WmAT8F2M60z5rbGA" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Electrician",
+        "name": "Quilla Electric",
+        "image": "https://quillaelectric.site/logo.png",
+        "@id": "https://quillaelectric.site",
+        "url": "https://quillaelectric.site",
+        "telephone": "+51951413458",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Cerro Colorado",
+          "addressLocality": "Arequipa",
+          "addressRegion": "Arequipa",
+          "postalCode": "04014",
+          "addressCountry": "PE"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -16.3766,
+          "longitude": -71.5602
+        },
+        "areaServed": [
+          "Cerro Colorado",
+          "Cayma",
+          "Yanahuara",
+          "Arequipa"
+        ],
+        "priceRange": "$$"
+      }
+    </script>    
+  </head>
+  
+  <body>
+    <Navbar />
+
+    <main>
+      <slot /> </main>
+
+    <Footer />
+    <WhatsappButton />
+  </body>
+</html>
+
+<style>
+  /* ESTILOS GLOBALES */
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    margin: 0;
+    background-color: #f8fafc;
+    color: #1e293b;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  main {
+    flex: 1;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+</style>
+--- FIN: src/layouts/MainLayout.astro ---
+
+
+--- 📄 INICIO: src/pages/404.astro ---
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout titulo="Página no encontrada">
+  <div class="error-container">
+    <span class="icono-error">🔌</span>
+    <h1>¡Ups! Hubo un corte de luz</h1>
+    <p>La página que buscas no existe o se ha movido.</p>
+    
+    <a href="/" class="btn-volver">
+      Volver al Inicio (Reconectar)
+    </a>
+  </div>
+</MainLayout>
+
+<style>
+  .error-container {
+    text-align: center;
+    padding: 4rem 1rem;
+  }
+  .icono-error {
+    font-size: 5rem;
+    display: block;
+    margin-bottom: 1rem;
+    animation: parpadeo 2s infinite; /* Efecto de luz parpadeando */
+  }
+  h1 {
+    font-size: 2.5rem;
+    color: #0f172a;
+    margin-bottom: 1rem;
+  }
+  p {
+    color: #64748b;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+  }
+  .btn-volver {
+    background-color: #fbbf24;
+    color: #0f172a;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: transform 0.2s;
+  }
+  .btn-volver:hover {
+    transform: scale(1.05);
+    background-color: #f59e0b;
+  }
+
+  /* Animación de parpadeo como foco malogrado */
+  @keyframes parpadeo {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+  }
+</style>
+--- FIN: src/pages/404.astro ---
+
+
+--- 📄 INICIO: src/pages/blog/[...slug].astro ---
+---
+// src/pages/blog/[...slug].astro
+// 1. IMPORTANTE: Agregamos 'render' a la importación
+import { getCollection, render } from 'astro:content';
+import MainLayout from '../../layouts/MainLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: post,
+  }));
+}
+
+const post = Astro.props;
+
+// 2. CAMBIO CLAVE: Usamos la función render(post) en vez de post.render()
+const { Content } = await render(post);
+
+// --- PREPARACIÓN DE DATOS PARA SEO ---
+const imagenOG = post.data.image?.src || '/img/blog-default.jpg';
+const urlCompleta = new URL(Astro.url.pathname, Astro.site);
+
+// FECHAS SEGURAS (Para evitar el error de toISOString)
+const fechaPublicacion = post.data.pubDate 
+  ? new Date(post.data.pubDate).toISOString().split('T')[0] 
+  : new Date().toISOString().split('T')[0];
+
+const fechaLegible = post.data.pubDate 
+  ? new Date(post.data.pubDate).toLocaleDateString('es-PE') 
+  : 'Reciente';
+
+const schemaArticle = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": urlCompleta
+  },
+  "headline": post.data.title,
+  "description": post.data.description,
+  "image": imagenOG,
+  "author": {
+    "@type": "Person",
+    "name": post.data.author || "Quilla Electric"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Quilla Electric",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://quillaelectric.site/favicon.png"
+    }
+  },
+  "datePublished": fechaPublicacion,
+  "dateModified": fechaPublicacion
+};
+---
+
+<MainLayout 
+  titulo={post.data.title} 
+  descripcion={post.data.description}
+  imagen={imagenOG} 
+>
+  
+  <script type="application/ld+json" set:html={JSON.stringify(schemaArticle)} />
+
+  <article class="articulo-completo">
+    <header class="encabezado-articulo">
+        <p class="meta">
+            📅 {fechaLegible} | ✍️ {post.data.author}
+        </p>
+        
+        <h1>{post.data.title}</h1>
+        
+        <hr class="separador-amarillo"/>
+    </header>
+
+    <div class="contenido-texto">
+        <Content />
+    </div>
+
+    <div class="cta-box">
+        <h3>¿Necesitas ayuda con esto?</h3>
+        <p>Evita riesgos eléctricos en tu hogar.</p>
+        <a href="/contacto" class="btn-whatsapp">Consultar al Técnico</a>
+    </div>
+
+  </article>
+
+</MainLayout>
+
+<style>
+  /* (Tus estilos se mantienen igual) */
+  .articulo-completo { max-width: 720px; margin: 0 auto; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+  .meta { color: #64748b; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+  h1 { font-size: 2.5rem; color: #0f172a; margin-top: 10px; line-height: 1.2; }
+  .separador-amarillo { border: 0; height: 4px; background: #fbbf24; width: 60px; margin: 20px 0; }
+  .contenido-texto { font-size: 1.1rem; line-height: 1.8; color: #334155; }
+  
+  /* Estilos para que las imágenes dentro del post se vean bien */
+  .contenido-texto :global(img) {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 20px 0;
+  }
+  
+  .contenido-texto :global(h2) { color: #0f172a; margin-top: 2.5rem; font-size: 1.8rem; }
+  .contenido-texto :global(h3) { color: #334155; margin-top: 1.5rem; font-size: 1.4rem; }
+
+  .cta-box { margin-top: 3rem; background: #f0f9ff; padding: 2rem; border-radius: 10px; text-align: center; border: 1px solid #bae6fd; }
+  .btn-whatsapp { display: inline-block; background: #0f172a; color: white; padding: 12px 25px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 10px; }
+</style>
+--- FIN: src/pages/blog/[...slug].astro ---
+
+
+--- 📄 INICIO: src/pages/blog/index.astro ---
+---
+// src/pages/blog/index.astro
+import MainLayout from '../../layouts/MainLayout.astro';
+import { getCollection } from 'astro:content';
+
+// 1. Pedimos los artículos y los ordenamos de forma SEGURA
+// Si un artículo no tiene fecha, asumimos que es fecha 0 (muy antigua) para que no rompa el código
+const posts = (await getCollection('blog')).sort((a, b) => {
+  const fechaA = a.data.pubDate ? a.data.pubDate.valueOf() : 0;
+  const fechaB = b.data.pubDate ? b.data.pubDate.valueOf() : 0;
+  return fechaB - fechaA;
+});
+---
+
+<MainLayout titulo="Blog de Electricidad" descripcion="Consejos y noticias sobre seguridad eléctrica en Perú.">
+  
+  <section class="blog-header">
+    <h1>📰 Blog Eléctrico</h1>
+    <p>Aprende a cuidar tu instalación y ahorrar energía.</p>
+  </section>
+
+  <div class="grid-posts">
+    {posts.map((post) => (
+      <article class="card-post">
+        <a href={`/blog/${post.id}`} class="link-post">
+            <div class="contenido">
+                <h3>{post.data.title}</h3>
+                
+                <p class="fecha">
+                  {post.data.pubDate 
+                    ? post.data.pubDate.toLocaleDateString('es-PE', { year: 'numeric', month: 'long', day: 'numeric' }) 
+                    : 'Reciente'}
+                </p>
+
+                <p class="descripcion">{post.data.description}</p>
+                <span class="leer-mas">Leer artículo →</span>
+            </div>
+        </a>
+      </article>
+    ))}
+  </div>
+
+</MainLayout>
+
+<style>
+  .blog-header { text-align: center; margin-bottom: 3rem; }
+  h1 { color: #0f172a; font-size: 2.5rem; }
+
+  .grid-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+
+  .card-post {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .card-post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border-color: #fbbf24;
+  }
+
+  .link-post { text-decoration: none; color: inherit; display: block; height: 100%; }
+  
+  .contenido { padding: 1.5rem; }
+  
+  h3 { margin: 0 0 10px 0; color: #0f172a; font-size: 1.4rem; }
+  .fecha { font-size: 0.85rem; color: #94a3b8; margin-bottom: 1rem; }
+  .descripcion { color: #475569; line-height: 1.6; margin-bottom: 1.5rem; }
+  
+  .leer-mas { 
+    color: #fbbf24; font-weight: bold; font-size: 0.9rem; 
+    text-transform: uppercase; letter-spacing: 0.5px;
+  }
+</style>
+--- FIN: src/pages/blog/index.astro ---
+
+
+--- 📄 INICIO: src/pages/contacto.astro ---
+---
+// src/pages/contacto.astro
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout 
+  titulo="Contacto" 
+  descripcion="Contacta con Quilla Electric para emergencias o cotizaciones de pozos a tierra en Arequipa."
+>
+
+  <h1>📞 Contáctanos</h1>
+  <p class="intro">Estamos listos para atender tu emergencia eléctrica o proyecto.</p>
+
+  <div class="contenedor-contacto">
+    
+    <div class="info-box">
+      <h2>Información Directa</h2>
+      <p><strong>📍 Ubicación:</strong> Cerro Colorado, Arequipa</p>
+      <p><strong>📧 Correo:</strong> quillaelectriccyt@gmail.com</p>
+      <p><strong>⏰ Horario:</strong> Lunes a Sábado, 8am - 6pm</p>
+      
+      <div class="nota-urgente">
+        <p>⚠️ ¿Emergencia? Llámanos directamente.</p>
+      </div>
+    </div>
+
+    <form class="formulario" id="form-whatsapp">
+      <h2>Cotiza por WhatsApp</h2>
+      <p style="font-size: 0.9rem; color: #666; margin-bottom: 1rem;">
+        Llena tus datos y te responderemos al instante.
+      </p>
+
+      <label>
+        Nombre:
+        <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required />
+      </label>
+      
+      <label>
+        Servicio de interés:
+        <select id="servicio" name="servicio">
+          <option value="Mantenimiento Pozo a Tierra">Mantenimiento Pozo a Tierra</option>
+          <option value="Instalación Domiciliaria">Instalación Domiciliaria</option>
+          <option value="Emergencia Eléctrica">Emergencia Eléctrica</option>
+          <option value="Otro">Otro</option>
+        </select>
+      </label>
+
+      <label>
+        Mensaje o Consulta:
+        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Hola, necesito cotizar..." required></textarea>
+      </label>
+      
+      <button type="submit">
+        📲 Enviar a WhatsApp
+      </button>
+    </form>
+
+  </div>
+
+</MainLayout>
+
+<script>
+  // 1. Buscamos el formulario
+  const form = document.getElementById('form-whatsapp');
+
+  // 2. Escuchamos cuando alguien le da click a "Enviar"
+  form.addEventListener('submit', (e) => {
+    e.preventDefault(); // Evita que la página se recargue
+
+    // 3. Capturamos los datos que escribió el cliente
+    const nombre = document.getElementById('nombre').value;
+    const servicio = document.getElementById('servicio').value;
+    const mensaje = document.getElementById('mensaje').value;
+
+    // 4. TU NÚMERO DE TELÉFONO (PON EL TUYO AQUÍ)
+    const telefonoQuilla = "51951413458"; 
+
+    // 5. Creamos el texto del mensaje
+    // \n significa "salto de línea"
+    const textoFinal = `Hola Quilla Electric, soy *${nombre}*.\nEstoy interesado en: *${servicio}*.\n\nMensaje: ${mensaje}`;
+
+    // 6. Convertimos el texto a formato URL (cambia espacios por %20, etc)
+    const textoCodificado = encodeURIComponent(textoFinal);
+
+    // 7. Abrimos WhatsApp
+    window.open(`https://wa.me/${telefonoQuilla}?text=${textoCodificado}`, '_blank');
+  });
+</script>
+
+<style>
+  /* Estilos (Igual que antes, con mejoras visuales) */
+  .intro { font-size: 1.2rem; margin-bottom: 2rem; }
+  
+  .contenedor-contacto {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  @media (min-width: 768px) {
+    .contenedor-contacto { grid-template-columns: 1fr 1fr; }
+  }
+
+  .info-box, .formulario {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+  }
+
+  .nota-urgente {
+    background-color: #fef2f2;
+    color: #b91c1c;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  label { display: block; margin-bottom: 15px; font-weight: 500; color: #334155; }
+  
+  input, textarea, select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-family: inherit;
+    box-sizing: border-box;
+  }
+
+  button {
+    background-color: #25D366; /* Verde WhatsApp */
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    width: 100%;
+    transition: background 0.3s;
+    margin-top: 10px;
+  }
+  
+  button:hover { background-color: #128c7e; }
+</style>
+--- FIN: src/pages/contacto.astro ---
+
+
+--- 📄 INICIO: src/pages/electricista-en/[lugar].astro ---
+---
+// src/pages/electricista-en/[lugar].astro
+import MainLayout from '../../layouts/MainLayout.astro';
+import { zonas } from '../../data/zonas'; // Importamos la lista
+
+// 1. Generar las rutas automáticas
+export function getStaticPaths() {
+  return zonas.map((zona) => ({
+    params: { lugar: zona.slug },
+    props: { zona },
+  }));
+}
+
+// 2. Recibir los datos de la zona actual
+const { zona } = Astro.props;
+---
+
+<MainLayout 
+  titulo={`${zona.titulo} | Emergencias 24h`} 
+  descripcion={`¿Buscas ${zona.titulo}? ${zona.desc} Técnico Juan Quilla a tu servicio.`}
+>
+
+  <section class="zona-hero">
+    <h1>⚡ {zona.titulo}</h1>
+    <p class="bajada">{zona.desc}</p>
+    
+    <div class="caja-urgencia">
+      <p>🚨 <strong>¿Estás en {zona.nombre} y se fue la luz?</strong></p>
+      <p>Estamos cerca de tu zona. Atendemos emergencias las 24 horas.</p>
+      
+      <a 
+        href={`https://wa.me/51999999999?text=Hola,%20necesito%20un%20electricista%20en%20${zona.nombre}`} 
+        class="btn-whatsapp"
+        target="_blank"
+      >
+        Pedir Técnico en {zona.nombre}
+      </a>
+    </div>
+  </section>
+
+  <section class="contenido-zona">
+    <h2>Servicios disponibles en {zona.nombre}</h2>
+    <ul>
+      <li>✅ Reparación de Cortocircuitos y Apagones.</li>
+      <li>✅ Instalación de Duchas Eléctricas (Rapiduchas).</li>
+      <li>✅ Mantenimiento de Pozo a Tierra (Certificado).</li>
+      <li>✅ Cableado de casas y departamentos.</li>
+    </ul>
+
+    <h3>¿Por qué elegirnos en {zona.nombre}?</h3>
+    <p>
+      Conocemos los problemas eléctricos típicos de <strong>{zona.nombre}</strong>. 
+      No cobramos viáticos excesivos porque estamos en la zona. 
+      Garantía y puntualidad.
+    </p>
+  </section>
+
+</MainLayout>
+
+<style>
+  .zona-hero {
+    background-color: #0f172a;
+    color: white;
+    padding: 3rem 1rem;
+    text-align: center;
+    border-radius: 0 0 20px 20px;
+  }
+  h1 { font-size: 2.5rem; margin-bottom: 10px; color: #fbbf24; }
+  .bajada { font-size: 1.2rem; color: #cbd5e1; max-width: 600px; margin: 0 auto 2rem auto; }
+
+  .caja-urgencia {
+    background: white;
+    color: #0f172a;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 500px;
+    margin: 0 auto;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  }
+
+  .btn-whatsapp {
+    display: inline-block;
+    background-color: #25D366;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 50px;
+    margin-top: 15px;
+    font-size: 1.1rem;
+    transition: transform 0.2s;
+  }
+  .btn-whatsapp:hover { transform: scale(1.05); }
+
+  .contenido-zona {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+  }
+  h2 { color: #0f172a; border-bottom: 2px solid #fbbf24; display: inline-block; padding-bottom: 5px; }
+  ul { margin-top: 1rem; list-style: none; padding: 0; }
+  ul li { margin-bottom: 10px; font-size: 1.1rem; }
+  h3 { margin-top: 2rem; color: #0f172a; }
+</style>
+--- FIN: src/pages/electricista-en/[lugar].astro ---
+
+
+--- 📄 INICIO: src/pages/index.astro ---
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Beneficios from '../components/Beneficios.astro';
+import Galeria from '../components/Galeria.astro';
+import Preguntas from '../components/Preguntas.astro';
+---
+
+<MainLayout titulo="Inicio">
+    
+    <div class="hero">
+        <h1>⚡ Soluciones Eléctricas en Arequipa</h1>
+        <p class="subtitulo">
+            Especialistas en Pozos a Tierra, Certificaciones INDECI y Emergencias 24/7.
+            Protege tu negocio y familia hoy mismo.
+        </p>
+        <div class="botones">
+            <a href="/contacto" class="btn-primary">Solicitar Cotización</a>
+            <a href="/servicios" class="btn-secondary">Ver Servicios</a>
+        </div>
+    </div>
+
+    <hr class="divisor">
+
+    <Beneficios />
+    
+    <Galeria /><Preguntas />
+
+</MainLayout>
+
+<style>
+    /* Estilos solo para la portada */
+    .hero {
+        text-align: center;
+        padding: 3rem 0;
+    }
+    h1 { font-size: 2.5rem; color: #0f172a; margin-bottom: 1rem; }
+    .subtitulo { font-size: 1.2rem; color: #64748b; max-width: 600px; margin: 0 auto 2rem auto; }
+    
+    .botones { display: flex; gap: 15px; justify-content: center; }
+    
+    .btn-primary {
+        background: #0f172a; color: white; padding: 12px 25px; 
+        text-decoration: none; border-radius: 5px; font-weight: bold;
+    }
+    .btn-secondary {
+        background: white; color: #0f172a; padding: 12px 25px; 
+        text-decoration: none; border-radius: 5px; border: 2px solid #0f172a; font-weight: bold;
+    }
+
+    .divisor { border: 0; border-top: 1px solid #e2e8f0; margin: 2rem 0; }
+</style>
+--- FIN: src/pages/index.astro ---
+
+
+--- 📄 INICIO: src/pages/rss.xml.js ---
+import rss from '@astrojs/rss';
+import { getCollection } from 'astro:content';
+
+export async function GET(context) {
+  const blog = await getCollection('blog');
+
+  // Ordenamos por fecha
+  const postsOrdenados = blog.sort((a, b) => {
+    const fechaA = a.data.pubDate ? new Date(a.data.pubDate).valueOf() : 0;
+    const fechaB = b.data.pubDate ? new Date(b.data.pubDate).valueOf() : 0;
+    return fechaB - fechaA;
+  });
+
+  return rss({
+    title: 'Blog de Quilla Electric Arequipa',
+    description: 'Consejos de seguridad eléctrica, normativa y ahorro de energía.',
+    site: 'https://quillaelectric.site',
+    
+    // Agregamos namespaces para que sea más compatible
+    xmlns: {
+      media: 'http://search.yahoo.com/mrss/',
+      atom: 'http://www.w3.org/2005/Atom',
+    },
+
+    items: postsOrdenados.map((post) => {
+      // Intentamos construir la URL de la imagen si existe
+      // Nota: Esto asume que tus imágenes están en src/assets y Astro las procesa.
+      // Para RSS simple, a veces necesitamos la ruta pública.
+      // Por ahora, pasaremos el link al artículo como guía.
+      
+      return {
+        title: post.data.title,
+        pubDate: post.data.pubDate ? post.data.pubDate : new Date(),
+        description: post.data.description,
+        link: `/blog/${post.id}/`,
+        
+        // TRUCO: Agregamos contenido extra para ayudar a Metricool
+        content: `
+          <p>${post.data.description}</p>
+          <p>👇 Lee el artículo completo aquí:</p>
+          <a href="https://quillaelectric.site/blog/${post.id}/">https://quillaelectric.site/blog/${post.id}/</a>
+        `,
+      };
+    }),
+    
+    customData: `<language>es-pe</language>`,
+  });
+}
+--- FIN: src/pages/rss.xml.js ---
+
+
+--- 📄 INICIO: src/pages/servicios/[...slug].astro ---
+---
+// src/pages/servicios/[...slug].astro
+import { getCollection, render } from 'astro:content'; // <--- Importamos render
+import MainLayout from '../../layouts/MainLayout.astro';
+import { Image } from 'astro:assets';
+
+// 1. Generamos rutas para todos los servicios
+export async function getStaticPaths() {
+  const servicios = await getCollection('servicios');
+  return servicios.map((servicio) => ({
+    params: { slug: servicio.id }, // <--- Usamos .id (Astro v5)
+    props: servicio,
+  }));
+}
+
+const servicio = Astro.props;
+// 2. Usamos la nueva forma de renderizar
+const { Content } = await render(servicio);
+---
+
+<MainLayout titulo={servicio.data.title} descripcion={servicio.data.description}>
+  
+  <article class="detalle-servicio">
+    
+    <header>
+        <h1>{servicio.data.title}</h1>
+        <p class="resumen">{servicio.data.description}</p>
+    </header>
+
+    {servicio.data.image && (
+        <div class="imagen-principal">
+            <Image src={servicio.data.image} alt={servicio.data.title} width={800} class="foto-redondeada" />
+        </div>
+    )}
+
+    <div class="cuerpo-texto">
+        <Content />
+    </div>
+
+    <div class="cta-box">
+        <h3>¿Necesitas este servicio?</h3>
+        <p>Cotiza sin compromiso. Respuesta inmediata.</p>
+        
+        <a 
+          href={`https://wa.me/+51951413458?text=Hola Quilla Electric, me interesa cotizar el servicio de: ${servicio.data.title}`} 
+          class="btn-whatsapp" 
+          target="_blank"
+        >
+            📲 Cotizar por WhatsApp
+        </a>
+    </div>
+
+  </article>
+
+</MainLayout>
+
+<style>
+  .detalle-servicio { max-width: 800px; margin: 0 auto; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+  
+  h1 { color: #0f172a; font-size: 2.2rem; margin-bottom: 10px; line-height: 1.2; }
+  .resumen { font-size: 1.2rem; color: #64748b; margin-bottom: 2rem; border-left: 4px solid #fbbf24; padding-left: 15px; }
+  
+  .imagen-principal { margin-bottom: 2rem; }
+  .foto-redondeada { border-radius: 12px; width: 100%; height: auto; object-fit: cover; }
+
+  .cuerpo-texto { font-size: 1.1rem; line-height: 1.7; color: #334155; }
+  .cuerpo-texto :global(h2) { color: #0f172a; margin-top: 2rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px; }
+  .cuerpo-texto :global(ul) { margin-bottom: 2rem; background: #f8fafc; padding: 20px 40px; border-radius: 8px; }
+  .cuerpo-texto :global(strong) { color: #0f172a; }
+
+  .cta-box { margin-top: 3rem; background: #0f172a; color: white; padding: 2rem; border-radius: 12px; text-align: center; }
+  .btn-whatsapp { display: inline-block; background: #25D366; color: white; padding: 15px 30px; text-decoration: none; border-radius: 50px; font-weight: bold; margin-top: 15px; font-size: 1.1rem; transition: transform 0.2s; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); }
+  .btn-whatsapp:hover { transform: scale(1.05); }
+</style>
+--- FIN: src/pages/servicios/[...slug].astro ---
+
+
+--- 📄 INICIO: src/pages/servicios/index.astro ---
+---
+// src/pages/servicios/index.astro
+import MainLayout from '../../layouts/MainLayout.astro';
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+
+// 1. ESTA LÍNEA ES LA CLAVE: Pide los servicios a la carpeta content/servicios
+const servicios = await getCollection('servicios');
+---
+
+<MainLayout titulo="Nuestros Servicios" descripcion="Lista de servicios eléctricos profesionales en Arequipa.">
+
+  <div class="header-servicios">
+    <h1>Soluciones Eléctricas Profesionales</h1>
+    <p>Atendemos emergencias y proyectos en todo Cerro Colorado y Arequipa.</p>
+  </div>
+
+  <div class="grid-servicios">
+    
+    {servicios.length === 0 && <p style="text-align: center">No hay servicios cargados aún.</p>}
+
+    {servicios.map((servicio) => (
+      <article class="tarjeta-servicio">
+        
+        {servicio.data.image && (
+          <div class="img-container">
+             <Image src={servicio.data.image} alt={servicio.data.title} width={400} />
+          </div>
+        )}
+
+        <div class="contenido">
+            <h3>{servicio.data.title}</h3>
+            <p>{servicio.data.description}</p>
+            
+            {servicio.data.price && <p class="precio">💰 {servicio.data.price}</p>}
+            
+            <a href={`/servicios/${servicio.id}`} class="btn-ver">Ver Detalles →</a>
+        </div>
+      </article>
+    ))}
+
+  </div>
+
+</MainLayout>
+
+<style>
+  /* ESTILOS (Copia esto también para que se vea bien) */
+  .header-servicios { text-align: center; margin-bottom: 3rem; }
+  h1 { color: #0f172a; font-size: 2.5rem; }
+
+  .grid-servicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+
+  .tarjeta-servicio {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+    transition: transform 0.2s;
+  }
+  .tarjeta-servicio:hover { transform: translateY(-5px); border-color: #fbbf24; }
+
+  .img-container { height: 200px; overflow: hidden; }
+  .img-container img { width: 100%; height: 100%; object-fit: cover; }
+
+  .contenido { padding: 1.5rem; }
+  h3 { margin-top: 0; color: #0f172a; font-size: 1.3rem; }
+  .precio { font-weight: bold; color: #16a34a; font-size: 1rem; margin-top: 10px;}
+  
+  .btn-ver {
+    display: inline-block; margin-top: 15px; text-decoration: none;
+    background-color: #0f172a; color: white; padding: 10px 20px;
+    border-radius: 6px; font-size: 0.9rem; font-weight: bold;
+  }
+  .btn-ver:hover { background-color: #334155; }
+</style>
+--- FIN: src/pages/servicios/index.astro ---
+
