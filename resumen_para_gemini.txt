@@ -1,0 +1,26 @@
+--- RESUMEN DE PROYECTO PARA ANALISIS ---
+{
+    "fecha": "2026-01-01 20:05:54.206803",
+    "proyecto": {
+        "nombre": "quilla-astro",
+        "version": "0.0.1",
+        "scripts": [
+            "dev",
+            "build",
+            "preview",
+            "astro"
+        ],
+        "astro_version": "^5.16.2",
+        "total_deps": 4,
+        "total_dev_deps": 0
+    },
+    "estructura": {
+        "num_paginas": 8,
+        "num_componentes": 7,
+        "usa_public": true,
+        "config_file": "astro.config.mjs"
+    },
+    "seguridad": "pnpm no disponible",
+    "rendimiento": {}
+}
+--- FIN DEL REPORTE ---

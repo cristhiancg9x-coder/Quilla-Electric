@@ -1,18 +1,21 @@
 ---
 // src/layouts/MainLayout.astro
-import Navbar from '../components/Navbar.astro';
-import Footer from '../components/Footer.astro';
-import WhatsappButton from '../components/WhatsappButton.astro';
+// IMPORTACIÓN DE COMPONENTES GLOBALES
+// Estos componentes se reutilizan en todas las páginas que usen este layout
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import WhatsappButton from "../components/WhatsappButton.astro";
 
-// 1. Recibimos las variables (Props)
-const { 
-  titulo, 
+// 1. RECEPCIÓN DE PROPS (VARIABLES)
+// "Astro.props" captura las variables pasadas al usar <MainLayout titulo="..." />
+const {
+  titulo,
   descripcion = "Servicios eléctricos profesionales en Arequipa. Pozos a tierra y cableado.",
-  imagen = "/img/social-default.jpeg" // Imagen por defecto si la página no tiene una específica
+  imagen = "/img/social-default.jpeg", // Imagen por defecto para redes sociales (Open Graph)
 } = Astro.props;
 
-// 2. Truco SEO: Convertir la imagen a URL absoluta (Ej: https://quillaelectric.site/img/foto.jpg)
-// Si no hacemos esto, WhatsApp a veces no muestra la foto.
+// 2. LÓGICA DE URL ABSOLUTA PARA SEO/REDES SOCIALES
+// Genera una URL completa (ej: https://midominio.com/foto.jpg) para que WhatsApp/Facebook la detecten bien.
 const siteURL = Astro.site ? Astro.site.href : Astro.url.origin;
 const imagenAbsoluta = new URL(imagen, siteURL).href;
 ---
@@ -22,30 +25,60 @@ const imagenAbsoluta = new URL(imagen, siteURL).href;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    
-    <title>{titulo} | Quilla Electric</title>
-     <!-- Google tag (gtag.js) -->
-    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-JNC3CZ4STT"></script>
-        <script is:inline>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){
-            // @ts-ignore
-            dataLayer.push(arguments);
-          }
-          gtag('js', new Date());
 
-          gtag('config', 'G-JNC3CZ4STT');
-        </script>
+    <!-- TÍTULO DINÁMICO: Se actualiza según la página actual -->
+    <title>{titulo} | Quilla Electric</title>
+
+    <!-- INTEGRACIÓN GOOGLE ANALYTICS (GA4) -->
+    <!-- Script de seguimiento para métricas de tráfico -->
+    <script
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-JNC3CZ4STT"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        // @ts-ignore
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-JNC3CZ4STT");
+    </script>
+
+    <!-- METADATOS SEO Y OPEN GRAPH (Facebook, WhatsApp, LinkedIn) -->
     <meta name="description" content={descripcion} />
     <link rel="canonical" href={Astro.url} />
-    
+
     <meta property="og:title" content={titulo} />
     <meta property="og:description" content={descripcion} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
-    <meta property="og:image" content={imagenAbsoluta} /> <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="sitemap" href="/sitemap-index.xml" />
-    <meta name="google-site-verification" content="v9b95geQ84lPrqkhNMwzQhD3hu9WmAT8F2M60z5rbGA" />
+    <meta property="og:image" content={imagenAbsoluta} />
+
+    <!-- GOOGLE FONTS: MONTSERRAT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Quilla Electric" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <meta
+      name="google-site-verification"
+      content="v9b95geQ84lPrqkhNMwzQhD3hu9WmAT8F2M60z5rbGA"
+    />
+
+    <!-- SCHEMA.ORG (JSON-LD): DATOS ESTRUCTURADOS PARA GOOGLE -->
+    <!-- Ayuda a Google Maps y Search a entender que somos un negocio local de electricistas -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -68,44 +101,200 @@ const imagenAbsoluta = new URL(imagen, siteURL).href;
           "latitude": -16.3766,
           "longitude": -71.5602
         },
-        "areaServed": [
-          "Cerro Colorado",
-          "Cayma",
-          "Yanahuara",
-          "Arequipa"
-        ],
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "00:00",
+          "closes": "23:59"
+        },
+        "areaServed": ["Cerro Colorado", "Cayma", "Yanahuara", "Arequipa"],
         "priceRange": "$$"
       }
-    </script>    
+    </script>
   </head>
-  
+
   <body>
+    <!-- BARRA DE NAVEGACIÓN SUPERIOR -->
     <Navbar />
 
+    <!-- SLOT PRINCIPAL: Aquí se inyecta el contenido específico de cada página (Inicio, Servicios, etc.) -->
     <main>
-      <slot /> </main>
+      <slot />
+    </main>
 
+    <!-- PIE DE PÁGINA Y ELEMENTOS FLOTANTES -->
     <Footer />
     <WhatsappButton />
   </body>
 </html>
 
-<style>
-  /* ESTILOS GLOBALES */
+<style is:global>
+  /* --- VARIABLES CSS GLOBALES (THEME) --- */
+  :root {
+    /* PALETA DE COLORES */
+    --primary-yellow: #ffd700; /* Amarillo Dorado (Acento principal) */
+    --soft-blue: #e0f2fe; /* Azul suave (Secundario) */
+    --soft-white: #f8fafc; /* Blanco humo (Fondos claros) */
+    --text-main: #ffffff; /* Texto blanco (Para contraste con fondo oscuro) */
+    --text-muted: #e2e8f0; /* Texto secundario gris claro */
+
+    /* TOKENS DE GLASSMORPHISM (Efecto Vidrio) */
+    --glass-bg: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
+    --glass-border: rgba(255, 255, 255, 0.2); /* Borde sutil */
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); /* Sombra suave */
+
+    /* GRADIENTES DEFINIDOS */
+    /* Fondo principal: Azul Eléctrico de Izquierda a Derecha */
+    --bg-gradient: linear-gradient(90deg, #061161 0%, #0052d4 100%);
+
+    /* Variables de Botones (Colores Sólidos) */
+    --btn-solid: #ffd700; /* Amarillo Eléctrico Fijo */
+  }
+
+  /* --- RESET BÁSICO Y FUNDAMENTOS --- */
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    font-family: system-ui, -apple-system, sans-serif;
+    font-family:
+      "Montserrat",
+      system-ui,
+      -apple-system,
+      sans-serif;
     margin: 0;
-    background-color: #f8fafc;
-    color: #1e293b;
+    color: var(--text-main);
+    background: var(--bg-gradient);
+    background-attachment: fixed; /* Mantiene el gradiente en pantallas largas */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
   }
+
   main {
     flex: 1;
     width: 100%;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 15px; /* MOBILE BASE */
     box-sizing: border-box;
+  }
+
+  @media (min-width: 768px) {
+    main {
+      padding: 30px; /* DESKTOP */
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+  }
+
+  /* --- CLASES DE UTILIDAD (GLASSMORPHISM) --- */
+
+  /* Panel de Cristal Reutilizable */
+  .glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    box-shadow: var(--glass-shadow);
+  }
+
+  /* Tarjeta de Servicio / Info */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 2rem;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+    /* fix user revert: removed solid white bg and text overrides */
+  }
+
+  .glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    border-color: var(--primary-yellow);
+  }
+
+  /* --- BOTONES CON MICRO-INTERACCIONES (SIN GRADIENTES) --- */
+  .btn-primary {
+    display: inline-block;
+    background-color: var(--btn-solid); /* COLOR SÓLIDO */
+    color: #0f172a; /* Texto oscuro para contraste con amarillo */
+    font-weight: 800;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+  }
+
+  .btn-primary:hover {
+    background-color: #ffc300; /* Un poco más oscuro al hover */
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+  }
+
+  .btn-primary:active {
+    transform: translateY(1px);
+  }
+
+  /* --- ANIMACIONES DE IDENTIDAD --- */
+
+  /* Pulso de Energía para el Logo */
+  @keyframes pulse-energy {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(255, 177, 0, 0.7);
+    }
+    70% {
+      transform: scale(1.05);
+      box-shadow: 0 0 0 10px rgba(255, 177, 0, 0);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(255, 177, 0, 0);
+    }
+  }
+
+  .logo-pulse {
+    animation: pulse-energy 2s infinite;
+    border-radius: 50%; /* Asegura que el pulso sea circular si el logo lo permite */
+  }
+
+  /* Flotar suave */
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  .float-anim {
+    animation: float 4s ease-in-out infinite;
   }
 </style>

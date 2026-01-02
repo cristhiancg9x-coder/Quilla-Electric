@@ -1,80 +1,180 @@
 ---
 // src/pages/servicios/index.astro
-import MainLayout from '../../layouts/MainLayout.astro';
-import { getCollection } from 'astro:content';
-import { Image } from 'astro:assets';
+import MainLayout from "../../layouts/MainLayout.astro";
+import { getCollection } from "astro:content"; // Hook para cargar contenido de la carpeta src/content/
+import { Image } from "astro:assets"; // Componente optimizado para imágenes locales
 
-// 1. ESTA LÍNEA ES LA CLAVE: Pide los servicios a la carpeta content/servicios
-const servicios = await getCollection('servicios');
+// 1. CARGA DE DATOS (CONTENT COLLECTIONS)
+// Busca todos los archivos .json o .md definidos en la colección 'servicios'
+const servicios = await getCollection("servicios");
 ---
 
-<MainLayout titulo="Nuestros Servicios" descripcion="Lista de servicios eléctricos profesionales en Arequipa.">
-
+<MainLayout
+  titulo="Nuestros Servicios"
+  descripcion="Lista de servicios eléctricos profesionales en Arequipa."
+>
+  <!-- ENCABEZADO DE LA SECCIÓN -->
   <div class="header-servicios">
     <h1>Soluciones Eléctricas Profesionales</h1>
-    <p>Atendemos emergencias y proyectos en todo Cerro Colorado y Arequipa.</p>
+    <p>Atendemos emergencias y proyectos en todo Arequipa y el Perú.</p>
   </div>
 
+  <!-- GRILLA DE TARJETAS -->
   <div class="grid-servicios">
     
-    {servicios.length === 0 && <p style="text-align: center">No hay servicios cargados aún.</p>}
+    <!-- Renderizado Condicional: Mensaje si no hay datos -->
+    {
+      servicios.length === 0 && (
+        <p style="text-align: center">No hay servicios cargados aún.</p>
+      )
+    }
 
-    {servicios.map((servicio) => (
-      <article class="tarjeta-servicio">
-        
-        {servicio.data.image && (
-          <div class="img-container">
-             <Image src={servicio.data.image} alt={servicio.data.title} width={400} />
-          </div>
-        )}
-
-        <div class="contenido">
-            <h3>{servicio.data.title}</h3>
-            <p>{servicio.data.description}</p>
+    <!-- BUCLE PRINCIPAL: Crea una tarjeta por cada servicio encontrado -->
+    {
+      servicios.map((servicio) => (
+        <article class="tarjeta-servicio glass-panel">
+          
+          <!-- ENLACE WRAPPER: Convierte toda la tarjeta en un botón gigante -->
+          <a href={`/servicios/${servicio.id}`} class="link-card">
             
-            {servicio.data.price && <p class="precio">💰 {servicio.data.price}</p>}
-            
-            <a href={`/servicios/${servicio.id}`} class="btn-ver">Ver Detalles →</a>
-        </div>
-      </article>
-    ))}
+            <!-- IMAGEN DEL SERVICIO (Si existe) -->
+            {servicio.data.image && (
+              <div class="img-container">
+                <Image
+                  src={servicio.data.image}
+                  alt={servicio.data.title}
+                  width={400}
+                />
+              </div>
+            )}
 
+            <!-- CONTENIDO DE TEXTO -->
+            <div class="contenido">
+              <h3>{servicio.data.title}</h3>
+              <p>{servicio.data.description}</p>
+
+              <!-- PRECIO (Opcional) -->
+              {servicio.data.price && (
+                <p class="precio">💰 {servicio.data.price}</p>
+              )}
+
+              <!-- BOTÓN VISUAL (Es un span para que sea válido dentro del <a>) -->
+              <span class="btn-ver">Ver Detalles →</span>
+            </div>
+          </a>
+        </article>
+      ))
+    }
   </div>
-
 </MainLayout>
 
 <style>
-  /* ESTILOS (Copia esto también para que se vea bien) */
-  .header-servicios { text-align: center; margin-bottom: 3rem; }
-  h1 { color: #0f172a; font-size: 2.5rem; }
+  /* ESTILOSACTUALIZADOS */
+  .header-servicios {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  h1 {
+    color: var(--text-main);
+    font-size: 2.5rem;
+    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.5);
+  }
+  .header-servicios p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+  }
 
   .grid-servicios {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
+    padding-bottom: 2rem;
   }
 
   .tarjeta-servicio {
-    background: white;
-    border-radius: 12px;
+    /* Background handled by .glass-panel */
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    border: 1px solid #e2e8f0;
-    transition: transform 0.2s;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+    /* Removed flex because the link-card will be the container now */
   }
-  .tarjeta-servicio:hover { transform: translateY(-5px); border-color: #fbbf24; }
 
-  .img-container { height: 200px; overflow: hidden; }
-  .img-container img { width: 100%; height: 100%; object-fit: cover; }
+  .link-card {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
 
-  .contenido { padding: 1.5rem; }
-  h3 { margin-top: 0; color: #0f172a; font-size: 1.3rem; }
-  .precio { font-weight: bold; color: #16a34a; font-size: 1rem; margin-top: 10px;}
-  
+  .tarjeta-servicio:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-yellow);
+  }
+
+  .img-container {
+    height: 200px;
+    overflow: hidden;
+  }
+  .img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .tarjeta-servicio:hover .img-container img {
+    transform: scale(1.1);
+  }
+
+  .contenido {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  h3 {
+    margin-top: 0;
+    color: var(--text-main);
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+  .contenido p {
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    flex: 1;
+  }
+
+  .precio {
+    font-weight: bold;
+    color: var(--primary-yellow);
+    font-size: 1.1rem;
+    margin-top: auto;
+  }
+
+  /* Changed from a to span styling */
   .btn-ver {
-    display: inline-block; margin-top: 15px; text-decoration: none;
-    background-color: #0f172a; color: white; padding: 10px 20px;
-    border-radius: 6px; font-size: 0.9rem; font-weight: bold;
+    display: inline-block;
+    margin-top: 15px;
+    background-color: var(--primary-yellow); /* SÓLIDO */
+    color: #0f172a; /* Texto oscuro */
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 800;
+    text-align: center;
+    transition: all 0.3s ease;
   }
-  .btn-ver:hover { background-color: #334155; }
+
+  /* Asegurar que el botón se vea interactivo al hover de la tarjeta */
+  .tarjeta-servicio:hover .btn-ver {
+    transform: translateY(-2px);
+    background-color: #FFC300; /* Efecto hover sólido */
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+  }
 </style>
+```

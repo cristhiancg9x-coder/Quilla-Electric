@@ -1,50 +1,69 @@
 ---
 // src/pages/blog/index.astro
-import MainLayout from '../../layouts/MainLayout.astro';
-import { getCollection } from 'astro:content';
+import MainLayout from "../../layouts/MainLayout.astro";
+import { getCollection } from "astro:content";
 
 // 1. Pedimos los artículos y los ordenamos de forma SEGURA
 // Si un artículo no tiene fecha, asumimos que es fecha 0 (muy antigua) para que no rompa el código
-const posts = (await getCollection('blog')).sort((a, b) => {
+const posts = (await getCollection("blog")).sort((a, b) => {
   const fechaA = a.data.pubDate ? a.data.pubDate.valueOf() : 0;
   const fechaB = b.data.pubDate ? b.data.pubDate.valueOf() : 0;
   return fechaB - fechaA;
 });
 ---
 
-<MainLayout titulo="Blog de Electricidad" descripcion="Consejos y noticias sobre seguridad eléctrica en Perú.">
-  
+<MainLayout
+  titulo="Blog de Electricidad"
+  descripcion="Consejos y noticias sobre seguridad eléctrica en Perú."
+>
   <section class="blog-header">
     <h1>📰 Blog Eléctrico</h1>
     <p>Aprende a cuidar tu instalación y ahorrar energía.</p>
   </section>
 
   <div class="grid-posts">
-    {posts.map((post) => (
-      <article class="card-post">
-        <a href={`/blog/${post.id}`} class="link-post">
+    {
+      posts.map((post) => (
+        <article class="card-post">
+          <a href={`/blog/${post.id}`} class="link-post">
             <div class="contenido">
-                <h3>{post.data.title}</h3>
-                
-                <p class="fecha">
-                  {post.data.pubDate 
-                    ? post.data.pubDate.toLocaleDateString('es-PE', { year: 'numeric', month: 'long', day: 'numeric' }) 
-                    : 'Reciente'}
-                </p>
+              <h3>{post.data.title}</h3>
 
-                <p class="descripcion">{post.data.description}</p>
-                <span class="leer-mas">Leer artículo →</span>
+              <p class="fecha">
+                {post.data.pubDate
+                  ? post.data.pubDate.toLocaleDateString("es-PE", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })
+                  : "Reciente"}
+              </p>
+
+              <p class="descripcion">{post.data.description}</p>
+              <span class="leer-mas">Leer artículo →</span>
             </div>
-        </a>
-      </article>
-    ))}
+          </a>
+        </article>
+      ))
+    }
   </div>
-
 </MainLayout>
 
 <style>
-  .blog-header { text-align: center; margin-bottom: 3rem; }
-  h1 { color: #0f172a; font-size: 2.5rem; }
+  /* ESTILOS (Actualizados al tema Azul Eléctrico) */
+  .blog-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  h1 {
+    color: var(--text-main);
+    font-size: 2.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  .blog-header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+  }
 
   .grid-posts {
     display: grid;
@@ -53,29 +72,64 @@ const posts = (await getCollection('blog')).sort((a, b) => {
   }
 
   .card-post {
-    background: white;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
+    /* Glassmorphism */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
     overflow: hidden;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
   }
 
   .card-post:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    border-color: #fbbf24;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border-color: var(--primary-yellow);
+    background: rgba(255, 255, 255, 0.1);
   }
 
-  .link-post { text-decoration: none; color: inherit; display: block; height: 100%; }
-  
-  .contenido { padding: 1.5rem; }
-  
-  h3 { margin: 0 0 10px 0; color: #0f172a; font-size: 1.4rem; }
-  .fecha { font-size: 0.85rem; color: #94a3b8; margin-bottom: 1rem; }
-  .descripcion { color: #475569; line-height: 1.6; margin-bottom: 1.5rem; }
-  
-  .leer-mas { 
-    color: #fbbf24; font-weight: bold; font-size: 0.9rem; 
-    text-transform: uppercase; letter-spacing: 0.5px;
+  .link-post {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+  }
+
+  .contenido {
+    padding: 2rem;
+  }
+
+  h3 {
+    margin: 0 0 10px 0;
+    color: var(--text-main);
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+  .fecha {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    opacity: 0.8;
+  }
+  .descripcion {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .leer-mas {
+    color: var(--primary-yellow); /* Amarillo Sólido */
+    font-weight: 800;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    transition: transform 0.3s;
+  }
+
+  .card-post:hover .leer-mas {
+    transform: translateX(5px);
   }
 </style>

@@ -1,51 +1,108 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro';
-import Beneficios from '../components/Beneficios.astro';
-import Galeria from '../components/Galeria.astro';
-import Preguntas from '../components/Preguntas.astro';
+// src/pages/index.astro
+// IMPORTACIÓN DE COMPONENTES DE PÁGINA
+import MainLayout from "../layouts/MainLayout.astro";
+import Beneficios from "../components/Beneficios.astro"; // Sección de características clave
+import Galeria from "../components/Galeria.astro"; // Carrusel o grilla de fotos
+import Preguntas from "../components/Preguntas.astro"; // Sección FAQ
 ---
 
+<!-- ENVUELTA DE LAYOUT PRINCIPAL --><!-- Pasamos el título "Inicio" que se concatenará como "Inicio | Quilla Electric" -->
 <MainLayout titulo="Inicio">
-    
-    <div class="hero">
-        <h1>⚡ Soluciones Eléctricas en Arequipa</h1>
-        <p class="subtitulo">
-            Especialistas en Pozos a Tierra, Certificaciones INDECI y Emergencias 24/7.
-            Protege tu negocio y familia hoy mismo.
-        </p>
-        <div class="botones">
-            <a href="/contacto" class="btn-primary">Solicitar Cotización</a>
-            <a href="/servicios" class="btn-secondary">Ver Servicios</a>
-        </div>
+  <!-- SECCIÓN HERO: La primera impresión del usuario -->
+  <div class="hero">
+    <h1>⚡ Soluciones Eléctricas en Arequipa</h1>
+    <p class="subtitulo">
+      Energía Segura y Vigilancia Inteligente para tu Empresa o Hogar.
+      Instalaciones eléctricas industriales, sistemas de cámaras y mantenimiento
+      experto de pozos a tierra. Garantía, rapidez y certificaciones de ley.
+    </p>
+
+    <!-- BOTONES DE LLAMADA A LA ACCIÓN (CTA) -->
+    <div class="botones">
+      <a href="/contacto" class="btn-primary">Solicitar Cotización</a>
+      <a href="/servicios" class="btn-secondary">Ver Servicios</a>
     </div>
+  </div>
 
-    <hr class="divisor">
+  <hr class="divisor" />
 
-    <Beneficios />
-    
-    <Galeria /><Preguntas />
+  <!-- SECCIONES DE CONTENIDO -->
+  <Beneficios />
 
+  <Galeria /><Preguntas />
 </MainLayout>
 
 <style>
-    /* Estilos solo para la portada */
-    .hero {
-        text-align: center;
-        padding: 3rem 0;
-    }
-    h1 { font-size: 2.5rem; color: #0f172a; margin-bottom: 1rem; }
-    .subtitulo { font-size: 1.2rem; color: #64748b; max-width: 600px; margin: 0 auto 2rem auto; }
-    
-    .botones { display: flex; gap: 15px; justify-content: center; }
-    
-    .btn-primary {
-        background: #0f172a; color: white; padding: 12px 25px; 
-        text-decoration: none; border-radius: 5px; font-weight: bold;
-    }
-    .btn-secondary {
-        background: white; color: #0f172a; padding: 12px 25px; 
-        text-decoration: none; border-radius: 5px; border: 2px solid #0f172a; font-weight: bold;
-    }
+  /* Estilos solo para la portada */
+  /* Estilos solo para la portada */
+  .hero {
+    text-align: center;
+    padding: 2rem 0; /* MOBILE */
+  }
+  h1 {
+    font-size: 2rem; /* MOBILE */
+    color: var(--text-main);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.5);
+  }
+  .subtitulo {
+    font-size: 1.1rem; /* MOBILE */
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+    padding: 0 10px;
+  }
 
-    .divisor { border: 0; border-top: 1px solid #e2e8f0; margin: 2rem 0; }
+  .botones {
+    display: flex;
+    flex-direction: column; /* MOBILE: Stacked buttons */
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* MEDIA QUERIES DESKTOP */
+  @media (min-width: 768px) {
+    .hero {
+      padding: 4rem 0;
+    }
+    h1 {
+      font-size: 3rem;
+    }
+    .subtitulo {
+      font-size: 1.3rem;
+    }
+    .botones {
+      flex-direction: row;
+    }
+  }
+
+  /* Nota: .btn-primary viene de MainLayout */
+
+  .btn-secondary {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(4px);
+    color: var(--text-main);
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 50px;
+    border: 1px solid var(--text-main);
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+
+  .btn-secondary:hover {
+    background: white;
+    color: #061161; /* Azul oscuro para contraste con fondo blanco */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
+  }
+
+  .divisor {
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 2rem 0;
+  }
 </style>

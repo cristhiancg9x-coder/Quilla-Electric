@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Le decimos a Google dónde está el mapa
 Sitemap: https://quillaelectric.site/sitemap-index.xml

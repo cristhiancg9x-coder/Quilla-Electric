@@ -1,66 +1,127 @@
-<nav class="barra-electrica">
-  <div class="logo">⚡ Quilla Electric</div>
+---
+import { Image } from "astro:assets";
+import logoImg from "../assets/logo-main.png";
+---
+
+<nav class="barra-electrica glass-panel">
+  <!-- SECCIÓN LOGO: Al hacer clic redirige al inicio -->
+  <a href="/" class="logo-container">
+    <Image
+      src={logoImg}
+      alt="Logo Quilla Electric"
+      class="logo-img logo-pulse"
+      width={50}
+      height={50}
+    />
+    <!-- Nombre de la marca junto al logo -->
+    <span class="logo-text">Quilla Electric</span>
+  </a>
+
+  <!-- MENÚ DE NAVEGACIÓN PRINCIPAL -->
   <ul class="menu-links">
     <li><a href="/">Inicio</a></li>
+    <li><a href="/nosotros">Nosotros</a></li>
     <li><a href="/servicios">Servicios</a></li>
     <li><a href="/blog">Blog</a></li>
     <li><a href="/contacto">Contacto</a></li>
   </ul>
-</nav>
 
-<style>
-  /* ESTILOS: Solo afectan a esta barra de bloque, no rompen lo demás */
-  .barra-electrica {
-    background-color: #0f172a; /* Azul oscuro industrial */
-    color: white;
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between; /* Separa logo y menú a los extremos */
-    align-items: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  }
-
-  .logo {
-    font-weight: bold;
-    font-size: 1.5rem;
-    color: #fbbf24; /* Amarillo electricidad */
-  }
-
-  .menu-links {
-    display: flex;
-    list-style: none;
-    gap: 20px; /* Espacio entre enlaces */
-    margin: 0;
-    padding: 0;
-  }
-
-  .menu-links a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-  }
-
-  .menu-links a:hover {
-    color: #fbbf24; /* Cambia a amarillo al pasar el mouse */
-  }
-  /* --- CÓDIGO NUEVO PARA MÓVILES --- */
-  @media (max-width: 768px) {
+  <style>
+    /* ESTILOS (Mobile-First) */
     .barra-electrica {
-      flex-direction: column; /* Pone el logo arriba y menú abajo */
-      gap: 15px; /* Espacio entre logo y menú */
-      padding: 15px;
+      /* Background handled by .glass-panel */
+      padding: 1rem;
+      display: flex;
+      flex-direction: column; /* MOBILE por defecto: apilado */
+      align-items: center;
+      gap: 15px; /* Separación en móvil */
+      margin-bottom: 20px;
+    }
+
+    /* ... (Rest of base styles same) ... */
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .logo-text {
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--primary-yellow);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     .menu-links {
+      display: flex;
+      flex-direction: column; /* MOBILE: Lista vertical */
+      list-style: none;
+      gap: 15px; /* Espacio entre links en móvil */
+      margin: 0;
+      padding: 0;
+      text-align: center;
       width: 100%;
-      justify-content: center; /* Centra los enlaces */
-      flex-wrap: wrap; /* Si no caben, bajan a la siguiente línea */
-      gap: 15px; /* Espacio entre palabras */
-      font-size: 0.9rem; /* Letra un pelín más chica para que entre */
     }
-    
+
     .menu-links li {
-      margin: 0; /* Quitamos márgenes viejos si los hubiera */
+      margin: 0;
     }
-  }
-</style>
+
+    .menu-links a {
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem; /* Botones grandes para dedos en móvil */
+      position: relative;
+      padding: 10px; /* Área táctil generosa */
+      display: block;
+    }
+
+    .menu-links a:hover {
+      color: var(--primary-yellow);
+    }
+
+    /* Underline animation (Desktop only ideally, but fine globally) */
+    .menu-links a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0px; /* Corrección: Bajamos la línea al borde inferior */
+      left: 50%; /* Centrado */
+      transform: translateX(-50%);
+      background-color: var(--primary-yellow);
+      transition: width 0.3s ease;
+    }
+    .menu-links a:hover::after {
+      width: 80%;
+    }
+
+    /* --- DESKTOP (Pantallas > 768px) --- */
+    @media (min-width: 768px) {
+      .barra-electrica {
+        flex-direction: row; /* Cambia a fila */
+        justify-content: space-between;
+        padding: 1rem 2rem;
+      }
+
+      .menu-links {
+        flex-direction: row; /* Hijos en fila */
+        width: auto;
+        gap: 30px;
+      }
+
+      .menu-links a {
+        font-size: 1rem; /* Tamaño normal escritorio */
+        padding: 0;
+      }
+    }
+  </style>
+</nav>

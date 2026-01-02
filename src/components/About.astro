@@ -1,0 +1,118 @@
+<section class="about-section glass-panel">
+  <div class="contenido-about">
+    <div class="texto-intro">
+      <h1>¿Quiénes Somos?</h1>
+      <p class="mision">
+        Somos <strong>Quilla Electric</strong>, una empresa líder en ingeniería
+        eléctrica y soluciones de seguridad en Arequipa. Nuestro compromiso es
+        proteger hogares e industrias con instalaciones de alta calidad y
+        tecnología certificada.
+      </p>
+    </div>
+
+    <div class="grid-servicios-about">
+      <div class="card-about">
+        <span class="icono">⚡</span>
+        <h3>Instalaciones Eléctricas</h3>
+        <p>
+          Expertos en tableros, iluminación LED y cableado seguro para
+          viviendas, comercios y plantas industriales. Cumplimos con todas las
+          normas de seguridad vigentes.
+        </p>
+      </div>
+
+      <div class="card-about">
+        <span class="icono">📹</span>
+        <h3>Cámaras de Seguridad</h3>
+        <p>
+          Vigilancia inteligente de alta definición. Instalamos sistemas de
+          Cámaras CCTV con monitoreo remoto para que nunca pierdas de vista lo
+          que más importa.
+        </p>
+      </div>
+
+      <div class="card-about">
+        <span class="icono">🛡️</span>
+        <h3>Pozos a Tierra</h3>
+        <p>
+          Mantenimiento experto y certificaciones INDECI. Garantizamos la
+          correcta descarga eléctrica de tus equipos y la seguridad de tu
+          infraestructura.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-section {
+    padding: 4rem 2rem;
+    margin: 40px auto;
+    max-width: 1200px;
+    /* Background handled by global glass-panel */
+  }
+
+  .contenido-about {
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    color: var(--text-main);
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .mision {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    line-height: 1.6;
+  }
+
+  .mision strong {
+    color: var(--primary-yellow);
+  }
+
+  .grid-servicios-about {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+
+  .card-about {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .card-about:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-yellow);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .icono {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+  }
+
+  h3 {
+    color: var(--text-main);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+</style>

@@ -1,11 +1,11 @@
 ---
 // src/pages/blog/[...slug].astro
 // 1. IMPORTANTE: Agregamos 'render' a la importación
-import { getCollection, render } from 'astro:content';
-import MainLayout from '../../layouts/MainLayout.astro';
+import { getCollection, render } from "astro:content";
+import MainLayout from "../../layouts/MainLayout.astro";
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
+  const posts = await getCollection("blog");
   return posts.map((post) => ({
     params: { slug: post.id },
     props: post,
@@ -18,97 +18,182 @@ const post = Astro.props;
 const { Content } = await render(post);
 
 // --- PREPARACIÓN DE DATOS PARA SEO ---
-const imagenOG = post.data.image?.src || '/img/blog-default.jpg';
+const imagenOG = post.data.image?.src || "/img/blog-default.jpg";
 const urlCompleta = new URL(Astro.url.pathname, Astro.site);
 
 // FECHAS SEGURAS (Para evitar el error de toISOString)
-const fechaPublicacion = post.data.pubDate 
-  ? new Date(post.data.pubDate).toISOString().split('T')[0] 
-  : new Date().toISOString().split('T')[0];
+const fechaPublicacion = post.data.pubDate
+  ? new Date(post.data.pubDate).toISOString().split("T")[0]
+  : new Date().toISOString().split("T")[0];
 
-const fechaLegible = post.data.pubDate 
-  ? new Date(post.data.pubDate).toLocaleDateString('es-PE') 
-  : 'Reciente';
+const fechaLegible = post.data.pubDate
+  ? new Date(post.data.pubDate).toLocaleDateString("es-PE")
+  : "Reciente";
 
 const schemaArticle = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "mainEntityOfPage": {
+  mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": urlCompleta
+    "@id": urlCompleta,
   },
-  "headline": post.data.title,
-  "description": post.data.description,
-  "image": imagenOG,
-  "author": {
+  headline: post.data.title,
+  description: post.data.description,
+  image: imagenOG,
+  author: {
     "@type": "Person",
-    "name": post.data.author || "Quilla Electric"
+    name: post.data.author || "Quilla Electric",
   },
-  "publisher": {
+  publisher: {
     "@type": "Organization",
-    "name": "Quilla Electric",
-    "logo": {
+    name: "Quilla Electric",
+    logo: {
       "@type": "ImageObject",
-      "url": "https://quillaelectric.site/favicon.png"
-    }
+      url: "https://quillaelectric.site/favicon.png",
+    },
   },
-  "datePublished": fechaPublicacion,
-  "dateModified": fechaPublicacion
+  datePublished: fechaPublicacion,
+  dateModified: fechaPublicacion,
 };
 ---
 
-<MainLayout 
-  titulo={post.data.title} 
+<MainLayout
+  titulo={post.data.title}
   descripcion={post.data.description}
-  imagen={imagenOG} 
+  imagen={imagenOG}
 >
-  
   <script type="application/ld+json" set:html={JSON.stringify(schemaArticle)} />
 
   <article class="articulo-completo">
     <header class="encabezado-articulo">
-        <p class="meta">
-            📅 {fechaLegible} | ✍️ {post.data.author}
-        </p>
-        
-        <h1>{post.data.title}</h1>
-        
-        <hr class="separador-amarillo"/>
+      <p class="meta">
+        📅 {fechaLegible} | ✍️ {post.data.author}
+      </p>
+
+      <h1>{post.data.title}</h1>
+
+      <hr class="separador-amarillo" />
     </header>
 
     <div class="contenido-texto">
-        <Content />
+      <Content />
     </div>
 
     <div class="cta-box">
-        <h3>¿Necesitas ayuda con esto?</h3>
-        <p>Evita riesgos eléctricos en tu hogar.</p>
-        <a href="/contacto" class="btn-whatsapp">Consultar al Técnico</a>
+      <h3>¿Necesitas ayuda con esto?</h3>
+      <p>Evita riesgos eléctricos en tu hogar.</p>
+      <a href="/contacto" class="btn-whatsapp">Consultar al Técnico</a>
     </div>
-
   </article>
-
 </MainLayout>
 
 <style>
-  /* (Tus estilos se mantienen igual) */
-  .articulo-completo { max-width: 720px; margin: 0 auto; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-  .meta { color: #64748b; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
-  h1 { font-size: 2.5rem; color: #0f172a; margin-top: 10px; line-height: 1.2; }
-  .separador-amarillo { border: 0; height: 4px; background: #fbbf24; width: 60px; margin: 20px 0; }
-  .contenido-texto { font-size: 1.1rem; line-height: 1.8; color: #334155; }
-  
+  /* ESTILOS (Actualizados al tema Azul Eléctrico) */
+  .articulo-completo {
+    max-width: 720px;
+    margin: 0 auto;
+    /* Glassmorphism */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  .meta {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    color: var(--text-main);
+    margin-top: 10px;
+    line-height: 1.2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .separador-amarillo {
+    border: 0;
+    height: 4px;
+    background: var(--primary-yellow);
+    width: 60px;
+    margin: 20px 0;
+  }
+
+  .contenido-texto {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+  }
+
   /* Estilos para que las imágenes dentro del post se vean bien */
   .contenido-texto :global(img) {
     max-width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: 12px;
     margin: 20px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   }
-  
-  .contenido-texto :global(h2) { color: #0f172a; margin-top: 2.5rem; font-size: 1.8rem; }
-  .contenido-texto :global(h3) { color: #334155; margin-top: 1.5rem; font-size: 1.4rem; }
 
-  .cta-box { margin-top: 3rem; background: #f0f9ff; padding: 2rem; border-radius: 10px; text-align: center; border: 1px solid #bae6fd; }
-  .btn-whatsapp { display: inline-block; background: #0f172a; color: white; padding: 12px 25px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 10px; }
+  .contenido-texto :global(h2) {
+    color: var(--primary-yellow);
+    margin-top: 2.5rem;
+    font-size: 1.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+  }
+  .contenido-texto :global(h3) {
+    color: var(--text-main);
+    margin-top: 1.5rem;
+    font-size: 1.4rem;
+  }
+  .contenido-texto :global(strong) {
+    color: white;
+  }
+  .contenido-texto :global(ul),
+  .contenido-texto :global(ol) {
+    color: var(--text-muted);
+    margin-left: 20px;
+  }
+
+  /* CTA BOX Styles */
+  .cta-box {
+    margin-top: 3rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .cta-box h3 {
+    color: var(--text-main);
+    margin-top: 0;
+  }
+  .cta-box p {
+    color: var(--text-muted);
+  }
+
+  .btn-whatsapp {
+    display: inline-block;
+    background: var(--primary-yellow); /* Amarillo Sólido */
+    color: #0f172a;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 800;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+  }
+
+  .btn-whatsapp:hover {
+    background-color: #ffc300;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+  }
 </style>

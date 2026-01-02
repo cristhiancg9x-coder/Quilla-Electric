@@ -23,21 +23,19 @@ export async function GET(context) {
     },
 
     items: postsOrdenados.map((post) => {
-      // Intentamos construir la URL de la imagen si existe
-      // Nota: Esto asume que tus imágenes están en src/assets y Astro las procesa.
-      // Para RSS simple, a veces necesitamos la ruta pública.
-      // Por ahora, pasaremos el link al artículo como guía.
+      // Url de la imagen (si existe) para el feed
+      const imgUrl = post.data.image ? `https://quillaelectric.site${post.data.image.src}` : null;
       
       return {
         title: post.data.title,
-        pubDate: post.data.pubDate ? post.data.pubDate : new Date(),
+        pubDate: post.data.pubDate || new Date(),
         description: post.data.description,
         link: `/blog/${post.id}/`,
-        
-        // TRUCO: Agregamos contenido extra para ayudar a Metricool
         content: `
+          ${imgUrl ? `<img src="${imgUrl}" alt="${post.data.title}" style="max-width: 100%; border-radius: 8px;" />` : ''}
           <p>${post.data.description}</p>
-          <p>👇 Lee el artículo completo aquí:</p>
+          <br />
+          <p>⚡ <strong>Lee el artículo completo y verificado aquí:</strong></p>
           <a href="https://quillaelectric.site/blog/${post.id}/">https://quillaelectric.site/blog/${post.id}/</a>
         `,
       };

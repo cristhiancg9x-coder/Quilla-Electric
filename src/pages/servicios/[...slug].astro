@@ -1,12 +1,12 @@
 ---
 // src/pages/servicios/[...slug].astro
-import { getCollection, render } from 'astro:content'; // <--- Importamos render
-import MainLayout from '../../layouts/MainLayout.astro';
-import { Image } from 'astro:assets';
+import { getCollection, render } from "astro:content"; // <--- Importamos render
+import MainLayout from "../../layouts/MainLayout.astro";
+import { Image } from "astro:assets";
 
 // 1. Generamos rutas para todos los servicios
 export async function getStaticPaths() {
-  const servicios = await getCollection('servicios');
+  const servicios = await getCollection("servicios");
   return servicios.map((servicio) => ({
     params: { slug: servicio.id }, // <--- Usamos .id (Astro v5)
     props: servicio,
@@ -18,57 +18,163 @@ const servicio = Astro.props;
 const { Content } = await render(servicio);
 ---
 
-<MainLayout titulo={servicio.data.title} descripcion={servicio.data.description}>
-  
+<MainLayout
+  titulo={servicio.data.title}
+  descripcion={servicio.data.description}
+>
   <article class="detalle-servicio">
-    
     <header>
-        <h1>{servicio.data.title}</h1>
-        <p class="resumen">{servicio.data.description}</p>
+      <h1>{servicio.data.title}</h1>
+      <p class="resumen">{servicio.data.description}</p>
     </header>
 
-    {servicio.data.image && (
+    {
+      servicio.data.image && (
         <div class="imagen-principal">
-            <Image src={servicio.data.image} alt={servicio.data.title} width={800} class="foto-redondeada" />
+          <Image
+            src={servicio.data.image}
+            alt={servicio.data.title}
+            width={800}
+            class="foto-redondeada"
+          />
         </div>
-    )}
+      )
+    }
 
     <div class="cuerpo-texto">
-        <Content />
+      <Content />
     </div>
 
     <div class="cta-box">
-        <h3>¿Necesitas este servicio?</h3>
-        <p>Cotiza sin compromiso. Respuesta inmediata.</p>
-        
-        <a 
-          href={`https://wa.me/+51951413458?text=Hola Quilla Electric, me interesa cotizar el servicio de: ${servicio.data.title}`} 
-          class="btn-whatsapp" 
-          target="_blank"
-        >
-            📲 Cotizar por WhatsApp
-        </a>
+      <h3>¿Necesitas este servicio?</h3>
+      <p>Cotiza sin compromiso. Respuesta inmediata.</p>
+
+      <a
+        href={`https://wa.me/+51951413458?text=Hola Quilla Electric, me interesa cotizar el servicio de: ${servicio.data.title}`}
+        class="btn-whatsapp"
+        target="_blank"
+      >
+        📲 Cotizar por WhatsApp
+      </a>
     </div>
-
   </article>
-
 </MainLayout>
 
 <style>
-  .detalle-servicio { max-width: 800px; margin: 0 auto; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-  
-  h1 { color: #0f172a; font-size: 2.2rem; margin-bottom: 10px; line-height: 1.2; }
-  .resumen { font-size: 1.2rem; color: #64748b; margin-bottom: 2rem; border-left: 4px solid #fbbf24; padding-left: 15px; }
-  
-  .imagen-principal { margin-bottom: 2rem; }
-  .foto-redondeada { border-radius: 12px; width: 100%; height: auto; object-fit: cover; }
+  .detalle-servicio {
+    max-width: 800px;
+    margin: 0 auto;
+    /* Glassmorphism */
+    background: rgba(255, 255, 255, 0.05); /* Fondo vidrio */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
 
-  .cuerpo-texto { font-size: 1.1rem; line-height: 1.7; color: #334155; }
-  .cuerpo-texto :global(h2) { color: #0f172a; margin-top: 2rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px; }
-  .cuerpo-texto :global(ul) { margin-bottom: 2rem; background: #f8fafc; padding: 20px 40px; border-radius: 8px; }
-  .cuerpo-texto :global(strong) { color: #0f172a; }
+  h1 {
+    color: var(--text-main);
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    line-height: 1.2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
 
-  .cta-box { margin-top: 3rem; background: #0f172a; color: white; padding: 2rem; border-radius: 12px; text-align: center; }
-  .btn-whatsapp { display: inline-block; background: #25D366; color: white; padding: 15px 30px; text-decoration: none; border-radius: 50px; font-weight: bold; margin-top: 15px; font-size: 1.1rem; transition: transform 0.2s; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); }
-  .btn-whatsapp:hover { transform: scale(1.05); }
+  .resumen {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    border-left: 4px solid var(--primary-yellow);
+    padding-left: 15px;
+  }
+
+  .imagen-principal {
+    margin-bottom: 2rem;
+  }
+  .foto-redondeada {
+    border-radius: 12px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .cuerpo-texto {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+
+  .cuerpo-texto :global(h2) {
+    color: var(--primary-yellow);
+    margin-top: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+  }
+
+  .cuerpo-texto :global(ul),
+  .cuerpo-texto :global(ol) {
+    margin-bottom: 2rem;
+    background: rgba(255, 255, 255, 0.05); /* Fondo lista */
+    padding: 20px 40px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-muted);
+  }
+
+  .cuerpo-texto :global(li) {
+    margin-bottom: 10px;
+  }
+
+  .cuerpo-texto :global(strong) {
+    color: white;
+  }
+
+  .cuerpo-texto :global(a) {
+    color: var(--primary-yellow);
+    font-weight: bold;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  /* CTA BOX */
+  .cta-box {
+    margin-top: 3rem;
+    background: rgba(0, 0, 0, 0.2); /* Fondo más oscuro para destacar */
+    color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .cta-box h3 {
+    color: var(--text-main);
+    margin-top: 0;
+  }
+  .cta-box p {
+    color: var(--text-muted);
+  }
+
+  .btn-whatsapp {
+    display: inline-block;
+    background: var(--primary-yellow); /* Amarillo Sólido (Consistencia) */
+    color: #0f172a;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 800;
+    margin-top: 15px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+  }
+
+  .btn-whatsapp:hover {
+    transform: scale(1.05);
+    background-color: #ffc300;
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+  }
 </style>

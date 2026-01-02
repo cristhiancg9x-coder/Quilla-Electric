@@ -6,34 +6,38 @@
 const preguntas = [
   {
     pregunta: "¿Quanto cuesta el mantenimiento de un Pozo a Tierra?",
-    respuesta: "El precio base incluye la limpieza, reactivación con gel y certificado. El costo exacto depende del estado actual del pozo. ¡Escríbenos para una visita técnica gratuita!"
+    respuesta:
+      "El precio base incluye la limpieza, reactivación con gel y certificado. El costo exacto depende del estado actual del pozo. ¡Escríbenos para una visita técnica gratuita!",
   },
   {
     pregunta: "¿Atienden emergencias los domingos?",
-    respuesta: "Sí, tenemos un equipo de guardia para emergencias eléctricas las 24 horas, incluyendo domingos y feriados en todo Arequipa."
+    respuesta:
+      "Sí, tenemos un equipo de guardia para emergencias eléctricas las 24 horas, incluyendo domingos y feriados en todo Arequipa.",
   },
   {
     pregunta: "¿Entregan certificado para Defensa Civil?",
-    respuesta: "Sí. Realizamos el protocolo de pruebas completo y entregamos el certificado de operatividad firmado por un Ingeniero Electricista colegiado y habilitado."
+    respuesta:
+      "Sí. Realizamos el protocolo de pruebas completo y entregamos el certificado de operatividad firmado por un Ingeniero Electricista colegiado y habilitado.",
   },
   {
     pregunta: "¿Mis cables están muy viejos, es peligroso?",
-    respuesta: "Si tus cables tienen más de 20 años o son tipo 'mellizo' (blancos planos), son un riesgo de incendio. Recomendamos una inspección para cambiarlos por cables libres de halógenos."
-  }
+    respuesta:
+      "Si tus cables tienen más de 20 años o son tipo 'mellizo' (blancos planos), son un riesgo de incendio. Recomendamos una inspección para cambiarlos por cables libres de halógenos.",
+  },
 ];
 
 // 2. GENERAMOS EL CÓDIGO INVISIBLE (JSON-LD) PARA GOOGLE
 const schemaFAQ = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": preguntas.map(item => ({
+  mainEntity: preguntas.map((item) => ({
     "@type": "Question",
-    "name": item.pregunta,
-    "acceptedAnswer": {
+    name: item.pregunta,
+    acceptedAnswer: {
       "@type": "Answer",
-      "text": item.respuesta
-    }
-  }))
+      text: item.respuesta,
+    },
+  })),
 };
 ---
 
@@ -41,50 +45,97 @@ const schemaFAQ = {
 
 <section class="faq-section">
   <h2>Preguntas Frecuentes</h2>
-  
-  <div class="faq-container">
-    
-    {preguntas.map((item) => (
-      <details>
-        <summary>{item.pregunta}</summary>
-        <p>{item.respuesta}</p>
-      </details>
-    ))}
 
+  <div class="faq-container">
+    {
+      preguntas.map((item) => (
+        <details>
+          <summary>{item.pregunta}</summary>
+          <p>{item.respuesta}</p>
+        </details>
+      ))
+    }
   </div>
 </section>
 
 <style>
-  .faq-section { margin-top: 4rem; margin-bottom: 4rem; padding: 0 1rem; }
-  h2 { text-align: center; margin-bottom: 2rem; color: #0f172a; font-size: 2rem; }
+  .faq-section {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    padding: 0 1rem;
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--text-main); /* Blanco */
+    font-size: 2rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
 
-  .faq-container { max-width: 800px; margin: 0 auto; }
+  .faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
 
   details {
-    background: white;
+    /* Estilo Glassmorphism */
+    background: rgba(255, 255, 255, 0.05); /* Muy translúcido */
+    backdrop-filter: blur(10px);
     padding: 15px;
     margin-bottom: 15px;
-    border-radius: 8px;
-    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     cursor: pointer;
     transition: all 0.3s ease;
   }
-  
-  details:hover { border-color: #fbbf24; }
-  details[open] { background-color: #f8fafc; border-color: #fbbf24; }
+
+  details:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary-yellow);
+    transform: translateY(-2px);
+  }
+
+  details[open] {
+    background-color: rgba(
+      255,
+      255,
+      255,
+      0.15
+    ); /* Un poco más sólido al abrir */
+    border-color: var(--primary-yellow);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
 
   summary {
-    font-weight: bold;
-    color: #0f172a;
+    font-weight: 700;
+    color: var(--text-main); /* Blanco */
     list-style: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 1.1rem;
   }
-  
-  summary::after { content: '+'; font-size: 1.5rem; color: #fbbf24; font-weight: bold; }
-  details[open] summary::after { content: '-'; }
 
-  p { margin-top: 15px; color: #475569; line-height: 1.6; }
+  summary::after {
+    content: "+";
+    font-size: 1.5rem;
+    color: var(--primary-yellow);
+    font-weight: bold;
+    transition: transform 0.3s;
+  }
+
+  details[open] summary::after {
+    content: "-";
+    transform: rotate(
+      180deg
+    ); /* Animación sutil de rotación si se pudiera con el content, pero el cambio de caracter funciona bien */
+  }
+
+  p {
+    margin-top: 15px;
+    color: var(--text-muted); /* Gris claro */
+    line-height: 1.6;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 10px;
+  }
 </style>
