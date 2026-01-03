@@ -2,7 +2,7 @@
 title: "Sistemas de Videovigilancia (CCTV)"
 description: "Protección 24/7 con cámaras IP, sistemas solares y monitoreo remoto desde tu celular."
 price: "Cotizar"
-image: ../../assets/camaras-seguridad.PNG
+image: ../../assets/camaras-seguridad-h9c.png
 ---
 
 ## Vigilancia Inteligente para tu Seguridad
