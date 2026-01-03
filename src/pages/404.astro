@@ -1,16 +1,14 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro';
+import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout titulo="Página no encontrada">
   <div class="error-container">
     <span class="icono-error">🔌</span>
     <h1>¡Ups! Hubo un corte de luz</h1>
-    <p>La página que buscas no existe o se ha movido.</p>
-    
-    <a href="/" class="btn-volver">
-      Volver al Inicio (Reconectar)
-    </a>
+    <p>La página que buscas no existe o se ha movido a otro lado.</p>
+
+    <a href="/" class="btn-volver"> Volver al Inicio (Reconectar) </a>
   </div>
 </MainLayout>
 
@@ -52,8 +50,14 @@ import MainLayout from '../layouts/MainLayout.astro';
 
   /* Animación de parpadeo como foco malogrado */
   @keyframes parpadeo {
-    0% { opacity: 1; }
-    50% { opacity: 0.3; }
-    100% { opacity: 1; }
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.3;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 </style>
