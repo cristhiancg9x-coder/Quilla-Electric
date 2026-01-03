@@ -34,7 +34,8 @@ const { Content } = await render(servicio);
           <Image
             src={servicio.data.image}
             alt={servicio.data.title}
-            width={800}
+            widths={[360, 540, 720, 960, 1200]}
+            sizes={`(max-width: 400px) 360px, (max-width: 800px) 100vw, 800px`}
             class="foto-redondeada"
           />
         </div>
@@ -96,6 +97,7 @@ const { Content } = await render(servicio);
     border-radius: 12px;
     width: 100%;
     height: auto;
+    aspect-ratio: 16/9;
     object-fit: cover;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.1);
