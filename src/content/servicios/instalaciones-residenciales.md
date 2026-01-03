@@ -2,7 +2,7 @@
 title: "Instalaciones Eléctricas Residenciales"
 description: "Seguridad y modernidad para tu hogar: desde iluminación LED decorativa hasta tableros con protección diferencial."
 price: "Cotizar"
-image: ../../assets/instalacion-hogar.PNG
+image: ../../assets/instalacion-hogar.png
 ---
 
 ## Protege a tu familia con una instalación profesional
