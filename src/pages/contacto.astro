@@ -75,30 +75,36 @@ import MainLayout from "../layouts/MainLayout.astro";
   const form = document.getElementById("form-whatsapp");
 
   // 2. Escuchamos cuando alguien le da click a "Enviar"
-  form.addEventListener("submit", (e) => {
-    e.preventDefault(); // Evita que la página se recargue
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault(); // Evita que la página se recargue
 
-    // 3. Capturamos los datos que escribió el cliente
-    const nombre = document.getElementById("nombre").value;
-    const servicio = document.getElementById("servicio").value;
-    const mensaje = document.getElementById("mensaje").value;
+      // 3. Capturamos los datos que escribió el cliente
+      const nombre =
+        (document.getElementById("nombre") as HTMLInputElement)?.value ?? "";
+      const servicio =
+        (document.getElementById("servicio") as HTMLSelectElement)?.value ?? "";
+      const mensaje =
+        (document.getElementById("mensaje") as HTMLTextAreaElement)?.value ??
+        "";
 
-    // 4. TU NÚMERO DE TELÉFONO (PON EL TUYO AQUÍ)
-    const telefonoQuilla = "51951413458";
+      // 4. TU NÚMERO DE TELÉFONO (PON EL TUYO AQUÍ)
+      const telefonoQuilla = "51951413458";
 
-    // 5. Creamos el texto del mensaje
-    // \n significa "salto de línea"
-    const textoFinal = `Hola Quilla Electric, soy *${nombre}*.\nEstoy interesado en: *${servicio}*.\n\nMensaje: ${mensaje}`;
+      // 5. Creamos el texto del mensaje
+      // \n significa "salto de línea"
+      const textoFinal = `Hola Quilla Electric, soy *${nombre}*.\nEstoy interesado en: *${servicio}*.\n\nMensaje: ${mensaje}`;
 
-    // 6. Convertimos el texto a formato URL (cambia espacios por %20, etc)
-    const textoCodificado = encodeURIComponent(textoFinal);
+      // 6. Convertimos el texto a formato URL (cambia espacios por %20, etc)
+      const textoCodificado = encodeURIComponent(textoFinal);
 
-    // 7. Abrimos WhatsApp
-    window.open(
-      `https://wa.me/${telefonoQuilla}?text=${textoCodificado}`,
-      "_blank"
-    );
-  });
+      // 7. Abrimos WhatsApp
+      window.open(
+        `https://wa.me/${telefonoQuilla}?text=${textoCodificado}`,
+        "_blank"
+      );
+    });
+  }
 </script>
 
 <style>

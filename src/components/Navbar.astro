@@ -17,8 +17,15 @@ import logoImg from "../assets/logo-main.png";
     <span class="logo-text">Quilla Electric</span>
   </a>
 
+  <!-- BOTÓN HAMBURGUESA (Móvil) -->
+  <button class="hamburger" id="hamburger-btn" aria-label="Abrir menú">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+
   <!-- MENÚ DE NAVEGACIÓN PRINCIPAL -->
-  <ul class="menu-links">
+  <ul class="menu-links" id="menu-links">
     <li><a href="/">Inicio</a></li>
     <li><a href="/nosotros">Nosotros</a></li>
     <li><a href="/servicios">Servicios</a></li>
@@ -30,12 +37,14 @@ import logoImg from "../assets/logo-main.png";
     /* ESTILOS (Mobile-First) */
     .barra-electrica {
       /* Background handled by .glass-panel */
-      padding: 1rem;
+      padding: 0.8rem 1.5rem; /* Ajuste padding móvil */
       display: flex;
-      flex-direction: column; /* MOBILE por defecto: apilado */
+      flex-direction: row; /* Fila siempre para alinear Logo - Hamb */
       align-items: center;
-      gap: 15px; /* Separación en móvil */
+      justify-content: space-between; /* Logo izq, Ham der */
+      position: relative; /* Para posicionar el menú absoluto */
       margin-bottom: 20px;
+      z-index: 1000;
     }
 
     /* ... (Rest of base styles same) ... */
@@ -44,84 +53,182 @@ import logoImg from "../assets/logo-main.png";
       align-items: center;
       gap: 10px;
       text-decoration: none;
+      z-index: 1001; /* Encima del menú */
     }
 
     .logo-img {
-      height: 40px;
+      height: 35px; /* Ligeramente más pequeño en móvil */
       width: auto;
       object-fit: contain;
     }
 
     .logo-text {
       font-weight: 800;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       color: var(--primary-yellow);
       text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
+    /* HAMBURGUESA */
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 21px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      z-index: 1001; /* Encima del menú overlay */
+      padding: 0;
+    }
+
+    .hamburger .bar {
+      width: 100%;
+      height: 3px;
+      background-color: var(--primary-yellow);
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    /* Animación Hamburguesa */
+    .hamburger.open .bar:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+    .hamburger.open .bar:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.open .bar:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* MENU LINKS (Móvil - Overlay) */
     .menu-links {
       display: flex;
-      flex-direction: column; /* MOBILE: Lista vertical */
+      flex-direction: column;
+      gap: 20px;
       list-style: none;
-      gap: 15px; /* Espacio entre links en móvil */
       margin: 0;
-      padding: 0;
-      text-align: center;
+      padding: 80px 0 2rem 0; /* Espacio arriba para no tapar navbar */
+
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
+      background: rgba(15, 23, 42, 0.98); /* Fondo oscuro sólido/transparente */
+      backdrop-filter: blur(15px);
+
+      transform: translateY(-100%); /* Oculto arriba por defecto */
+      transition: transform 0.4s ease-in-out;
+      z-index: 1000; /* Debajo de navbar items */
+      border-bottom: 2px solid var(--primary-yellow);
+    }
+
+    .menu-links.active {
+      transform: translateY(0); /* Deslizar hacia abajo */
     }
 
     .menu-links li {
       margin: 0;
+      text-align: center;
+      width: 100%;
     }
 
     .menu-links a {
-      color: var(--text-main);
+      color: white;
       text-decoration: none;
       font-weight: 600;
-      font-size: 1.1rem; /* Botones grandes para dedos en móvil */
-      position: relative;
-      padding: 10px; /* Área táctil generosa */
-      display: block;
+      font-size: 1.3rem;
+      display: inline-block;
+      padding: 10px 20px;
+      width: 80%; /* Botones anchos */
     }
 
     .menu-links a:hover {
       color: var(--primary-yellow);
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
     }
 
-    /* Underline animation (Desktop only ideally, but fine globally) */
-    .menu-links a::after {
-      content: "";
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: 0px; /* Corrección: Bajamos la línea al borde inferior */
-      left: 50%; /* Centrado */
-      transform: translateX(-50%);
-      background-color: var(--primary-yellow);
-      transition: width 0.3s ease;
-    }
-    .menu-links a:hover::after {
-      width: 80%;
-    }
-
-    /* --- DESKTOP (Pantallas > 768px) --- */
+    /* DESKTOP (Pantallas > 768px) */
     @media (min-width: 768px) {
       .barra-electrica {
-        flex-direction: row; /* Cambia a fila */
-        justify-content: space-between;
+        flex-direction: row;
         padding: 1rem 2rem;
+        justify-content: space-between;
+      }
+
+      .hamburger {
+        display: none; /* Ocultar en escritorio */
       }
 
       .menu-links {
-        flex-direction: row; /* Hijos en fila */
+        position: static; /* Volver al flujo normal */
+        flex-direction: row;
         width: auto;
         gap: 30px;
+        background: transparent;
+        padding: 0;
+        transform: none; /* Sin animación de deslizar */
+        border: none;
+        backdrop-filter: none;
       }
 
       .menu-links a {
-        font-size: 1rem; /* Tamaño normal escritorio */
-        padding: 0;
+        font-size: 1rem;
+        color: var(--text-main);
+        width: auto;
+        padding: 0; /* Reset padding móvil */
+      }
+
+      .menu-links a:hover {
+        background: transparent;
+      }
+
+      .logo-text {
+        font-size: 1.5rem;
+      }
+
+      .logo-img {
+        height: 40px;
       }
     }
   </style>
+
+  <script>
+    const hamburger = document.getElementById("hamburger-btn");
+    const navLinks = document.getElementById("menu-links");
+    const links = document.querySelectorAll(".menu-links a");
+
+    if (hamburger && navLinks) {
+      // Toggle Menú
+      hamburger.addEventListener("click", (e) => {
+        e.stopPropagation(); // Evitar cerrar inmediatamente si hay click outside en el mismo botón
+        navLinks.classList.toggle("active");
+        hamburger.classList.toggle("open");
+      });
+
+      // Cerrar al hacer click en un enlace
+      links.forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+          hamburger.classList.remove("open");
+        });
+      });
+
+      // Cerrar al hacer click fuera del menú
+      document.addEventListener("click", (e) => {
+        const target = e.target as HTMLElement;
+        // Si el click NO fue dentro del menú Y el menú está abierto
+        if (
+          !navLinks.contains(target) &&
+          !hamburger.contains(target) &&
+          navLinks.classList.contains("active")
+        ) {
+          navLinks.classList.remove("active");
+          hamburger.classList.remove("open");
+        }
+      });
+    }
+  </script>
 </nav>
