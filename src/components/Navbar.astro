@@ -42,8 +42,15 @@ import logoImg from "../assets/logo-main.png";
       flex-direction: row; /* Fila siempre para alinear Logo - Hamb */
       align-items: center;
       justify-content: space-between; /* Logo izq, Ham der */
-      position: relative; /* Para posicionar el menú absoluto */
-      margin-bottom: 20px;
+
+      /* STICKY HEADER */
+      position: sticky;
+      top: 0;
+      width: 100%; /* Asegura que ocupe todo el ancho */
+      box-sizing: border-box; /* padding incluido en width */
+      margin-top: 0; /* Sin margen superior para pegar al borde */
+      margin-bottom: 20px; /* Espacio para separar del contenido */
+
       z-index: 1000;
     }
 

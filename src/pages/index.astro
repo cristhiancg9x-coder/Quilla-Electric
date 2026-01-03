@@ -5,12 +5,18 @@ import MainLayout from "../layouts/MainLayout.astro";
 import Beneficios from "../components/Beneficios.astro"; // Sección de características clave
 import Galeria from "../components/Galeria.astro"; // Carrusel o grilla de fotos
 import Preguntas from "../components/Preguntas.astro"; // Sección FAQ
+import { getImage } from "astro:assets";
+import heroImage from "../assets/fondo-pantalla.png";
+
+// Optimización de la imagen de fondo
+const optimizedHero = await getImage({ src: heroImage, format: "webp" });
+const heroBgUrl = `url(${optimizedHero.src})`;
 ---
 
 <!-- ENVUELTA DE LAYOUT PRINCIPAL --><!-- Pasamos el título "Inicio" que se concatenará como "Inicio | Quilla Electric" -->
 <MainLayout titulo="Inicio">
   <!-- SECCIÓN HERO: La primera impresión del usuario -->
-  <div class="hero">
+  <div class="hero" style={`--hero-bg: ${heroBgUrl}`}>
     <h1>⚡ Soluciones Eléctricas en Arequipa</h1>
     <p class="subtitulo">
       Energía Segura y Vigilancia Inteligente para tu Empresa o Hogar.
@@ -38,21 +44,40 @@ import Preguntas from "../components/Preguntas.astro"; // Sección FAQ
   /* Estilos solo para la portada */
   .hero {
     text-align: center;
-    padding: 2rem 0; /* MOBILE */
+    padding: 6rem 1rem; /* Más espacio vertical */
+    min-height: 85vh; /* Altura considerable */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrado vertical */
+    align-items: center; /* Centrado horizontal */
+
+    /* FONDO "TODOTERRENO" */
+    background-image:
+      linear-gradient(to bottom, rgba(5, 15, 30, 0.75), rgba(5, 15, 30, 0.65)),
+      /* Overlay azul oscuro */ var(--hero-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: white; /* Asegura texto blanco sobre fondo oscuro */
+    position: relative;
   }
   h1 {
-    font-size: 2rem; /* MOBILE */
-    color: var(--text-main);
-    margin-bottom: 1rem;
+    font-size: 2.5rem; /* MOBILE */
+    color: #ffffff; /* Blanco puro */
+    margin-bottom: 1.5rem;
     line-height: 1.2;
-    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.5);
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Sombra para legibilidad */
+    max-width: 900px;
   }
   .subtitulo {
-    font-size: 1.1rem; /* MOBILE */
-    color: var(--text-muted);
-    max-width: 600px;
-    margin: 0 auto 2rem auto;
+    font-size: 1.25rem; /* MOBILE */
+    color: #f1f5f9; /* Blanco humo */
+    max-width: 700px;
+    margin: 0 auto 2.5rem auto;
     padding: 0 10px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: 500;
   }
 
   .botones {
