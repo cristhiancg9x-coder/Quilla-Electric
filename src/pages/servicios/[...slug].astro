@@ -1,4 +1,12 @@
 ---
+/**
+ * @page Servicio Detalle
+ * @description Págma individual para cada servicio.
+ * Características:
+ * - Genera rutas estáticas (SSG) basadas en el ID de cada servicio.
+ * - Muestra información detallada, precio e imágenes.
+ * - Incluye un botón de llamada a la acción (WhatsApp) personalizado para el servicio actual.
+ */
 // src/pages/servicios/[...slug].astro
 import { getCollection, render } from "astro:content"; // <--- Importamos render
 import MainLayout from "../../layouts/MainLayout.astro";

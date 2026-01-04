@@ -1,4 +1,18 @@
 ---
+/**
+ * @layout MainLayout.astro
+ * @description Layout principal del sitio web.
+ * Estructura común para todas las páginas con:
+ * - <head> configurado con SEO, Analytics, Fuentes y Metadatos.
+ * - Navbar superior condicional/fijo.
+ * - Contenido dinámico inyectado vía <slot />.
+ * - Footer y botones flotantes (WhatsApp).
+ * - Estilos globales CSS (variables, resets, tipografía).
+ *
+ * @props {string} titulo - Título de la página (SEO).
+ * @props {string} [descripcion] - Meta descripción opcional.
+ * @props {string} [imagen] - Imagen para Open Graph (redes sociales).
+ */
 // src/layouts/MainLayout.astro
 // IMPORTACIÓN DE COMPONENTES GLOBALES
 // Estos componentes se reutilizan en todas las páginas que usen este layout

@@ -1,4 +1,13 @@
 ---
+/**
+ * @page Post Individual
+ * @description Plantilla para mostrar un artículo completo del blog.
+ * Características:
+ * - Genera rutas estáticas (SSG) para cada post de la colección "blog".
+ * - Renderiza el contenido Markdown/MDX.
+ * - Incluye Schema Article (JSON-LD) para Google News/Discover.
+ * - Muestra metadatos (autor, fecha) y bloque de llamada a la acción.
+ */
 // src/pages/blog/[...slug].astro
 // 1. IMPORTANTE: Agregamos 'render' a la importación
 import { getCollection, render } from "astro:content";

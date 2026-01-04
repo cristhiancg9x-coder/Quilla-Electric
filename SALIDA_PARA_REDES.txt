@@ -1,0 +1,66 @@
+ACTÚA COMO UN EXPERTO COPYWRITER Y SEO. AQUÍ TIENES MIS SERVICIOS:
+==================================================
+
+--- SERVICIO: Sistemas de Videovigilancia (CCTV) ---
+Data Base: {"titulo": "Sistemas de Videovigilancia (CCTV)", "descripcion_corta": "Protección 24/7 con cámaras IP, sistemas solares y monitoreo remoto desde tu celular.", "precio": "Cotizar", "imagen": "../../assets/camaras-seguridad-h9c.png", "contenido_detallado": "## Vigilancia Inteligente para tu Seguridad\n\nNo dejes la seguridad de tu propiedad al azar. Diseñamos e instalamos sistemas de videovigilancia adaptados a la infraestructura de tu hogar, negocio o zona rural.\n\n### Nuestras Soluciones':'\n\n* **Sistemas NVR y Monitoreo Centralizado:** Instalación de cámaras con cableado UTP, configuración de grabadores NVR y pantallas de monitoreo profesional.\n* **Cámaras WiFi y Sin Cables:** Ideal para hogares y oficinas que buscan una instalación rápida y estética sin perforaciones excesivas.\n* **Sistemas de Energía Solar:** Cámaras autónomas para zonas sin acceso a red eléctrica (fincas, terrenos o perímetros extensos).\n* **Acceso Remoto:** Configuramos todos tus equipos para que puedas ver lo que sucede en tiempo real desde tu smartphone, estés donde estés.\n\n[**👉 ¡Solicitar Cotización de Seguridad!**](/contacto)"}
+
+TAREA PARA LA IA (Instrucciones):
+1. Crea un POST DE FACEBOOK (Feed): Usa emojis, estructura problema-agitación-solución. Incluye CTA al WhatsApp.
+2. Crea una DESCRIPCIÓN PARA MARKETPLACE: Enfocada en keywords, características técnicas (bullets), ubicación y precio.
+3. Sugiere 5 HASHTAGS virales para el nicho.
+--------------------------------------------------
+
+--- SERVICIO: Detección de Fugas de Corriente ---
+Data Base: {"titulo": "Detección de Fugas de Corriente", "descripcion_corta": "¿Tu recibo de luz llega muy caro? Podrías tener una fuga invisible que te está costando dinero.", "precio": "Cotizar", "imagen": "../../assets/fuga-de-corriente.png", "contenido_detallado": "## ¿Pagas demasiado por la luz?\n\nA veces los cables antiguos pierden aislamiento y la electricidad se \"escapa\" a las paredes. Esto hace que tu medidor gire aunque tengas todo apagado.\n\n### ¿Cómo lo solucionamos?\n\nUsamos una **Pinza Amperimétrica de Fugas** y un **Megómetro** para encontrar el punto exacto del problema sin romper toda la casa.\n\n**Beneficios:**\n\n* Bajar tu recibo de luz.\n* Evitar que las paredes pasen corriente.\n* Prevenir incendios.\n\n[**👉 ¡Solicitar Revisión de Fugas!**](/contacto)"}
+
+TAREA PARA LA IA (Instrucciones):
+1. Crea un POST DE FACEBOOK (Feed): Usa emojis, estructura problema-agitación-solución. Incluye CTA al WhatsApp.
+2. Crea una DESCRIPCIÓN PARA MARKETPLACE: Enfocada en keywords, características técnicas (bullets), ubicación y precio.
+3. Sugiere 5 HASHTAGS virales para el nicho.
+--------------------------------------------------
+
+--- SERVICIO: Electricidad Comercial y MYPE ---
+Data Base: {"titulo": "Electricidad Comercial y MYPE", "descripcion_corta": "Adecuación eléctrica para negocios: iluminación de alto impacto, tableros normativos y certificados INDECI.", "precio": "Cotizar", "imagen": "../../assets/electricidad-comercio.png", "contenido_detallado": "## Impulsa tu negocio con energía confiable\n\nPara una MYPE, una falla eléctrica no es solo un peligro, es dinero perdido. Nos especializamos en adecuar locales comerciales para que cumplan con las exigencias municipales y luzcan profesionales.\n\n### Soluciones para tu negocio\n\n- **Iluminación de Alto Impacto:** Diseñamos la luz ideal para vitrinas y áreas de venta, mejorando la exhibición de productos y reduciendo costos.\n- **Energía para Equipos Críticos:** Redes de tomacorrientes estabilizados para servidores, computadoras y sistemas de punto de venta (POS).\n- **Tableros Normativos (INDECI):** Montaje de tableros con rotulado profesional y señalización de seguridad, listos para inspecciones de Defensa Civil.\n- **Canalizaciones Estéticas:** Soluciones con tubería a la vista tipo industrial que facilitan el mantenimiento y aportan modernidad.\n\n**Vende más y duerme tranquilo:** Garantizamos la continuidad de tu energía para que tu negocio nunca se detenga.\n\n[**👉 ¡Cotizar Proyecto Comercial!**](/contacto)"}
+
+TAREA PARA LA IA (Instrucciones):
+1. Crea un POST DE FACEBOOK (Feed): Usa emojis, estructura problema-agitación-solución. Incluye CTA al WhatsApp.
+2. Crea una DESCRIPCIÓN PARA MARKETPLACE: Enfocada en keywords, características técnicas (bullets), ubicación y precio.
+3. Sugiere 5 HASHTAGS virales para el nicho.
+--------------------------------------------------
+
+--- SERVICIO: Instalaciones Eléctricas Industriales ---
+Data Base: {"titulo": "Instalaciones Eléctricas Industriales", "descripcion_corta": "Potencia y resistencia para talleres y plantas: sistemas trifásicos, tableros de fuerza y canalizaciones pesadas.", "precio": "Cotizar", "imagen": "../../assets/electricidad-industrial.png", "contenido_detallado": "## Potencia y Resistencia para tu Maquinaria\n\nEn el sector industrial, la robustez es la clave. Diseñamos sistemas capaces de soportar las jornadas de trabajo más exigentes, protegiendo tu inversión más valiosa.\n\n### Especialidades Industriales':'\n\n- **Iluminación de Grandes Áreas:** Instalación de campanas LED UFO y reflectores de alta potencia para almacenes y naves industriales.\n- **Sistemas Trifásicos Reforzados:** Instalación de tomacorrientes industriales de alta resistencia y puntos de fuerza para equipos pesados.\n- **Tableros de Fuerza y Automatización:** Diseño de tableros con **contactores, guardamotores y variadores de frecuencia** para el control seguro de motores.\n- **Canalizaciones Pesadas (Conduit):** Montaje de bandejas portacables y tubería EMT/IMC para proteger el cableado contra impactos y corrosión.\n\n**Seguridad Industrial:** Cumplimos estrictamente con el Código Nacional de Electricidad para garantizar instalaciones de alto nivel técnico.\n\n[**👉 ¡Solicitar Asesoría Técnica!**](/contacto)"}
+
+TAREA PARA LA IA (Instrucciones):
+1. Crea un POST DE FACEBOOK (Feed): Usa emojis, estructura problema-agitación-solución. Incluye CTA al WhatsApp.
+2. Crea una DESCRIPCIÓN PARA MARKETPLACE: Enfocada en keywords, características técnicas (bullets), ubicación y precio.
+3. Sugiere 5 HASHTAGS virales para el nicho.
+--------------------------------------------------
+
+--- SERVICIO: Instalaciones Eléctricas Residenciales ---
+Data Base: {"titulo": "Instalaciones Eléctricas Residenciales", "descripcion_corta": "Seguridad y modernidad para tu hogar: desde iluminación LED decorativa hasta tableros con protección diferencial.", "precio": "Cotizar", "imagen": "../../assets/instalacion-hogar.PNG", "contenido_detallado": "## Protege a tu familia con una instalación profesional\n\n¿Sabías que la mayoría de incendios domésticos en Perú son causados por instalaciones antiguas o mal ejecutadas? En **Quilla Electric**, transformamos tu hogar en un espacio seguro, eficiente y moderno.\n\n### Lo que hacemos por tu hogar':'\n\n* **Diseño de Iluminación Decorativa:** Creamos ambientes acogedores con tecnología LED, dicroicos y tiras LED que resaltan la estética de tu sala, cocina o fachada.\n* **Distribución Estratégica de Tomacorrientes:** Olvídate de las extensiones peligrosas. Instalamos puntos de energía en cocinas, dormitorios y zonas de estudio.\n* **Tableros de Nueva Generación:** Instalamos llaves termomagnéticas e **interruptores diferenciales** de alta sensibilidad para prevenir electrocuciones.\n* **Circuitos Independientes:** Protegemos tus equipos de alto consumo (termas, aire acondicionado y lavadoras) con líneas de fuerza dedicadas.\n\n> **¿Tu recibo de luz es muy alto?** Realizamos auditorías para detectar fugas de corriente y optimizar tu consumo mensual.\n\n[**👉 ¡Solicitar Inspección Gratuita!**](/contacto)"}
+
+TAREA PARA LA IA (Instrucciones):
+1. Crea un POST DE FACEBOOK (Feed): Usa emojis, estructura problema-agitación-solución. Incluye CTA al WhatsApp.
+2. Crea una DESCRIPCIÓN PARA MARKETPLACE: Enfocada en keywords, características técnicas (bullets), ubicación y precio.
+3. Sugiere 5 HASHTAGS virales para el nicho.
+--------------------------------------------------
+
+--- SERVICIO: Iluminación de Emergencia y Señalética ---
+Data Base: {"titulo": "Iluminación de Emergencia y Señalética", "descripcion_corta": "Equipamiento preventivo para negocios y edificios. Instalación de luces de emergencia bajo norma técnica.", "precio": "Cotizar", "imagen": "../../assets/luces-emergencia.jpg", "contenido_detallado": "## Cumplimiento y Seguridad ante Apagones\n\nLas luces de emergencia no son solo un requisito para obtener tu Licencia de Funcionamiento; son vitales para garantizar una evacuación segura en caso de sismos o fallas eléctricas.\n\n### Qué incluye nuestro servicio':'\n\n* **Instalación de Equipos Autónomos:** Ubicación estratégica de luces de emergencia LED de alta duración en rutas de evacuación y salidas.\n* **Pruebas de Autonomía y Funcionamiento:** Verificamos que las baterías cumplan con el tiempo mínimo de descarga exigido por ley.\n* **Mantenimiento Preventivo:** Revisión periódica para asegurar que los equipos activen correctamente ante un corte de energía.\n* **Cumplimiento INDECI:** Instalaciones realizadas siguiendo los estándares de seguridad exigidos por las municipalidades.\n\n**Evita multas y protege a tus clientes.** Realizamos la instalación y dejamos todo listo para tu próxima inspección.\n\n[**👉 ¡Asegurar mi Negocio Ahora!**](/contacto)"}
+
+TAREA PARA LA IA (Instrucciones):
+1. Crea un POST DE FACEBOOK (Feed): Usa emojis, estructura problema-agitación-solución. Incluye CTA al WhatsApp.
+2. Crea una DESCRIPCIÓN PARA MARKETPLACE: Enfocada en keywords, características técnicas (bullets), ubicación y precio.
+3. Sugiere 5 HASHTAGS virales para el nicho.
+--------------------------------------------------
+
+--- SERVICIO: Mantenimiento y Protocolo de Pozo a Tierra ---
+Data Base: {"titulo": "Mantenimiento y Protocolo de Pozo a Tierra", "descripcion_corta": "Evita multas de INDECI. Servicio completo con gel, tratamiento químico y certificado firmado por Ingeniero.", "precio": "Cotizar", "imagen": "../../assets/pozo-tierra.jpeg", "contenido_detallado": "## ¿Por qué necesitas este servicio?\nEl pozo a tierra es el salvavidas de tu negocio. Si la resistencia es alta, los equipos se queman y la municipalidad te multa.\n\n### ¿Qué incluye nuestro servicio?\n1.  **Limpieza:** Retiro de óxido en la varilla de cobre.\n2.  **Tratamiento:** Aplicación de Thor Gel o Cemento Conductivo.\n3.  **Medición:** Uso de Teluómetro calibrado.\n4.  **Certificación:** Entrega de Dossier de Calidad y Certificado de Operatividad.\n\n**Zonas de atención:** Cerro Colorado, Yanahuara, Cayma y todo Arequipa.\n\n[**👉 ¡Agendar Visita Técnica!**](/contacto)"}
+
+TAREA PARA LA IA (Instrucciones):
+1. Crea un POST DE FACEBOOK (Feed): Usa emojis, estructura problema-agitación-solución. Incluye CTA al WhatsApp.
+2. Crea una DESCRIPCIÓN PARA MARKETPLACE: Enfocada en keywords, características técnicas (bullets), ubicación y precio.
+3. Sugiere 5 HASHTAGS virales para el nicho.
+--------------------------------------------------
+

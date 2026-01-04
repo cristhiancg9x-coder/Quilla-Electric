@@ -1,3 +1,8 @@
+/**
+ * @file zonas.js
+ * @description Datos estáticos de zonas de cobertura para generar Landing Pages locales.
+ * Se utiliza en `src/pages/electricista-en/[lugar].astro` para crear rutas dinámicas.
+ */
 // src/data/zonas.js
 export const zonas = [
   {

@@ -1,3 +1,10 @@
+/**
+ * @file rss.xml.js
+ * @description Generador de Feed RSS para el sitio.
+ * Crea un archivo XML compatible con lectores de noticias, listando los posts del blog ordenados por fecha.
+ * 
+ * @see https://docs.astro.build/en/guides/rss/
+ */
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
 
