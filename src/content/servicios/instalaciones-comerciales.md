@@ -9,7 +9,7 @@ image: ../../assets/electricidad-comercio.png
 
 Para una MYPE, una falla eléctrica no es solo un peligro, es dinero perdido. Nos especializamos en adecuar locales comerciales para que cumplan con las exigencias municipales y luzcan profesionales.
 
-### Soluciones para tu negocio
+### Soluciones para tu negocio':'
 
 - **Iluminación de Alto Impacto:** Diseñamos la luz ideal para vitrinas y áreas de venta, mejorando la exhibición de productos y reduciendo costos.
 - **Energía para Equipos Críticos:** Redes de tomacorrientes estabilizados para servidores, computadoras y sistemas de punto de venta (POS).

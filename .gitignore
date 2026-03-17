@@ -26,3 +26,9 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# archivos de configuración de firebase
+resumen_para_gemini.txt
+analizar_astro.py
+
+contenido_para_edicion.txt  
