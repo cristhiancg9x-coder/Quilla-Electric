@@ -17,10 +17,11 @@ import logoImg from "../assets/logo-main.png";
 <nav class="barra-electrica glass-panel">
   <!-- SECCIÓN LOGO: Al hacer clic redirige al inicio -->
   <a href="/" class="logo-container">
+    <!-- Logo text is colored, logo pulses removed -->
     <Image
       src={logoImg}
       alt="Logo Quilla Electric"
-      class="logo-img logo-pulse"
+      class="logo-img"
       width={50}
       height={50}
     />
@@ -38,10 +39,15 @@ import logoImg from "../assets/logo-main.png";
   <!-- MENÚ DE NAVEGACIÓN PRINCIPAL -->
   <ul class="menu-links" id="menu-links">
     <li><a href="/">Inicio</a></li>
-    <li><a href="/nosotros">Nosotros</a></li>
     <li><a href="/servicios">Servicios</a></li>
-    <li><a href="/blog">Blog</a></li>
+    <li><a href="/nosotros">Nosotros</a></li>
+    <li><a href="/brochure">Brochure</a></li>
     <li><a href="/contacto">Contacto</a></li>
+    <li>
+      <a href="tel:+51951413458" class="btn-call-nav">
+        📞 Llamar Ahora
+      </a>
+    </li>
   </ul>
 
   <style>
@@ -104,7 +110,7 @@ import logoImg from "../assets/logo-main.png";
     .hamburger .bar {
       width: 100%;
       height: 3px;
-      background-color: var(--primary-yellow);
+      background-color: var(--text-main);
       border-radius: 3px;
       transition: all 0.3s ease;
     }
@@ -130,11 +136,11 @@ import logoImg from "../assets/logo-main.png";
       padding: 80px 0 2rem 0; /* Espacio arriba para no tapar navbar */
 
       position: absolute;
-      top: 0;
+      top: 100%; /* Pega justo debado del navbar */
       left: 0;
       width: 100%;
-      background: rgba(15, 23, 42, 0.98); /* Fondo oscuro sólido/transparente */
-      backdrop-filter: blur(15px);
+      background: var(--bg-main); /* Blanco sólido */
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 
       transform: translateY(-100%); /* Oculto arriba por defecto */
       transition: transform 0.4s ease-in-out;
@@ -153,10 +159,10 @@ import logoImg from "../assets/logo-main.png";
     }
 
     .menu-links a {
-      color: white;
+      color: var(--text-main);
       text-decoration: none;
       font-weight: 600;
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       display: inline-block;
       padding: 10px 20px;
       width: 80%; /* Botones anchos */
@@ -164,8 +170,23 @@ import logoImg from "../assets/logo-main.png";
 
     .menu-links a:hover {
       color: var(--primary-yellow);
-      background: rgba(255, 255, 255, 0.05);
+      background: var(--bg-surface);
       border-radius: 8px;
+    }
+    
+    .btn-call-nav {
+      background: var(--primary-yellow) !important;
+      color: #0f172a !important;
+      font-weight: bold !important;
+      border-radius: 50px !important;
+      padding: 12px 20px !important;
+      margin-top: 10px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .btn-call-nav:hover {
+      transform: scale(1.05);
+      background: #ffc300 !important;
     }
 
     /* DESKTOP (Pantallas > 768px) */

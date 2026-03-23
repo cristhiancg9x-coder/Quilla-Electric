@@ -2,16 +2,11 @@
 /**
  * @page Landing Local (SEO Local)
  * @description Páginas de aterrizaje específicas para distritos/zonas.
- * Características:
- * - Genera rutas estáticas para cada zona definida en `src/data/zonas`.
- * - Personaliza el contenido (título, descripción, urgencia) según el lugar.
- * - Enfoque en SEO local para captar búsquedas como "Electricista en Cerro Colorado".
  */
 // src/pages/electricista-en/[lugar].astro
 import MainLayout from "../../layouts/MainLayout.astro";
-import { zonas } from "../../data/zonas"; // Importamos la lista
+import { zonas } from "../../data/zonas";
 
-// 1. Generar las rutas automáticas
 export function getStaticPaths() {
   return zonas.map((zona) => ({
     params: { lugar: zona.slug },
@@ -19,119 +14,254 @@ export function getStaticPaths() {
   }));
 }
 
-// 2. Recibir los datos de la zona actual
 const { zona } = Astro.props;
+
+// FAQ Dinámico para SEO Local (Incrustando palabras clave locales)
+const faqs = [
+  {
+    pregunta: `¿Cuánto demora un electricista en llegar a ${zona.nombre}?`,
+    respuesta: `Al tener técnicos desplegados en Arequipa y cobertura frecuente en ${zona.nombre}, nuestro tiempo de respuesta para emergencias (cortocircuitos o fallas de luz) suele ser inmediato, promediando 30 a 45 minutos.`,
+  },
+  {
+    pregunta: `¿Emiten certificados de pozo a tierra válidos para INDECI en ${zona.nombre}?`,
+    respuesta: `Sí, todos nuestros mantenimientos e instalaciones de pozos a tierra en domicilios y empresas de ${zona.nombre} incluyen protocolo de pruebas y certificado firmado por un ingeniero electricista colegiado y habilitado, 100% válido para Defensa Civil.`,
+  },
+  {
+    pregunta: `¿Realizan cableado eléctrico para independización de medidores en ${zona.nombre}?`,
+    respuesta: `Por supuesto. Si vives en ${zona.nombre} y necesitas independizar tu circuito eléctrico con medidores internos, tableros o llaves termomagnéticas exclusivas, realizamos todo el trabajo interno cumpliendo las normativas.`,
+  }
+];
+
+// Generador de Structure Data (FAQPage)
+const faqsSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.pregunta,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.respuesta
+    }
+  }))
+};
 ---
 
 <MainLayout
-  titulo={`${zona.titulo} | Emergencias 24h`}
-  descripcion={`¿Buscas ${zona.titulo}? ${zona.desc} Técnico Juan Quilla a tu servicio.`}
+  titulo={`${zona.titulo} | Instalaciones de Calidad 24h`}
+  descripcion={`¿Buscas ${zona.titulo}? Técnicos especialistas a domicilio. Mantenimiento de pozos a tierra, instalación de tableros y atención de emergencias.`}
 >
+  <!-- Inyección de Schema para SEO Local -->
+  <script type="application/ld+json" set:html={JSON.stringify(faqsSchema)} />
+
   <section class="zona-hero">
     <h1>⚡ {zona.titulo}</h1>
     <p class="bajada">{zona.desc}</p>
 
     <div class="caja-urgencia">
-      <p>🚨 <strong>¿Estás en {zona.nombre} y se fue la luz?</strong></p>
-      <p>Estamos cerca de tu zona. Atendemos emergencias las 24 horas.</p>
+      <p class="urgencia-title">🚨 ¿Incidencias eléctricas urgentes en {zona.nombre}?</p>
+      <p class="urgencia-text">Atendemos emergencias las 24 horas del día de manera prioritaria.</p>
 
       <a
-        href={`https://wa.me/51999999999?text=Hola,%20necesito%20un%20electricista%20en%20${zona.nombre}`}
-        class="btn-whatsapp"
+        href={`https://wa.me/51951413458?text=Hola,%20necesito%20un%20técnico%20electricista%20urgente%20en%20${zona.nombre}`}
+        class="btn-whatsapp-cta"
         target="_blank"
       >
-        Pedir Técnico en {zona.nombre}
+        Pedir Técnico por WhatsApp
       </a>
     </div>
   </section>
 
   <section class="contenido-zona">
-    <h2>Servicios disponibles en {zona.nombre}</h2>
-    <ul>
-      <li>✅ Reparación de Cortocircuitos y Apagones.</li>
-      <li>✅ Instalación de Duchas Eléctricas (Rapiduchas).</li>
-      <li>✅ Mantenimiento de Pozo a Tierra (Certificado).</li>
-      <li>✅ Cableado de casas y departamentos.</li>
-    </ul>
+    <div class="servicios-wrapper">
+      <div class="servicios-info">
+        <h2>Servicios en {zona.nombre}</h2>
+        <p class="descripcion-servicios">
+          Asegura tu propiedad contra fallas eléctricas. En <strong>{zona.nombre}</strong> realizamos:
+        </p>
+        <ul class="lista-check">
+          <li>Reparación de Cortocircuitos y Apagones parciales.</li>
+          <li>Instalación segura de Duchas Eléctricas (Rapiduchas) y Termas.</li>
+          <li>Mantenimiento de Tableros y Llaves Termomagnéticas.</li>
+          <li>Fabricación e Instalación de Pozo a Tierra Técnico.</li>
+        </ul>
+      </div>
 
-    <h3>¿Por qué elegirnos en {zona.nombre}?</h3>
-    <p>
-      Conocemos los problemas eléctricos típicos de <strong
-        >{zona.nombre}</strong
-      >. No cobramos viáticos excesivos porque estamos en la zona. Garantía y
-      puntualidad.
-    </p>
+      <div class="faq-section">
+        <h3>Preguntas Frecuentes ({zona.nombre})</h3>
+        <div class="faq-container">
+          {faqs.map(faq => (
+            <details class="faq-item">
+              <summary>{faq.pregunta}</summary>
+              <div class="faq-body">
+                <p>{faq.respuesta}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </div>
   </section>
 </MainLayout>
 
 <style>
+  /* HERO ZONA MINIMALISTA (Estilo Clean Nordic) */
   .zona-hero {
-    background-color: #0f172a;
-    color: white;
-    padding: 3rem 1rem;
+    background-color: var(--bg-surface);
+    color: var(--text-main);
+    padding: 4rem 1rem;
     text-align: center;
-    border-radius: 0 0 20px 20px;
+    border-bottom: 1px solid var(--border-subtle);
   }
+  
   h1 {
     font-size: 2.5rem;
     margin-bottom: 10px;
-    color: #fbbf24;
+    color: var(--text-main);
   }
+  
   .bajada {
     font-size: 1.2rem;
-    color: #cbd5e1;
+    color: var(--text-muted);
     max-width: 600px;
-    margin: 0 auto 2rem auto;
+    margin: 0 auto 2.5rem auto;
   }
 
   .caja-urgencia {
-    background: white;
-    color: #0f172a;
-    padding: 2rem;
+    background: var(--bg-main);
+    color: var(--text-main);
+    padding: 2.5rem;
     border-radius: 12px;
-    max-width: 500px;
+    max-width: 600px;
     margin: 0 auto;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-subtle);
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
   }
 
-  .btn-whatsapp {
+  .urgencia-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--text-main);
+    margin-bottom: 10px;
+  }
+  
+  .urgencia-text {
+    color: var(--text-muted);
+    margin-bottom: 25px;
+  }
+
+  .btn-whatsapp-cta {
     display: inline-block;
-    background-color: #25d366;
-    color: white;
+    background-color: var(--primary-yellow);
+    color: #0f172a;
     text-decoration: none;
     font-weight: bold;
-    padding: 12px 24px;
+    padding: 14px 28px;
     border-radius: 50px;
-    margin-top: 15px;
     font-size: 1.1rem;
-    transition: transform 0.2s;
+    transition: transform 0.2s, background-color 0.2s;
   }
-  .btn-whatsapp:hover {
-    transform: scale(1.05);
+  
+  .btn-whatsapp-cta:hover {
+    transform: scale(1.03);
+    background-color: #ffc300;
   }
 
+  /* REJILLA DE CONTENIDOS */
   .contenido-zona {
-    max-width: 800px;
-    margin: 3rem auto;
+    max-width: 1000px;
+    margin: 4rem auto;
     padding: 0 1rem;
   }
-  h2 {
-    color: #0f172a;
-    border-bottom: 2px solid #fbbf24;
-    display: inline-block;
-    padding-bottom: 5px;
+  
+  .servicios-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
-  ul {
-    margin-top: 1rem;
+  
+  @media(min-width: 768px) {
+    .servicios-wrapper {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  h2, h3 {
+    color: var(--text-main);
+    border-left: 4px solid var(--primary-yellow);
+    padding-left: 12px;
+    margin-bottom: 20px;
+  }
+
+  .descripcion-servicios {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+  }
+
+  .lista-check {
     list-style: none;
     padding: 0;
   }
-  ul li {
-    margin-bottom: 10px;
-    font-size: 1.1rem;
+  
+  .lista-check li {
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    padding-left: 25px;
+    position: relative;
   }
-  h3 {
-    margin-top: 2rem;
-    color: #0f172a;
+  
+  .lista-check li::before {
+    content: "✅";
+    position: absolute;
+    left: 0;
+  }
+
+  /* ACORDEÓN DE PREGUNTAS (FAQ) */
+  .faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .faq-item {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .faq-item summary {
+    padding: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--text-main);
+    list-style: none; /* Hide default arrow */
+    position: relative;
+  }
+  
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+  
+  .faq-item summary::after {
+    content: "+";
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: var(--text-muted);
+  }
+  
+  .faq-item[open] summary::after {
+    content: "-";
+  }
+  
+  .faq-body {
+    padding: 0 18px 18px 18px;
+    color: var(--text-muted);
+    line-height: 1.6;
   }
 </style>

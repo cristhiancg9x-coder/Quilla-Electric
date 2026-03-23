@@ -13,6 +13,7 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import Beneficios from "../components/Beneficios.astro"; // Sección de características clave
 import Galeria from "../components/Galeria.astro"; // Carrusel o grilla de fotos
+import Testimonios from "../components/Testimonios.astro";
 import Preguntas from "../components/Preguntas.astro"; // Sección FAQ
 import { getImage } from "astro:assets";
 import heroImage from "../assets/fondo-pantalla.png";
@@ -22,15 +23,17 @@ const optimizedHero = await getImage({ src: heroImage, format: "webp" });
 const heroBgUrl = `url(${optimizedHero.src})`;
 ---
 
-<!-- ENVUELTA DE LAYOUT PRINCIPAL --><!-- Pasamos el título "Inicio" que se concatenará como "Inicio | Quilla Electric" -->
-<MainLayout titulo="Inicio">
+<!-- ENVUELTA DE LAYOUT PRINCIPAL -->
+<MainLayout 
+  titulo="Electricista en Arequipa" 
+  descripcion="¿Buscas electricistas en Arequipa? Ofrecemos servicios eléctricos a domicilio e industriales. Instalación, pozos a tierra y emergencias 24h. ¡Llama al 951413458!"
+>
   <!-- SECCIÓN HERO: La primera impresión del usuario -->
   <div class="hero" style={`--hero-bg: ${heroBgUrl}`}>
-    <h1>⚡ Soluciones Eléctricas en Arequipa</h1>
+    <h1>⚡ Electricista en Arequipa</h1>
     <p class="subtitulo">
-      Energía Segura y Vigilancia Inteligente para tu Empresa o Hogar.
-      Instalaciones eléctricas industriales, sistemas de cámaras y mantenimiento
-      experto de pozos a tierra. Garantía, rapidez y certificaciones de ley.
+      Expertos en <strong>servicios eléctricos en Arequipa</strong> para empresas y hogares.
+      Atendemos emergencias, cortocircuitos, instalación de tableros, cámaras de seguridad y certificación de pozos a tierra. Técnicos colegiados con garantía real.
     </p>
 
     <!-- BOTONES DE LLAMADA A LA ACCIÓN (CTA) -->
@@ -45,7 +48,9 @@ const heroBgUrl = `url(${optimizedHero.src})`;
   <!-- SECCIONES DE CONTENIDO -->
   <Beneficios />
 
-  <Galeria /><Preguntas />
+  <Galeria />
+  <Testimonios />
+  <Preguntas />
 </MainLayout>
 
 <style>
@@ -60,32 +65,32 @@ const heroBgUrl = `url(${optimizedHero.src})`;
     justify-content: center; /* Centrado vertical */
     align-items: center; /* Centrado horizontal */
 
-    /* FONDO "TODOTERRENO" */
+    /* FONDO NORDICO (Blanco con toques de imagen opacada) */
     background-image:
-      linear-gradient(to bottom, rgba(5, 15, 30, 0.75), rgba(5, 15, 30, 0.65)),
-      /* Overlay azul oscuro */ var(--hero-bg);
+      linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.4) 100%),
+      var(--hero-bg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
-    color: white; /* Asegura texto blanco sobre fondo oscuro */
+    
+    color: var(--text-main);
     position: relative;
+    border-bottom: 1px solid var(--border-subtle);
   }
   h1 {
     font-size: 2.5rem; /* MOBILE */
-    color: #ffffff; /* Blanco puro */
+    color: var(--text-main); 
     margin-bottom: 1.5rem;
     line-height: 1.2;
-    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Sombra para legibilidad */
+    text-shadow: none; /* Sin sombras en minimalismo */
     max-width: 900px;
   }
   .subtitulo {
     font-size: 1.25rem; /* MOBILE */
-    color: #f1f5f9; /* Blanco humo */
+    color: var(--text-muted); 
     max-width: 700px;
     margin: 0 auto 2.5rem auto;
     padding: 0 10px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     font-weight: 500;
   }
 
@@ -116,8 +121,7 @@ const heroBgUrl = `url(${optimizedHero.src})`;
   /* Nota: .btn-primary viene de MainLayout */
 
   .btn-secondary {
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(4px);
+    background: transparent;
     color: var(--text-main);
     padding: 12px 25px;
     text-decoration: none;
@@ -128,10 +132,10 @@ const heroBgUrl = `url(${optimizedHero.src})`;
   }
 
   .btn-secondary:hover {
-    background: white;
-    color: #061161; /* Azul oscuro para contraste con fondo blanco */
+    background: var(--bg-surface);
+    color: var(--text-main);
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
+    border-color: #64748b;
   }
 
   .divisor {

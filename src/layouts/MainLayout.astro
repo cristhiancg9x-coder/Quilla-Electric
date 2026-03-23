@@ -151,26 +151,18 @@ const imagenAbsoluta = new URL(imagen, siteURL).href;
 </html>
 
 <style is:global>
-  /* --- VARIABLES CSS GLOBALES (THEME) --- */
+  /* --- VARIABLES CSS GLOBALES (THEME MINIMALISTA) --- */
   :root {
-    /* PALETA DE COLORES */
-    --primary-yellow: #ffd700; /* Amarillo Dorado (Acento principal) */
-    --soft-blue: #e0f2fe; /* Azul suave (Secundario) */
-    --soft-white: #f8fafc; /* Blanco humo (Fondos claros) */
-    --text-main: #ffffff; /* Texto blanco (Para contraste con fondo oscuro) */
-    --text-muted: #e2e8f0; /* Texto secundario gris claro */
-
-    /* TOKENS DE GLASSMORPHISM (Efecto Vidrio) */
-    --glass-bg: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
-    --glass-border: rgba(255, 255, 255, 0.2); /* Borde sutil */
-    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3); /* Sombra suave */
-
-    /* GRADIENTES DEFINIDOS */
-    /* Fondo principal: Azul Eléctrico de Izquierda a Derecha */
-    --bg-gradient: linear-gradient(90deg, #061161 0%, #0052d4 100%);
+    /* PALETA DE COLORES NORDIC */
+    --primary-yellow: #ffd700; /* Acento principal (CTAs) */
+    --bg-main: #ffffff; /* Blanco puro para fondo principal */
+    --bg-surface: #f8fafc; /* Gris superficie claro */
+    --text-main: #0f172a; /* Texto principal (Gris Pizarra Oscuro) */
+    --text-muted: #475569; /* Texto secundario legible */
+    --border-subtle: #e2e8f0; /* Borde de 1px */
 
     /* Variables de Botones (Colores Sólidos) */
-    --btn-solid: #ffd700; /* Amarillo Eléctrico Fijo */
+    --btn-solid: #ffd700;
   }
 
   /* --- RESET BÁSICO Y FUNDAMENTOS --- */
@@ -186,8 +178,7 @@ const imagenAbsoluta = new URL(imagen, siteURL).href;
       sans-serif;
     margin: 0;
     color: var(--text-main);
-    background: var(--bg-gradient);
-    background-attachment: fixed; /* Mantiene el gradiente en pantallas largas */
+    background-color: var(--bg-main);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -216,33 +207,28 @@ const imagenAbsoluta = new URL(imagen, siteURL).href;
 
   /* --- CLASES DE UTILIDAD (GLASSMORPHISM) --- */
 
-  /* Panel de Cristal Reutilizable */
+  /* Panel Base Reutilizable */
   .glass-panel {
-    background: var(--glass-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--glass-border);
-    border-radius: 16px;
-    box-shadow: var(--glass-shadow);
+    background-color: var(--bg-main);
+    border-bottom: 1px solid var(--border-subtle);
   }
 
   /* Tarjeta de Servicio / Info */
   .glass-card {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px; /* Bordes menos redondeados en minimalismo */
     padding: 2rem;
     transition:
       transform 0.3s ease,
-      box-shadow 0.3s ease;
-    /* fix user revert: removed solid white bg and text overrides */
+      box-shadow 0.3s ease,
+      border-color 0.3s ease;
   }
 
   .glass-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
-    border-color: var(--primary-yellow);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); /* Sombra extremadamente sutil */
+    border-color: #cbd5e1; /* Gris un poco más oscuro al hacer hover */
   }
 
   /* --- BOTONES CON MICRO-INTERACCIONES (SIN GRADIENTES) --- */

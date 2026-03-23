@@ -7,33 +7,7 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders'; // Importante para Astro v5
 
-// 1. Colección del BLOG
-/**
- * Colección de contenido para el Blog.
- * @type {import('astro:content').CollectionConfig}
- * @property {import('astro/loaders').Loader} loader - Carga archivos Markdown glob pattern.
- * @property {import('astro:content').Schema} schema - Esquema de validación con Zod.
- */
-const blog = defineCollection({
-  // En Astro v5 usamos el "loader" para buscar archivos
-  loader: glob({ pattern: "**/*.md", base: "./src/content/blog" }),
-  
-  /**
-   * Esquema de validación para los posts del blog.
-   * @param {object} context - Contexto de validación de Astro.
-   * @param {function} context.image - Helper para validar imágenes.
-   * @returns {import('zod').ZodObject} Esquema Zod.
-   */
-  schema: ({ image }) => z.object({
-    title: z.string().describe("Título del artículo"),
-    description: z.string().describe("Breve resumen para SEO y listados"),
-    // Fecha segura: si falla, usa la fecha actual
-    pubDate: z.coerce.date().optional().describe("Fecha de publicación"), 
-    image: image().optional().describe("Imagen destacada del artículo"),
-    author: z.string().default('Quilla Electric').describe("Autor del post"),
-    tags: z.array(z.string()).default(['Electricidad']).describe("Etiquetas para categorizar"),
-  }),
-});
+
 
 // 2. Colección de SERVICIOS
 /**
@@ -61,6 +35,5 @@ const servicios = defineCollection({
  * Astro buscará automáticamente este objeto exportado.
  */
 export const collections = {
-  blog,
   servicios,
 };
