@@ -9,7 +9,7 @@ image: ../../assets/electricidad-industrial.png
 
 En el sector industrial, la robustez es la clave. Diseñamos sistemas capaces de soportar las jornadas de trabajo más exigentes, protegiendo tu inversión más valiosa.
 
-### Especialidades Industriales':'
+### Especialidades Industriales:
 
 - **Iluminación de Grandes Áreas:** Instalación de campanas LED UFO y reflectores de alta potencia para almacenes y naves industriales.
 - **Sistemas Trifásicos Reforzados:** Instalación de tomacorrientes industriales de alta resistencia y puntos de fuerza para equipos pesados.

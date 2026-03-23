@@ -53,14 +53,14 @@
     /* Eliminamos background-color: white para que se vea el gradiente global */
   }
   h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 2rem;
     color: var(--text-main); 
   }
 
   .grid-beneficios {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
     gap: 30px;
     padding: 0 1rem;
   }

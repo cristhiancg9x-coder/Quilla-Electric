@@ -9,7 +9,7 @@ image: ../../assets/camaras-seguridad-h9c.png
 
 No dejes la seguridad de tu propiedad al azar. Diseñamos e instalamos sistemas de videovigilancia adaptados a la infraestructura de tu hogar, negocio o zona rural.
 
-### Nuestras Soluciones':'
+### Nuestras Soluciones:
 
 * **Sistemas NVR y Monitoreo Centralizado:** Instalación de cámaras con cableado UTP, configuración de grabadores NVR y pantallas de monitoreo profesional.
 * **Cámaras WiFi y Sin Cables:** Ideal para hogares y oficinas que buscan una instalación rápida y estética sin perforaciones excesivas.

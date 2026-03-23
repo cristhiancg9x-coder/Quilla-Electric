@@ -108,8 +108,8 @@ import fotoCasa from "../assets/cableado-casa.jpeg";
 
   .grid-galeria {
     display: grid;
-    /* Mobile-First: asegura que entren tarjetas en pantallas de 300px+ */
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    /* Mobile-First: min(100%, Xpx) evita overflow horizontal en pantallas minúsculas */
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
     gap: 20px; /* Gap más pequeño para móvil */
   }
 

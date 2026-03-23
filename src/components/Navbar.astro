@@ -11,7 +11,7 @@
  */
 
 import { Image } from "astro:assets";
-import logoImg from "../assets/logo-main.png";
+import logoImg from "../assets/logo-main.svg";
 ---
 
 <nav class="barra-electrica glass-panel">
@@ -143,13 +143,19 @@ import logoImg from "../assets/logo-main.png";
       box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 
       transform: translateY(-100%); /* Oculto arriba por defecto */
-      transition: transform 0.4s ease-in-out;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: all 0.4s ease-in-out;
       z-index: 1000; /* Debajo de navbar items */
       border-bottom: 2px solid var(--primary-yellow);
     }
 
     .menu-links.active {
       transform: translateY(0); /* Deslizar hacia abajo */
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
     }
 
     .menu-links li {
@@ -179,18 +185,21 @@ import logoImg from "../assets/logo-main.png";
       color: #0f172a !important;
       font-weight: bold !important;
       border-radius: 50px !important;
-      padding: 12px 20px !important;
+      padding: 14px 25px !important;
       margin-top: 10px;
       text-align: center;
       transition: transform 0.2s;
+      box-sizing: border-box !important;
+      width: auto !important; /* Evita que crezca desproporcionadamente */
+      display: inline-block !important;
     }
     .btn-call-nav:hover {
       transform: scale(1.05);
       background: #ffc300 !important;
     }
 
-    /* DESKTOP (Pantallas > 768px) */
-    @media (min-width: 768px) {
+    /* DESKTOP Y TABLETS GRANDES (Pantallas > 992px) */
+    @media (min-width: 992px) {
       .barra-electrica {
         flex-direction: row;
         padding: 1rem 2rem;
@@ -209,6 +218,9 @@ import logoImg from "../assets/logo-main.png";
         background: transparent;
         padding: 0;
         transform: none; /* Sin animación de deslizar */
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
         border: none;
         backdrop-filter: none;
       }
@@ -222,6 +234,11 @@ import logoImg from "../assets/logo-main.png";
 
       .menu-links a:hover {
         background: transparent;
+      }
+      
+      .btn-call-nav {
+        margin-top: 0 !important;
+        padding: 10px 20px !important;
       }
 
       .logo-text {

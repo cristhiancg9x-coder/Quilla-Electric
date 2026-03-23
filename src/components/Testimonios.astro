@@ -1,17 +1,25 @@
 ---
 // src/components/Testimonios.astro
 ---
+
 <section class="seccion-testimonios">
   <div class="testimonio-header">
     <h2>Opiniones de Clientes Reales</h2>
-    <p>La confianza se construye con buen servicio. Esto dicen quienes han confiado en Quilla Electric.</p>
+    <p>
+      La confianza se construye con buen servicio. Esto dicen quienes han
+      confiado en Quilla Electric.
+    </p>
   </div>
-  
+
   <div class="testimonio-grid">
     <!-- Testimonio 1 -->
     <div class="card-testimonio">
       <div class="stars">⭐⭐⭐⭐⭐</div>
-      <p class="comentario">"Tuve un cortocircuito a la medianoche. Juan llegó en 30 minutos a Cerro Colorado y lo solucionó súper rápido. Muy profesionales y precios justos."</p>
+      <p class="comentario">
+        "Tuve un cortocircuito a la medianoche. El servicio llegó en 30 minutos
+        a Cerro Colorado y lo solucionó súper rápido. Muy profesionales y
+        precios justos."
+      </p>
       <div class="autor">
         <div class="avatar">M</div>
         <div>
@@ -24,7 +32,11 @@
     <!-- Testimonio 2 -->
     <div class="card-testimonio">
       <div class="stars">⭐⭐⭐⭐⭐</div>
-      <p class="comentario">"Excelente servicio. Instalaron un pozo a tierra para mi local comercial y me entregaron el certificado INDECI al instante. Todo en regla con las normativas."</p>
+      <p class="comentario">
+        "Excelente servicio. Instalaron un pozo a tierra para mi local comercial
+        y me entregaron el certificado INDECI al instante. Todo en regla con las
+        normativas."
+      </p>
       <div class="autor">
         <div class="avatar blue">C</div>
         <div>
@@ -37,7 +49,11 @@
     <!-- Testimonio 3 -->
     <div class="card-testimonio">
       <div class="stars">⭐⭐⭐⭐⭐</div>
-      <p class="comentario">"Contraté el recableado completo de mi casa. Son técnicos muy educados y trabajan muy limpio. Dejaron todo funcionando perfecto. Totalmente recomendados."</p>
+      <p class="comentario">
+        "Contraté el recableado completo de mi casa. Son técnicos muy educados y
+        trabajan muy limpio. Dejaron todo funcionando perfecto. Totalmente
+        recomendados."
+      </p>
       <div class="autor">
         <div class="avatar yellow">L</div>
         <div>
@@ -74,7 +90,7 @@
 
   .testimonio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
     gap: 20px;
     max-width: 1100px;
     margin: 0 auto;
@@ -124,8 +140,14 @@
     font-size: 1.2rem;
   }
 
-  .avatar.blue { background-color: #e0f2fe; color: #0369a1; }
-  .avatar.yellow { background-color: #fef08a; color: #854d0e; }
+  .avatar.blue {
+    background-color: #e0f2fe;
+    color: #0369a1;
+  }
+  .avatar.yellow {
+    background-color: #fef08a;
+    color: #854d0e;
+  }
 
   .autor strong {
     display: block;

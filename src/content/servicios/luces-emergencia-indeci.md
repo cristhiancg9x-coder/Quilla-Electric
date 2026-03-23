@@ -9,7 +9,7 @@ image: ../../assets/luces-emergencia.jpg
 
 Las luces de emergencia no son solo un requisito para obtener tu Licencia de Funcionamiento; son vitales para garantizar una evacuación segura en caso de sismos o fallas eléctricas.
 
-### Qué incluye nuestro servicio':'
+### Qué incluye nuestro servicio:
 
 * **Instalación de Equipos Autónomos:** Ubicación estratégica de luces de emergencia LED de alta duración en rutas de evacuación y salidas.
 * **Pruebas de Autonomía y Funcionamiento:** Verificamos que las baterías cumplan con el tiempo mínimo de descarga exigido por ley.

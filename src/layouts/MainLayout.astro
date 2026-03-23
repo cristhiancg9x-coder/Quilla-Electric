@@ -79,12 +79,8 @@ const imagenAbsoluta = new URL(imagen, siteURL).href;
     />
 
     <!-- FAVICON -->
-    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="Quilla Electric" />
-    <link rel="manifest" href="/site.webmanifest" />
 
     <meta
       name="google-site-verification"
@@ -182,6 +178,10 @@ const imagenAbsoluta = new URL(imagen, siteURL).href;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    /* Evitar que textos empujen el ancho de la pantalla */
+    overflow-x: hidden;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   main {

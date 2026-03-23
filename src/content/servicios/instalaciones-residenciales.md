@@ -9,7 +9,7 @@ image: ../../assets/instalacion-hogar.PNG
 
 ¿Sabías que la mayoría de incendios domésticos en Perú son causados por instalaciones antiguas o mal ejecutadas? En **Quilla Electric**, transformamos tu hogar en un espacio seguro, eficiente y moderno.
 
-### Lo que hacemos por tu hogar':'
+### Lo que hacemos por tu hogar:
 
 * **Diseño de Iluminación Decorativa:** Creamos ambientes acogedores con tecnología LED, dicroicos y tiras LED que resaltan la estética de tu sala, cocina o fachada.
 * **Distribución Estratégica de Tomacorrientes:** Olvídate de las extensiones peligrosas. Instalamos puntos de energía en cocinas, dormitorios y zonas de estudio.
