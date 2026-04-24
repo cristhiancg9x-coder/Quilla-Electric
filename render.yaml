@@ -1,0 +1,14 @@
+services:
+  - type: static
+    name: quilla-electric
+    env: static
+    buildCommand: ""
+    publishPath: "."
+    headers:
+      - path: "/*"
+        name: Cache-Control
+        value: "public, max-age=3600"
+    routes:
+      - type: rewrite
+        from: "/*"
+        destination: "/index.html"
