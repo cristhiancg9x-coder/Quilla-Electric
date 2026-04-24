@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es-PE">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quilla Electric | Electricista en Arequipa</title>
+    <meta name="description" content="¿Buscas electricistas en Arequipa? Ofrecemos servicios eléctricos a domicilio e industriales. Instalación, pozos a tierra y emergencias 24h. ¡Llama al 951413458!">
+    
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Schema.org (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Electrician",
+        "name": "Quilla Electric",
+        "image": "https://quillaelectric.site/logo.png",
+        "@id": "https://quillaelectric.site",
+        "url": "https://quillaelectric.site",
+        "telephone": "+51951413458",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Cerro Colorado",
+          "addressLocality": "Arequipa",
+          "addressRegion": "Arequipa",
+          "postalCode": "04014",
+          "addressCountry": "PE"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -16.3766,
+          "longitude": -71.5602
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "00:00",
+          "closes": "23:59"
+        },
+        "areaServed": ["Cerro Colorado", "Cayma", "Yanahuara", "Arequipa"],
+        "priceRange": "$$"
+      }
+    </script>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="barra-electrica glass-panel">
+        <nav class="container">
+            <a href="#" class="logo-container">
+                <img src="img/logo-main.webp" alt="Logo Quilla Electric" class="logo-img logo-premium">
+                <span class="logo-text">Quilla <span class="accent-text">Electric</span></span>
+            </a>
+
+            <button class="hamburger" id="hamburger-btn" aria-label="Abrir menú">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <ul class="menu-links" id="menu-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Especialidades</a></li>
+                <li><a href="#canchuelos">Canchuelos</a></li>
+                <li><a href="#beneficios">¿Por qué nosotros?</a></li>
+                <li><a href="tel:+51951413458" class="btn-call-nav">📞 Llamar Ahora</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container hero-content">
+            <div class="badge">Arequipa • Servicio Express</div>
+            <h1>Soluciones Eléctricas <span class="highlight">Sin Complicaciones</span></h1>
+            <p class="subtitulo">
+                En <strong>Quilla Electric</strong> nos especializamos en lo que otros ignoran: desde arreglos pequeños o "canchuelos" hasta instalaciones medianas. Trato directo, rapidez y garantía técnica en todo Arequipa.
+            </p>
+            <div class="botones">
+                <a href="https://wa.me/51951413458" class="btn-primary"><i class="fab fa-whatsapp"></i> Hablar con un Técnico</a>
+                <a href="#servicios" class="btn-secondary">Ver Servicios</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beneficios -->
+    <section id="beneficios" class="beneficios-section">
+        <div class="container">
+            <h2>¿Por qué elegir nuestro servicio eléctrico?</h2>
+            <div class="grid-beneficios">
+                <div class="item-beneficio">
+                    <span class="icono">⚡</span>
+                    <h3>Atención Rápida</h3>
+                    <p>En Cerro Colorado y todo Arequipa. Llegamos antes de que se descongele tu refri.</p>
+                </div>
+                <div class="item-beneficio">
+                    <span class="icono">📜</span>
+                    <h3>Certificados INDECI</h3>
+                    <p>Firmados por ingenieros colegiados. Garantizamos que pasas la inspección.</p>
+                </div>
+                <div class="item-beneficio">
+                    <span class="icono">💳</span>
+                    <h3>Pago Fácil</h3>
+                    <p>Aceptamos efectivo, Yape, Plin y transferencias. Emitimos Factura o Boleta.</p>
+                </div>
+                <div class="item-beneficio">
+                    <span class="icono">🛡️</span>
+                    <h3>Garantía Real</h3>
+                    <p>No desaparecemos. Si algo falla, volvemos y lo arreglamos sin costo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="servicios-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Servicios que <span>Resolvemos</span></h2>
+                <p>Especialistas en trabajos residenciales y comerciales de mediana escala.</p>
+            </div>
+            <div class="servicios-grid">
+                <!-- Servicio 1 -->
+                <div class="servicio-card">
+                    <div class="img-container">
+                        <img src="img/instalacion-hogar.webp" alt="Instalaciones Residenciales" loading="lazy">
+                    </div>
+                    <div class="servicio-body">
+                        <span class="tag">Hogar</span>
+                        <h3>Instalaciones y Reformas</h3>
+                        <p>Nuevos puntos de luz, cambio de cableado y modernización de luminarias LED.</p>
+                    </div>
+                </div>
+                <!-- Servicio 2 -->
+                <div class="servicio-card">
+                    <div class="img-container">
+                        <img src="img/pozo-tierra.webp" alt="Pozo a Tierra" loading="lazy">
+                    </div>
+                    <div class="servicio-body">
+                        <span class="tag">Seguridad</span>
+                        <h3>Pozos a Tierra</h3>
+                        <p>Mantenimiento y certificación oficial para licencias de funcionamiento e INDECI.</p>
+                    </div>
+                </div>
+                <!-- Servicio 3 -->
+                <div class="servicio-card">
+                    <div class="img-container">
+                        <img src="img/fuga-de-corriente.webp" alt="Fugas de Corriente" loading="lazy">
+                    </div>
+                    <div class="servicio-body">
+                        <span class="tag">Ahorro</span>
+                        <h3>Detección de Fugas</h3>
+                        <p>¿Recibo de luz muy alto? Detectamos fugas de energía y optimizamos tu consumo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Canchuelos Section -->
+    <section id="canchuelos" class="canchuelos-section">
+        <div class="container">
+            <div class="canchuelos-box glass-panel">
+                <div class="canchuelos-text">
+                    <h2>Especialistas en <span class="highlight">"Canchuelos"</span></h2>
+                    <p>En Quilla Electric NO te decimos que no por ser un trabajo pequeño. Atendemos todos esos arreglos rápidos que necesitas hoy mismo.</p>
+                    <ul class="canchuelos-list">
+                        <li><i class="fas fa-check-circle"></i> Cambio de interruptores/enchufes</li>
+                        <li><i class="fas fa-check-circle"></i> Instalación de ventiladores o termas</li>
+                        <li><i class="fas fa-check-circle"></i> Arreglo de timbres e intercomunicadores</li>
+                        <li><i class="fas fa-check-circle"></i> Reposición de energía tras corto</li>
+                    </ul>
+                    <a href="https://wa.me/51951413458?text=Hola,%20tengo%20un%20servicio%20pequeño/canchuelo..." class="btn-primary">¡Enviar foto del problema!</a>
+                </div>
+                <div class="canchuelos-image">
+                    <img src="img/servicios-ducha-electrica.webp" alt="Canchuelos rápidos" class="float-anim">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería / Proyectos -->
+    <section id="proyectos" class="galeria-section">
+        <div class="container">
+            <h2>Proyectos Realizados</h2>
+            <div class="galeria-grid">
+                <img src="img/cableado-casa.webp" alt="Proyecto 1" loading="lazy">
+                <img src="img/luces-emergencia.webp" alt="Proyecto 2" loading="lazy">
+                <img src="img/mantenimiento-pozo.webp" alt="Proyecto 3" loading="lazy">
+                <img src="img/iluminacion-led.webp" alt="Proyecto 4" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <h2>Preguntas Frecuentes</h2>
+            <div class="faq-container">
+                <details>
+                    <summary>¿Cuánto cuesta el mantenimiento de un Pozo a Tierra?</summary>
+                    <p>El precio base incluye la limpieza, reactivación con gel y certificado. El costo depende del estado actual. ¡Cotiza gratis!</p>
+                </details>
+                <details>
+                    <summary>¿Atienden emergencias los domingos?</summary>
+                    <p>Sí, tenemos un equipo de guardia para emergencias eléctricas las 24 horas en todo Arequipa.</p>
+                </details>
+                <details>
+                    <summary>¿Entregan certificado para Defensa Civil?</summary>
+                    <p>Sí. Entregamos el certificado de operatividad firmado por un Ingeniero Electricista colegiado y habilitado.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto / CTA -->
+    <section id="contacto" class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <h2>¿Necesitas un electricista <span class="accent-text">ahora?</span></h2>
+                <p>Envíame un mensaje directo. Sin secretarias, sin esperas. Rapidez garantizada.</p>
+                <div class="cta-btns">
+                    <a href="https://wa.me/51951413458" class="btn-wa">
+                        <i class="fab fa-whatsapp"></i> Hablar por WhatsApp
+                    </a>
+                    <a href="tel:+51951413458" class="btn-call">
+                        <i class="fas fa-phone"></i> 951 413 458
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Mobile Action Bar (Mobile Only) -->
+    <div class="mobile-action-bar">
+        <a href="tel:+51951413458" class="action-item call">
+            <i class="fas fa-phone"></i>
+            <span>Llamar</span>
+        </a>
+        <a href="https://wa.me/51951413458" class="action-item whatsapp">
+            <i class="fab fa-whatsapp"></i>
+            <span>WhatsApp</span>
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 Quilla Electric. Red de Técnicos Electricistas en Arequipa.</p>
+                <p class="disclaimer">Trabajamos de forma independiente con estándares técnicos de alta calidad.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón WhatsApp Flotante -->
+    <a href="https://wa.me/51951413458" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="app.js"></script>
+</body>
+</html>
