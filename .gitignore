@@ -18,10 +18,13 @@ raw_assets/
 *.PNG
 *.JPG
 
-# Only allow optimized webp in the img folder
+# Only allow optimized webp, svg and favicons in the img folder
 !img/
 !img/*.webp
 !img/*.svg
+!img/favicon-*.png
+!img/apple-touch-icon.png
+!favicon.ico
 
 # Logs
 npm-debug.log*
