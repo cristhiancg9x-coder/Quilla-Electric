@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 6. Formulario de Captación de Clientes -> Google Sheets (sin librerías externas)
     // Pega aquí la URL de tu Web App publicada desde Google Apps Script (scripts/google-apps-script.gs)
-    const GOOGLE_SCRIPT_URL = '';
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzgDDvQSQvqkh1o80DFFxogw0d7ylnfwfxMOheI0x_XEgYBjewI7sk3eGqM5NENYpDF-Q/exec';
     const WHATSAPP_NUMBER = '51902330555';
 
     const leadForm = document.getElementById('lead-form');
@@ -247,6 +247,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (!response.ok) {
                     throw new Error(`HTTP ${response.status}`);
+                }
+
+                const result = await response.json().catch(() => null);
+                if (result && result.ok === false) {
+                    throw new Error(result.error || 'Error en Google Apps Script');
                 }
 
                 showLeadStatus(
