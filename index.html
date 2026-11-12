@@ -27,7 +27,7 @@
     <meta name="twitter:description" content="Atención rápida de emergencias e instalaciones eléctricas a domicilio en todo Arequipa.">
     <meta name="twitter:image" content="https://www.quillaelectric.site/img/og-cover.webp">
 
-    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" href="style.css?v=3">
 
     <!-- Schema.org (JSON-LD): LocalBusiness (Electrician) + FAQPage -->
     <script type="application/ld+json">
@@ -507,23 +507,95 @@
             </div>
         </section>
 
-        <!-- Contacto / CTA -->
+        <!-- Contacto / CTA + Formulario de Clientes -->
         <section id="contacto" class="cta-section">
             <div class="container">
-                <div class="cta-box">
-                    <h2>¿Tienes una consulta o una emergencia eléctrica?</h2>
-                    <p>Escríbeme o llámame. Te atenderé con gusto, con respeto y te daré un diagnóstico claro y sin términos difíciles.</p>
-                    <div class="cta-btns">
-                        <a href="https://wa.me/51902330555?text=Hola%20Quilla%20Electric,%20necesito%20una%20consulta/cotizacion%20sobre%20un%20servicio%20electrico..." class="btn-wa" target="_blank" rel="noopener">
-                            <svg class="icon-svg" width="24" height="24"><use href="#icon-wa"/></svg>
-                            Escribir al WhatsApp
-                        </a>
-                        <a href="tel:+51902330555" class="btn-tel">
-                            <svg class="icon-svg" width="24" height="24"><use href="#icon-phone"/></svg>
-                            Llamar ahora: 902 330 555
-                        </a>
+                <div class="contacto-grid">
+                    <div class="cta-box">
+                        <h2>¿Tienes una consulta o una emergencia eléctrica?</h2>
+                        <p>Escríbeme o llámame. Te atenderé con gusto, con respeto y te daré un diagnóstico claro y sin términos difíciles.</p>
+                        <div class="cta-btns">
+                            <a href="https://wa.me/51902330555?text=Hola%20Quilla%20Electric,%20necesito%20una%20consulta/cotizacion%20sobre%20un%20servicio%20electrico..." class="btn-wa" target="_blank" rel="noopener">
+                                <svg class="icon-svg" width="24" height="24"><use href="#icon-wa"/></svg>
+                                Escribir al WhatsApp
+                            </a>
+                            <a href="tel:+51902330555" class="btn-tel">
+                                <svg class="icon-svg" width="24" height="24"><use href="#icon-phone"/></svg>
+                                Llamar ahora: 902 330 555
+                            </a>
+                        </div>
+                        <p class="direct-contact-hint">Atendemos consultas y servicios urgentes de Lunes a Domingo, las 24 horas.</p>
                     </div>
-                    <p class="direct-contact-hint">Atendemos consultas y servicios urgentes de Lunes a Domingo, las 24 horas.</p>
+
+                    <div class="lead-form-card">
+                        <h3>¿Prefieres que te llamemos?</h3>
+                        <p class="lead-form-desc">Déjanos tu nombre y celular. Te contactamos rápido con una cotización clara y sin compromiso.</p>
+
+                        <form id="lead-form" class="lead-form" novalidate>
+                            <!-- Campo anti-spam oculto (honeypot) -->
+                            <div class="hp-field" aria-hidden="true">
+                                <label for="lead-hp">No llenar este campo</label>
+                                <input type="text" id="lead-hp" name="empresa_web" tabindex="-1" autocomplete="off">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lead-nombre">Nombre y Apellido <span class="req">*</span></label>
+                                <input type="text" id="lead-nombre" name="nombre" required minlength="2" maxlength="80" placeholder="Ej: Juan Pérez" autocomplete="name">
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="lead-celular">Celular / WhatsApp <span class="req">*</span></label>
+                                    <input type="tel" id="lead-celular" name="celular" required inputmode="numeric" pattern="9[0-9]{8}" maxlength="9" placeholder="Ej: 902330555" autocomplete="tel-national">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="lead-distrito">Distrito <span class="req">*</span></label>
+                                    <select id="lead-distrito" name="distrito" required>
+                                        <option value="">Selecciona tu distrito</option>
+                                        <option value="Cerro Colorado">Cerro Colorado</option>
+                                        <option value="Cayma">Cayma</option>
+                                        <option value="Yanahuara">Yanahuara</option>
+                                        <option value="Paucarpata">Paucarpata</option>
+                                        <option value="Cercado de Arequipa">Cercado de Arequipa</option>
+                                        <option value="J.L. Bustamante y Rivero">J.L. Bustamante y Rivero</option>
+                                        <option value="Miraflores">Miraflores</option>
+                                        <option value="Mariano Melgar">Mariano Melgar</option>
+                                        <option value="Alto Selva Alegre">Alto Selva Alegre</option>
+                                        <option value="Sachaca">Sachaca</option>
+                                        <option value="Jacobo Hunter">Jacobo Hunter</option>
+                                        <option value="Otro distrito">Otro distrito</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lead-servicio">¿Qué servicio necesitas? <span class="req">*</span></label>
+                                <select id="lead-servicio" name="servicio" required>
+                                    <option value="">Elige una opción</option>
+                                    <option value="Emergencia / Cortocircuito">Emergencia / Cortocircuito 24h</option>
+                                    <option value="Puntos eléctricos / Luminarias">Instalación de puntos eléctricos / luces</option>
+                                    <option value="Tablero eléctrico">Instalación o revisión de tablero eléctrico</option>
+                                    <option value="Pozo a tierra / INDECI">Pozo a tierra y certificado INDECI</option>
+                                    <option value="Fuga de corriente / Recibo alto">Fuga de corriente / Recibo SEAL alto</option>
+                                    <option value="Ducha eléctrica / Terma">Instalación de ducha eléctrica o terma</option>
+                                    <option value="Cámaras de seguridad">Cámaras de seguridad</option>
+                                    <option value="Otro servicio">Otro servicio eléctrico</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lead-detalle">Detalle breve (opcional)</label>
+                                <textarea id="lead-detalle" name="detalle" rows="2" maxlength="300" placeholder="Ej: Se bajó la llave del segundo piso / necesito 3 tomacorrientes..."></textarea>
+                            </div>
+
+                            <button type="submit" id="lead-submit" class="btn-submit">
+                                Solicitar Llamada / Cotización Gratis
+                            </button>
+
+                            <div id="lead-status" class="lead-status" role="status" aria-live="polite" hidden></div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
@@ -571,6 +643,6 @@
         </div>
     </div>
 
-    <script src="app.js?v=2" defer></script>
+    <script src="app.js?v=3" defer></script>
 </body>
 </html>

@@ -129,4 +129,142 @@ document.addEventListener('DOMContentLoaded', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
+
+    // 6. Formulario de Captación de Clientes -> Google Sheets (sin librerías externas)
+    // Pega aquí la URL de tu Web App publicada desde Google Apps Script (scripts/google-apps-script.gs)
+    const GOOGLE_SCRIPT_URL = '';
+    const WHATSAPP_NUMBER = '51902330555';
+
+    const leadForm = document.getElementById('lead-form');
+    const leadStatus = document.getElementById('lead-status');
+    const leadSubmit = document.getElementById('lead-submit');
+    const phoneInput = document.getElementById('lead-celular');
+
+    if (phoneInput) {
+        phoneInput.addEventListener('input', () => {
+            phoneInput.value = phoneInput.value.replace(/\D/g, '').slice(0, 9);
+        });
+    }
+
+    function showLeadStatus(type, message, waUrl) {
+        if (!leadStatus) return;
+        leadStatus.className = `lead-status ${type === 'error' ? 'is-error' : 'is-success'}`;
+        leadStatus.textContent = '';
+
+        const msgNode = document.createElement('div');
+        msgNode.textContent = message;
+        leadStatus.appendChild(msgNode);
+
+        if (waUrl) {
+            const waLink = document.createElement('a');
+            waLink.href = waUrl;
+            waLink.target = '_blank';
+            waLink.rel = 'noopener';
+            waLink.className = 'lead-status-wa';
+            waLink.textContent = '📲 Enviar también por WhatsApp ahora';
+            leadStatus.appendChild(waLink);
+        }
+
+        leadStatus.hidden = false;
+    }
+
+    if (leadForm && leadSubmit) {
+        leadForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const honeypot = (document.getElementById('lead-hp')?.value || '').trim();
+            if (honeypot) {
+                leadForm.reset();
+                return;
+            }
+
+            const nombre = (document.getElementById('lead-nombre')?.value || '').trim();
+            const celular = (document.getElementById('lead-celular')?.value || '').trim();
+            const distrito = (document.getElementById('lead-distrito')?.value || '').trim();
+            const servicio = (document.getElementById('lead-servicio')?.value || '').trim();
+            const detalle = (document.getElementById('lead-detalle')?.value || '').trim();
+
+            if (nombre.length < 2) {
+                showLeadStatus('error', 'Por favor ingresa tu nombre y apellido.');
+                document.getElementById('lead-nombre')?.focus();
+                return;
+            }
+            if (!/^9\d{8}$/.test(celular)) {
+                showLeadStatus('error', 'Ingresa un número de celular válido de Perú (9 dígitos, empieza con 9).');
+                phoneInput?.focus();
+                return;
+            }
+            if (!distrito) {
+                showLeadStatus('error', 'Por favor selecciona tu distrito en Arequipa.');
+                document.getElementById('lead-distrito')?.focus();
+                return;
+            }
+            if (!servicio) {
+                showLeadStatus('error', 'Por favor elige el servicio que necesitas.');
+                document.getElementById('lead-servicio')?.focus();
+                return;
+            }
+
+            const waLines = [
+                `Hola Quilla Electric, soy ${nombre}.`,
+                `Celular: ${celular}`,
+                `Distrito: ${distrito}`,
+                `Servicio: ${servicio}`
+            ];
+            if (detalle) waLines.push(`Detalle: ${detalle}`);
+            const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waLines.join('\n'))}`;
+
+            const originalBtnText = leadSubmit.textContent;
+            leadSubmit.disabled = true;
+            leadSubmit.textContent = 'Enviando solicitud...';
+
+            const isSheetConfigured = GOOGLE_SCRIPT_URL.startsWith('https://script.google.com/');
+
+            if (!isSheetConfigured) {
+                showLeadStatus(
+                    'success',
+                    '✅ Tus datos están listos. Para atención inmediata, envíalos por WhatsApp con un clic (falta conectar la URL de Google Sheets en app.js).',
+                    waUrl
+                );
+                leadSubmit.disabled = false;
+                leadSubmit.textContent = originalBtnText;
+                return;
+            }
+
+            try {
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify({
+                        nombre,
+                        celular,
+                        distrito,
+                        servicio,
+                        detalle,
+                        origen: window.location.href
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+
+                showLeadStatus(
+                    'success',
+                    '✅ ¡Recibido! Guardamos tus datos y te contactaremos muy pronto al ' + celular + '.',
+                    waUrl
+                );
+                leadForm.reset();
+            } catch (err) {
+                showLeadStatus(
+                    'error',
+                    'No pudimos registrar el formulario automáticamente. Por favor envíanos tus datos directo por WhatsApp aquí:',
+                    waUrl
+                );
+            } finally {
+                leadSubmit.disabled = false;
+                leadSubmit.textContent = originalBtnText;
+            }
+        });
+    }
 });

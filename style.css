@@ -809,45 +809,201 @@ details[open] summary::after {
     margin: 0;
 }
 
-/* Contacto y CTA */
+/* Contacto, CTA y Formulario de Clientes */
 .cta-section {
     padding: 4.25rem 0;
     background: #ffffff;
     border-top: 1px solid var(--border-subtle);
 }
 
+.contacto-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.05fr;
+    gap: 2rem;
+    align-items: stretch;
+}
+
 .cta-box {
     background: var(--primary-navy);
     color: #ffffff;
-    padding: 3.75rem 2.5rem;
+    padding: 3rem 2.25rem;
     border-radius: 16px;
     text-align: center;
     border: 3px solid var(--accent-yellow);
     box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .cta-box h2 {
-    font-size: 2.25rem;
+    font-size: 2rem;
     margin-bottom: 0.85rem;
     color: #ffffff;
     font-weight: 800;
 }
 
 .cta-box p {
-    font-size: 1.18rem;
-    margin-bottom: 1.85rem;
+    font-size: 1.1rem;
+    margin-bottom: 1.75rem;
     color: #cbd5e1;
-    max-width: 780px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .cta-btns {
     display: flex;
-    justify-content: center;
-    gap: 1.25rem;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 1rem;
     margin-bottom: 1.25rem;
+}
+
+.btn-wa,
+.btn-tel {
+    justify-content: center;
+}
+
+.lead-form-card {
+    background: var(--bg-surface);
+    border: 2px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 2.25rem 2rem;
+    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.06);
+}
+
+.lead-form-card h3 {
+    color: var(--primary-navy);
+    font-size: 1.55rem;
+    font-weight: 800;
+    margin-bottom: 0.4rem;
+}
+
+.lead-form-desc {
+    color: var(--text-muted);
+    font-size: 0.98rem;
+    margin-bottom: 1.35rem;
+}
+
+.lead-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.95rem;
+}
+
+.hp-field {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.95rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.form-group label {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--primary-navy);
+}
+
+.form-group .req {
+    color: #dc2626;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.72rem 0.9rem;
+    border: 2px solid #cbd5e1;
+    border-radius: 8px;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    color: var(--text-main);
+    background: #ffffff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-navy-light);
+    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.15);
+}
+
+.btn-submit {
+    background: var(--primary-navy);
+    color: #ffffff;
+    border: none;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    font-family: var(--font-main);
+    font-size: 1.05rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+    margin-top: 0.25rem;
+}
+
+.btn-submit:hover:not(:disabled) {
+    background: var(--primary-navy-light);
+    transform: translateY(-1px);
+}
+
+.btn-submit:disabled {
+    opacity: 0.7;
+    cursor: wait;
+}
+
+.lead-status {
+    padding: 0.85rem 1rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.lead-status[hidden] {
+    display: none;
+}
+
+.lead-status.is-error {
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
+
+.lead-status.is-success {
+    background: #f0fdf4;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+}
+
+.lead-status-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 0.65rem;
+    background: var(--whatsapp-green);
+    color: #ffffff;
+    padding: 0.55rem 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 0.92rem;
+}
+
+.lead-status-wa:hover {
+    background: var(--whatsapp-green-hover);
 }
 
 .btn-wa {
@@ -1056,7 +1212,8 @@ footer {
 /* Responsive Media Queries */
 @media (max-width: 992px) {
     .hero h1 { font-size: 2.35rem; }
-    .cta-box { padding: 3rem 1.5rem; }
+    .contacto-grid { grid-template-columns: 1fr; }
+    .cta-box { padding: 2.75rem 1.5rem; }
 }
 
 @media (max-width: 768px) {
@@ -1138,6 +1295,8 @@ footer {
     }
 
     .cta-box h2 { font-size: 1.7rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .lead-form-card { padding: 1.65rem 1.25rem; }
     .cta-btns {
         flex-direction: column;
         align-items: stretch;
