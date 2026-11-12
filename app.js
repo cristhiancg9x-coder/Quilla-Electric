@@ -1,9 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.getElementById('hamburger-btn');
     const menuLinks = document.getElementById('menu-links');
-    const links = document.querySelectorAll('.menu-links a');
+    const navAnchors = document.querySelectorAll('.menu-links a');
 
-    // Toggle Mobile Menu
+    function closeMobileMenu() {
+        if (!menuLinks || !hamburger) return;
+        menuLinks.classList.remove('active');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+    }
+
+    // 1. Menú móvil accesible
     if (hamburger && menuLinks) {
         hamburger.addEventListener('click', () => {
             const isActive = menuLinks.classList.toggle('active');
@@ -11,59 +18,115 @@ document.addEventListener('DOMContentLoaded', () => {
             hamburger.setAttribute('aria-expanded', isActive ? 'true' : 'false');
         });
 
-        // Close menu when clicking a link
-        links.forEach(link => {
-            link.addEventListener('click', () => {
-                menuLinks.classList.remove('active');
-                hamburger.classList.remove('open');
-                hamburger.setAttribute('aria-expanded', 'false');
-            });
+        navAnchors.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
         });
 
-        // Close menu when clicking outside
         document.addEventListener('click', (e) => {
             if (menuLinks.classList.contains('active') && !menuLinks.contains(e.target) && !hamburger.contains(e.target)) {
-                menuLinks.classList.remove('active');
-                hamburger.classList.remove('open');
-                hamburger.setAttribute('aria-expanded', 'false');
+                closeMobileMenu();
             }
         });
     }
 
-    // Reveal Animations (Intersection Observer)
-    const revealElements = document.querySelectorAll('.servicio-card, .item-beneficio, .galeria-item');
-    
+    // 2. Animación progresiva sin parpadeo ni estilos inyectados en carga
+    const revealElements = document.querySelectorAll('.servicio-card, .item-beneficio, .galeria-item, .resena-card');
     if ('IntersectionObserver' in window && revealElements.length > 0) {
-        const observerOptions = { 
-            threshold: 0.05,
-            rootMargin: '0px 0px -50px 0px' // Trigger slightly before element enters view
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
+        const revealObserver = new IntersectionObserver((entries, obs) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('reveal-active');
-                    observer.unobserve(entry.target); // Stop observing once revealed
+                    obs.unobserve(entry.target);
                 }
             });
-        }, observerOptions);
+        }, {
+            threshold: 0.08,
+            rootMargin: '0px 0px -30px 0px'
+        });
 
-        // Inject animation styles dynamically (progressive enhancement)
-        const style = document.createElement('style');
-        style.innerHTML = `
-            .servicio-card, .item-beneficio, .galeria-item {
-                opacity: 0;
-                transform: translateY(20px);
-                transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-                will-change: transform, opacity;
+        revealElements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            // Solo animamos los elementos que aún están debajo de la pantalla inicial
+            if (rect.top > window.innerHeight) {
+                el.classList.add('reveal-ready');
+                revealObserver.observe(el);
             }
-            .reveal-active {
-                opacity: 1 !important;
-                transform: translateY(0) !important;
-            }
-        `;
-        document.head.appendChild(style);
-        
-        revealElements.forEach(el => observer.observe(el));
+        });
+    }
+
+    // 3. Indicador de sección activa en el menú (ScrollSpy)
+    const sections = document.querySelectorAll('main section[id]');
+    if ('IntersectionObserver' in window && sections.length > 0) {
+        const spyObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                const id = entry.target.getAttribute('id');
+                navAnchors.forEach(a => {
+                    const isMatch = a.getAttribute('href') === `#${id}`;
+                    a.classList.toggle('nav-active', isMatch);
+                });
+            });
+        }, {
+            rootMargin: '-35% 0px -55% 0px'
+        });
+
+        sections.forEach(sec => spyObserver.observe(sec));
+    }
+
+    // 4. Lightbox accesible para Galería de Trabajos
+    const modal = document.getElementById('lightbox-modal');
+    const modalImg = document.getElementById('lightbox-img');
+    const modalCaption = document.getElementById('lightbox-caption');
+    const modalClose = document.getElementById('lightbox-close');
+    let lastTrigger = null;
+
+    function closeLightbox() {
+        if (!modal || modal.hidden) return;
+        modal.hidden = true;
+        if (modalImg) modalImg.src = '';
+        if (lastTrigger) {
+            lastTrigger.focus();
+            lastTrigger = null;
+        }
+    }
+
+    if (modal && modalImg && modalCaption && modalClose) {
+        document.querySelectorAll('.galeria-trigger').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const img = btn.querySelector('img');
+                if (!img) return;
+                lastTrigger = btn;
+                modalImg.src = img.currentSrc || img.src;
+                modalImg.alt = img.alt;
+                modalCaption.textContent = btn.dataset.caption || img.alt;
+                modal.hidden = false;
+                modalClose.focus();
+            });
+        });
+
+        modalClose.addEventListener('click', closeLightbox);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeLightbox();
+        });
+    }
+
+    // Tecla Escape global (cierra menú móvil o lightbox)
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeMobileMenu();
+            closeLightbox();
+        }
+    });
+
+    // 5. Botón "Volver arriba"
+    const btnTop = document.getElementById('btn-top');
+    if (btnTop) {
+        window.addEventListener('scroll', () => {
+            btnTop.hidden = window.scrollY < 500;
+        }, { passive: true });
+
+        btnTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
     }
 });
