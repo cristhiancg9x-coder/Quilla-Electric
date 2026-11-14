@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 2. Animación progresiva sin parpadeo ni estilos inyectados en carga
-    const revealElements = document.querySelectorAll('.servicio-card, .item-beneficio, .galeria-item, .resena-card');
+    const revealElements = document.querySelectorAll('.servicio-card, .item-beneficio, .galeria-item');
     if ('IntersectionObserver' in window && revealElements.length > 0) {
         const revealObserver = new IntersectionObserver((entries, obs) => {
             entries.forEach(entry => {
