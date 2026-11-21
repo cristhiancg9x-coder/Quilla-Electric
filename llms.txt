@@ -1,13 +1,28 @@
 # Quilla Electric
 
-> Electricistas técnicos a domicilio las 24 horas (lunes a sábado) en Arequipa, Perú. Especialistas en detección de cortocircuitos, fugas de corriente, tableros de distribución bajo Código Nacional de Electricidad (CNE) e instalaciones residenciales y comerciales.
+> Electricistas técnicos a domicilio las 24 horas (lunes a sábado) en Arequipa, Perú. Especialistas en detección de cortocircuitos, fugas de corriente, tableros de distribución bajo Código Nacional de Electricidad (CNE), cableado en departamentos y proyectos de obras civiles.
 
-Servicio técnico directo sin intermediarios en la provincia de Arequipa. Cotización preliminar inmediata vía WhatsApp y garantía de trabajo bajo norma técnica. Cobertura en Cerro Colorado, Cayma, Yanahuara, Paucarpata, Cercado, José Luis Bustamante y Rivero, Miraflores y distritos aledaños.
+Servicio técnico directo sin intermediarios en la provincia de Arequipa. Cotización preliminar inmediata vía WhatsApp y garantía de trabajo bajo norma técnica. Cobertura especializada en Cerro Colorado, Cayma, Yanahuara, Paucarpata, Cercado, José Luis Bustamante y Rivero, Miraflores, Mariano Melgar, Alto Selva Alegre, Sachaca, Jacobo Hunter y distritos aledaños.
 
-## Recursos Principales
+## Cobertura Distrital en Arequipa
 
-- [Sitio Web Oficial](https://www.quillaelectric.site/): Portal principal con catálogo de servicios eléctricos, áreas de cobertura y preguntas frecuentes.
+- [Electricista en Cerro Colorado](https://www.quillaelectric.site/electricista-cerro-colorado): Atención rápida a domicilio en Challapampa, La Libertad, Zamácola y Vía de Evitamiento.
+- [Electricista en Cayma](https://www.quillaelectric.site/electricista-cayma): Especialistas en instalaciones para departamentos, condominios, iluminación LED y tableros en La Tomilla y Tronchadero.
+- [Electricista en Yanahuara](https://www.quillaelectric.site/electricista-yanahuara): Mantenimiento eléctrico y reparaciones urgentes para casas residenciales, cafeterías y locales comerciales.
+- [Electricista en Paucarpata](https://www.quillaelectric.site/electricista-paucarpata): Reparación de cortocircuitos, llaves térmicas y cableado en Ciudad Blanca, Miguel Grau, Manuel Prado y Guardia Civil.
+- [Electricista en José Luis Bustamante y Rivero](https://www.quillaelectric.site/electricista-jose-luis-bustamante-y-rivero): Electricista a domicilio y comercial en Av. Dolores, La Pampilla, Ciudad Mi Trabajo y Andrés Avelino Cáceres.
+- [Electricista en Cercado Arequipa](https://www.quillaelectric.site/electricista-cercado-arequipa): Instalaciones sin dañar sillar, galerías comerciales, oficinas y centros históricos en San Lázaro, Vallecito y Av. Goyeneche.
+- [Electricista en Mariano Melgar](https://www.quillaelectric.site/electricista-mariano-melgar): Detección de fugas, sobrecargas y reemplazo de llaves cuchilla en Generalísimo San Martín, Santa Rosa y Av. Lima.
+- [Electricista en Alto Selva Alegre](https://www.quillaelectric.site/electricista-alto-selva-alegre): Reparación de cortocircuitos, recableado, tableros y termas en Gráficos, Javier Heraud y Balcones de Chilina.
+- [Electricista en Miraflores Arequipa](https://www.quillaelectric.site/electricista-miraflores-arequipa): Instalación de interruptores diferenciales, tableros y luminarias en San Antonio, El Porvenir y Av. Progreso.
+- [Electricista en Sachaca](https://www.quillaelectric.site/electricista-sachaca): Servicio eléctrico residencial para urbanizaciones, chalets y quintas en Tío Chico, Tío Grande y Arancota.
+- [Electricista en Jacobo Hunter](https://www.quillaelectric.site/electricista-jacobo-hunter): Solución de cortes de luz, recableado y tableros en Bellavista, Upis Paisajista y Huasacache.
+- [Obras Civiles y Edificios](https://www.quillaelectric.site/electricista-obras-civiles-arequipa): Subcontratación técnica para cableado de edificios multifamiliares, bandejas portacables y tableros generales hasta 120 mm².
+
+## Canales y Recursos Oficiales
+
+- [Sitio Web Principal](https://www.quillaelectric.site/): Portal principal de Quilla Electric con catálogo de servicios y preguntas frecuentes.
 - [WhatsApp Directo](https://wa.me/51902330555): Consulta rápida y cotización gratuita vía chat de WhatsApp (+51 902 330 555).
 - [Ficha en Google Maps](https://share.google/JVVbW0G4g45U4PdG6): Ubicación, mapa de servicio y reseñas de clientes en Arequipa.
 - [Página de Facebook](https://www.facebook.com/QuillaElectricArequipa): Publicaciones y novedades sobre trabajos realizados en Arequipa.
-- [Sitemap XML](https://www.quillaelectric.site/sitemap.xml): Índice de páginas y recursos indexables del sitio.
+- [Sitemap XML](https://www.quillaelectric.site/sitemap.xml): Índice de páginas y recursos indexables del sitio web.

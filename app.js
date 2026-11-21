@@ -1,4 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // 0. Compatibilidad para desarrollo local (Live Server / localhost / file://)
+    // Permite navegar con clean URLs en local sin que el servidor estático devuelva "Cannot GET"
+    const isLocalDev = window.location.hostname === '127.0.0.1' || 
+                       window.location.hostname === 'localhost' || 
+                       window.location.protocol === 'file:';
+
+    if (isLocalDev) {
+        document.addEventListener('click', (e) => {
+            const anchor = e.target.closest('a');
+            if (!anchor) return;
+            const href = anchor.getAttribute('href');
+            if (!href || href.startsWith('http') || href.startsWith('//') || href.startsWith('#') || href.startsWith('tel:') || href.startsWith('mailto:')) {
+                return;
+            }
+
+            const [rawPath, hash] = href.split('#');
+            if (rawPath && !rawPath.endsWith('.html') && !rawPath.includes('.')) {
+                e.preventDefault();
+                let targetFile = rawPath.replace(/^\//, '');
+                if (targetFile === '') {
+                    targetFile = 'index.html';
+                } else {
+                    targetFile = targetFile + '.html';
+                }
+                const fullTarget = targetFile + (hash ? '#' + hash : '');
+                window.location.href = fullTarget;
+            }
+        });
+    }
+
     const hamburger = document.getElementById('hamburger-btn');
     const menuLinks = document.getElementById('menu-links');
     const navAnchors = document.querySelectorAll('.menu-links a');
@@ -180,9 +210,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const nombre = (document.getElementById('lead-nombre')?.value || '').trim();
             const celular = (document.getElementById('lead-celular')?.value || '').trim();
-            const distrito = (document.getElementById('lead-distrito')?.value || '').trim();
+            const distritoEl = document.getElementById('lead-distrito');
+            const zonaEl = document.getElementById('lead-zona');
+            let distrito = (distritoEl?.value || '').trim();
+            const zona = (zonaEl?.value || '').trim();
             const servicio = (document.getElementById('lead-servicio')?.value || '').trim();
             const detalle = (document.getElementById('lead-detalle')?.value || '').trim();
+
+            // Si está en una página satélite con zona especificada
+            if (!distrito && zona) {
+                distrito = zona;
+            } else if (distrito && zona && !distrito.toLowerCase().includes(zona.toLowerCase())) {
+                distrito = `${distrito} (${zona})`;
+            }
 
             if (nombre.length < 2) {
                 showLeadStatus('error', 'Por favor ingresa tu nombre y apellido.');
@@ -195,8 +235,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
             if (!distrito) {
-                showLeadStatus('error', 'Por favor selecciona tu distrito en Arequipa.');
-                document.getElementById('lead-distrito')?.focus();
+                showLeadStatus('error', 'Por favor indica o selecciona tu distrito en Arequipa.');
+                (distritoEl || zonaEl)?.focus();
                 return;
             }
             if (!servicio) {
